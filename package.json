@@ -8,10 +8,7 @@
     "email": "piotr@kulpinski.pl",
     "url": "https://kulpinski.com"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/curious-leaf/design.git"
-  },
+  "repository": "curious-leaf/design",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "files": [
