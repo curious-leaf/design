@@ -1,7 +1,7 @@
-import PropTypes from 'prop-types';
-import styled from '@emotion/styled';
-import { css } from '@emotion/react';
-import { background, color, typography } from '../shared/styles';
+import PropTypes from "prop-types"
+import styled from "@emotion/styled"
+import { css } from "@emotion/react"
+import { background, color, typography } from "../shared/styles"
 
 const BadgeWrapper = styled.div`
   display: inline-block;
@@ -20,57 +20,51 @@ const BadgeWrapper = styled.div`
   }
 
   ${(props) =>
-    props.status === 'positive' &&
+    props.status === "positive" &&
     css`
       color: ${color.positive};
       background: ${background.positive};
     `};
 
   ${(props) =>
-    props.status === 'negative' &&
+    props.status === "negative" &&
     css`
       color: ${color.negative};
       background: ${background.negative};
     `};
 
   ${(props) =>
-    props.status === 'warning' &&
+    props.status === "warning" &&
     css`
       color: ${color.warning};
       background: ${background.warning};
     `};
 
   ${(props) =>
-    props.status === 'error' &&
+    props.status === "error" &&
     css`
       color: ${color.lightest};
       background: ${color.negative};
     `};
 
   ${(props) =>
-    props.status === 'neutral' &&
+    props.status === "neutral" &&
     css`
       color: ${color.dark};
       background: ${color.mediumlight};
     `};
-`;
+`
 
 /**
  * **Badges?!** We don't need no stinkin' badges!!
  */
 export function Badge({ ...props }) {
-  return <BadgeWrapper {...props} />;
+  return <BadgeWrapper {...props} />
 }
 Badge.propTypes = {
-  status: PropTypes.oneOf([
-    'positive',
-    'negative',
-    'neutral',
-    'error',
-    'warning',
-  ]),
-};
+  status: PropTypes.oneOf(["positive", "negative", "neutral", "error", "warning"]),
+}
 
 Badge.defaultProps = {
-  status: 'neutral',
-};
+  status: "neutral",
+}

@@ -1,0 +1,57 @@
+$ storybook build --test --output-dir /var/folders/n_/8ndt22v50sl70mzknjw0qc_80000gn/T/chromatic--58768-teXGqnwAIkSE
+@storybook/cli v7.6.7
+
+info => Cleaning outputDir: /var/folders/n_/8ndt22v50sl70mzknjw0qc_80000gn/T/chromatic--58768-teXGqnwAIkSE
+info => Loading presets
+info => Building manager..
+info => Manager built (72 ms)
+info => Building preview..
+info => Copying static files: /Users/piotrkulpinski/Sites/curiousleaf-design/node_modules/@storybook/manager/static at /var/folders/n_/8ndt22v50sl70mzknjw0qc_80000gn/T/chromatic--58768-teXGqnwAIkSE/sb-common-assets
+vite v4.4.12 building for production...
+
+./sb-common-assets/fonts.css doesn't exist at build time, it will remain unchanged to be resolved at runtime
+transforming...
+✓ 149 modules transformed.
+rendering chunks...
+../../../../var/folders/n_/8ndt22v50sl70mzknjw0qc_80000gn/T/chromatic--58768-teXGqnwAIkSE/iframe.html                           12.59 kB
+../../../../var/folders/n_/8ndt22v50sl70mzknjw0qc_80000gn/T/chromatic--58768-teXGqnwAIkSE/assets/Header-a6911580.css             0.51 kB
+../../../../var/folders/n_/8ndt22v50sl70mzknjw0qc_80000gn/T/chromatic--58768-teXGqnwAIkSE/assets/Button-bc1a867b.css             0.52 kB
+../../../../var/folders/n_/8ndt22v50sl70mzknjw0qc_80000gn/T/chromatic--58768-teXGqnwAIkSE/assets/Page.stories-ece1482a.css       0.93 kB
+../../../../var/folders/n_/8ndt22v50sl70mzknjw0qc_80000gn/T/chromatic--58768-teXGqnwAIkSE/assets/preview-293db2ce.css            6.30 kB
+../../../../var/folders/n_/8ndt22v50sl70mzknjw0qc_80000gn/T/chromatic--58768-teXGqnwAIkSE/assets/preview-a08bf2f1.js             0.15 kB
+../../../../var/folders/n_/8ndt22v50sl70mzknjw0qc_80000gn/T/chromatic--58768-teXGqnwAIkSE/assets/_commonjsHelpers-725317a4.js    0.24 kB
+../../../../var/folders/n_/8ndt22v50sl70mzknjw0qc_80000gn/T/chromatic--58768-teXGqnwAIkSE/assets/Button-e73c27c8.js              0.58 kB
+../../../../var/folders/n_/8ndt22v50sl70mzknjw0qc_80000gn/T/chromatic--58768-teXGqnwAIkSE/assets/Header.stories-9418f0b6.js      0.70 kB
+../../../../var/folders/n_/8ndt22v50sl70mzknjw0qc_80000gn/T/chromatic--58768-teXGqnwAIkSE/assets/index-356e4a49.js               0.77 kB
+../../../../var/folders/n_/8ndt22v50sl70mzknjw0qc_80000gn/T/chromatic--58768-teXGqnwAIkSE/assets/preview-332f9d67.js             0.84 kB
+../../../../var/folders/n_/8ndt22v50sl70mzknjw0qc_80000gn/T/chromatic--58768-teXGqnwAIkSE/assets/animation-757274dd.js           1.19 kB
+../../../../var/folders/n_/8ndt22v50sl70mzknjw0qc_80000gn/T/chromatic--58768-teXGqnwAIkSE/assets/Button.stories-10ff16bf.js      1.23 kB
+../../../../var/folders/n_/8ndt22v50sl70mzknjw0qc_80000gn/T/chromatic--58768-teXGqnwAIkSE/assets/Header-7c535a37.js              1.24 kB
+../../../../var/folders/n_/8ndt22v50sl70mzknjw0qc_80000gn/T/chromatic--58768-teXGqnwAIkSE/assets/styles-62305a04.js              1.24 kB
+../../../../var/folders/n_/8ndt22v50sl70mzknjw0qc_80000gn/T/chromatic--58768-teXGqnwAIkSE/assets/preview-262178e2.js             2.38 kB
+../../../../var/folders/n_/8ndt22v50sl70mzknjw0qc_80000gn/T/chromatic--58768-teXGqnwAIkSE/assets/preview-a2e92fe7.js             2.48 kB
+../../../../var/folders/n_/8ndt22v50sl70mzknjw0qc_80000gn/T/chromatic--58768-teXGqnwAIkSE/assets/Icon.stories-dad8b669.js        2.75 kB
+../../../../var/folders/n_/8ndt22v50sl70mzknjw0qc_80000gn/T/chromatic--58768-teXGqnwAIkSE/assets/preview-errors-dde4324f.js      2.80 kB
+../../../../var/folders/n_/8ndt22v50sl70mzknjw0qc_80000gn/T/chromatic--58768-teXGqnwAIkSE/assets/preview-ec6c6870.js             3.12 kB
+../../../../var/folders/n_/8ndt22v50sl70mzknjw0qc_80000gn/T/chromatic--58768-teXGqnwAIkSE/assets/Badge.stories-6f257a39.js       3.80 kB
+../../../../var/folders/n_/8ndt22v50sl70mzknjw0qc_80000gn/T/chromatic--58768-teXGqnwAIkSE/assets/Avatar.stories-2b974333.js      4.74 kB
+../../../../var/folders/n_/8ndt22v50sl70mzknjw0qc_80000gn/T/chromatic--58768-teXGqnwAIkSE/assets/iframe-be56053c.js              5.69 kB
+../../../../var/folders/n_/8ndt22v50sl70mzknjw0qc_80000gn/T/chromatic--58768-teXGqnwAIkSE/assets/Link.stories-56b5997a.js        5.79 kB
+../../../../var/folders/n_/8ndt22v50sl70mzknjw0qc_80000gn/T/chromatic--58768-teXGqnwAIkSE/assets/index-c013ead5.js               7.16 kB
+../../../../var/folders/n_/8ndt22v50sl70mzknjw0qc_80000gn/T/chromatic--58768-teXGqnwAIkSE/assets/preview-da31036b.js             7.62 kB
+../../../../var/folders/n_/8ndt22v50sl70mzknjw0qc_80000gn/T/chromatic--58768-teXGqnwAIkSE/assets/preview-3a10f865.js             8.23 kB
+../../../../var/folders/n_/8ndt22v50sl70mzknjw0qc_80000gn/T/chromatic--58768-teXGqnwAIkSE/assets/StoryLinkWrapper-7bc311e8.js   12.06 kB
+../../../../var/folders/n_/8ndt22v50sl70mzknjw0qc_80000gn/T/chromatic--58768-teXGqnwAIkSE/assets/index-932fa3cc.js              19.17 kB
+../../../../var/folders/n_/8ndt22v50sl70mzknjw0qc_80000gn/T/chromatic--58768-teXGqnwAIkSE/assets/Button.stories-1468978e.js     20.23 kB
+../../../../var/folders/n_/8ndt22v50sl70mzknjw0qc_80000gn/T/chromatic--58768-teXGqnwAIkSE/assets/preview-b321ccb3.js            71.02 kB
+../../../../var/folders/n_/8ndt22v50sl70mzknjw0qc_80000gn/T/chromatic--58768-teXGqnwAIkSE/assets/entry-preview-fa2eab78.js     135.47 kB
+../../../../var/folders/n_/8ndt22v50sl70mzknjw0qc_80000gn/T/chromatic--58768-teXGqnwAIkSE/assets/Icon-3fb358f1.js              139.38 kB
+../../../../var/folders/n_/8ndt22v50sl70mzknjw0qc_80000gn/T/chromatic--58768-teXGqnwAIkSE/assets/Page.stories-fbe58f45.js      562.24 kB
+
+(!) Some chunks are larger than 500 kBs after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+✓ built in 2.20s
+info => Preview built (2.39 s)
+info => Output directory: /var/folders/n_/8ndt22v50sl70mzknjw0qc_80000gn/T/chromatic--58768-teXGqnwAIkSE
