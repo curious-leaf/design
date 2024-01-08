@@ -1,3 +1,15 @@
+# v0.1.9 (Mon Jan 08 2024)
+
+#### ⚠️ Pushed to `main`
+
+- Update CI ([@piotrkulpinski](https://github.com/piotrkulpinski))
+
+#### Authors: 1
+
+- Piotr Kulpinski ([@piotrkulpinski](https://github.com/piotrkulpinski))
+
+---
+
 # v0.1.8 (Mon Jan 08 2024)
 
 #### 🐛 Bug Fix
