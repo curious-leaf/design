@@ -4,8 +4,9 @@
   "version": "0.1.0",
   "license": "MIT",
   "author": {
-    "name": "CuriousLeaf",
-    "url": "https://curiousleaf.com"
+    "name": "Piotr Kulpinski",
+    "email": "piotr@kulpinski.pl",
+    "url": "https://kulpinski.com"
   },
   "repository": {
     "type": "git",
