@@ -111,7 +111,7 @@ export function Avatar({ loading, username, src, size, ...props }) {
     a11yProps["aria-busy"] = true
     a11yProps["aria-label"] = "Loading avatar ..."
   } else if (src) {
-    avatarFigure = <img src={src} alt={username} className="border border-red-500 rounded-full" />
+    avatarFigure = <img src={src} alt={username} />
   } else {
     a11yProps["aria-label"] = username
     avatarFigure = (
