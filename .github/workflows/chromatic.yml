@@ -1,5 +1,6 @@
 # Name of our action
-name: "Chromatic"
+name: Chromatic
+
 # The event that will trigger the action
 on: push
 
@@ -8,6 +9,7 @@ jobs:
   chromatic:
     # The operating system it will run on
     runs-on: ubuntu-latest
+
     # The list of steps that the action will go through
     steps:
       - name: Checkout code
@@ -15,6 +17,9 @@ jobs:
         with:
           #👇 Fetches all history so Chromatic can compare against previous builds
           fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
 
       - name: Setup Bun
         uses: oven-sh/setup-bun@v1
@@ -26,6 +31,5 @@ jobs:
         uses: chromaui/action@latest
         # Options required for Chromatic's GitHub Action
         with:
-          #👇 Chromatic projectToken, see https://storybook.js.org/tutorials/design-systems-for-developers/react/en/review/ to obtain it
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
           exitZeroOnChanges: true # 👈 Option to prevent the workflow from failing
