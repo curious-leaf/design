@@ -16,6 +16,12 @@ jobs:
           #👇 Fetches all history so Chromatic can compare against previous builds
           fetch-depth: 0
 
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          #👇 Sets the version of Node.js to use
+          node-version: 20
+
       - name: Install dependencies
         run: pnpm install
 
