@@ -6,6 +6,10 @@ on:
   push:
     branches: [main]
 
+# The permissions that the action will need
+permissions:
+  contents: write
+
 # What the action will do
 jobs:
   release:
