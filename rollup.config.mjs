@@ -1,4 +1,5 @@
 import resolve from "@rollup/plugin-node-resolve"
+import typescript from "@rollup/plugin-typescript"
 import commonjs from "@rollup/plugin-commonjs"
 import terser from "@rollup/plugin-terser"
 import peerDepsExternal from "rollup-plugin-peer-deps-external"
@@ -13,7 +14,7 @@ const packageJson = requireFile("./package.json")
 
 export default [
   {
-    input: "src/index.js",
+    input: "src/index.ts",
     output: [
       {
         file: packageJson.main,
@@ -28,18 +29,19 @@ export default [
       },
     ],
     plugins: [
+      typescript(),
       peerDepsExternal(),
       resolve({
-        extensions: [".js", ".jsx"],
+        extensions: [".ts", ".tsx"],
         preferBuiltins: true,
       }),
       commonjs(),
       terser(),
       babel({
-        extensions: [".js", ".jsx"],
+        extensions: [".ts", ".tsx"],
         exclude: "node_modules/**",
       }),
     ],
-    external: ["react", "react-dom", "@emotion/react", "@emotion/styled"],
+    external: ["react", "react-dom"],
   },
 ]

@@ -31,9 +31,6 @@
     "@babel/preset-env": "7.23.7",
     "@babel/preset-react": "7.23.3",
     "@babel/preset-typescript": "7.23.3",
-    "@emotion/babel-plugin": "^11.11.0",
-    "@emotion/react": "11.11.3",
-    "@emotion/styled": "^11.11.0",
     "@radix-ui/react-accordion": "^1.1.2",
     "@radix-ui/react-alert-dialog": "^1.0.5",
     "@radix-ui/react-checkbox": "^1.0.4",
@@ -51,6 +48,7 @@
     "@rollup/plugin-commonjs": "^24.1.0",
     "@rollup/plugin-node-resolve": "15.2.3",
     "@rollup/plugin-terser": "0.4.4",
+    "@rollup/plugin-typescript": "^11.1.5",
     "@storybook/addon-essentials": "^7.6.7",
     "@storybook/addon-interactions": "^7.6.7",
     "@storybook/addon-links": "^7.6.7",
@@ -90,8 +88,6 @@
     "zx": "^1.15.2"
   },
   "peerDependencies": {
-    "@emotion/react": "^11.11.1",
-    "@emotion/styled": "^11.11.0",
     "react": "^16.8.0 || ^17.0.0 || ^18.0.0",
     "react-dom": "^16.8.0 || ^17.0.0 || ^18.0.0"
   },
