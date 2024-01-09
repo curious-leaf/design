@@ -1,6 +1,6 @@
+import { Preview } from "@storybook/react"
 import "../src/shared/tailwind.css"
 
-/** @type { import('@storybook/react').Preview } */
 const preview = {
   parameters: {
     actions: { argTypesRegex: "^on[A-Z].*" },
@@ -11,6 +11,6 @@ const preview = {
       },
     },
   },
-}
+} satisfies Preview
 
 export default preview

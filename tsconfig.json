@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    // 👇️ set jsx to react-jsx
+    "jsx": "react-jsx",
+    "paths": {
+      "~/*": [
+        "./src/*"
+      ],
+    }
+  },
+}
