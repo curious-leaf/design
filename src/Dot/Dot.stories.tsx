@@ -22,7 +22,6 @@ const variants = ["solid", "soft", "outline"] as const
 export default {
   title: "Design System/Dot",
   component: Dot,
-  tags: ["autodocs"],
 } satisfies Meta
 
 // Stories
