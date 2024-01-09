@@ -1,3 +1,19 @@
+# v0.2.0 (Tue Jan 09 2024)
+
+#### 🚀 Enhancement
+
+- Implement typescript support and remove unused components [#3](https://github.com/curious-leaf/design/pull/3) ([@piotrkulpinski](https://github.com/piotrkulpinski))
+
+#### 🐛 Bug Fix
+
+- Remove react emotion lib and add typescript to rollup [#4](https://github.com/curious-leaf/design/pull/4) ([@piotrkulpinski](https://github.com/piotrkulpinski))
+
+#### Authors: 1
+
+- Piotr Kulpinski ([@piotrkulpinski](https://github.com/piotrkulpinski))
+
+---
+
 # v0.1.9 (Mon Jan 08 2024)
 
 #### ⚠️ Pushed to `main`
