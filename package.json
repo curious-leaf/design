@@ -56,9 +56,11 @@
     "@storybook/addon-links": "^7.6.7",
     "@storybook/addon-onboarding": "^1.0.10",
     "@storybook/blocks": "^7.6.7",
+    "@storybook/manager-api": "^7.6.7",
     "@storybook/react": "^7.6.7",
     "@storybook/react-vite": "^7.6.7",
     "@storybook/test": "^7.6.7",
+    "@storybook/theming": "^7.6.7",
     "@tabler/icons-react": "^2.45.0",
     "@tailwindcss/container-queries": "^0.1.1",
     "@tailwindcss/typography": "^0.5.10",
@@ -102,9 +104,5 @@
     "react-dom": {
       "optional": true
     }
-  },
-  "resolutions": {
-    "jackspeak": "2.1.1"
-  },
-  "readme": "ERROR: No README data found!"
+  }
 }
