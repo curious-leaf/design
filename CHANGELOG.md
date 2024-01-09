@@ -1,3 +1,15 @@
+# v0.2.4 (Tue Jan 09 2024)
+
+#### ⚠️ Pushed to `main`
+
+- Update Tailwind file location and add its config to exported files ([@piotrkulpinski](https://github.com/piotrkulpinski))
+
+#### Authors: 1
+
+- Piotr Kulpinski ([@piotrkulpinski](https://github.com/piotrkulpinski))
+
+---
+
 # v0.2.3 (Tue Jan 09 2024)
 
 #### ⚠️ Pushed to `main`
