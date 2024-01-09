@@ -1,3 +1,15 @@
+# v0.2.1 (Tue Jan 09 2024)
+
+#### 🐛 Bug Fix
+
+- Export Dot component [#5](https://github.com/curious-leaf/design/pull/5) ([@piotrkulpinski](https://github.com/piotrkulpinski))
+
+#### Authors: 1
+
+- Piotr Kulpinski ([@piotrkulpinski](https://github.com/piotrkulpinski))
+
+---
+
 # v0.2.0 (Tue Jan 09 2024)
 
 #### 🚀 Enhancement
