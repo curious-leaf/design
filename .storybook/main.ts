@@ -1,7 +1,7 @@
 import { StorybookConfig } from "@storybook/react-vite"
 
 const config = {
-  stories: ["../src/**/*.mdx", "../src/**/*.stories.@(js|jsx|mjs|ts|tsx)"],
+  stories: ["../src/**/*.mdx", "../src/**/*.stories.@(ts|tsx)"],
   addons: [
     "@storybook/addon-links",
     "@storybook/addon-essentials",
@@ -13,7 +13,7 @@ const config = {
     options: {},
   },
   docs: {
-    autodocs: "tag",
+    autodocs: true,
   },
   typescript: {
     reactDocgen: "react-docgen-typescript",

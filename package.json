@@ -9,14 +9,15 @@
     "url": "https://kulpinski.com"
   },
   "repository": "curious-leaf/design",
-  "main": "dist/cjs/index.js",
-  "module": "dist/esm/index.js",
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "types": "dist/index.d.ts",
   "files": [
     "dist/**/*",
     "README.md"
   ],
   "scripts": {
-    "build": "rollup -c --bundleConfigAsCjs",
+    "build": "rollup -c",
     "watch": "rollup --watch -c --bundleConfigAsCjs",
     "clean": "rimraf ./dist",
     "prebuild": "bun run clean",
@@ -30,7 +31,7 @@
     "@babel/core": "7.23.7",
     "@babel/preset-env": "7.23.7",
     "@babel/preset-react": "7.23.3",
-    "@babel/preset-typescript": "7.23.3",
+    "@babel/preset-typescript": "^7.23.3",
     "@radix-ui/react-accordion": "^1.1.2",
     "@radix-ui/react-alert-dialog": "^1.0.5",
     "@radix-ui/react-checkbox": "^1.0.4",
@@ -60,6 +61,7 @@
     "@tabler/icons-react": "^2.45.0",
     "@tailwindcss/container-queries": "^0.1.1",
     "@tailwindcss/typography": "^0.5.10",
+    "@types/react": "^18.2.47",
     "@vitejs/plugin-react": "^3.1.0",
     "auto": "10.46.0",
     "autoprefixer": "^10.4.16",
@@ -77,7 +79,7 @@
     "react-dom": "18.2.0",
     "rimraf": "^3.0.2",
     "rollup": "3.29.4",
-    "rollup-plugin-dts": "5.3.1",
+    "rollup-plugin-dts": "^6.1.0",
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "storybook": "^7.6.7",
     "tailwind-merge": "^2.2.0",
@@ -88,8 +90,8 @@
     "zx": "^1.15.2"
   },
   "peerDependencies": {
-    "react": "^16.8.0 || ^17.0.0 || ^18.0.0",
-    "react-dom": "^16.8.0 || ^17.0.0 || ^18.0.0"
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
   "peerDependenciesMeta": {
     "react": {
