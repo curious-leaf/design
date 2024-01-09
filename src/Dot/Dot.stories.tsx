@@ -20,7 +20,7 @@ const variants = ["solid", "soft", "outline"] as const
 
 // Meta
 export default {
-  title: "Design System/Dot",
+  title: "Design/UI/Dot",
   component: Dot,
 } satisfies Meta
 
