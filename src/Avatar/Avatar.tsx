@@ -1,24 +1,24 @@
 import {
-  forwardRef,
   ComponentPropsWithoutRef,
   ElementRef,
-  RefObject,
   ReactElement,
+  RefObject,
+  forwardRef,
   isValidElement,
 } from "react"
-import { VariantProps, cx } from "cva"
 import { getInitials } from "@curiousleaf/utils"
 import * as Primitive from "@radix-ui/react-avatar"
+import { Slot } from "@radix-ui/react-slot"
 import { IconUser } from "@tabler/icons-react"
+import { VariantProps, cx } from "cva"
+import { Loader } from "~/Loader"
+import { isReactElement } from "~/shared/helpers"
 import {
   avatarFallbackVariants,
   avatarImageVariants,
   avatarStatusVariants,
   avatarVariants,
 } from "./Avatar.variants"
-import { Loader } from "~/Loader"
-import { isReactElement } from "~/shared/helpers"
-import { Slot } from "@radix-ui/react-slot"
 
 export type AvatarElement = ElementRef<typeof Primitive.Image> | HTMLDivElement
 

@@ -1,6 +1,6 @@
+import type { Meta, StoryObj } from "@storybook/react"
 import { IconUserPlus } from "@tabler/icons-react"
 import { AvatarGroup } from "./AvatarGroup"
-import type { Meta, StoryObj } from "@storybook/react"
 
 type Story = StoryObj<typeof AvatarGroup>
 

@@ -1,6 +1,6 @@
+import { type HTMLAttributes, forwardRef, isValidElement } from "react"
 import { Slot } from "@radix-ui/react-slot"
 import { VariantProps } from "cva"
-import { isValidElement, type HTMLAttributes, forwardRef } from "react"
 import { dotVariants } from "./Dot.variants"
 
 export type DotElement = HTMLSpanElement

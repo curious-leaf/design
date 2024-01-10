@@ -1,10 +1,12 @@
-import { ComponentPropsWithoutRef, HTMLAttributes, ReactNode, forwardRef } from "react"
 import { VariantProps } from "cva"
-import { avatarGroupItemVariants, avatarGroupVariants } from "./AvatarGroup.variants"
-import { AvatarProps, AvatarElement, Avatar } from "~/Avatar/Avatar"
+import { ComponentPropsWithoutRef, HTMLAttributes, ReactNode, forwardRef } from "react"
+
 import { cx } from "~/shared/cva"
 import { isReactElement } from "~/shared/helpers"
-import { avatarVariants } from "~/Avatar/Avatar.variants"
+
+import { Avatar, AvatarElement, AvatarProps } from "../Avatar/Avatar"
+import { avatarVariants } from "../Avatar/Avatar.variants"
+import { avatarGroupItemVariants, avatarGroupVariants } from "./AvatarGroup.variants"
 
 export type AvatarGroupElement = HTMLDivElement
 
