@@ -1,4 +1,4 @@
-import { ReactNode, Children } from "react"
+import { ReactNode, Children, isValidElement } from "react"
 
 /**
  * Checks if the given ReactNode is empty.
@@ -8,4 +8,14 @@ import { ReactNode, Children } from "react"
  */
 export const isChildrenEmpty = (children: ReactNode) => {
   return Children.count(children) === 0
+}
+
+/**
+ * Checks if the given element is a React element.
+ *
+ * @param element - The element to check.
+ * @returns Whether the element is a React element.
+ */
+export const isReactElement = (element: React.ReactNode): element is React.ReactElement => {
+  return isValidElement(element)
 }

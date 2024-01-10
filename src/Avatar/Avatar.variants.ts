@@ -1,7 +1,7 @@
 import { cva } from "cva"
 
 export const avatarVariants = cva({
-  base: "relative grid place-items-center shrink-0 bg-gradient-to-b",
+  base: "relative flex items-center justify-center shrink-0 bg-gradient-to-b w-auto",
 
   variants: {
     theme: {
@@ -13,14 +13,14 @@ export const avatarVariants = cva({
       purple: "from-purple-lighter to-purple-light text-purple-darker",
       pink: "from-pink-lighter to-pink-light text-pink-darker",
       teal: "from-teal-lighter to-teal-light text-teal-darker",
-      gray: "from-gray-100 to-gray-200 text-gray-700",
+      gray: "from-gray-100 to-gray-200 text-gray-600",
     },
     size: {
-      xs: "size-4 text-xxxs",
-      sm: "size-6 text-xxxs",
-      md: "size-8 text-xxs",
-      lg: "size-10 text-sm",
-      xl: "size-12 text-base",
+      xs: "h-4 min-w-4 text-xxxs",
+      sm: "h-6 min-w-6 text-xxxs",
+      md: "h-8 min-w-8 text-xxs",
+      lg: "h-10 min-w-10 text-sm",
+      xl: "h-12 min-w-12 text-base",
     },
     shape: {
       rounded: "rounded-md",
@@ -55,5 +55,5 @@ export const avatarImageVariants = cva({
 })
 
 export const avatarFallbackVariants = cva({
-  base: "font-medium",
+  base: "font-medium whitespace-nowrap rounded-[inherit]",
 })
