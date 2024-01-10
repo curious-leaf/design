@@ -11,3 +11,8 @@ label[for],
   @apply duration-150;
   @apply cursor-pointer;
 }
+
+svg[stroke="currentColor"] {
+  @apply stroke-[1.5];
+  @apply size-[1.428em];
+}

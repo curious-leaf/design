@@ -67,3 +67,5 @@ Badge.defaultProps = {
   shape: "pill",
   asChild: false,
 }
+
+Badge.displayName = "Badge"

@@ -31,3 +31,5 @@ Dot.defaultProps = {
   size: "md",
   asChild: false,
 }
+
+Dot.displayName = "Dot"
