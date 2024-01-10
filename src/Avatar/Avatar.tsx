@@ -17,7 +17,7 @@ import {
   avatarVariants,
 } from "./Avatar.variants"
 import { Loader } from "~/Loader"
-import { isChildrenEmpty } from "~/shared/helpers"
+import { isReactElement } from "~/shared/helpers"
 import { Slot } from "@radix-ui/react-slot"
 
 export type AvatarElement = ElementRef<typeof Primitive.Image> | HTMLDivElement
@@ -89,44 +89,17 @@ const AvatarStatus = forwardRef<
 })
 
 const AvatarBase = forwardRef<AvatarElement, AvatarProps>((props, ref) => {
-  const {
-    alt,
-    children,
-    className,
-    initials,
-    topStatus,
-    bottomStatus,
-    theme,
-    size,
-    shape,
-    src,
-    style,
-    ...rest
-  } = props
+  const { alt, children, initials, topStatus, bottomStatus, theme, size, shape, src, ...rest } =
+    props
 
   return (
-    <AvatarRoot theme={theme} size={size} shape={shape}>
+    <AvatarRoot theme={theme} size={size} shape={shape} {...rest}>
       {/* Show image if available */}
-      {src && (
-        <AvatarImage
-          ref={ref as RefObject<HTMLImageElement>}
-          alt={alt}
-          className={className}
-          src={src}
-          style={style}
-          {...rest}
-        />
-      )}
+      {src && <AvatarImage ref={ref as RefObject<HTMLImageElement>} alt={alt} src={src} />}
 
       {/* Allow children to be used as fallback */}
       {children && (
-        <AvatarFallback
-          ref={ref}
-          aria-label={alt}
-          asChild={!isChildrenEmpty(children)}
-          className={className}
-          style={style}
-        >
+        <AvatarFallback ref={ref} aria-label={alt} asChild={isReactElement(children)}>
           {children}
         </AvatarFallback>
       )}
@@ -134,21 +107,21 @@ const AvatarBase = forwardRef<AvatarElement, AvatarProps>((props, ref) => {
       {/* Show Loading icon until image is loaded,
           only if children fallback is not set */}
       {!children && src && !initials && (
-        <AvatarFallback aria-label={alt} style={style}>
+        <AvatarFallback aria-label={alt}>
           <Loader aria-hidden="true" />
         </AvatarFallback>
       )}
 
       {/* Initials */}
       {!children && initials && (
-        <AvatarFallback ref={ref} aria-label={alt} style={style} {...rest}>
+        <AvatarFallback ref={ref} aria-label={alt}>
           {getInitials(initials, size === "xs" ? 1 : 2)}
         </AvatarFallback>
       )}
 
       {/* Fallback */}
       {!children && !src && !initials && (
-        <AvatarFallback ref={ref} aria-label={alt} role="img" style={style} {...rest}>
+        <AvatarFallback ref={ref} aria-label={alt} role="img">
           <IconUser />
         </AvatarFallback>
       )}

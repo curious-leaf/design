@@ -9,6 +9,7 @@ export default {
   component: Loader,
 } satisfies Meta
 
+// Stories
 export const Default = {
   args: {},
 } satisfies Story
