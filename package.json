@@ -22,7 +22,7 @@
     "watch": "rollup --watch -c",
     "clean": "rimraf ./dist",
     "prebuild": "bun run clean",
-    "release": "bun run build && auto shipit",
+    "release": "bun run build && auto shipit --no-changelog",
     "test": "echo \"Error: no test specified\" && exit 1",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build --test",
