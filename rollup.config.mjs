@@ -1,3 +1,4 @@
+import { babel } from "@rollup/plugin-babel"
 import commonjs from "@rollup/plugin-commonjs"
 import resolve from "@rollup/plugin-node-resolve"
 import terser from "@rollup/plugin-terser"
@@ -34,6 +35,10 @@ export default [
       }),
       commonjs(),
       terser(),
+      babel({
+        extensions: [".ts", ".tsx"],
+        exclude: "node_modules/**",
+      }),
     ],
     external: ["react", "react-dom"],
   },
