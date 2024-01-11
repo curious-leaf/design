@@ -34,7 +34,6 @@
     "@babel/preset-env": "7.23.7",
     "@babel/preset-react": "7.23.3",
     "@babel/preset-typescript": "^7.23.3",
-    "@curiousleaf/utils": "^1.0.11",
     "@radix-ui/react-accordion": "^1.1.2",
     "@radix-ui/react-alert-dialog": "^1.0.5",
     "@radix-ui/react-avatar": "^1.0.4",
@@ -98,6 +97,7 @@
     "zx": "^1.15.2"
   },
   "peerDependencies": {
+    "@curiousleaf/utils": "^1.0.11",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
