@@ -1,2 +1,2 @@
 export { Dot } from "./Dot"
-export type { DotProps, DotElement } from "./Dot"
+export { type DotProps, type DotElement } from "./Dot"
