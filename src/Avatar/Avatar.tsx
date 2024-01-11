@@ -133,7 +133,13 @@ const AvatarBase = forwardRef<AvatarElement, AvatarProps>((props, ref) => {
   )
 })
 
-export const Avatar = Object.assign(AvatarBase, {
+AvatarBase.displayName = "Avatar"
+AvatarRoot.displayName = Primitive.Root.displayName
+AvatarFallback.displayName = Primitive.Fallback.displayName
+AvatarImage.displayName = Primitive.Image.displayName
+AvatarStatus.displayName = "AvatarStatus"
+
+const Avatar = Object.assign(AvatarBase, {
   Fallback: AvatarFallback,
   Image: AvatarImage,
   Status: AvatarStatus,
@@ -146,4 +152,4 @@ Avatar.defaultProps = {
   shape: "circle",
 }
 
-Avatar.displayName = "Avatar"
+export default Avatar
