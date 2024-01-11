@@ -1,4 +1,4 @@
-import { cva } from "cva"
+import { cva } from "../shared/cva"
 
 export const statusVariants = cva({
   base: [

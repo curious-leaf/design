@@ -14,3 +14,5 @@ export const { cva, cx, compose } = defineConfig({
     onComplete: (className) => customTwMerge(className),
   },
 })
+
+export type { VariantProps } from "cva"

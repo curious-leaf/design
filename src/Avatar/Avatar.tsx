@@ -9,9 +9,8 @@ import {
 import * as Primitive from "@radix-ui/react-avatar"
 import { Slot } from "@radix-ui/react-slot"
 import { IconUser } from "@tabler/icons-react"
-import { VariantProps } from "cva"
 import { Loader } from "../Loader"
-import { cx } from "../shared/cva"
+import { type VariantProps, cx } from "../shared/cva"
 import { getInitials } from "../shared/helpers"
 import { isReactElement } from "../shared/helpers"
 import {
