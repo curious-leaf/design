@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react"
 import { IconUserPlus } from "@tabler/icons-react"
+
 import { AvatarGroup } from "./AvatarGroup"
 
 type Story = StoryObj<typeof AvatarGroup>
@@ -61,7 +62,7 @@ export const WithCustomMarkup = {
         <AvatarGroup.Item key={i} size="lg" {...item} />
       ))}
 
-      <AvatarGroup.Label size="lg" className="z-40 from-blue to-blue text-white px-3">
+      <AvatarGroup.Label size="lg" className="z-40 from-blue to-blue px-3 text-white">
         42k likes
       </AvatarGroup.Label>
 

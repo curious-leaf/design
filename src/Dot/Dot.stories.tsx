@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react"
+
 import { Dot } from "./Dot"
 
 type Story = StoryObj<typeof Dot>

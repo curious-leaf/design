@@ -1,8 +1,12 @@
-import { ComponentPropsWithoutRef, HTMLAttributes, ReactNode, forwardRef } from "react"
-import { Avatar, AvatarElement, AvatarProps } from "../Avatar"
-import { avatarVariants } from "../Avatar/Avatar.variants"
+import type { ComponentPropsWithoutRef, HTMLAttributes, ReactNode } from "react"
+import { forwardRef } from "react"
+
+import type { AvatarElement, AvatarProps } from "../Avatar"
+import { Avatar } from "../Avatar"
+import type { avatarVariants } from "../Avatar/Avatar.variants"
 import { type VariantProps, cx } from "../shared/cva"
 import { isReactElement } from "../shared/helpers"
+
 import { avatarGroupItemVariants, avatarGroupVariants } from "./AvatarGroup.variants"
 
 export type AvatarGroupElement = HTMLDivElement
@@ -80,7 +84,7 @@ const AvatarGroupItem = forwardRef<AvatarElement, ComponentPropsWithoutRef<typeo
 )
 
 const AvatarGroupBase = forwardRef<HTMLDivElement, AvatarGroupProps>((props, ref) => {
-  const { items, className, children, theme, size, shape, previousOnTop, label, ...rest } = props
+  const { items, children, theme, size, shape, previousOnTop, label, ...rest } = props
   const avatarProps = { theme, size, shape }
 
   return (

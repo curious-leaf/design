@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react"
 import { IconPointFilled } from "@tabler/icons-react"
+
 import { Status } from "./Status"
 
 type Story = StoryObj<typeof Status>

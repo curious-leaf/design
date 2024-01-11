@@ -1,6 +1,8 @@
 import type { Meta, StoryObj } from "@storybook/react"
 import { IconDiscountCheckFilled, IconUsers } from "@tabler/icons-react"
+
 import { Dot } from "../Dot"
+
 import { Avatar } from "./Avatar"
 
 type Story = StoryObj<typeof Avatar>
@@ -37,7 +39,7 @@ export const WithChildrenFallback = {
 export const WithTopStatus = {
   args: {
     src: "https://i.pravatar.cc/150?img=1",
-    topStatus: <IconDiscountCheckFilled className="text-teal bg-white -m-[7.5%]" />,
+    topStatus: <IconDiscountCheckFilled className="-m-[7.5%] bg-white text-teal" />,
   },
 } satisfies Story
 
@@ -53,7 +55,7 @@ export const WithCustomMarkup = {
     <Avatar.Root size="lg" shape="rounded" className="outline outline-offset-4 outline-teal">
       <Avatar.Image src="https://i.pravatar.cc/150?img=5" />
       <Avatar.Fallback />
-      <Avatar.Status className="bg-white text-teal ring-0 -m-2">
+      <Avatar.Status className="-m-2 bg-white text-teal ring-0">
         <IconDiscountCheckFilled />
       </Avatar.Status>
     </Avatar.Root>

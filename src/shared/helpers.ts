@@ -1,4 +1,5 @@
-import { Children, ReactNode, isValidElement } from "react"
+import type { ReactNode} from "react";
+import { Children, isValidElement } from "react"
 
 /**
  * Checks if the given ReactNode is empty.

@@ -1,4 +1,9 @@
-/** @type {import("prettier").Config} */
+import { fileURLToPath } from "url"
+
+/** @typedef  {import("prettier").Config} PrettierConfig */
+/** @typedef {import("prettier-plugin-tailwindcss").PluginOptions} TailwindConfig */
+
+/** @type { PrettierConfig | TailwindConfig } */
 const config = {
   jsxSingleQuote: false,
   singleQuote: false,
@@ -6,9 +11,8 @@ const config = {
   trailingComma: "all",
   tabWidth: 2,
   printWidth: 100,
-  importOrder: ["^react$", "<THIRD_PARTY_MODULES>", "^~/(.*)$", "^[./]"],
-  importOrderSortSpecifiers: true,
-  plugins: ["@trivago/prettier-plugin-sort-imports"],
+  plugins: ["prettier-plugin-tailwindcss"],
+  tailwindConfig: fileURLToPath(new URL("tailwind.config.js", import.meta.url)),
 }
 
 export default config

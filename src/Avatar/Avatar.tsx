@@ -1,18 +1,13 @@
-import {
-  ComponentPropsWithoutRef,
-  ElementRef,
-  ReactElement,
-  RefObject,
-  forwardRef,
-  isValidElement,
-} from "react"
 import * as Primitive from "@radix-ui/react-avatar"
 import { Slot } from "@radix-ui/react-slot"
 import { IconUser } from "@tabler/icons-react"
+import { forwardRef, isValidElement } from "react"
+import type { ComponentPropsWithoutRef, ElementRef, ReactElement, RefObject } from "react"
+
 import { Loader } from "../Loader"
 import { type VariantProps, cx } from "../shared/cva"
-import { getInitials } from "../shared/helpers"
-import { isReactElement } from "../shared/helpers"
+import { getInitials, isReactElement } from "../shared/helpers"
+
 import {
   avatarFallbackVariants,
   avatarImageVariants,

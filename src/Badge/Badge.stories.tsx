@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react"
 import { IconBolt } from "@tabler/icons-react"
+
 import { Badge } from "./Badge"
 
 type Story = StoryObj<typeof Badge>

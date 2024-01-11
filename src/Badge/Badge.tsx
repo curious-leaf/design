@@ -1,7 +1,10 @@
-import { type HTMLAttributes, ReactElement, forwardRef, isValidElement } from "react"
 import { Slot } from "@radix-ui/react-slot"
-import { Slottable } from "../Slottable"
+import { forwardRef, isValidElement } from "react"
+import type { ReactElement, HTMLAttributes } from "react"
+
 import { type VariantProps, cx } from "../shared/cva"
+import { Slottable } from "../Slottable"
+
 import { badgeAffixVariants, badgeVariants } from "./Badge.variants"
 
 export type BadgeElement = HTMLSpanElement
