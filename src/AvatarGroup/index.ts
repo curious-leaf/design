@@ -1,2 +1,2 @@
 export { AvatarGroup } from "./AvatarGroup"
-export { type AvatarGroupProps, type AvatarGroupElement } from "./AvatarGroup"
+export type { AvatarGroupProps, AvatarGroupElement } from "./AvatarGroup"
