@@ -27,7 +27,10 @@ export default [
       },
     ],
     plugins: [
-      typescript(),
+      typescript({
+        declaration: true,
+        declarationDir: "dist",
+      }),
       peerDepsExternal(),
       resolve(),
       commonjs(),
