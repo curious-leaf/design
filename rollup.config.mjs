@@ -25,7 +25,16 @@ export default [
         sourcemap: true,
       },
     ],
-    plugins: [typescript(), peerDepsExternal(), resolve(), commonjs(), terser()],
+    plugins: [
+      typescript(),
+      peerDepsExternal(),
+      resolve({
+        extensions: [".ts", ".tsx"],
+        preferBuiltins: true,
+      }),
+      commonjs(),
+      terser(),
+    ],
     external: ["react", "react-dom"],
   },
   {
