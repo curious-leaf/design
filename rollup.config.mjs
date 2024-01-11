@@ -27,14 +27,11 @@ export default [
       },
     ],
     plugins: [
-      typescript({
-        declaration: true,
-        declarationDir: "dist",
-      }),
       peerDepsExternal(),
       resolve(),
       commonjs(),
       terser(),
+      typescript(),
       babel({
         babelHelpers: "bundled",
         extensions: [".ts", ".tsx"],
