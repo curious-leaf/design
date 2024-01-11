@@ -107,5 +107,8 @@
     "react-dom": {
       "optional": true
     }
+  },
+  "dependencies": {
+    "@curiousleaf/utils": "^1.0.8"
   }
 }
