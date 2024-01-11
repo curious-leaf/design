@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react"
 import { IconDiscountCheckFilled, IconUsers } from "@tabler/icons-react"
-import { Dot } from "~/Dot"
-import { default as Avatar } from "./Avatar"
+import { Dot } from "../Dot"
+import { Avatar } from "./Avatar"
 
 type Story = StoryObj<typeof Avatar>
 

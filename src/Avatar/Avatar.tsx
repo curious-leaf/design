@@ -10,9 +10,10 @@ import { getInitials } from "@curiousleaf/utils"
 import * as Primitive from "@radix-ui/react-avatar"
 import { Slot } from "@radix-ui/react-slot"
 import { IconUser } from "@tabler/icons-react"
-import { VariantProps, cx } from "cva"
-import { Loader } from "~/Loader"
-import { isReactElement } from "~/shared/helpers"
+import { VariantProps } from "cva"
+import { Loader } from "../Loader"
+import { cx } from "../shared/cva"
+import { isReactElement } from "../shared/helpers"
 import {
   avatarFallbackVariants,
   avatarImageVariants,
@@ -139,7 +140,7 @@ AvatarFallback.displayName = Primitive.Fallback.displayName
 AvatarImage.displayName = Primitive.Image.displayName
 AvatarStatus.displayName = "AvatarStatus"
 
-const Avatar = Object.assign(AvatarBase, {
+export const Avatar = Object.assign(AvatarBase, {
   Fallback: AvatarFallback,
   Image: AvatarImage,
   Status: AvatarStatus,
@@ -151,5 +152,3 @@ Avatar.defaultProps = {
   size: "md",
   shape: "circle",
 }
-
-export default Avatar
