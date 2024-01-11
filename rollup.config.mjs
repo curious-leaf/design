@@ -29,13 +29,11 @@ export default [
     plugins: [
       typescript(),
       peerDepsExternal(),
-      resolve({
-        extensions: [".ts", ".tsx"],
-        preferBuiltins: true,
-      }),
+      resolve(),
       commonjs(),
       terser(),
       babel({
+        babelHelpers: "bundled",
         extensions: [".ts", ".tsx"],
         exclude: "node_modules/**",
       }),

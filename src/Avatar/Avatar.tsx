@@ -6,13 +6,13 @@ import {
   forwardRef,
   isValidElement,
 } from "react"
-import { getInitials } from "@curiousleaf/utils"
 import * as Primitive from "@radix-ui/react-avatar"
 import { Slot } from "@radix-ui/react-slot"
 import { IconUser } from "@tabler/icons-react"
 import { VariantProps } from "cva"
 import { Loader } from "../Loader"
 import { cx } from "../shared/cva"
+import { getInitials } from "../shared/helpers"
 import { isReactElement } from "../shared/helpers"
 import {
   avatarFallbackVariants,
