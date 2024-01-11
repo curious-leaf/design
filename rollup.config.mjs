@@ -1,14 +1,12 @@
-import resolve from "@rollup/plugin-node-resolve"
-import typescript from "@rollup/plugin-typescript"
+import { babel } from "@rollup/plugin-babel"
 import commonjs from "@rollup/plugin-commonjs"
+import resolve from "@rollup/plugin-node-resolve"
 import terser from "@rollup/plugin-terser"
-import peerDepsExternal from "rollup-plugin-peer-deps-external"
-import { dts } from "rollup-plugin-dts"
-
-// This is required to read package.json file when
-// using Native ES modules in Node.js
-// https://rollupjs.org/command-line-interface/#importing-package-json
+import typescript from "@rollup/plugin-typescript"
 import { createRequire } from "node:module"
+import { dts } from "rollup-plugin-dts"
+import peerDepsExternal from "rollup-plugin-peer-deps-external"
+
 const requireFile = createRequire(import.meta.url)
 const packageJson = requireFile("./package.json")
 
@@ -28,7 +26,18 @@ export default [
         sourcemap: true,
       },
     ],
-    plugins: [peerDepsExternal(), resolve(), commonjs(), terser(), typescript()],
+    plugins: [
+      peerDepsExternal(),
+      resolve(),
+      commonjs(),
+      terser(),
+      typescript(),
+      babel({
+        babelHelpers: "bundled",
+        extensions: [".ts", ".tsx"],
+        exclude: "node_modules/**",
+      }),
+    ],
     external: ["react", "react-dom"],
   },
   {

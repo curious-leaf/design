@@ -1,2 +1,2 @@
 export { Avatar } from "./Avatar"
-export type { AvatarProps, AvatarElement } from "./Avatar"
+export { type AvatarProps, type AvatarElement } from "./Avatar"
