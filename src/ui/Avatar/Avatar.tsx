@@ -4,6 +4,7 @@ import { IconUser } from "@tabler/icons-react"
 import { forwardRef, isValidElement } from "react"
 import type { ComponentPropsWithoutRef, ElementRef, ReactElement, RefObject } from "react"
 
+import { useTheme } from "~/providers"
 import { type VariantProps, cx } from "~/shared/cva"
 import { getInitials, isReactElement } from "~/shared/helpers"
 import { Loader } from "~/ui/Loader"
@@ -48,13 +49,18 @@ export type AvatarProps = ComponentPropsWithoutRef<typeof Primitive.Image> &
 const AvatarRoot = forwardRef<
   ElementRef<typeof Primitive.Root>,
   ComponentPropsWithoutRef<typeof Primitive.Root> & VariantProps<typeof avatarVariants>
->(({ className, theme, size, shape, ...props }, ref) => (
-  <Primitive.Root
-    ref={ref}
-    className={cx(avatarVariants({ theme, size, shape, className }))}
-    {...props}
-  />
-))
+>(({ className, theme: propTheme, size, shape, ...props }, ref) => {
+  const globalTheme = useTheme()
+  const theme = propTheme || globalTheme
+
+  return (
+    <Primitive.Root
+      ref={ref}
+      className={cx(avatarVariants({ theme, size, shape, className }))}
+      {...props}
+    />
+  )
+})
 
 const AvatarImage = forwardRef<
   ElementRef<typeof Primitive.Image>,
@@ -142,7 +148,6 @@ export const Avatar = Object.assign(AvatarBase, {
 })
 
 Avatar.defaultProps = {
-  theme: "gray",
   size: "md",
   shape: "circle",
   asChild: false,

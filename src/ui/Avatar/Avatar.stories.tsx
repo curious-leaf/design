@@ -11,7 +11,9 @@ type Story = StoryObj<typeof Avatar>
 export default {
   title: "UI/Avatar",
   component: Avatar,
-  args: Avatar.defaultProps,
+  args: {
+    ...Avatar.defaultProps,
+  },
 } satisfies Meta
 
 // Stories

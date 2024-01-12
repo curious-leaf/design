@@ -75,7 +75,7 @@ export const dotVariants = cva({
   ],
 
   defaultVariants: {
-    theme: "blue",
+    theme: "gray",
     variant: "solid",
     size: "md",
   },

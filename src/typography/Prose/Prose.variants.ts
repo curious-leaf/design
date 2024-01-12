@@ -8,6 +8,17 @@ export const proseVariants = cva({
   ],
 
   variants: {
+    theme: {
+      blue: "prose-blue",
+      orange: "prose-orange",
+      yellow: "prose-yellow",
+      red: "prose-red",
+      green: "prose-green",
+      purple: "prose-purple",
+      pink: "prose-pink",
+      teal: "prose-teal",
+      gray: "prose-gray",
+    },
     size: {
       sm: "prose-sm",
       md: "prose-base",
@@ -16,6 +27,7 @@ export const proseVariants = cva({
   },
 
   defaultVariants: {
+    theme: "gray",
     size: "md",
   },
 })

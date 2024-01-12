@@ -16,3 +16,8 @@ svg[stroke="currentColor"] {
   @apply stroke-[1.5];
   @apply size-[1.428em];
 }
+
+.dark {
+  @apply bg-gray-900;
+  @apply text-white;
+}
