@@ -80,6 +80,13 @@ export const badgeVariants = cva({
     { theme: "gray", variant: "soft", class: "bg-gray-100 text-gray-500" },
     { theme: "gray", variant: "outline", class: "border-gray-200 text-gray-500" },
   ],
+
+  defaultVariants: {
+    theme: "gray",
+    variant: "solid",
+    size: "sm",
+    shape: "pill",
+  },
 })
 
 export const badgeAffixVariants = cva({

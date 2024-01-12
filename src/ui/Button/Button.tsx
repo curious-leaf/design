@@ -2,6 +2,7 @@ import { Slot } from "@radix-ui/react-slot"
 import type { ButtonHTMLAttributes, ReactElement } from "react"
 import { forwardRef, isValidElement } from "react"
 
+import { useTheme } from "~/providers"
 import { type VariantProps, cx } from "~/shared/cva"
 import { isChildrenEmpty } from "~/shared/helpers"
 import { Loader } from "~/ui/Loader"
@@ -44,12 +45,14 @@ export const Button = forwardRef<ButtonElement, ButtonProps>((props, ref) => {
     isLoading,
     prefix,
     suffix,
-    theme,
+    theme: propTheme,
     variant,
     size,
     shape,
     ...rest
   } = props
+  const globalTheme = useTheme()
+  const theme = propTheme || globalTheme
 
   const useAsChild = asChild && isValidElement(children)
   const Component = useAsChild ? Slot : "button"
@@ -89,7 +92,6 @@ export const Button = forwardRef<ButtonElement, ButtonProps>((props, ref) => {
 })
 
 Button.defaultProps = {
-  theme: "blue",
   variant: "solid",
   size: "lg",
   shape: "rounded",

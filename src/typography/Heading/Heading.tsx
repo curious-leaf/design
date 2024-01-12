@@ -1,6 +1,6 @@
 import { Slot } from "@radix-ui/react-slot"
 import type { HTMLAttributes } from "react"
-import { forwardRef } from "react"
+import { forwardRef, isValidElement } from "react"
 
 import { type VariantProps, cx } from "~/shared/cva"
 
@@ -19,7 +19,9 @@ export type HeadingProps = Omit<HTMLAttributes<HeadingElement>, "size"> &
 
 export const Heading = forwardRef<HeadingElement, HeadingProps>((props, ref) => {
   const { className, asChild, size, ...rest } = props
-  const Comp = asChild ? Slot : size ?? "h2"
+
+  const useAsChild = asChild && isValidElement(rest.children)
+  const Comp = useAsChild ? Slot : size ?? "h2"
 
   return <Comp className={cx(headingVariants({ size, className }))} ref={ref} {...rest} />
 })

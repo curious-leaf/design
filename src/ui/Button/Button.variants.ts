@@ -251,7 +251,7 @@ export const buttonVariants = cva({
   ],
 
   defaultVariants: {
-    theme: "blue",
+    theme: "gray",
     variant: "solid",
     size: "lg",
     shape: "rounded",
