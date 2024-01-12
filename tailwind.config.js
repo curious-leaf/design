@@ -75,6 +75,28 @@ module.exports = {
         darker: "#164564",
       },
     },
+    fontSize: {
+      "2xs": ["11px", "12px"],
+      xs: ["12px", "16px"],
+      sm: ["14px", "20px"],
+      base: ["16px", "24px"],
+      lg: ["18px", "26px"],
+      xl: ["20px", "28px"],
+      "2xl": ["24px", "32px"],
+      "3xl": ["32px", "40px"],
+      "4xl": ["40px", "48px"],
+      "5xl": ["48px", "56px"],
+      "6xl": ["56px", "64px"],
+    },
+    letterSpacing: {
+      normal: "0",
+      0.5: "0.005em",
+      1: "0.01em",
+      1.5: "0.015em",
+      2: "0.02em",
+      4: "0.04em",
+      6: "0.06em",
+    },
 
     extend: {
       screens: {
@@ -83,10 +105,8 @@ module.exports = {
       borderColor: {
         DEFAULT: "#E2E4E8",
       },
-      fontSize: {
-        xxxs: ["0.625rem", "0.875rem"],
-        xxs: ["0.75rem", "1rem"],
-        xs: ["0.8125rem", "1.125rem"],
+      fontFamily: {
+        sans: ["var(--font-sans)", "system-ui", "sans-serif"],
       },
       keyframes: {
         shimmer: {
