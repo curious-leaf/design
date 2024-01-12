@@ -108,6 +108,14 @@ module.exports = {
       fontFamily: {
         sans: ["var(--font-sans)", "system-ui", "sans-serif"],
       },
+      typography: (theme) => ({
+        DEFAULT: {
+          css: {
+            "--tw-prose-body": theme("colors.gray[500]"),
+            "--tw-prose-headings": theme("colors.gray[900]"),
+          },
+        },
+      }),
       keyframes: {
         shimmer: {
           from: { left: "-90%" },
