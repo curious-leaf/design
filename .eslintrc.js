@@ -57,6 +57,7 @@ module.exports = {
         "react/display-name": "off",
         "react-hooks/exhaustive-deps": "off",
         "jsx-a11y/heading-has-content": "off",
+        "jsx-a11y/anchor-is-valid": "off",
         "jsx-a11y/anchor-has-content": "off",
         "jsx-a11y/control-has-associated-label": "off",
       },
