@@ -24,40 +24,39 @@ const items = [
 export default {
   title: "UI/AvatarGroup",
   component: AvatarGroup,
+  args: {
+    ...AvatarGroup.defaultProps,
+    items,
+  },
 } satisfies Meta
 
 // Stories
 export const Default = {
-  args: {
-    items,
-  },
+  args: {},
 } satisfies Story
 
 export const WithLabel = {
   args: {
-    items,
     label: "+3",
   },
 } satisfies Story
 
 export const WithCustomLabel = {
   args: {
-    items,
     label: <IconUserPlus />,
   },
 } satisfies Story
 
 export const WithPreviousOnTop = {
   args: {
-    items,
     label: "+3",
     previousOnTop: true,
   },
 } satisfies Story
 
 export const WithCustomMarkup = {
-  render: () => (
-    <AvatarGroup.Root size="lg">
+  render: (props) => (
+    <AvatarGroup.Root {...props} size="lg">
       {items.map((item, i) => (
         <AvatarGroup.Item key={i} size="lg" {...item} />
       ))}

@@ -83,7 +83,7 @@ const AvatarGroupItem = forwardRef<AvatarElement, ComponentPropsWithoutRef<typeo
   },
 )
 
-const AvatarGroupBase = forwardRef<HTMLDivElement, AvatarGroupProps>((props, ref) => {
+const AvatarGroupBase = forwardRef<AvatarGroupElement, AvatarGroupProps>((props, ref) => {
   const { items, children, theme, size, shape, previousOnTop, label, ...rest } = props
   const avatarProps = { theme, size, shape }
 

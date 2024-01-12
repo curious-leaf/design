@@ -9,8 +9,8 @@ export default {
   title: "Typography/Heading",
   component: Heading,
   args: {
-    children: "The five boxing wizards jump quickly.",
     ...Heading.defaultProps,
+    children: "The five boxing wizards jump quickly.",
   },
 } satisfies Meta
 

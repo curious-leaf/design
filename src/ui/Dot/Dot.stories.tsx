@@ -8,13 +8,14 @@ type Story = StoryObj<typeof Dot>
 export default {
   title: "UI/Dot",
   component: Dot,
+  args: {
+    ...Dot.defaultProps,
+  },
 } satisfies Meta
 
 // Stories
 export const Default = {
-  args: {
-    ...Dot.defaultProps,
-  },
+  args: {},
 } satisfies Story
 
 export const AsChild = {
