@@ -10,8 +10,8 @@ export default {
   title: "UI/Status",
   component: Status,
   args: {
-    children: "Status",
     ...Status.defaultProps,
+    children: "Status",
   },
 } satisfies Meta
 

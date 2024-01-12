@@ -9,8 +9,8 @@ export default {
   title: "Typography/Subheading",
   component: Subheading,
   args: {
-    children: "The quick brown fox jumps over the lazy dog.",
     ...Subheading.defaultProps,
+    children: "The quick brown fox jumps over the lazy dog.",
   },
 } satisfies Meta
 

@@ -14,9 +14,9 @@ export default {
 // Stories
 export const Default = {
   args: {
+    ...Button.defaultProps,
     children: "Button",
     disabled: false,
-    ...Button.defaultProps,
   },
 } satisfies Story
 
@@ -29,14 +29,12 @@ export const AsChild = {
 
 export const WithPrefix = {
   args: {
-    children: "Button",
     prefix: <IconBolt />,
   },
 } satisfies Story
 
 export const WithSuffix = {
   args: {
-    children: "Button",
     suffix: <IconBolt />,
   },
 } satisfies Story

@@ -9,14 +9,15 @@ type Story = StoryObj<typeof Badge>
 export default {
   title: "UI/Badge",
   component: Badge,
+  args: {
+    ...Badge.defaultProps,
+    children: "Badge",
+  },
 } satisfies Meta
 
 // Stories
 export const Default = {
-  args: {
-    children: "Badge",
-    ...Badge.defaultProps,
-  },
+  args: {},
 } satisfies Story
 
 export const AsChild = {
@@ -28,14 +29,12 @@ export const AsChild = {
 
 export const WithPrefix = {
   args: {
-    children: "Badge",
     prefix: <IconBolt />,
   },
 } satisfies Story
 
 export const WithSuffix = {
   args: {
-    children: "Badge",
     suffix: <IconBolt />,
   },
 } satisfies Story

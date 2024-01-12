@@ -1,7 +1,7 @@
 import { cva } from "~/shared/cva"
 
 export const dotVariants = cva({
-  base: "block rounded-full border border-transparent text-white",
+  base: "block rounded-full border border-transparent",
 
   variants: {
     theme: {

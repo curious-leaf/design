@@ -9,6 +9,7 @@ export default {
   title: "Typography/Prose",
   component: Prose,
   args: {
+    ...Prose.defaultProps,
     children: (
       <>
         <h1>Heading 1</h1>
@@ -42,7 +43,6 @@ export default {
         </ul>
       </>
     ),
-    ...Prose.defaultProps,
   },
 } satisfies Meta
 
