@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react"
 import { IconDiscountCheckFilled, IconUsers } from "@tabler/icons-react"
 
-import { Dot } from "../Dot"
+import { Dot } from "~/ui/Dot"
 
 import { Avatar } from "./Avatar"
 

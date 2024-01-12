@@ -4,9 +4,9 @@ import { IconUser } from "@tabler/icons-react"
 import { forwardRef, isValidElement } from "react"
 import type { ComponentPropsWithoutRef, ElementRef, ReactElement, RefObject } from "react"
 
-import { Loader } from "../Loader"
-import { type VariantProps, cx } from "../../shared/cva"
-import { getInitials, isReactElement } from "../../shared/helpers"
+import { type VariantProps, cx } from "~/shared/cva"
+import { getInitials, isReactElement } from "~/shared/helpers"
+import { Loader } from "~/ui/Loader"
 
 import {
   avatarFallbackVariants,

@@ -2,7 +2,7 @@ import { Slot } from "@radix-ui/react-slot"
 import type { HTMLAttributes } from "react"
 import { forwardRef } from "react"
 
-import { type VariantProps, cx } from "../../shared/cva"
+import { type VariantProps, cx } from "~/shared/cva"
 
 import { headingVariants } from "./Heading.variants"
 

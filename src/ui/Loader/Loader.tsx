@@ -1,7 +1,7 @@
 import { IconLoader } from "@tabler/icons-react"
 import { type SVGProps, forwardRef } from "react"
 
-import { cx } from "../../shared/cva"
+import { cx } from "~/shared/cva"
 
 export type LoaderProps = SVGProps<SVGSVGElement>
 

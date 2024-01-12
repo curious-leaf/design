@@ -2,8 +2,8 @@ import { Slot } from "@radix-ui/react-slot"
 import { forwardRef, isValidElement } from "react"
 import type { ReactElement, HTMLAttributes } from "react"
 
-import { type VariantProps, cx } from "../../shared/cva"
-import { Slottable } from "../../utils/Slottable"
+import { type VariantProps, cx } from "~/shared/cva"
+import { Slottable } from "~/utils/Slottable"
 
 import { badgeAffixVariants, badgeVariants } from "./Badge.variants"
 

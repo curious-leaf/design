@@ -1,4 +1,4 @@
-import { cva } from "../../shared/cva"
+import { cva } from "~/shared/cva"
 
 export const subheadingVariants = cva({
   base: "font-medium uppercase",

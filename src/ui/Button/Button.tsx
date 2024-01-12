@@ -2,10 +2,10 @@ import { Slot } from "@radix-ui/react-slot"
 import type { ButtonHTMLAttributes, ReactElement } from "react"
 import { forwardRef, isValidElement } from "react"
 
-import { type VariantProps, cx } from "../../shared/cva"
-import { isChildrenEmpty } from "../../shared/helpers"
-import { Slottable } from "../../utils/Slottable"
-import { Loader } from "../Loader"
+import { type VariantProps, cx } from "~/shared/cva"
+import { isChildrenEmpty } from "~/shared/helpers"
+import { Loader } from "~/ui/Loader"
+import { Slottable } from "~/utils/Slottable"
 
 import { buttonAffixVariants, buttonVariants } from "./Button.variants"
 
