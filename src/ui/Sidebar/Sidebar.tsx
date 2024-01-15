@@ -2,8 +2,16 @@ import { forwardRef } from "react"
 import type { HTMLAttributes } from "react"
 
 import { cx, type VariantProps } from "~/shared/cva"
+import type { SubheadingElement, SubheadingProps } from "~/typography/Subheading"
+import { Subheading } from "~/typography/Subheading"
 
-import { sidebarSeparatorVariants, sidebarVariants } from "./Sidebar.variants"
+import {
+  sidebarContentVariants,
+  sidebarHeadingVariants,
+  sidebarMenuVariants,
+  sidebarSeparatorVariants,
+  sidebarVariants,
+} from "./Sidebar.variants"
 
 export type SidebarElement = HTMLDivElement
 
@@ -12,16 +20,44 @@ export type SidebarProps = HTMLAttributes<SidebarElement> & VariantProps<typeof 
 const SidebarBase = forwardRef<SidebarElement, SidebarProps>((props, ref) => {
   const { className, ...rest } = props
 
-  return <div className={cx(sidebarVariants({ className }))} ref={ref} {...rest} />
+  return <div ref={ref} className={cx(sidebarVariants({ className }))} {...rest} />
+})
+
+const SidebarContent = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>((props, ref) => {
+  const { className, ...rest } = props
+
+  return <div ref={ref} className={cx(sidebarContentVariants({ className }))} {...rest} />
+})
+
+const SidebarMenu = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>((props, ref) => {
+  const { className, ...rest } = props
+
+  return <div ref={ref} className={cx(sidebarMenuVariants({ className }))} {...rest} />
+})
+
+const SidebarHeading = forwardRef<SubheadingElement, SubheadingProps>((props, ref) => {
+  const { className, size = "sm", ...rest } = props
+
+  return (
+    <Subheading
+      ref={ref}
+      size={size}
+      className={cx(sidebarHeadingVariants({ className }))}
+      {...rest}
+    />
+  )
 })
 
 const SidebarSeparator = forwardRef<HTMLHRElement, HTMLAttributes<HTMLHRElement>>((props, ref) => {
   const { className, ...rest } = props
 
-  return <hr className={cx(sidebarSeparatorVariants({ className }))} ref={ref} {...rest} />
+  return <hr ref={ref} className={cx(sidebarSeparatorVariants({ className }))} {...rest} />
 })
 
 export const Sidebar = Object.assign(SidebarBase, {
+  Content: SidebarContent,
+  Menu: SidebarMenu,
+  Heading: SidebarHeading,
   Separator: SidebarSeparator,
 })
 
