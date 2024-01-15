@@ -1,3 +1,4 @@
+import { getInitials } from "@curiousleaf/utils"
 import * as Primitive from "@radix-ui/react-avatar"
 import { Slot } from "@radix-ui/react-slot"
 import { IconUser } from "@tabler/icons-react"
@@ -6,7 +7,7 @@ import type { ComponentPropsWithoutRef, ElementRef, ReactElement, RefObject } fr
 
 import { useTheme } from "~/providers"
 import { type VariantProps, cx } from "~/shared/cva"
-import { getInitials, isReactElement } from "~/shared/helpers"
+import { isReactElement } from "~/shared/helpers"
 import { Loader } from "~/ui/Loader"
 
 import {
