@@ -1,5 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react"
+import { IconChevronRight } from "@tabler/icons-react"
 
+import { Blurb } from "~/ui/Blurb"
 import { FeatureCard } from "~/ui/FeatureCard"
 import { default as FeatureCardDefault } from "~/ui/FeatureCard/FeatureCard.stories"
 
@@ -11,18 +13,45 @@ type Story = StoryObj<typeof Sidebar>
 export default {
   title: "UI/Sidebar",
   component: Sidebar,
+  parameters: {
+    layout: "fullscreen",
+  },
   args: {
     ...Sidebar.defaultProps,
     children: (
       <>
-        Witam
+        <Blurb
+          avatar={{
+            src: "https://uilogos.co/img/logomark/earth.png",
+            theme: "green",
+            size: "lg",
+          }}
+          title="Synergy"
+          description="Finance & Banking"
+        />
+
         <Sidebar.Separator />
+
         <div className="flex-1" />
-        <FeatureCard theme="gray" variant="outline" closer>
+
+        <FeatureCard theme="gray" closer>
           {FeatureCardDefault.args.children}
         </FeatureCard>
+
         <Sidebar.Separator />
-        Żegnam
+
+        <Blurb
+          avatar={{
+            src: "https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=250&h=250&auto=format&fit=crop",
+            size: "lg",
+          }}
+          title="John Doe"
+          description="Software Engineer"
+        >
+          <button className="ml-2 rounded border p-0.5 text-xs">
+            <IconChevronRight />
+          </button>
+        </Blurb>
       </>
     ),
   },
