@@ -32,7 +32,15 @@ export default {
 
         <Sidebar.Separator />
 
-        <div className="flex-1" />
+        <Sidebar.Content>
+          <Sidebar.Menu>
+            <Sidebar.Heading>Main</Sidebar.Heading>
+          </Sidebar.Menu>
+
+          <Sidebar.Menu>
+            <Sidebar.Heading>Other</Sidebar.Heading>
+          </Sidebar.Menu>
+        </Sidebar.Content>
 
         <FeatureCard theme="gray" closer>
           {FeatureCardDefault.args.children}

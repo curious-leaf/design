@@ -28,6 +28,18 @@ export const sidebarVariants = cva({
   },
 })
 
+export const sidebarContentVariants = cva({
+  base: "flex flex-col gap-y-5 flex-1",
+})
+
+export const sidebarMenuVariants = cva({
+  base: "flex flex-col gap-y-1.5",
+})
+
+export const sidebarHeadingVariants = cva({
+  base: "p-1 opacity-40",
+})
+
 export const sidebarSeparatorVariants = cva({
   base: "-mx-5",
 })
