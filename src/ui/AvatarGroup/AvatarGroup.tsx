@@ -35,13 +35,6 @@ export type AvatarGroupProps = HTMLAttributes<AvatarGroupElement> &
     previousOnTop?: boolean
   }
 
-type AvatarGroupLabelProps = ComponentPropsWithoutRef<typeof Avatar> & {
-  /**
-   * The label to display.
-   */
-  label?: ReactNode
-}
-
 export const AvatarGroupRoot = forwardRef<AvatarGroupElement, AvatarGroupProps>((props, ref) => {
   const { children, className, size, ...rest } = props
 
@@ -51,6 +44,13 @@ export const AvatarGroupRoot = forwardRef<AvatarGroupElement, AvatarGroupProps>(
     </div>
   )
 })
+
+type AvatarGroupLabelProps = ComponentPropsWithoutRef<typeof Avatar> & {
+  /**
+   * The label to display.
+   */
+  label?: ReactNode
+}
 
 const AvatarGroupLabel = forwardRef<AvatarElement, AvatarGroupLabelProps>(
   ({ children, className, label, ...rest }, ref) => {
