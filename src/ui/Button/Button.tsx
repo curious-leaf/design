@@ -23,7 +23,7 @@ export type ButtonProps = Omit<ButtonHTMLAttributes<ButtonElement>, "size" | "pr
     /**
      * If set to `true`, the button will be rendered in the loading state.
      */
-    isLoading?: boolean
+    loading?: boolean
 
     /**
      * The slot to be rendered before the label.
@@ -42,7 +42,7 @@ export const Button = forwardRef<ButtonElement, ButtonProps>((props, ref) => {
     className,
     disabled,
     asChild,
-    isLoading,
+    loading,
     prefix,
     suffix,
     theme: propTheme,
@@ -67,7 +67,7 @@ export const Button = forwardRef<ButtonElement, ButtonProps>((props, ref) => {
 
   return (
     <Component
-      disabled={disabled ?? isLoading}
+      disabled={disabled ?? loading}
       className={cx(buttonVariants({ theme, variant, size, shape, className }))}
       ref={ref}
       {...rest}
@@ -75,15 +75,13 @@ export const Button = forwardRef<ButtonElement, ButtonProps>((props, ref) => {
       <Slottable child={children} asChild={asChild}>
         {(child) => (
           <>
-            <div className={cx("contents", isLoading && "text-transparent")}>
+            <div className={cx("contents", loading && "text-transparent")}>
               {prefix && renderAffix(prefix)}
-
               {!isChildrenEmpty(child) && <span className="truncate">{child}</span>}
-
               {suffix && renderAffix(suffix)}
             </div>
 
-            {!!isLoading && <Loader className="absolute" />}
+            {!!loading && <Loader className="absolute" />}
           </>
         )}
       </Slottable>

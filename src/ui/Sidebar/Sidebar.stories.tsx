@@ -1,13 +1,73 @@
 import type { Meta, StoryObj } from "@storybook/react"
-import { IconChevronRight } from "@tabler/icons-react"
+import {
+  IconChevronRight,
+  IconCoins,
+  IconCreditCard,
+  IconHeadset,
+  IconHistory,
+  IconReceiptDollar,
+  IconSettings,
+  IconTable,
+  IconWorldDollar,
+} from "@tabler/icons-react"
 
+import { Badge } from "~/ui/Badge"
 import { Blurb } from "~/ui/Blurb"
 import { FeatureCard } from "~/ui/FeatureCard"
 import { default as FeatureCardDefault } from "~/ui/FeatureCard/FeatureCard.stories"
+import { MenuItem } from "~/ui/MenuItem"
 
 import { Sidebar } from "./Sidebar"
 
 type Story = StoryObj<typeof Sidebar>
+
+const menus = {
+  Main: [
+    {
+      children: "Dashboard",
+      prefix: <IconTable />,
+      active: true,
+    },
+    {
+      children: "My Cards",
+      prefix: <IconCreditCard />,
+    },
+    {
+      children: "Transfer",
+      prefix: <IconCoins />,
+    },
+    {
+      children: "Transactions",
+      prefix: <IconHistory />,
+    },
+    {
+      children: "Payments",
+      prefix: <IconReceiptDollar />,
+    },
+    {
+      children: "Exchange",
+      prefix: <IconWorldDollar />,
+      suffix: (
+        <Badge theme="gray" variant="soft">
+          Soon
+        </Badge>
+      ),
+      disabled: true,
+    },
+  ],
+
+  Other: [
+    {
+      children: "Settings",
+      prefix: <IconSettings />,
+    },
+    {
+      children: "Support",
+      prefix: <IconHeadset />,
+      loading: true,
+    },
+  ],
+}
 
 // Meta
 export default {
@@ -33,13 +93,15 @@ export default {
         <Sidebar.Separator />
 
         <Sidebar.Content>
-          <Sidebar.Menu>
-            <Sidebar.Heading>Main</Sidebar.Heading>
-          </Sidebar.Menu>
+          {Object.entries(menus).map(([label, items], i) => (
+            <Sidebar.Menu key={i}>
+              <Sidebar.Heading>{label}</Sidebar.Heading>
 
-          <Sidebar.Menu>
-            <Sidebar.Heading>Other</Sidebar.Heading>
-          </Sidebar.Menu>
+              {items.map((item, j) => (
+                <MenuItem key={j} {...item} />
+              ))}
+            </Sidebar.Menu>
+          ))}
         </Sidebar.Content>
 
         <FeatureCard theme="gray" closer>
