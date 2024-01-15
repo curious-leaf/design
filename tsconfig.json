@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "target": "es5",
+    "rootDir": "src",
     "outDir": "dist",
     "lib": [
       "dom",
@@ -8,6 +9,7 @@
       "esnext"
     ],
     "declaration": true,
+    "declarationMap": true,
     "declarationDir": "dist",
     "allowJs": true,
     "skipLibCheck": true,
