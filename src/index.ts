@@ -14,7 +14,6 @@ export * from "./ui/MenuItem"
 export * from "./ui/ProgressBar"
 export * from "./ui/ProgressRing"
 export * from "./ui/Shortcut"
-export * from "./ui/Sidebar"
 export * from "./ui/Status"
 
 // Typography
@@ -22,6 +21,10 @@ export * from "./typography/Heading"
 export * from "./typography/Paragraph"
 export * from "./typography/Prose"
 export * from "./typography/Subheading"
+
+// Layout
+export * from "./layout/Container"
+export * from "./layout/Sidebar"
 
 // Utils
 export * from "./utils/Slottable"

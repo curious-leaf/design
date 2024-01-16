@@ -45,7 +45,7 @@ export const AsChild = {
 
 export const WithCustomMarkup = {
   args: {
-    closer: false,
+    closer: undefined,
   },
 
   render: (props) => (

@@ -18,11 +18,22 @@ export type FeatureCardProps = HTMLAttributes<FeatureCardElement> &
      * This child component must be a valid React component.
      */
     asChild?: boolean
+  }
 
+export type FeatureCardBaseProps = FeatureCardProps & {
+  /**
+   * If set to `true`, it'll render a closer button.
+   */
+  closer?: boolean
+}
+
+type FeatureCardCloserProps = ButtonHTMLAttributes<HTMLButtonElement> &
+  VariantProps<typeof featureCardCloserVariants> & {
     /**
-     * If set to `true`, it'll render a closer button.
+     * If set to `true`, the button will be rendered as a child within the component.
+     * This child component must be a valid React component.
      */
-    closer?: boolean
+    asChild?: boolean
   }
 
 const FeatureCardRoot = forwardRef<FeatureCardElement, FeatureCardProps>((props, ref) => {
@@ -43,15 +54,6 @@ const FeatureCardRoot = forwardRef<FeatureCardElement, FeatureCardProps>((props,
   )
 })
 
-type FeatureCardCloserProps = ButtonHTMLAttributes<HTMLButtonElement> &
-  VariantProps<typeof featureCardCloserVariants> & {
-    /**
-     * If set to `true`, the button will be rendered as a child within the component.
-     * This child component must be a valid React component.
-     */
-    asChild?: boolean
-  }
-
 const FeatureCardCloser = forwardRef<HTMLButtonElement, FeatureCardCloserProps>((props, ref) => {
   const { children, className, asChild, ...rest } = props
 
@@ -65,22 +67,24 @@ const FeatureCardCloser = forwardRef<HTMLButtonElement, FeatureCardCloserProps>(
   )
 })
 
-export const FeatureCardBase = forwardRef<FeatureCardElement, FeatureCardProps>((props, ref) => {
-  const { children, asChild, closer, ...rest } = props
+export const FeatureCardBase = forwardRef<FeatureCardElement, FeatureCardBaseProps>(
+  (props, ref) => {
+    const { children, asChild, closer, ...rest } = props
 
-  return (
-    <FeatureCardRoot ref={ref} asChild={asChild} {...rest}>
-      <Slottable child={children} asChild={asChild}>
-        {(child) => (
-          <>
-            {child}
-            {closer && <FeatureCardCloser />}
-          </>
-        )}
-      </Slottable>
-    </FeatureCardRoot>
-  )
-})
+    return (
+      <FeatureCardRoot ref={ref} asChild={asChild} {...rest}>
+        <Slottable child={children} asChild={asChild}>
+          {(child) => (
+            <>
+              {child}
+              {closer && <FeatureCardCloser />}
+            </>
+          )}
+        </Slottable>
+      </FeatureCardRoot>
+    )
+  },
+)
 
 export const FeatureCard = Object.assign(FeatureCardBase, {
   Root: FeatureCardRoot,

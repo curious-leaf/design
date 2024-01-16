@@ -73,7 +73,7 @@ const menus = {
 
 // Meta
 export default {
-  title: "UI/Sidebar",
+  title: "Layout/Sidebar",
   component: Sidebar,
   parameters: {
     layout: "fullscreen",

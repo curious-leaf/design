@@ -1,19 +1,23 @@
 import { cva } from "~/shared/cva"
 
 export const avatarVariants = cva({
-  base: "relative flex items-center justify-center shrink-0 bg-gradient-to-b w-auto",
+  base: "relative flex items-center justify-center shrink-0 w-auto",
 
   variants: {
     theme: {
-      blue: "from-blue-lighter to-blue-light text-blue-darker",
-      orange: "from-orange-lighter to-orange-light text-orange-darker",
-      yellow: "from-yellow-lighter to-yellow-light text-yellow-darker",
-      red: "from-red-lighter to-red-light text-red-darker",
-      green: "from-green-lighter to-green-light text-green-darker",
-      purple: "from-purple-lighter to-purple-light text-purple-darker",
-      pink: "from-pink-lighter to-pink-light text-pink-darker",
-      teal: "from-teal-lighter to-teal-light text-teal-darker",
+      blue: "from-blue-lighter to-blue-light text-blue-dark",
+      orange: "from-orange-lighter to-orange-light text-orange-dark",
+      yellow: "from-yellow-lighter to-yellow-light text-yellow-dark",
+      red: "from-red-lighter to-red-light text-red-dark",
+      green: "from-green-lighter to-green-light text-green-dark",
+      purple: "from-purple-lighter to-purple-light text-purple-dark",
+      pink: "from-pink-lighter to-pink-light text-pink-dark",
+      teal: "from-teal-lighter to-teal-light text-teal-dark",
       gray: "from-gray-100 to-gray-200 text-gray-700",
+    },
+    variant: {
+      soft: "bg-gradient-to-b",
+      outline: "border border-gray-200",
     },
     size: {
       xs: "h-4 min-w-4 text-2xs",
@@ -30,6 +34,7 @@ export const avatarVariants = cva({
 
   defaultVariants: {
     theme: "gray",
+    variant: "soft",
     size: "md",
     shape: "circle",
   },
