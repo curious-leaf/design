@@ -41,5 +41,9 @@ export const sidebarHeadingVariants = cva({
 })
 
 export const sidebarSeparatorVariants = cva({
-  base: "-mx-5",
+  variants: {
+    fullWidth: {
+      true: "-mx-5",
+    },
+  },
 })

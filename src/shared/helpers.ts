@@ -20,3 +20,17 @@ export const isChildrenEmpty = (children: ReactNode) => {
 export const isReactElement = (element: React.ReactNode): element is React.ReactElement => {
   return isValidElement(element)
 }
+
+/**
+ * Cleans the given percentage value by ensuring it is within the range of 0 to 100.
+ * If the percentage is less than 0, it is set to 0.
+ * If the percentage is greater than 100, it is set to 100.
+ *
+ * @param percentage - The percentage value to be cleaned.
+ * @returns The cleaned percentage value.
+ */
+export const cleanPercentage = (percentage: number) => {
+  const tooLow = !Number.isFinite(+percentage) || percentage < 0
+  const tooHigh = percentage > 100
+  return tooLow ? 0 : tooHigh ? 100 : +percentage
+}

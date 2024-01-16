@@ -11,9 +11,14 @@ export const paragraphVariants = cva({
       lg: "text-lg -tracking-1.5",
       xl: "text-xl -tracking-1.5",
     },
+    variant: {
+      regular: "font-normal",
+      medium: "font-medium",
+    },
   },
 
   defaultVariants: {
     size: "md",
+    variant: "regular",
   },
 })

@@ -10,7 +10,7 @@ type Story = StoryObj<typeof FeatureCard>
 const Card = (
   <div className="flex flex-wrap items-center gap-x-2.5 gap-y-3">
     <IconHeadset />
-    <Paragraph className="font-medium">Need support?</Paragraph>
+    <Paragraph variant="medium">Need support?</Paragraph>
 
     <Paragraph size="sm" className="w-full opacity-60">
       Contact with one of our experts to get support.
