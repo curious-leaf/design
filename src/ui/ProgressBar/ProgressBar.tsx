@@ -4,6 +4,7 @@ import { type HTMLAttributes, forwardRef, isValidElement } from "react"
 import { useTheme } from "~/providers"
 import { cx, type VariantProps } from "~/shared/cva"
 import { cleanPercentage } from "~/shared/helpers"
+import type { ParagraphElement, ParagraphProps } from "~/typography/Paragraph"
 import { Paragraph } from "~/typography/Paragraph"
 
 import {
@@ -19,13 +20,17 @@ export type ProgressBarElement = HTMLDivElement
 export type ProgressBarProps = HTMLAttributes<ProgressBarElement> &
   VariantProps<typeof progressBarVariants>
 
-export type ProgressBarBaseProps = ProgressBarProps &
+export type ProgressBarBarProps = ProgressBarProps &
+  VariantProps<typeof progressBarLineVariants> &
   VariantProps<typeof progressBarProgressVariants> & {
     /**
      * The percentage of the progress bar.
      */
     percent: number
+  }
 
+export type ProgressBarBaseProps = ProgressBarProps &
+  ProgressBarBarProps & {
     /**
      * The label of the progress bar.
      */
@@ -42,43 +47,70 @@ const ProgressBarRoot = forwardRef<ProgressBarElement, ProgressBarProps>((props,
   return <div ref={ref} className={progressBarVariants({ className })} {...rest} />
 })
 
-const ProgressBarBase = forwardRef<ProgressBarElement, ProgressBarBaseProps>((props, ref) => {
-  const { children, percent, label, hint, theme: propTheme, ...rest } = props
+const ProgressBarBar = forwardRef<ProgressBarElement, ProgressBarBarProps>((props, ref) => {
+  const { className, percent, theme: propTheme, ...rest } = props
 
   const globalTheme = useTheme()
   const theme = propTheme || globalTheme
-
   const percentage = cleanPercentage(percent)
+
+  return (
+    <div ref={ref} className={progressBarLineVariants({ className })} {...rest}>
+      <div
+        className={cx(progressBarProgressVariants({ theme }))}
+        style={{ width: `${percentage}%` }}
+      />
+    </div>
+  )
+})
+
+const ProgressBarLabel = forwardRef<ParagraphElement, ParagraphProps>((props, ref) => {
+  const { className, size = "sm", variant = "medium", ...rest } = props
+
+  return (
+    <Paragraph
+      ref={ref}
+      size={size}
+      variant={variant}
+      className={cx(progressBarLabelVariants({ className }))}
+      {...rest}
+    />
+  )
+})
+
+const ProgressBarHint = forwardRef<ParagraphElement, ParagraphProps>((props, ref) => {
+  const { className, size = "xs", ...rest } = props
+
+  return (
+    <Paragraph
+      ref={ref}
+      size={size}
+      className={cx(progressBarHintVariants({ className }))}
+      {...rest}
+    />
+  )
+})
+
+const ProgressBarBase = forwardRef<ProgressBarElement, ProgressBarBaseProps>((props, ref) => {
+  const { children, percent, label, hint, theme, ...rest } = props
   const Component = isValidElement(children) ? Slot : "div"
 
   return (
     <ProgressBarRoot ref={ref} {...rest}>
-      {label && (
-        <Paragraph size="sm" variant="medium" className={cx(progressBarLabelVariants())}>
-          {label}
-        </Paragraph>
-      )}
+      {label && <ProgressBarLabel>{label}</ProgressBarLabel>}
+      <ProgressBarBar percent={percent} theme={theme} />
+      {hint && <ProgressBarHint>{hint}</ProgressBarHint>}
 
-      <div className={cx(progressBarLineVariants({ withLabel: !!label }))}>
-        <div
-          className={cx(progressBarProgressVariants({ theme }))}
-          style={{ width: `${percentage}%` }}
-        />
-      </div>
-
-      {hint && (
-        <Paragraph size="xs" className={cx(progressBarHintVariants({ withLabel: !!label }))}>
-          {hint}
-        </Paragraph>
-      )}
-
-      <Component className="order-last w-full">{children}</Component>
+      {children && <Component className="order-last w-full">{children}</Component>}
     </ProgressBarRoot>
   )
 })
 
 export const ProgressBar = Object.assign(ProgressBarBase, {
   Root: ProgressBarRoot,
+  Bar: ProgressBarBar,
+  Label: ProgressBarLabel,
+  Hint: ProgressBarHint,
 })
 
 ProgressBar.defaultProps = {

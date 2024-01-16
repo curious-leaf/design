@@ -5,14 +5,7 @@ export const progressBarVariants = cva({
 })
 
 export const progressBarLineVariants = cva({
-  base: "h-1.5 rounded-full bg-gray-200 order-2",
-
-  variants: {
-    withLabel: {
-      true: "w-full",
-      false: "flex-1",
-    },
-  },
+  base: "h-1.5 rounded-full bg-gray-200 flex-1 [p+&]:w-full [p+&]:flex-none [p+&]:order-2",
 })
 
 export const progressBarProgressVariants = cva({
@@ -42,12 +35,5 @@ export const progressBarLabelVariants = cva({
 })
 
 export const progressBarHintVariants = cva({
-  base: "opacity-60",
-
-  variants: {
-    withLabel: {
-      true: "order-1",
-      false: "order-3",
-    },
-  },
+  base: "opacity-60 [p+&]:order-1",
 })

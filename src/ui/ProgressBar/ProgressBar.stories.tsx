@@ -56,3 +56,17 @@ export const WithChildren = {
     ),
   },
 } satisfies Story
+
+export const WithCustomMarkup = {
+  args: {
+    percent: 20,
+  },
+
+  render: ({ percent, theme, ...props }) => (
+    <ProgressBar.Root {...props}>
+      <ProgressBar.Bar percent={percent} theme={theme} className="w-full flex-none" />
+      <ProgressBar.Hint>20%</ProgressBar.Hint>
+      <ProgressBar.Label>Custom Markup</ProgressBar.Label>
+    </ProgressBar.Root>
+  ),
+} satisfies Story
