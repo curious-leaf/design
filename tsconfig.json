@@ -9,7 +9,7 @@
       "esnext"
     ],
     "declaration": true,
-    "declarationMap": true,
+    // "declarationMap": true,
     "declarationDir": "dist",
     "allowJs": true,
     "skipLibCheck": true,

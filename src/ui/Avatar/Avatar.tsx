@@ -50,14 +50,14 @@ export type AvatarProps = ComponentPropsWithoutRef<typeof Primitive.Image> &
 const AvatarRoot = forwardRef<
   ElementRef<typeof Primitive.Root>,
   ComponentPropsWithoutRef<typeof Primitive.Root> & VariantProps<typeof avatarVariants>
->(({ className, theme: propTheme, size, shape, ...props }, ref) => {
+>(({ className, theme: propTheme, variant, size, shape, ...props }, ref) => {
   const globalTheme = useTheme()
   const theme = propTheme || globalTheme
 
   return (
     <Primitive.Root
       ref={ref}
-      className={cx(avatarVariants({ theme, size, shape, className }))}
+      className={cx(avatarVariants({ theme, variant, size, shape, className }))}
       {...props}
     />
   )
@@ -91,11 +91,22 @@ const AvatarStatus = forwardRef<
 })
 
 const AvatarBase = forwardRef<AvatarElement, AvatarProps>((props, ref) => {
-  const { alt, children, initials, topStatus, bottomStatus, theme, size, shape, src, ...rest } =
-    props
+  const {
+    children,
+    initials,
+    topStatus,
+    bottomStatus,
+    theme,
+    variant,
+    size,
+    shape,
+    src,
+    alt,
+    ...rest
+  } = props
 
   return (
-    <AvatarRoot theme={theme} size={size} shape={shape} {...rest}>
+    <AvatarRoot theme={theme} variant={variant} size={size} shape={shape} {...rest}>
       {/* Show image if available */}
       {src && <AvatarImage ref={ref as RefObject<HTMLImageElement>} alt={alt} src={src} />}
 
@@ -149,6 +160,7 @@ export const Avatar = Object.assign(AvatarBase, {
 })
 
 Avatar.defaultProps = {
+  variant: "soft",
   size: "md",
   shape: "circle",
   asChild: false,

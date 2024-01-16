@@ -9,9 +9,9 @@ export const blurbContentVariants = cva({
 })
 
 export const blurbTitleVariants = cva({
-  base: "text-sm font-medium truncate",
+  base: "truncate",
 })
 
 export const blurbDescriptionVariants = cva({
-  base: "text-xs leading-tight opacity-60 truncate",
+  base: "opacity-60 truncate",
 })

@@ -13,7 +13,6 @@ export default {
     ...Blurb.defaultProps,
     avatar: {
       src: "https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=250&h=250&auto=format&fit=crop",
-      size: "lg",
     },
     title: "John Doe",
     description: "Software Engineer",
@@ -29,7 +28,6 @@ export const WithInitials = {
   args: {
     avatar: {
       initials: "John Doe",
-      size: "lg",
     },
   },
 } satisfies Story

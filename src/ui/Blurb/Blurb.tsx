@@ -3,6 +3,8 @@ import { forwardRef, isValidElement } from "react"
 import type { ComponentPropsWithoutRef } from "react"
 
 import { type VariantProps, cx } from "~/shared/cva"
+import type { ParagraphElement, ParagraphProps } from "~/typography/Paragraph"
+import { Paragraph } from "~/typography/Paragraph"
 import { Avatar, type AvatarElement, type AvatarProps } from "~/ui/Avatar"
 
 import {
@@ -14,7 +16,7 @@ import {
 
 export type BlurbElement = HTMLDivElement
 
-type BlurbRootProps = ComponentPropsWithoutRef<"div"> &
+type BlurbProps = ComponentPropsWithoutRef<"div"> &
   VariantProps<typeof blurbVariants> & {
     /**
      * If set to `true`, the button will be rendered as a child within the component.
@@ -23,7 +25,7 @@ type BlurbRootProps = ComponentPropsWithoutRef<"div"> &
     asChild?: boolean
   }
 
-export type BlurbProps = BlurbRootProps & {
+export type BlurbBaseProps = BlurbProps & {
   /**
    * Represents the avatar displayed on the Blurb.
    */
@@ -38,19 +40,22 @@ export type BlurbProps = BlurbRootProps & {
    * Represents the description displayed on the Blurb.
    */
   description?: string
+
+  /**
+   * Represents the size of the avatar and content displayed on the Blurb.
+   */
+  size?: "sm" | "md" | "lg"
 }
 
-const BlurbRoot = forwardRef<BlurbElement, BlurbRootProps>(
-  ({ className, asChild, ...props }, ref) => {
-    const useAsChild = asChild && isValidElement(props.children)
-    const Component = useAsChild ? Slot : "div"
+const BlurbRoot = forwardRef<BlurbElement, BlurbProps>(({ className, asChild, ...props }, ref) => {
+  const useAsChild = asChild && isValidElement(props.children)
+  const Component = useAsChild ? Slot : "div"
 
-    return <Component ref={ref} className={cx(blurbVariants({ className }))} {...props} />
-  },
-)
+  return <Component ref={ref} className={cx(blurbVariants({ className }))} {...props} />
+})
 
-const BlurbAvatar = forwardRef<AvatarElement, AvatarProps>(({ ...props }, ref) => {
-  return <Avatar ref={ref} {...props} />
+const BlurbAvatar = forwardRef<AvatarElement, AvatarProps>(({ size = "lg", ...props }, ref) => {
+  return <Avatar ref={ref} size={size} {...props} />
 })
 
 const BlurbContent = forwardRef<
@@ -61,46 +66,57 @@ const BlurbContent = forwardRef<
 })
 
 const BlurbTitle = forwardRef<
-  HTMLSpanElement,
-  ComponentPropsWithoutRef<"span"> & VariantProps<typeof blurbTitleVariants>
->(({ children, className, ...rest }, ref) => {
-  if (!children) {
+  ParagraphElement,
+  ParagraphProps & VariantProps<typeof blurbTitleVariants>
+>((props, ref) => {
+  const { className, size = "sm", ...rest } = props
+
+  if (!rest.children) {
     return null
   }
 
   return (
-    <span ref={ref} className={cx(blurbTitleVariants({ className }))} {...rest}>
-      {children}
-    </span>
+    <Paragraph
+      ref={ref}
+      size={size}
+      variant="medium"
+      className={cx(blurbTitleVariants({ className }))}
+      {...rest}
+    />
   )
 })
 
 const BlurbDescription = forwardRef<
-  HTMLSpanElement,
-  ComponentPropsWithoutRef<"span"> & VariantProps<typeof blurbDescriptionVariants>
->(({ children, className, ...rest }, ref) => {
-  if (!children) {
+  ParagraphElement,
+  ParagraphProps & VariantProps<typeof blurbDescriptionVariants>
+>((props, ref) => {
+  const { className, size = "xs", ...rest } = props
+
+  if (!rest.children) {
     return null
   }
 
   return (
-    <span ref={ref} className={cx(blurbDescriptionVariants({ className }))} {...rest}>
-      {children}
-    </span>
+    <Paragraph
+      ref={ref}
+      size={size}
+      className={cx(blurbDescriptionVariants({ className }))}
+      {...rest}
+    />
   )
 })
 
-const BlurbBase = forwardRef<BlurbElement, BlurbProps>((props, ref) => {
-  const { children, avatar, title, description, ...rest } = props
+const BlurbBase = forwardRef<BlurbElement, BlurbBaseProps>((props, ref) => {
+  const { children, avatar, title, description, size, ...rest } = props
 
   return (
     <BlurbRoot ref={ref} {...rest}>
-      {avatar && <BlurbAvatar {...avatar} />}
+      {avatar && <BlurbAvatar size={size === "sm" ? "lg" : "xl"} {...avatar} />}
 
       {(title || description) && (
         <BlurbContent>
-          <BlurbTitle>{title}</BlurbTitle>
-          <BlurbDescription>{description}</BlurbDescription>
+          <BlurbTitle size={size}>{title}</BlurbTitle>
+          <BlurbDescription size={size === "sm" ? "xs" : "sm"}>{description}</BlurbDescription>
         </BlurbContent>
       )}
 
@@ -125,8 +141,8 @@ export const Blurb = Object.assign(BlurbBase, {
 })
 
 Blurb.defaultProps = {
-  avatar: Avatar.defaultProps,
   title: "",
   description: "",
+  size: "sm",
   asChild: false,
 }
