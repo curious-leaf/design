@@ -16,6 +16,7 @@ import { Blurb } from "~/ui/Blurb"
 import { FeatureCard } from "~/ui/FeatureCard"
 import { default as FeatureCardDefault } from "~/ui/FeatureCard/FeatureCard.stories"
 import { MenuItem } from "~/ui/MenuItem"
+import { Shortcut } from "~/ui/Shortcut"
 
 import { Sidebar } from "./Sidebar"
 
@@ -60,6 +61,7 @@ const menus = {
     {
       children: "Settings",
       prefix: <IconSettings />,
+      suffix: <Shortcut>⌘K</Shortcut>,
     },
     {
       children: "Support",

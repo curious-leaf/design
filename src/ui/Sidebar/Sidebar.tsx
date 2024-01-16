@@ -48,10 +48,15 @@ const SidebarHeading = forwardRef<SubheadingElement, SubheadingProps>((props, re
   )
 })
 
-const SidebarSeparator = forwardRef<HTMLHRElement, HTMLAttributes<HTMLHRElement>>((props, ref) => {
-  const { className, ...rest } = props
+const SidebarSeparator = forwardRef<
+  HTMLHRElement,
+  HTMLAttributes<HTMLHRElement> & VariantProps<typeof sidebarSeparatorVariants>
+>((props, ref) => {
+  const { className, fullWidth, ...rest } = props
 
-  return <hr ref={ref} className={cx(sidebarSeparatorVariants({ className }))} {...rest} />
+  return (
+    <hr ref={ref} className={cx(sidebarSeparatorVariants({ fullWidth, className }))} {...rest} />
+  )
 })
 
 export const Sidebar = Object.assign(SidebarBase, {
