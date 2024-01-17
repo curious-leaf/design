@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react"
-import { IconPointFilled } from "@tabler/icons-react"
+import { DotIcon } from "lucide-react"
 
 import { Status } from "./Status"
 
@@ -18,7 +18,7 @@ export default {
 // Stories
 export const Default = {
   args: {
-    prefix: <IconPointFilled />,
+    prefix: <DotIcon />,
   },
 } satisfies Story
 

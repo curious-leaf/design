@@ -235,7 +235,7 @@ export const buttonVariants = cva({
     {
       theme: "gray",
       variant: "outline",
-      class: "border-gray-200 text-gray-500 hover:bg-gray-100 hover:border-gray-300",
+      class: "border-gray-300 text-gray-500 hover:bg-gray-100 hover:border-gray-300",
     },
     {
       theme: "gray",

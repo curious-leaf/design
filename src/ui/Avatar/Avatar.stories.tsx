@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react"
-import { IconDiscountCheckFilled, IconUsers } from "@tabler/icons-react"
+import { UsersIcon, BadgeCheckIcon } from "lucide-react"
 
 import { Dot } from "~/ui/Dot"
 
@@ -35,14 +35,14 @@ export const WithFallback = {
 
 export const WithChildrenFallback = {
   args: {
-    children: <IconUsers />,
+    children: <UsersIcon />,
   },
 } satisfies Story
 
 export const WithTopStatus = {
   args: {
     src: "https://i.pravatar.cc/150?img=1",
-    topStatus: <IconDiscountCheckFilled className="-m-[7.5%] bg-white text-teal" />,
+    topStatus: <BadgeCheckIcon className="-m-[7.5%] bg-white text-teal" />,
   },
 } satisfies Story
 
@@ -59,7 +59,7 @@ export const WithCustomMarkup = {
       <Avatar.Image src="https://i.pravatar.cc/150?img=5" />
       <Avatar.Fallback />
       <Avatar.Status className="-m-2 bg-white text-teal ring-0">
-        <IconDiscountCheckFilled />
+        <BadgeCheckIcon />
       </Avatar.Status>
     </Avatar.Root>
   ),

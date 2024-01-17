@@ -1,5 +1,5 @@
 import { Slot } from "@radix-ui/react-slot"
-import { IconChevronRight } from "@tabler/icons-react"
+import { ChevronRightIcon } from "lucide-react"
 import { forwardRef, isValidElement } from "react"
 import type { ReactElement, ButtonHTMLAttributes } from "react"
 
@@ -58,7 +58,7 @@ export const MenuItem = forwardRef<MenuItemElement, MenuItemProps>((props, ref) 
   const suffix = loading ? (
     <Loader className="text-xs" />
   ) : active ? (
-    <IconChevronRight className="text-xs" />
+    <ChevronRightIcon className="text-xs" />
   ) : (
     propSuffix
   )

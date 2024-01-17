@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react"
-import { IconBolt } from "@tabler/icons-react"
+import { AppleIcon } from "lucide-react"
 
 import { Badge } from "./Badge"
 
@@ -29,12 +29,12 @@ export const AsChild = {
 
 export const WithPrefix = {
   args: {
-    prefix: <IconBolt />,
+    prefix: <AppleIcon />,
   },
 } satisfies Story
 
 export const WithSuffix = {
   args: {
-    suffix: <IconBolt />,
+    suffix: <AppleIcon />,
   },
 } satisfies Story

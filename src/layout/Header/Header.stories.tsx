@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react"
-import { IconBellRinging, IconCalendar, IconPlus, IconSearch, IconTable } from "@tabler/icons-react"
+import { BellRing, Calendar, Plus, Search, Table } from "lucide-react"
 
 import { Button } from "~/ui/Button"
 
@@ -18,7 +18,7 @@ export default {
     ...Header.defaultProps,
     size: "lg",
     avatar: {
-      children: <IconTable />,
+      children: <Table />,
       variant: "outline",
       theme: "gray",
     },
@@ -26,12 +26,12 @@ export default {
     description: "Insert page description here",
     children: (
       <div className="flex items-center gap-3">
-        <Button theme="gray" variant="ghost" prefix={<IconSearch />} />
-        <Button theme="gray" variant="ghost" prefix={<IconBellRinging />} />
-        <Button theme="gray" variant="outline" prefix={<IconCalendar />}>
+        <Button theme="gray" variant="ghost" prefix={<Search />} />
+        <Button theme="gray" variant="ghost" prefix={<BellRing />} />
+        <Button theme="gray" variant="outline" prefix={<Calendar />}>
           Schedule
         </Button>
-        <Button prefix={<IconPlus />}>Create Request</Button>
+        <Button prefix={<Plus />}>Create Request</Button>
       </div>
     ),
   },

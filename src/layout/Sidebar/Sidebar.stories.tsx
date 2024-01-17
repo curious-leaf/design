@@ -1,15 +1,15 @@
 import type { Meta, StoryObj } from "@storybook/react"
 import {
-  IconChevronRight,
-  IconCoins,
-  IconCreditCard,
-  IconHeadset,
-  IconHistory,
-  IconReceiptDollar,
-  IconSettings,
-  IconTable,
-  IconWorldDollar,
-} from "@tabler/icons-react"
+  Settings,
+  ChevronRight,
+  WalletCardsIcon,
+  CoinsIcon,
+  CreditCardIcon,
+  HistoryIcon,
+  Rotate3DIcon,
+  HeadphonesIcon,
+  LayoutDashboardIcon,
+} from "lucide-react"
 
 import { Badge } from "~/ui/Badge"
 import { Blurb } from "~/ui/Blurb"
@@ -26,28 +26,28 @@ const menus = {
   Main: [
     {
       children: "Dashboard",
-      prefix: <IconTable />,
+      prefix: <LayoutDashboardIcon />,
       active: true,
     },
     {
       children: "My Cards",
-      prefix: <IconCreditCard />,
+      prefix: <CreditCardIcon />,
     },
     {
       children: "Transfer",
-      prefix: <IconCoins />,
+      prefix: <CoinsIcon />,
     },
     {
       children: "Transactions",
-      prefix: <IconHistory />,
+      prefix: <HistoryIcon />,
     },
     {
       children: "Payments",
-      prefix: <IconReceiptDollar />,
+      prefix: <WalletCardsIcon />,
     },
     {
       children: "Exchange",
-      prefix: <IconWorldDollar />,
+      prefix: <Rotate3DIcon />,
       suffix: (
         <Badge theme="gray" variant="soft">
           Soon
@@ -60,12 +60,12 @@ const menus = {
   Other: [
     {
       children: "Settings",
-      prefix: <IconSettings />,
+      prefix: <Settings />,
       suffix: <Shortcut>⌘K</Shortcut>,
     },
     {
       children: "Support",
-      prefix: <IconHeadset />,
+      prefix: <HeadphonesIcon />,
       loading: true,
     },
   ],
@@ -121,7 +121,7 @@ export default {
           description="Software Engineer"
         >
           <button className="ml-2 rounded border p-0.5 text-xs">
-            <IconChevronRight />
+            <ChevronRight />
           </button>
         </Blurb>
       </>

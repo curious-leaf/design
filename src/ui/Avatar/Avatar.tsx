@@ -1,7 +1,7 @@
 import { getInitials } from "@curiousleaf/utils"
 import * as Primitive from "@radix-ui/react-avatar"
 import { Slot } from "@radix-ui/react-slot"
-import { IconUser } from "@tabler/icons-react"
+import { UserIcon } from "lucide-react"
 import { forwardRef, isValidElement } from "react"
 import type { ComponentPropsWithoutRef, ElementRef, ReactElement, RefObject } from "react"
 
@@ -135,7 +135,7 @@ const AvatarBase = forwardRef<AvatarElement, AvatarProps>((props, ref) => {
       {/* Fallback */}
       {!children && !src && !initials && (
         <AvatarFallback ref={ref} aria-label={alt} role="img">
-          <IconUser />
+          <UserIcon />
         </AvatarFallback>
       )}
 

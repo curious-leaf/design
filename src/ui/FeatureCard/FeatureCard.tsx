@@ -1,5 +1,5 @@
 import { Slot } from "@radix-ui/react-slot"
-import { IconX } from "@tabler/icons-react"
+import { XIcon } from "lucide-react"
 import { forwardRef, isValidElement } from "react"
 import type { ButtonHTMLAttributes, HTMLAttributes } from "react"
 
@@ -62,7 +62,7 @@ const FeatureCardCloser = forwardRef<HTMLButtonElement, FeatureCardCloserProps>(
 
   return (
     <Component ref={ref} className={cx(featureCardCloserVariants({ className }))} {...rest}>
-      {useAsChild ? children : <IconX />}
+      {useAsChild ? children : <XIcon />}
     </Component>
   )
 })
