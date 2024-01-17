@@ -36,7 +36,7 @@ export const buttonVariants = cva({
       lg: "text-sm gap-4 py-3 px-5",
     },
     shape: {
-      rounded: "rounded-md",
+      rounded: "rounded-lg",
       pill: "rounded-full",
     },
   },
@@ -235,7 +235,7 @@ export const buttonVariants = cva({
     {
       theme: "gray",
       variant: "outline",
-      class: "border-gray-300 text-gray-500 hover:bg-gray-100 hover:border-gray-500",
+      class: "border-gray-200 text-gray-500 hover:bg-gray-100 hover:border-gray-300",
     },
     {
       theme: "gray",
