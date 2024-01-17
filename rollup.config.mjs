@@ -1,7 +1,7 @@
-import { babel } from "@rollup/plugin-babel"
+// import { babel } from "@rollup/plugin-babel"
 import commonjs from "@rollup/plugin-commonjs"
 import { nodeResolve } from "@rollup/plugin-node-resolve"
-import terser from "@rollup/plugin-terser"
+// import terser from "@rollup/plugin-terser"
 import typescript from "@rollup/plugin-typescript"
 import { createRequire } from "node:module"
 import { dts } from "rollup-plugin-dts"
@@ -31,7 +31,7 @@ export default [
       {
         file: packageJson.module,
         format: "esm",
-        exports: "named",
+        // exports: "named",
         sourcemap: true,
       },
     ],
@@ -40,12 +40,12 @@ export default [
       typescript(),
       nodeResolve(),
       commonjs(),
-      terser(),
-      babel({
-        babelHelpers: "bundled",
-        extensions: [".ts", ".tsx"],
-        exclude: "node_modules/**",
-      }),
+      // terser(),
+      // babel({
+      //   babelHelpers: "bundled",
+      //   extensions: [".ts", ".tsx"],
+      //   exclude: "node_modules/**",
+      // }),
     ],
     external: ["react", "react-dom"],
   },

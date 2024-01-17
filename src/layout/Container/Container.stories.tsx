@@ -9,7 +9,7 @@ export default {
   title: "Layout/Container",
   component: Container,
   parameters: {
-    layout: "fullscreen",
+    layout: "padded",
   },
   args: {
     ...Container.defaultProps,

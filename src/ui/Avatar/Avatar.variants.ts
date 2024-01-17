@@ -13,7 +13,7 @@ export const avatarVariants = cva({
       purple: "from-purple-lighter to-purple-light text-purple-dark",
       pink: "from-pink-lighter to-pink-light text-pink-dark",
       teal: "from-teal-lighter to-teal-light text-teal-dark",
-      gray: "from-gray-100 to-gray-200 text-gray-700",
+      gray: "from-gray-100 to-gray-200 text-gray-600",
     },
     variant: {
       soft: "bg-gradient-to-b",
@@ -60,5 +60,5 @@ export const avatarImageVariants = cva({
 })
 
 export const avatarFallbackVariants = cva({
-  base: "font-medium whitespace-nowrap rounded-[inherit]",
+  base: "font-medium whitespace-nowrap",
 })

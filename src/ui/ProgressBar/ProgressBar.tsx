@@ -17,19 +17,10 @@ import {
 
 export type ProgressBarElement = HTMLDivElement
 
-export type ProgressBarProps = HTMLAttributes<ProgressBarElement> &
+export type ProgressBarRootProps = HTMLAttributes<ProgressBarElement> &
   VariantProps<typeof progressBarVariants>
 
-export type ProgressBarBarProps = ProgressBarProps &
-  VariantProps<typeof progressBarLineVariants> &
-  VariantProps<typeof progressBarProgressVariants> & {
-    /**
-     * The percentage of the progress bar.
-     */
-    percent: number
-  }
-
-export type ProgressBarBaseProps = ProgressBarProps &
+export type ProgressBarProps = ProgressBarRootProps &
   ProgressBarBarProps & {
     /**
      * The label of the progress bar.
@@ -42,7 +33,16 @@ export type ProgressBarBaseProps = ProgressBarProps &
     hint?: string
   }
 
-const ProgressBarRoot = forwardRef<ProgressBarElement, ProgressBarProps>((props, ref) => {
+export type ProgressBarBarProps = HTMLAttributes<ProgressBarElement> &
+  VariantProps<typeof progressBarLineVariants> &
+  VariantProps<typeof progressBarProgressVariants> & {
+    /**
+     * The percentage of the progress bar.
+     */
+    percent: number
+  }
+
+const ProgressBarRoot = forwardRef<ProgressBarElement, ProgressBarRootProps>((props, ref) => {
   const { className, ...rest } = props
   return <div ref={ref} className={progressBarVariants({ className })} {...rest} />
 })
@@ -91,7 +91,7 @@ const ProgressBarHint = forwardRef<ParagraphElement, ParagraphProps>((props, ref
   )
 })
 
-const ProgressBarBase = forwardRef<ProgressBarElement, ProgressBarBaseProps>((props, ref) => {
+const ProgressBarBase = forwardRef<ProgressBarElement, ProgressBarProps>((props, ref) => {
   const { children, percent, label, hint, theme, ...rest } = props
   const Component = isValidElement(children) ? Slot : "div"
 

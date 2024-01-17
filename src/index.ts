@@ -24,6 +24,7 @@ export * from "./typography/Subheading"
 
 // Layout
 export * from "./layout/Container"
+export * from "./layout/Header"
 export * from "./layout/Sidebar"
 
 // Utils
