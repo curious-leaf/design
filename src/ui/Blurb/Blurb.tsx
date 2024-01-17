@@ -16,7 +16,7 @@ import {
 
 export type BlurbElement = HTMLDivElement
 
-type BlurbProps = ComponentPropsWithoutRef<"div"> &
+type BlurbRootProps = ComponentPropsWithoutRef<"div"> &
   VariantProps<typeof blurbVariants> & {
     /**
      * If set to `true`, the button will be rendered as a child within the component.
@@ -25,7 +25,7 @@ type BlurbProps = ComponentPropsWithoutRef<"div"> &
     asChild?: boolean
   }
 
-export type BlurbBaseProps = BlurbProps & {
+export type BlurbProps = BlurbRootProps & {
   /**
    * Represents the avatar displayed on the Blurb.
    */
@@ -47,12 +47,14 @@ export type BlurbBaseProps = BlurbProps & {
   size?: "sm" | "md" | "lg"
 }
 
-const BlurbRoot = forwardRef<BlurbElement, BlurbProps>(({ className, asChild, ...props }, ref) => {
-  const useAsChild = asChild && isValidElement(props.children)
-  const Component = useAsChild ? Slot : "div"
+const BlurbRoot = forwardRef<BlurbElement, BlurbRootProps>(
+  ({ className, asChild, ...props }, ref) => {
+    const useAsChild = asChild && isValidElement(props.children)
+    const Component = useAsChild ? Slot : "div"
 
-  return <Component ref={ref} className={cx(blurbVariants({ className }))} {...props} />
-})
+    return <Component ref={ref} className={cx(blurbVariants({ className }))} {...props} />
+  },
+)
 
 const BlurbAvatar = forwardRef<AvatarElement, AvatarProps>(({ size = "lg", ...props }, ref) => {
   return <Avatar ref={ref} size={size} {...props} />
@@ -106,7 +108,7 @@ const BlurbDescription = forwardRef<
   )
 })
 
-const BlurbBase = forwardRef<BlurbElement, BlurbBaseProps>((props, ref) => {
+const BlurbBase = forwardRef<BlurbElement, BlurbProps>((props, ref) => {
   const { children, avatar, title, description, size, ...rest } = props
 
   return (

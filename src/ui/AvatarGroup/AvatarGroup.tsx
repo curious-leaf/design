@@ -13,10 +13,10 @@ export type AvatarGroupElement = HTMLDivElement
 
 type AvatarGroupAvatarProps = Omit<AvatarProps, "size" | "asChild">
 
-export type AvatarGroupProps = HTMLAttributes<AvatarGroupElement> &
+export type AvatarGroupRootProps = HTMLAttributes<AvatarGroupElement> &
   VariantProps<typeof avatarGroupVariants>
 
-export type AvatarGroupBaseProps = AvatarGroupProps &
+export type AvatarGroupProps = AvatarGroupRootProps &
   VariantProps<typeof avatarVariants> & {
     /**
      * The items to display in the group.
@@ -35,15 +35,17 @@ export type AvatarGroupBaseProps = AvatarGroupProps &
     previousOnTop?: boolean
   }
 
-export const AvatarGroupRoot = forwardRef<AvatarGroupElement, AvatarGroupProps>((props, ref) => {
-  const { children, className, size, ...rest } = props
+export const AvatarGroupRoot = forwardRef<AvatarGroupElement, AvatarGroupRootProps>(
+  (props, ref) => {
+    const { children, className, size, ...rest } = props
 
-  return (
-    <div ref={ref} className={cx(avatarGroupVariants({ size, className }))} {...rest}>
-      {children}
-    </div>
-  )
-})
+    return (
+      <div ref={ref} className={cx(avatarGroupVariants({ size, className }))} {...rest}>
+        {children}
+      </div>
+    )
+  },
+)
 
 type AvatarGroupLabelProps = ComponentPropsWithoutRef<typeof Avatar> & {
   /**
@@ -83,7 +85,7 @@ const AvatarGroupItem = forwardRef<AvatarElement, ComponentPropsWithoutRef<typeo
   },
 )
 
-const AvatarGroupBase = forwardRef<AvatarGroupElement, AvatarGroupBaseProps>((props, ref) => {
+const AvatarGroupBase = forwardRef<AvatarGroupElement, AvatarGroupProps>((props, ref) => {
   const { children, items, theme, size, shape, previousOnTop, label, ...rest } = props
   const avatarProps = { theme, size, shape }
 
