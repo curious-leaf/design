@@ -4,7 +4,6 @@ const project = resolve(process.cwd(), "tsconfig.json")
 
 /** @type {import('eslint').Linter.Config} */
 module.exports = {
-  root: true,
   parserOptions: {
     ecmaVersion: "latest",
     sourceType: "module",
@@ -29,7 +28,7 @@ module.exports = {
     // General
     {
       files: ["*.js?(x)", "*.ts?(x)"],
-      extends: ["eslint:recommended", "eslint-config-turbo", "prettier"],
+      extends: ["eslint:recommended", "prettier"],
     },
 
     // React

@@ -71,16 +71,14 @@ const AvatarGroupLabel = forwardRef<AvatarElement, AvatarGroupLabelProps>(
 )
 
 const AvatarGroupItem = forwardRef<AvatarElement, ComponentPropsWithoutRef<typeof Avatar>>(
-  ({ children, className, initials, ...rest }, ref) => {
+  ({ className, initials, ...rest }, ref) => {
     return (
       <Avatar
         ref={ref}
         className={cx(avatarGroupItemVariants({ className }))}
         initials={initials}
         {...rest}
-      >
-        {children}
-      </Avatar>
+      />
     )
   },
 )
