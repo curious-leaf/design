@@ -1,7 +1,7 @@
 import { cva } from "~/shared/cva"
 
 export const headingVariants = cva({
-  base: "font-medium",
+  base: "font-semibold",
 
   variants: {
     size: {
