@@ -1,8 +1,9 @@
 import type { Meta, StoryObj } from "@storybook/react"
 
-import { Box } from "./Box"
 import { Paragraph } from "~/typography/Paragraph"
 import { Button } from "~/ui/Button"
+
+import { Box } from "./Box"
 
 type Story = StoryObj<typeof Box>
 

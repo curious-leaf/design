@@ -2,16 +2,16 @@ import { Slot } from "@radix-ui/react-slot"
 import { forwardRef, isValidElement } from "react"
 import type { ComponentPropsWithoutRef, ElementRef, HTMLAttributes } from "react"
 
+import { Header } from "~/layout/Header"
 import { type VariantProps, cx } from "~/shared/cva"
 
 import { boxFooterVariants, boxVariants } from "./Box.variants"
-import { Header } from "~/layout/Header"
 
 export type BoxElement = HTMLDivElement
 
 type BoxVariantProps = VariantProps<typeof boxVariants> & VariantProps<typeof boxFooterVariants>
 
-export type BoxRootProps = HTMLAttributes<BoxElement> &
+export type BoxProps = HTMLAttributes<BoxElement> &
   BoxVariantProps & {
     /**
      * If set to `true`, the button will be rendered as a child within the component.
@@ -20,9 +20,7 @@ export type BoxRootProps = HTMLAttributes<BoxElement> &
     asChild?: boolean
   }
 
-export type BoxProps = BoxRootProps & {}
-
-const BoxRoot = forwardRef<BoxElement, BoxRootProps>((props, ref) => {
+const BoxRoot = forwardRef<BoxElement, BoxProps>((props, ref) => {
   const { className, asChild, padded, ...rest } = props
 
   const useAsChild = asChild && isValidElement(rest.children)

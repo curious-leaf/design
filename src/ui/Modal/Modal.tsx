@@ -1,11 +1,12 @@
 import { forwardRef } from "react"
 import type { ComponentPropsWithoutRef, ElementRef } from "react"
 
+import type { Header } from "~/layout/Header"
 import { type VariantProps, cx } from "~/shared/cva"
+import type { BoxElement, BoxProps } from "~/ui/Box"
+import { Box } from "~/ui/Box"
 
 import { modalVariants } from "./Modal.variants"
-import { Header } from "~/layout/Header"
-import { Box, BoxElement, BoxProps } from "~/ui/Box"
 
 export type ModalElement = BoxElement
 

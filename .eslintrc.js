@@ -87,6 +87,7 @@ module.exports = {
       },
       rules: {
         "import/namespace": [2, { allowComputed: true }],
+        "import/no-unresolved": "off",
         "import/order": [
           "error",
           {

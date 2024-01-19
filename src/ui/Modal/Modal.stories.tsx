@@ -1,8 +1,9 @@
 import type { Meta, StoryObj } from "@storybook/react"
 
-import { Modal } from "./Modal"
 import { Paragraph } from "~/typography/Paragraph"
 import { Button } from "~/ui/Button"
+
+import { Modal } from "./Modal"
 
 type Story = StoryObj<typeof Modal>
 
