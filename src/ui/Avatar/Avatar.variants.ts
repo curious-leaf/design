@@ -20,7 +20,7 @@ export const avatarVariants = cva({
       outline: "border border-gray-200",
     },
     size: {
-      xs: "h-4 min-w-4 text-2xs",
+      xs: "h-5 min-w-5 text-2xs",
       sm: "h-6 min-w-6 text-2xs",
       md: "h-8 min-w-8 text-xs",
       lg: "h-10 min-w-10 text-sm",

@@ -1,6 +1,6 @@
 import { Slot } from "@radix-ui/react-slot"
 import { forwardRef, isValidElement } from "react"
-import type { ComponentPropsWithoutRef } from "react"
+import type { ComponentPropsWithoutRef, ReactElement } from "react"
 
 import { type VariantProps, cx } from "~/shared/cva"
 import type { ParagraphElement, ParagraphProps } from "~/typography/Paragraph"
@@ -29,7 +29,7 @@ export type BlurbProps = BlurbRootProps & {
   /**
    * Represents the avatar displayed on the Blurb.
    */
-  avatar?: AvatarProps
+  avatar?: ReactElement<HTMLElement> | AvatarProps
 
   /**
    * Represents the title displayed on the Blurb.
@@ -113,7 +113,9 @@ const BlurbBase = forwardRef<BlurbElement, BlurbProps>((props, ref) => {
 
   return (
     <BlurbRoot ref={ref} {...rest}>
-      {avatar && <BlurbAvatar size={size === "sm" ? "lg" : "xl"} {...avatar} />}
+      {isValidElement(avatar)
+        ? avatar
+        : avatar && <BlurbAvatar size={size === "sm" ? "lg" : "xl"} {...avatar} />}
 
       {(title || description) && (
         <BlurbContent>

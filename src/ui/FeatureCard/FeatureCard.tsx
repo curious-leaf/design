@@ -24,7 +24,7 @@ export type FeatureCardProps = FeatureCardRootProps & {
   /**
    * If set to `true`, it'll render a closer button.
    */
-  closer?: boolean
+  closeable?: boolean
 }
 
 type FeatureCardCloserProps = ButtonHTMLAttributes<HTMLButtonElement> &
@@ -68,7 +68,7 @@ const FeatureCardCloser = forwardRef<HTMLButtonElement, FeatureCardCloserProps>(
 })
 
 export const FeatureCardBase = forwardRef<FeatureCardElement, FeatureCardProps>((props, ref) => {
-  const { children, asChild, closer, ...rest } = props
+  const { children, asChild, closeable, ...rest } = props
 
   return (
     <FeatureCardRoot ref={ref} asChild={asChild} {...rest}>
@@ -76,7 +76,7 @@ export const FeatureCardBase = forwardRef<FeatureCardElement, FeatureCardProps>(
         {(child) => (
           <>
             {child}
-            {closer && <FeatureCardCloser />}
+            {closeable && <FeatureCardCloser />}
           </>
         )}
       </Slottable>
@@ -92,7 +92,7 @@ export const FeatureCard = Object.assign(FeatureCardBase, {
 FeatureCard.defaultProps = {
   variant: "soft",
   asChild: false,
-  closer: false,
+  closeable: false,
 }
 
 FeatureCard.displayName = "FeatureCard"

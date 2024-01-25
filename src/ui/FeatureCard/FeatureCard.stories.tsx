@@ -26,7 +26,7 @@ export default {
     ...FeatureCard.defaultProps,
     children: Card,
     style: { width: 240 },
-    closer: true,
+    closeable: true,
   },
 } satisfies Meta
 
@@ -38,14 +38,14 @@ export const Default = {
 export const AsChild = {
   args: {
     asChild: true,
-    closer: false,
+    closeable: false,
     children: <a href="/">{Card}</a>,
   },
 } satisfies Story
 
 export const WithCustomMarkup = {
   args: {
-    closer: undefined,
+    closeable: undefined,
   },
 
   render: (props) => (

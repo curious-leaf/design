@@ -1,7 +1,7 @@
 import { cva } from "~/shared/cva"
 
 export const featureCardVariants = cva({
-  base: "relative block p-4 rounded-lg border border-transparent text-start",
+  base: "relative flex flex-wrap items-center gap-x-2.5 gap-y-3 p-4 rounded-lg border border-transparent text-start",
 
   variants: {
     theme: {

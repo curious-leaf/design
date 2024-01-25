@@ -34,3 +34,36 @@ export const cleanPercentage = (percentage: number) => {
   const tooHigh = percentage > 100
   return tooLow ? 0 : tooHigh ? 100 : +percentage
 }
+
+/**
+ * Check if a value is truthy
+ * @param value - The value to check
+ * @returns A boolean indicating if the value is truthy
+ */
+export function isTruthy<T>(value?: T | undefined | null | false): value is T {
+  return !!value
+}
+
+/**
+ * Get the initials from a string
+ * @param value A string to get the initials from
+ * @param limit The maximum number of initials to return
+ * @returns The initials from the string
+ */
+export const getInitials = (value?: string | null, limit = 0) => {
+  const val = (value || "").trim()
+
+  // If the value is empty, a single character, or two characters (already initials)
+  if (val.length === 0 || val.length === 1 || val.length === 2) {
+    return val.toUpperCase()
+  }
+
+  const values = val.split(" ").filter(isTruthy)
+  const initials = values.map((name) => name.charAt(0).toUpperCase()).join("")
+
+  if (limit > 0) {
+    return initials.slice(0, limit)
+  }
+
+  return initials
+}

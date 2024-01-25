@@ -1,7 +1,7 @@
 import { cva } from "~/shared/cva"
 
 export const boxVariants = cva({
-  base: "bg-white border border-outline rounded-md text-sm overflow-clip !shadow-sm",
+  base: "bg-white border rounded-md text-sm overflow-clip !shadow-sm",
 
   variants: {
     padded: {
@@ -15,7 +15,7 @@ export const boxVariants = cva({
 })
 
 export const boxFooterVariants = cva({
-  base: "flex flex-row-reverse items-center justify-between gap-4 border-t bg-gray-50 px-6 py-4 md:-mx-8 md:-mb-8 md:px-8 md:py-6",
+  base: "flex flex-row-reverse items-center justify-between gap-4 border-t px-6 py-4 md:-mx-8 md:-mb-8 md:px-8 md:py-6",
 
   variants: {
     padded: {

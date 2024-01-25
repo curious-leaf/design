@@ -31,6 +31,11 @@ export type MenuItemProps = Omit<ButtonHTMLAttributes<MenuItemElement>, "prefix"
     suffix?: ReactElement<HTMLElement>
 
     /**
+     * If set to `true`, the element will be rendered in the active state.
+     */
+    active?: boolean
+
+    /**
      * If set to `true`, the element will be rendered in the loading state.
      */
     loading?: boolean
@@ -63,28 +68,27 @@ export const MenuItem = forwardRef<MenuItemElement, MenuItemProps>((props, ref) 
     propSuffix
   )
 
-  // Render an affix with destructive properties applied.
-  type AffixProps = Pick<MenuItemProps, "theme" | "active"> & {
-    affix: ReactElement<HTMLElement>
-  }
+  const renderAffix = ({ children, theme }: Pick<MenuItemProps, "children" | "theme">) => {
+    const AffixComponent = isValidElement(children) ? Slot : "span"
 
-  const renderAffix = ({ affix, theme, active }: AffixProps) => {
-    const AffixComponent = isValidElement(affix) ? Slot : "span"
-    const classNames = cx(
-      menuItemAffixVariants({ theme, active, className: affix?.props.className }),
+    return (
+      <AffixComponent className={cx(menuItemAffixVariants({ theme }))}>{children}</AffixComponent>
     )
-
-    return <AffixComponent className={classNames}>{affix}</AffixComponent>
   }
 
   return (
-    <Component ref={ref} className={cx(menuItemVariants({ theme, active, className }))} {...rest}>
+    <Component
+      ref={ref}
+      aria-current={active ? "page" : undefined}
+      className={cx(menuItemVariants({ theme, className }))}
+      {...rest}
+    >
       <Slottable child={children} asChild={asChild}>
         {(child) => (
           <>
-            {prefix && renderAffix({ affix: prefix, theme, active })}
+            {prefix && renderAffix({ children: prefix, theme })}
             {!isChildrenEmpty(child) && <span className="flex-1 truncate">{child}</span>}
-            {suffix && renderAffix({ affix: suffix })}
+            {suffix && renderAffix({ children: suffix })}
           </>
         )}
       </Slottable>

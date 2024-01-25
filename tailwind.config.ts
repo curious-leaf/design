@@ -1,7 +1,9 @@
-/** @type {import('tailwindcss').Config} */
-module.exports = {
+import type { Config } from "tailwindcss"
+
+export default {
   content: ["./src/**/*.{js,ts,jsx,tsx}"],
   darkMode: ["class"],
+  future: { hoverOnlyWhenSupported: true },
 
   theme: {
     colors: {
@@ -104,13 +106,16 @@ module.exports = {
       screens: {
         xs: "480px",
       },
+      size: {
+        icon: "1.428em",
+      },
       borderColor: {
         DEFAULT: "#E2E4E8",
       },
       fontFamily: {
         sans: ["var(--font-sans)", "system-ui", "sans-serif"],
       },
-      typography: (theme) => ({
+      typography: (theme: any) => ({
         DEFAULT: {
           css: {
             "--tw-prose-body": theme("colors.gray[500]"),
@@ -146,4 +151,4 @@ module.exports = {
     require("@tailwindcss/container-queries"),
     require("tailwindcss-animate"),
   ],
-}
+} satisfies Config

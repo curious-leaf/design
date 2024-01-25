@@ -12,7 +12,7 @@ const config = {
   tabWidth: 2,
   printWidth: 100,
   plugins: ["prettier-plugin-tailwindcss"],
-  tailwindConfig: fileURLToPath(new URL("tailwind.config.js", import.meta.url)),
+  tailwindConfig: fileURLToPath(new URL("tailwind.config.ts", import.meta.url)),
 }
 
 export default config

@@ -106,7 +106,7 @@ export default {
           ))}
         </Sidebar.Content>
 
-        <FeatureCard theme="gray" closer>
+        <FeatureCard theme="gray" closeable>
           {FeatureCardDefault.args.children}
         </FeatureCard>
 

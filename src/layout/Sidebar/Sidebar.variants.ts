@@ -1,7 +1,7 @@
 import { cva } from "~/shared/cva"
 
 export const sidebarVariants = cva({
-  base: "sticky top-0 z-40 flex h-screen w-72 shrink-0 flex-col gap-y-5 overflow-y-scroll border-r p-5",
+  base: "sticky top-0 z-40 flex h-screen w-[17em] bg-white shrink-0 flex-col gap-y-5 overflow-y-scroll border-r p-5",
 
   variants: {
     theme: {
@@ -29,11 +29,11 @@ export const sidebarVariants = cva({
 })
 
 export const sidebarContentVariants = cva({
-  base: "flex flex-col gap-y-5 flex-1",
+  base: "flex flex-col gap-y-5 flex-1 -mx-5 px-5 overflow-y-scroll",
 })
 
 export const sidebarMenuVariants = cva({
-  base: "flex flex-col gap-y-1.5",
+  base: "flex flex-col gap-y-1",
 })
 
 export const sidebarHeadingVariants = cva({

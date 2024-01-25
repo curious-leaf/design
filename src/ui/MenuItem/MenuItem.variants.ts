@@ -1,40 +1,35 @@
 import { cva } from "~/shared/cva"
 
 export const menuItemVariants = cva({
-  base: "relative flex items-center gap-2.5 min-w-0 px-3 py-2 rounded-md font-medium text-sm text-start text-gray-500 enabled:hover:bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed",
+  base: [
+    "group/menu-item relative flex items-center gap-2.5 min-w-0 px-3 py-2 rounded-md font-medium text-sm text-start text-gray-500 hover:bg-gray-100",
+
+    // Pseudo
+    "before:absolute before:right-full before:top-1/2 before:h-2/3 before:w-1 before:mr-4 before:rounded-r-md before:-translate-y-1/2",
+
+    // Active
+    "aria-[current=page]:bg-gray-100 aria-[current=page]:text-black aria-[current=page]:before:content-['']",
+
+    // Disabled
+    "disabled:opacity-50 disabled:cursor-not-allowed disabled:pointer-events-none",
+  ],
 
   variants: {
     theme: {
-      blue: "",
-      orange: "",
-      yellow: "",
-      red: "",
-      green: "",
-      purple: "",
-      pink: "",
-      teal: "",
-      gray: "",
-    },
-    active: {
-      true: "bg-gray-100 text-black before:content-[''] before:absolute before:right-full before:top-1/2 before:h-2/3 before:w-1 before:mr-4 before:rounded-r-md before:-translate-y-1/2",
+      blue: "aria-[current=page]:before:bg-blue",
+      orange: "aria-[current=page]:before:bg-orange",
+      yellow: "aria-[current=page]:before:bg-yellow",
+      red: "aria-[current=page]:before:bg-red",
+      green: "aria-[current=page]:before:bg-green",
+      purple: "aria-[current=page]:before:bg-purple",
+      pink: "aria-[current=page]:before:bg-pink",
+      teal: "aria-[current=page]:before:bg-teal",
+      gray: "aria-[current=page]:before:bg-current",
     },
   },
 
-  compoundVariants: [
-    { theme: "blue", active: true, class: "before:bg-blue" },
-    { theme: "orange", active: true, class: "before:bg-orange" },
-    { theme: "yellow", active: true, class: "before:bg-yellow" },
-    { theme: "red", active: true, class: "before:bg-red" },
-    { theme: "green", active: true, class: "before:bg-green" },
-    { theme: "purple", active: true, class: "before:bg-purple" },
-    { theme: "pink", active: true, class: "before:bg-pink" },
-    { theme: "teal", active: true, class: "before:bg-teal" },
-    { theme: "gray", active: true, class: "before:bg-current" },
-  ],
-
   defaultVariants: {
     theme: "blue",
-    active: false,
   },
 })
 
@@ -43,35 +38,15 @@ export const menuItemAffixVariants = cva({
 
   variants: {
     theme: {
-      blue: "",
-      orange: "",
-      yellow: "",
-      red: "",
-      green: "",
-      purple: "",
-      pink: "",
-      teal: "",
-      gray: "",
+      blue: "group-aria-[current=page]/menu-item:text-blue-dark",
+      orange: "group-aria-[current=page]/menu-item:text-orange-dark",
+      yellow: "group-aria-[current=page]/menu-item:text-yellow-dark",
+      red: "group-aria-[current=page]/menu-item:text-red-dark",
+      green: "group-aria-[current=page]/menu-item:text-green-dark",
+      purple: "group-aria-[current=page]/menu-item:text-purple-dark",
+      pink: "group-aria-[current=page]/menu-item:text-pink-dark",
+      teal: "group-aria-[current=page]/menu-item:text-teal-dark",
+      gray: "group-aria-[current=page]/menu-item:text-current",
     },
-    active: {
-      true: "",
-    },
-  },
-
-  compoundVariants: [
-    { theme: "blue", active: true, class: "text-blue-dark" },
-    { theme: "orange", active: true, class: "text-orange-dark" },
-    { theme: "yellow", active: true, class: "text-yellow-dark" },
-    { theme: "red", active: true, class: "text-red-dark" },
-    { theme: "green", active: true, class: "text-green-dark" },
-    { theme: "purple", active: true, class: "text-purple-dark" },
-    { theme: "pink", active: true, class: "text-pink-dark" },
-    { theme: "teal", active: true, class: "text-teal-dark" },
-    { theme: "gray", active: true, class: "text-current" },
-  ],
-
-  defaultVariants: {
-    theme: "blue",
-    active: false,
   },
 })

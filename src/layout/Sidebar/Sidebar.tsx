@@ -23,10 +23,10 @@ const SidebarBase = forwardRef<SidebarElement, SidebarProps>((props, ref) => {
   return <div ref={ref} className={cx(sidebarVariants({ className }))} {...rest} />
 })
 
-const SidebarContent = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>((props, ref) => {
+const SidebarContent = forwardRef<HTMLElement, HTMLAttributes<HTMLElement>>((props, ref) => {
   const { className, ...rest } = props
 
-  return <div ref={ref} className={cx(sidebarContentVariants({ className }))} {...rest} />
+  return <nav ref={ref} className={cx(sidebarContentVariants({ className }))} {...rest} />
 })
 
 const SidebarMenu = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>((props, ref) => {
