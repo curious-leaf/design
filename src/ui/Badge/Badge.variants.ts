@@ -1,4 +1,4 @@
-import { cva } from "~/shared/cva"
+import { cva } from "../../shared"
 
 export const badgeVariants = cva({
   base: [
@@ -90,5 +90,5 @@ export const badgeVariants = cva({
 })
 
 export const badgeAffixVariants = cva({
-  base: "-my-[0.044em] -mx-[0.25em] shrink-0 !size-[1.088em]",
+  base: "-my-[0.044em] -mx-[0.125em] shrink-0 !size-[1.088em]",
 })

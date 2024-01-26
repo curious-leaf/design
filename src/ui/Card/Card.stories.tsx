@@ -3,17 +3,17 @@ import type { Meta, StoryObj } from "@storybook/react"
 import { Paragraph } from "../../typography/Paragraph"
 import { Button } from "../Button"
 
-import { Modal } from "./Modal"
+import { Card } from "./Card"
 
-type Story = StoryObj<typeof Modal>
+type Story = StoryObj<typeof Card>
 
 // Meta
 export default {
-  title: "UI/Modal",
-  component: Modal,
+  title: "UI/Card",
+  component: Card,
   args: {
-    ...Modal.defaultProps,
-    children: "Modal content",
+    ...Card.defaultProps,
+    children: "Card content",
   },
 } satisfies Meta
 
@@ -24,17 +24,17 @@ export const Default = {
 
 export const WithCustomMarkup = {
   render: (props) => (
-    <Modal.Root {...props}>
-      <Modal.Header title="Confirm your action?" size="lg" />
+    <Card {...props}>
+      <Card.Header title="Confirm your action?" size="lg" />
 
       <Paragraph>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos? Lorem ipsum dolor
         sit amet consectetur adipisicing elit. Quisquam, quos?
       </Paragraph>
 
-      <Modal.Footer>
+      <Card.Footer>
         <Button>Confirm</Button>
-      </Modal.Footer>
-    </Modal.Root>
+      </Card.Footer>
+    </Card>
   ),
 } satisfies Story

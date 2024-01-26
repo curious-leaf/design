@@ -1,14 +1,14 @@
-import { cva } from "~/shared/cva"
+import { cva } from "../../shared"
 
 export const menuItemVariants = cva({
   base: [
-    "group/menu-item relative flex items-center gap-2.5 min-w-0 px-3 py-2 rounded-md font-medium text-sm text-start text-gray-500 hover:bg-gray-100",
+    "group/menu-item relative flex items-center gap-2.5 min-w-0 px-3 py-2 rounded-md font-medium text-sm text-start text-gray-500 hover:bg-gray-200/50",
 
     // Pseudo
     "before:absolute before:right-full before:top-1/2 before:h-2/3 before:w-1 before:mr-4 before:rounded-r-md before:-translate-y-1/2",
 
     // Active
-    "aria-[current=page]:bg-gray-100 aria-[current=page]:text-black aria-[current=page]:before:content-['']",
+    "aria-[current=page]:bg-gray-200/50 aria-[current=page]:text-black aria-[current=page]:before:content-['']",
 
     // Disabled
     "disabled:opacity-50 disabled:cursor-not-allowed disabled:pointer-events-none",
@@ -38,14 +38,14 @@ export const menuItemAffixVariants = cva({
 
   variants: {
     theme: {
-      blue: "group-aria-[current=page]/menu-item:text-blue-dark",
-      orange: "group-aria-[current=page]/menu-item:text-orange-dark",
-      yellow: "group-aria-[current=page]/menu-item:text-yellow-dark",
-      red: "group-aria-[current=page]/menu-item:text-red-dark",
-      green: "group-aria-[current=page]/menu-item:text-green-dark",
-      purple: "group-aria-[current=page]/menu-item:text-purple-dark",
-      pink: "group-aria-[current=page]/menu-item:text-pink-dark",
-      teal: "group-aria-[current=page]/menu-item:text-teal-dark",
+      blue: "group-aria-[current=page]/menu-item:text-blue",
+      orange: "group-aria-[current=page]/menu-item:text-orange",
+      yellow: "group-aria-[current=page]/menu-item:text-yellow",
+      red: "group-aria-[current=page]/menu-item:text-red",
+      green: "group-aria-[current=page]/menu-item:text-green",
+      purple: "group-aria-[current=page]/menu-item:text-purple",
+      pink: "group-aria-[current=page]/menu-item:text-pink",
+      teal: "group-aria-[current=page]/menu-item:text-teal",
       gray: "group-aria-[current=page]/menu-item:text-current",
     },
   },

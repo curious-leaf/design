@@ -1,4 +1,4 @@
-import { cva } from "~/shared/cva"
+import { cva } from "../../shared"
 
 export const buttonVariants = cva({
   base: [

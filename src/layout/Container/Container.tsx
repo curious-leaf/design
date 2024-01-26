@@ -1,7 +1,7 @@
 import { forwardRef } from "react"
 import type { HTMLAttributes } from "react"
 
-import { cx, type VariantProps } from "~/shared/cva"
+import { cx, type VariantProps } from "../../shared"
 
 import { containerVariants } from "./Container.variants"
 

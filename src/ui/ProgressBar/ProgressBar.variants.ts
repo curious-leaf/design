@@ -1,4 +1,4 @@
-import { cva } from "~/shared/cva"
+import { cva } from "../../shared"
 
 export const progressBarVariants = cva({
   base: "flex flex-wrap items-center gap-2 w-full",

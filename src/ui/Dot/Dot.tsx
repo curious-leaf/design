@@ -1,8 +1,8 @@
 import { Slot } from "@radix-ui/react-slot"
 import { type HTMLAttributes, forwardRef, isValidElement } from "react"
 
-import { useTheme } from "~/providers"
-import { type VariantProps } from "~/shared/cva"
+import { useTheme } from "../../providers"
+import { type VariantProps } from "../../shared"
 
 import { dotVariants } from "./Dot.variants"
 

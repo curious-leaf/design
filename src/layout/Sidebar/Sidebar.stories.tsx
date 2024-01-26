@@ -11,12 +11,12 @@ import {
   LayoutDashboardIcon,
 } from "lucide-react"
 
-import { Badge } from "~/ui/Badge"
-import { Blurb } from "~/ui/Blurb"
-import { FeatureCard } from "~/ui/FeatureCard"
-import { default as FeatureCardDefault } from "~/ui/FeatureCard/FeatureCard.stories"
-import { MenuItem } from "~/ui/MenuItem"
-import { Shortcut } from "~/ui/Shortcut"
+import { Badge } from "../../ui/Badge"
+import { Blurb } from "../../ui/Blurb"
+import { FeatureCard } from "../../ui/FeatureCard"
+import { default as FeatureCardDefault } from "../../ui/FeatureCard/FeatureCard.stories"
+import { MenuItem } from "../../ui/MenuItem"
+import { Shortcut } from "../../ui/Shortcut"
 
 import { Sidebar } from "./Sidebar"
 

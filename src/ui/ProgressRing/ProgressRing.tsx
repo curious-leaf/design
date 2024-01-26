@@ -1,8 +1,8 @@
 import { type HTMLAttributes, forwardRef } from "react"
 
-import { useTheme } from "~/providers"
-import { cleanPercentage } from "~/shared"
-import { cx, type VariantProps } from "~/shared/cva"
+import { useTheme } from "../../providers"
+import type { VariantProps } from "../../shared"
+import { cleanPercentage, cx } from "../../shared"
 
 import { progressRingCircleVariants, progressRingVariants } from "./ProgressRing.variants"
 

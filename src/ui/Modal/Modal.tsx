@@ -1,10 +1,10 @@
 import { forwardRef } from "react"
 import type { ComponentPropsWithoutRef, ElementRef } from "react"
 
-import type { Header } from "~/layout/Header"
-import { type VariantProps, cx } from "~/shared/cva"
-import type { BoxElement, BoxProps } from "~/ui/Box"
-import { Box } from "~/ui/Box"
+import type { Header } from "../../layout/Header"
+import { type VariantProps, cx } from "../../shared"
+import type { BoxElement, BoxProps } from "../Box"
+import { Box } from "../Box"
 
 import { modalVariants } from "./Modal.variants"
 

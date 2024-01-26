@@ -5,8 +5,6 @@ import typescript from "@rollup/plugin-typescript"
 import { createRequire } from "node:module"
 import { dts } from "rollup-plugin-dts"
 import peerDepsExternal from "rollup-plugin-peer-deps-external"
-import { exec } from "node:child_process"
-import { promisify } from "node:util"
 
 const requireFile = createRequire(import.meta.url)
 const pkg = requireFile("./package.json")
@@ -18,13 +16,6 @@ const makeExternalPredicate = (externalArr) => {
   const pattern = new RegExp(`^(${externalArr.join("|")})($|/)`)
   return (id) => pattern.test(id)
 }
-
-// Resolve typescript aliases
-const tscAlias = () => ({
-  buildStart: async () => {
-    await promisify(exec)("tsc-alias")
-  },
-})
 
 export default [
   {
@@ -56,6 +47,6 @@ export default [
   {
     input: "dist/index.d.ts",
     output: [{ file: "dist/index.d.ts", format: "esm" }],
-    plugins: [tscAlias(), dts()],
+    plugins: [dts()],
   },
 ]

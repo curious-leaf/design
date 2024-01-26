@@ -1,9 +1,9 @@
 import { forwardRef } from "react"
 import type { HTMLAttributes } from "react"
 
-import { cx, type VariantProps } from "~/shared/cva"
-import type { SubheadingElement, SubheadingProps } from "~/typography/Subheading"
-import { Subheading } from "~/typography/Subheading"
+import { cx, type VariantProps } from "../../shared"
+import type { SubheadingElement, SubheadingProps } from "../../typography/Subheading"
+import { Subheading } from "../../typography/Subheading"
 
 import {
   sidebarContentVariants,

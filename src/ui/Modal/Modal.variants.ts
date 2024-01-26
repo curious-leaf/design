@@ -1,4 +1,4 @@
-import { cva } from "~/shared/cva"
+import { cva } from "../../shared"
 
 export const modalVariants = cva({
   base: "fixed left-1/2 -translate-x-1/2 z-50 max-w-[calc(100vw-2rem)] !overflow-auto",

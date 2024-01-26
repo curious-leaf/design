@@ -1,7 +1,7 @@
-import { cva } from "~/shared/cva"
+import { cva } from "../../shared"
 
 export const sidebarVariants = cva({
-  base: "sticky top-0 z-40 flex h-screen w-[17em] bg-white shrink-0 flex-col gap-y-5 overflow-y-scroll border-r p-5",
+  base: "sticky top-0 flex h-screen w-[17em] bg-white shrink-0 flex-col gap-y-5 overflow-y-scroll border-r p-5",
 
   variants: {
     theme: {

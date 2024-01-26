@@ -4,10 +4,9 @@ import { UserIcon } from "lucide-react"
 import { forwardRef, isValidElement } from "react"
 import type { ComponentPropsWithoutRef, ElementRef, ReactElement, RefObject } from "react"
 
-import { useTheme } from "~/providers"
-import { type VariantProps, cx } from "~/shared/cva"
-import { getInitials, isReactElement } from "~/shared/helpers"
-import { Loader } from "~/ui/Loader"
+import { useTheme } from "../../providers"
+import { type VariantProps, cx, getInitials, isReactElement } from "../../shared"
+import { Loader } from "../Loader"
 
 import {
   avatarFallbackVariants,

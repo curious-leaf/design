@@ -1,11 +1,11 @@
-import { cva } from "~/shared/cva"
+import { cva } from "../../shared"
 
 export const blurbVariants = cva({
-  base: "flex items-center gap-3 text-start",
+  base: "flex items-center gap-3 text-start min-w-0",
 })
 
 export const blurbContentVariants = cva({
-  base: "flex min-w-0 flex-1 flex-col gap-0.5",
+  base: "flex flex-col gap-0.5 flex-1 min-w-0",
 })
 
 export const blurbTitleVariants = cva({

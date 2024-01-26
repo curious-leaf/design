@@ -2,8 +2,8 @@ import { Slot } from "@radix-ui/react-slot"
 import type { ComponentPropsWithoutRef, ElementRef } from "react"
 import { forwardRef } from "react"
 
-import { type VariantProps } from "~/shared/cva"
-import { Subheading } from "~/typography/Subheading"
+import type { VariantProps } from "../../shared"
+import { Subheading } from "../../typography/Subheading"
 
 import { shortcutVariants } from "./Shortcut.variants"
 

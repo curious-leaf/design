@@ -2,7 +2,7 @@ import { LoaderIcon } from "lucide-react"
 import { forwardRef } from "react"
 import type { ComponentPropsWithoutRef, ElementRef } from "react"
 
-import { cx } from "~/shared/cva"
+import { cx } from "../../shared"
 
 export const Loader = forwardRef<
   ElementRef<typeof LoaderIcon>,

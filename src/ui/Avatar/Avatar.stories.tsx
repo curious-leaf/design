@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react"
 import { UsersIcon, BadgeCheckIcon } from "lucide-react"
 
-import { Dot } from "~/ui/Dot"
+import { Dot } from "../Dot"
 
 import { Avatar } from "./Avatar"
 

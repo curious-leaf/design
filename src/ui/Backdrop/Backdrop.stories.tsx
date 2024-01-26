@@ -1,16 +1,15 @@
 import type { Meta, StoryObj } from "@storybook/react"
 
-import { Box } from "./Box"
+import { Backdrop } from "./Backdrop"
 
-type Story = StoryObj<typeof Box>
+type Story = StoryObj<typeof Backdrop>
 
 // Meta
 export default {
-  title: "UI/Box",
-  component: Box,
+  title: "UI/Backdrop",
+  component: Backdrop,
   args: {
-    ...Box.defaultProps,
-    children: "Box content",
+    ...Backdrop.defaultProps,
   },
 } satisfies Meta
 

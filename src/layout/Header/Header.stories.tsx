@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react"
 import { BellRing, Calendar, Plus, Search, Table } from "lucide-react"
 
-import { Button } from "~/ui/Button"
+import { Button } from "../../ui/Button"
 
 import { Header } from "./Header"
 

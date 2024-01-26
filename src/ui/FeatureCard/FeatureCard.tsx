@@ -3,9 +3,9 @@ import { XIcon } from "lucide-react"
 import { forwardRef, isValidElement } from "react"
 import type { ButtonHTMLAttributes, HTMLAttributes } from "react"
 
-import { useTheme } from "~/providers"
-import { cx, type VariantProps } from "~/shared/cva"
-import { Slottable } from "~/utils/Slottable"
+import { useTheme } from "../../providers"
+import { cx, type VariantProps } from "../../shared"
+import { Slottable } from "../../utils/Slottable"
 
 import { featureCardCloserVariants, featureCardVariants } from "./FeatureCard.variants"
 

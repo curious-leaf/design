@@ -1,8 +1,9 @@
 import { forwardRef } from "react"
 import type { HTMLAttributes } from "react"
 
-import { cx, type VariantProps } from "~/shared/cva"
-import { Blurb, type BlurbProps } from "~/ui/Blurb"
+import { cx, type VariantProps } from "../../shared"
+import type { BlurbProps } from "../../ui/Blurb"
+import { Blurb } from "../../ui/Blurb"
 
 import { headerBlurbVariants, headerVariants } from "./Header.variants"
 

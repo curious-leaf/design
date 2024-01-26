@@ -1,7 +1,7 @@
 /* eslint react-refresh/only-export-components: 0 */
 import { type PropsWithChildren } from "react"
 
-import { createSimpleContext } from "~/shared/providers"
+import { createSimpleContext } from "../shared"
 
 export type Theme =
   | "blue"

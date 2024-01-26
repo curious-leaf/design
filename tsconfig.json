@@ -105,9 +105,6 @@
     /* Completeness */
     "skipLibCheck": true                                 /* Skip type checking all .d.ts files. */,
     // "skipDefaultLibCheck": true,                      /* Skip type checking .d.ts files that are included with TypeScript. */
-
-    /* Path Aliases */
-    "paths": { "~/*": ["./src/*"] },
   },
 
   "include": ["src"],

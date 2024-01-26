@@ -2,10 +2,11 @@ import { Slot } from "@radix-ui/react-slot"
 import { forwardRef, isValidElement } from "react"
 import type { ComponentPropsWithoutRef, ReactElement } from "react"
 
-import { type VariantProps, cx } from "~/shared/cva"
-import type { ParagraphElement, ParagraphProps } from "~/typography/Paragraph"
-import { Paragraph } from "~/typography/Paragraph"
-import { Avatar, type AvatarElement, type AvatarProps } from "~/ui/Avatar"
+import { type VariantProps, cx } from "../../shared"
+import type { ParagraphElement, ParagraphProps } from "../../typography/Paragraph"
+import { Paragraph } from "../../typography/Paragraph"
+import type { AvatarElement, AvatarProps } from "../Avatar"
+import { Avatar } from "../Avatar"
 
 import {
   blurbContentVariants,

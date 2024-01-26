@@ -3,12 +3,12 @@ import { ChevronRightIcon } from "lucide-react"
 import { forwardRef, isValidElement } from "react"
 import type { ReactElement, ButtonHTMLAttributes } from "react"
 
-import { useTheme } from "~/providers"
-import { cx, type VariantProps } from "~/shared/cva"
-import { isChildrenEmpty } from "~/shared/helpers"
-import { Loader } from "~/ui/Loader"
-import { menuItemAffixVariants, menuItemVariants } from "~/ui/MenuItem/MenuItem.variants"
-import { Slottable } from "~/utils/Slottable"
+import { useTheme } from "../../providers"
+import { cx, isChildrenEmpty, type VariantProps } from "../../shared"
+import { Slottable } from "../../utils/Slottable"
+import { Loader } from "../Loader"
+
+import { menuItemVariants, menuItemAffixVariants } from "./MenuItem.variants"
 
 export type MenuItemElement = HTMLButtonElement
 
