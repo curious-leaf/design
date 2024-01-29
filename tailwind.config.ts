@@ -1,4 +1,64 @@
 import type { Config } from "tailwindcss"
+import colors from "tailwindcss/colors"
+
+const colorTheme = {
+  blue: {
+    lighter: "#e6ecf8",
+    light: "#c8d7ef",
+    DEFAULT: "#3b71bc",
+    dark: "#244680",
+    darker: "#20355a",
+  },
+  orange: {
+    lighter: "#FEF3EB",
+    light: "#FFDAC2",
+    DEFAULT: "#F17B2C",
+    dark: "#C2540A",
+    darker: "#6E330C",
+  },
+  yellow: {
+    lighter: "#FEF7EC",
+    light: "#FBDFB1",
+    DEFAULT: "#F2AE40",
+    dark: "#B47818",
+    darker: "#693D11",
+  },
+  red: {
+    lighter: "#FDEDF0",
+    light: "#F8C9D2",
+    DEFAULT: "#DF1C41",
+    dark: "#AF1D38",
+    darker: "#710E21",
+  },
+  green: {
+    lighter: "#EFFAF6",
+    light: "#CBF5E5",
+    DEFAULT: "#38C793",
+    dark: "#2D9F75",
+    darker: "#176448",
+  },
+  purple: {
+    lighter: "#EEEBFF",
+    light: "#CAC2FF",
+    DEFAULT: "#6E3FF3",
+    dark: "#5A36BF",
+    darker: "#2B1664",
+  },
+  pink: {
+    lighter: "#FDEBFF",
+    light: "#F9C2FF",
+    DEFAULT: "#E255F2",
+    dark: "#9C23A9",
+    darker: "#620F6C",
+  },
+  teal: {
+    lighter: "#EBFAFF",
+    light: "#C2EFFF",
+    DEFAULT: "#35B9E9",
+    dark: "#1F87AD",
+    darker: "#164564",
+  },
+} as const
 
 export default {
   content: ["./src/**/*.{js,ts,jsx,tsx}"],
@@ -7,81 +67,18 @@ export default {
 
   theme: {
     colors: {
-      none: "none",
-      current: "currentColor",
-      transparent: "transparent",
-      white: "#FFFFFF",
-      gray: {
-        100: "#F6F8FA",
-        200: "#E2E4E9",
-        300: "#CDD0D5",
-        400: "#868C98",
-        500: "#525866",
-        600: "#31353F",
-        700: "#20232D",
-        800: "#161922",
-        900: "#0A0D14",
-      },
-      blue: {
-        lighter: "#EBF1FF",
-        light: "#C2D6FF",
-        DEFAULT: "#375DFB",
-        dark: "#253EA7",
-        darker: "#162664",
-      },
-      orange: {
-        lighter: "#FEF3EB",
-        light: "#FFDAC2",
-        DEFAULT: "#F17B2C",
-        dark: "#C2540A",
-        darker: "#6E330C",
-      },
-      yellow: {
-        lighter: "#FEF7EC",
-        light: "#FBDFB1",
-        DEFAULT: "#F2AE40",
-        dark: "#B47818",
-        darker: "#693D11",
-      },
-      red: {
-        lighter: "#FDEDF0",
-        light: "#F8C9D2",
-        DEFAULT: "#DF1C41",
-        dark: "#AF1D38",
-        darker: "#710E21",
-      },
-      green: {
-        lighter: "#EFFAF6",
-        light: "#CBF5E5",
-        DEFAULT: "#38C793",
-        dark: "#2D9F75",
-        darker: "#176448",
-      },
-      purple: {
-        lighter: "#EEEBFF",
-        light: "#CAC2FF",
-        DEFAULT: "#6E3FF3",
-        dark: "#5A36BF",
-        darker: "#2B1664",
-      },
-      pink: {
-        lighter: "#FDEBFF",
-        light: "#F9C2FF",
-        DEFAULT: "#E255F2",
-        dark: "#9C23A9",
-        darker: "#620F6C",
-      },
-      teal: {
-        lighter: "#EBFAFF",
-        light: "#C2EFFF",
-        DEFAULT: "#35B9E9",
-        dark: "#1F87AD",
-        darker: "#164564",
-      },
+      transparent: colors.transparent,
+      current: colors.current,
+      black: colors.black,
+      white: colors.white,
+      gray: colors.gray,
+      primary: colorTheme.orange,
+      ...colorTheme,
     },
     fontSize: {
-      "2xs": ["11px", "12px"],
-      xs: ["12px", "16px"],
+      "3xs": ["11px", "12px"],
+      "2xs": ["12px", "14px"],
+      xs: ["13px", "16px"],
       sm: ["14px", "20px"],
       base: ["16px", "24px"],
       lg: ["18px", "26px"],
@@ -106,14 +103,17 @@ export default {
       screens: {
         xs: "480px",
       },
-      size: {
-        icon: "1.428em",
-      },
       borderColor: {
         DEFAULT: "#E2E4E8",
       },
       fontFamily: {
         sans: ["var(--font-sans)", "system-ui", "sans-serif"],
+      },
+      lineHeight: {
+        icon: "1.4285em",
+      },
+      size: {
+        icon: "1.4285em",
       },
       typography: (theme: any) => ({
         DEFAULT: {

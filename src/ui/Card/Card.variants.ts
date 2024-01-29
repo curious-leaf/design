@@ -10,7 +10,7 @@ export const cardPanelVariants = cva({
   variants: {
     position: {
       top: "-mt-6 -top-6 border-b md:-mt-8 md:-top-8",
-      bottom: "-mb-6 mt-auto bg-gray-100 -bottom-6 border-t md:-mb-8 md:-bottom-8",
+      bottom: "-mb-6 mt-auto bg-gray-50 -bottom-6 border-t md:-mb-8 md:-bottom-8",
     },
   },
 })

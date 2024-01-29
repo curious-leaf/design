@@ -2,7 +2,6 @@ import { Slot } from "@radix-ui/react-slot"
 import { forwardRef, isValidElement } from "react"
 import type { ReactElement, HTMLAttributes } from "react"
 
-import { useTheme } from "../../providers"
 import type { VariantProps } from "../../shared"
 import { cx } from "../../shared"
 import { Slottable } from "../../utils/Slottable"
@@ -31,20 +30,7 @@ export type StatusProps = Omit<HTMLAttributes<StatusElement>, "size" | "prefix">
   }
 
 export const Status = forwardRef<StatusElement, StatusProps>((props, ref) => {
-  const {
-    children,
-    className,
-    asChild,
-    prefix,
-    suffix,
-    theme: propTheme,
-    variant,
-    size,
-    ...rest
-  } = props
-
-  const globalTheme = useTheme()
-  const theme = propTheme || globalTheme
+  const { children, className, asChild, prefix, suffix, theme, variant, size, ...rest } = props
 
   const useAsChild = asChild && isValidElement(children)
   const Component = useAsChild ? Slot : "span"
@@ -77,6 +63,7 @@ export const Status = forwardRef<StatusElement, StatusProps>((props, ref) => {
 })
 
 Status.defaultProps = {
+  theme: "blue",
   variant: "outline",
   size: "sm",
   asChild: false,

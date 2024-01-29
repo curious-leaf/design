@@ -3,7 +3,6 @@ import { ChevronRightIcon } from "lucide-react"
 import { forwardRef, isValidElement } from "react"
 import type { ReactElement, ButtonHTMLAttributes } from "react"
 
-import { useTheme } from "../../providers"
 import { cx, isChildrenEmpty, type VariantProps } from "../../shared"
 import { Slottable } from "../../utils/Slottable"
 import { Loader } from "../Loader"
@@ -49,13 +48,9 @@ export const MenuItem = forwardRef<MenuItemElement, MenuItemProps>((props, ref) 
     prefix,
     suffix: propSuffix,
     loading,
-    theme: propTheme,
     active,
     ...rest
   } = props
-
-  const globalTheme = useTheme()
-  const theme = propTheme || globalTheme
 
   const useAsChild = asChild && isValidElement(children)
   const Component = useAsChild ? Slot : "button"
@@ -68,25 +63,23 @@ export const MenuItem = forwardRef<MenuItemElement, MenuItemProps>((props, ref) 
     propSuffix
   )
 
-  const renderAffix = ({ children, theme }: Pick<MenuItemProps, "children" | "theme">) => {
+  const renderAffix = (props: Pick<MenuItemProps, "children">) => {
     const AffixComponent = isValidElement(children) ? Slot : "span"
 
-    return (
-      <AffixComponent className={cx(menuItemAffixVariants({ theme }))}>{children}</AffixComponent>
-    )
+    return <AffixComponent className={cx(menuItemAffixVariants())} {...props} />
   }
 
   return (
     <Component
       ref={ref}
       aria-current={active ? "page" : undefined}
-      className={cx(menuItemVariants({ theme, className }))}
+      className={cx(menuItemVariants({ className }))}
       {...rest}
     >
       <Slottable child={children} asChild={asChild}>
         {(child) => (
           <>
-            {prefix && renderAffix({ children: prefix, theme })}
+            {prefix && renderAffix({ children: prefix })}
             {!isChildrenEmpty(child) && <span className="flex-1 truncate">{child}</span>}
             {suffix && renderAffix({ children: suffix })}
           </>

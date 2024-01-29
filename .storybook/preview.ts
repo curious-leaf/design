@@ -1,5 +1,4 @@
-import { ProviderStrategyConfiguration, withThemeFromJSXProvider } from "@storybook/addon-themes"
-import { defaultTheme, ThemeProvider as Provider } from "../src/providers/ThemeProvider"
+import { withThemeByClassName } from "@storybook/addon-themes"
 import "~/styles/tailwind.css"
 
 const preview = {
@@ -9,29 +8,12 @@ const preview = {
   },
   decorators: [
     // Theme Light/Dark Switcher
-    // withThemeByClassName({
-    //   themes: {
-    //     light: "light",
-    //     dark: "dark",
-    //   },
-    //   defaultTheme: "light",
-    // }),
-
-    // Theme Color Switcher
-    withThemeFromJSXProvider({
+    withThemeByClassName({
       themes: {
-        blue: "blue",
-        orange: "orange",
-        yellow: "yellow",
-        red: "red",
-        green: "green",
-        purple: "purple",
-        pink: "pink",
-        teal: "teal",
-        gray: "gray",
-      } as any as ProviderStrategyConfiguration["themes"],
-      defaultTheme,
-      Provider,
+        light: "light",
+        dark: "dark",
+      },
+      defaultTheme: "light",
     }),
   ],
 }

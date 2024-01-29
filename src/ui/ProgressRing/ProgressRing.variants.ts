@@ -17,6 +17,8 @@ export const progressRingVariants = cva({
 })
 
 export const progressRingCircleVariants = cva({
+  base: "text-primary",
+
   variants: {
     theme: {
       blue: "text-blue",

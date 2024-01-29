@@ -3,7 +3,6 @@ import { XIcon } from "lucide-react"
 import { forwardRef, isValidElement } from "react"
 import type { ButtonHTMLAttributes, HTMLAttributes } from "react"
 
-import { useTheme } from "../../providers"
 import { cx, type VariantProps } from "../../shared"
 import { Slottable } from "../../utils/Slottable"
 
@@ -37,10 +36,7 @@ type FeatureCardCloserProps = ButtonHTMLAttributes<HTMLButtonElement> &
   }
 
 const FeatureCardRoot = forwardRef<FeatureCardElement, FeatureCardRootProps>((props, ref) => {
-  const { className, asChild, theme: propTheme, variant, ...rest } = props
-
-  const globalTheme = useTheme()
-  const theme = propTheme || globalTheme
+  const { className, asChild, theme, variant, ...rest } = props
 
   const useAsChild = asChild && isValidElement(rest.children)
   const Component = useAsChild ? Slot : "div"
@@ -90,6 +86,7 @@ export const FeatureCard = Object.assign(FeatureCardBase, {
 })
 
 FeatureCard.defaultProps = {
+  theme: "secondary",
   variant: "soft",
   asChild: false,
   closeable: false,

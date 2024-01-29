@@ -2,7 +2,6 @@ import { Slot } from "@radix-ui/react-slot"
 import { forwardRef, isValidElement } from "react"
 import type { ReactElement, HTMLAttributes } from "react"
 
-import { useTheme } from "../../providers"
 import { type VariantProps, cx } from "../../shared"
 import { Slottable } from "../../utils/Slottable"
 
@@ -30,21 +29,8 @@ export type BadgeProps = Omit<HTMLAttributes<BadgeElement>, "size" | "prefix"> &
   }
 
 export const Badge = forwardRef<BadgeElement, BadgeProps>((props, ref) => {
-  const {
-    children,
-    className,
-    asChild,
-    prefix,
-    suffix,
-    theme: propTheme,
-    variant,
-    size,
-    shape,
-    ...rest
-  } = props
-
-  const globalTheme = useTheme()
-  const theme = propTheme || globalTheme
+  const { children, className, asChild, prefix, suffix, theme, variant, size, shape, ...rest } =
+    props
 
   const useAsChild = asChild && isValidElement(children)
   const Component = useAsChild ? Slot : "span"
@@ -79,6 +65,7 @@ export const Badge = forwardRef<BadgeElement, BadgeProps>((props, ref) => {
 Badge.displayName = "Badge"
 
 Badge.defaultProps = {
+  theme: "blue",
   variant: "solid",
   size: "sm",
   shape: "pill",

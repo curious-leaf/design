@@ -9,7 +9,7 @@ export const progressBarLineVariants = cva({
 })
 
 export const progressBarProgressVariants = cva({
-  base: "h-full rounded-full",
+  base: "h-full rounded-full bg-primary",
 
   variants: {
     theme: {

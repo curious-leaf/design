@@ -4,7 +4,6 @@ import { UserIcon } from "lucide-react"
 import { forwardRef, isValidElement } from "react"
 import type { ComponentPropsWithoutRef, ElementRef, ReactElement, RefObject } from "react"
 
-import { useTheme } from "../../providers"
 import { type VariantProps, cx, getInitials, isReactElement } from "../../shared"
 import { Loader } from "../Loader"
 
@@ -48,14 +47,11 @@ export type AvatarProps = ComponentPropsWithoutRef<typeof Primitive.Image> &
 const AvatarRoot = forwardRef<
   ElementRef<typeof Primitive.Root>,
   ComponentPropsWithoutRef<typeof Primitive.Root> & VariantProps<typeof avatarVariants>
->(({ className, theme: propTheme, variant, size, shape, ...props }, ref) => {
-  const globalTheme = useTheme()
-  const theme = propTheme || globalTheme
-
+>(({ className, variant, size, shape, ...props }, ref) => {
   return (
     <Primitive.Root
       ref={ref}
-      className={cx(avatarVariants({ theme, variant, size, shape, className }))}
+      className={cx(avatarVariants({ variant, size, shape, className }))}
       {...props}
     />
   )
@@ -89,22 +85,11 @@ const AvatarStatus = forwardRef<
 })
 
 const AvatarBase = forwardRef<AvatarElement, AvatarProps>((props, ref) => {
-  const {
-    children,
-    initials,
-    topStatus,
-    bottomStatus,
-    theme,
-    variant,
-    size,
-    shape,
-    src,
-    alt,
-    ...rest
-  } = props
+  const { children, initials, topStatus, bottomStatus, variant, size, shape, src, alt, ...rest } =
+    props
 
   return (
-    <AvatarRoot theme={theme} variant={variant} size={size} shape={shape} {...rest}>
+    <AvatarRoot variant={variant} size={size} shape={shape} {...rest}>
       {/* Show image if available */}
       {src && <AvatarImage ref={ref as RefObject<HTMLImageElement>} alt={alt} src={src} />}
 

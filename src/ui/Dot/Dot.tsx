@@ -1,7 +1,6 @@
 import { Slot } from "@radix-ui/react-slot"
 import { type HTMLAttributes, forwardRef, isValidElement } from "react"
 
-import { useTheme } from "../../providers"
 import { type VariantProps } from "../../shared"
 
 import { dotVariants } from "./Dot.variants"
@@ -18,10 +17,7 @@ export type DotProps = Omit<HTMLAttributes<DotElement>, "size"> &
   }
 
 export const Dot = forwardRef<DotElement, DotProps>((props, ref) => {
-  const { className, asChild, theme: propTheme, variant, size, ...rest } = props
-
-  const globalTheme = useTheme()
-  const theme = propTheme || globalTheme
+  const { className, asChild, theme, variant, size, ...rest } = props
 
   const useAsChild = asChild && isValidElement(rest.children)
   const Component = useAsChild ? Slot : "span"
@@ -32,6 +28,7 @@ export const Dot = forwardRef<DotElement, DotProps>((props, ref) => {
 })
 
 Dot.defaultProps = {
+  theme: "blue",
   variant: "solid",
   size: "md",
   asChild: false,

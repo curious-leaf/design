@@ -14,7 +14,7 @@ label[for],
 
 svg[stroke="currentColor"] {
   @apply stroke-[1.5];
-  @apply size-[1.428em];
+  @apply size-icon;
 }
 
 .dark {

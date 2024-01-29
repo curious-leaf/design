@@ -23,9 +23,9 @@ export const statusVariants = cva({
       outline: "bg-transparent border-gray-200 text-gray-500",
     },
     size: {
-      sm: "text-2xs",
-      md: "text-xs",
-      lg: "text-sm",
+      sm: "text-3xs",
+      md: "text-2xs",
+      lg: "text-xs",
     },
   },
 

@@ -24,9 +24,9 @@ export const badgeVariants = cva({
       outline: "",
     },
     size: {
-      sm: "text-2xs",
-      md: "text-xs",
-      lg: "text-sm",
+      sm: "text-3xs",
+      md: "text-2xs",
+      lg: "text-xs",
     },
     shape: {
       rounded: "rounded-md",

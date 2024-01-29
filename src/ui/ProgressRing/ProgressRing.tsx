@@ -1,6 +1,5 @@
 import { type HTMLAttributes, forwardRef } from "react"
 
-import { useTheme } from "../../providers"
 import type { VariantProps } from "../../shared"
 import { cleanPercentage, cx } from "../../shared"
 
@@ -18,10 +17,7 @@ export type ProgressRingProps = Omit<HTMLAttributes<ProgressRingElement>, "size"
   }
 
 export const ProgressRing = forwardRef<ProgressRingElement, ProgressRingProps>((props, ref) => {
-  const { className, percent, theme: propTheme, size, ...rest } = props
-
-  const globalTheme = useTheme()
-  const theme = propTheme || globalTheme
+  const { className, percent, theme, size, ...rest } = props
 
   let svgSize = 0
 

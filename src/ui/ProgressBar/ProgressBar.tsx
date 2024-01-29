@@ -1,7 +1,6 @@
 import { Slot } from "@radix-ui/react-slot"
 import { type HTMLAttributes, forwardRef, isValidElement } from "react"
 
-import { useTheme } from "../../providers"
 import { cleanPercentage, cx, type VariantProps } from "../../shared"
 import type { ParagraphElement, ParagraphProps } from "../../typography/Paragraph"
 import { Paragraph } from "../../typography/Paragraph"
@@ -47,10 +46,8 @@ const ProgressBarRoot = forwardRef<ProgressBarElement, ProgressBarRootProps>((pr
 })
 
 const ProgressBarBar = forwardRef<ProgressBarElement, ProgressBarBarProps>((props, ref) => {
-  const { className, percent, theme: propTheme, ...rest } = props
+  const { className, percent, theme, ...rest } = props
 
-  const globalTheme = useTheme()
-  const theme = propTheme || globalTheme
   const percentage = cleanPercentage(percent)
 
   return (
