@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react"
 import { UserPlusIcon } from "lucide-react"
 
+import type { AvatarGroupProps } from "./AvatarGroup"
 import { AvatarGroup } from "./AvatarGroup"
 
 type Story = StoryObj<typeof AvatarGroup>
@@ -18,7 +19,7 @@ const items = [
     src: "https://images.unsplash.com/photo-1488161628813-04466f872be2?q=80&w=250&h=250&auto=format&fit=crop",
     alt: "Avatar 2",
   },
-]
+] satisfies AvatarGroupProps["items"]
 
 // Meta
 export default {

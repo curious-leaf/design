@@ -3,13 +3,16 @@ import { cva } from "../../shared"
 export const buttonVariants = cva({
   base: [
     "relative inline-flex items-center justify-center",
-    "border border-transparent rounded-md font-medium leading-icon text-center",
+    "border border-transparent rounded font-medium leading-icon text-center",
 
     // Disabled
     "disabled:opacity-25 disabled:pointer-events-none",
 
+    // hover
+    "hover:z-10",
+
     // Focus
-    "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2",
+    "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus:z-10",
   ],
 
   variants: {
@@ -17,7 +20,7 @@ export const buttonVariants = cva({
       primary:
         "border-primary-dark/25 text-primary-dark hover:border-primary-dark/40 focus-visible:ring-primary/50",
       secondary:
-        "border-gray-700/25 text-gray-600 hover:border-gray-700/40 focus-visible:ring-gray-500/50",
+        "border-gray-300 text-gray-600 hover:border-gray-400 focus-visible:ring-gray-500/50",
       positive:
         "border-green-dark/25 text-green-dark hover:border-green-dark/40 focus-visible:ring-green/50",
       negative:
@@ -29,7 +32,7 @@ export const buttonVariants = cva({
       solid: "shadow-sm",
       outline: "shadow-sm",
       soft: "",
-      ghost: "",
+      ghost: "hover:border-transparent",
     },
     size: {
       sm: "text-xs gap-[0.5ch] py-1 px-2",
