@@ -110,6 +110,7 @@ export const ProgressBar = Object.assign(ProgressBarBase, {
 })
 
 ProgressBar.defaultProps = {
+  theme: "blue",
   percent: 0,
   label: "",
   hint: "",

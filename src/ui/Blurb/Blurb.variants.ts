@@ -13,5 +13,5 @@ export const blurbTitleVariants = cva({
 })
 
 export const blurbDescriptionVariants = cva({
-  base: "opacity-60 truncate",
+  base: "text-gray-500 truncate",
 })

@@ -86,6 +86,7 @@ export const ProgressRing = forwardRef<ProgressRingElement, ProgressRingProps>((
 })
 
 ProgressRing.defaultProps = {
+  theme: "blue",
   size: "md",
 }
 

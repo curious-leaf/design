@@ -18,6 +18,7 @@ export * from "./ui/MenuItem"
 export * from "./ui/Modal"
 export * from "./ui/ProgressBar"
 export * from "./ui/ProgressRing"
+export * from "./ui/Series"
 export * from "./ui/Shortcut"
 export * from "./ui/Status"
 
