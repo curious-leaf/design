@@ -2,7 +2,7 @@ import { Slot } from "@radix-ui/react-slot"
 import { forwardRef, isValidElement } from "react"
 import type { ReactElement, HTMLAttributes } from "react"
 
-import { type VariantProps, cx } from "../../shared"
+import { type VariantProps, cx, isChildrenEmpty } from "../../shared"
 import { Slottable } from "../../utils/Slottable"
 
 import { badgeAffixVariants, badgeVariants } from "./Badge.variants"
@@ -53,7 +53,7 @@ export const Badge = forwardRef<BadgeElement, BadgeProps>((props, ref) => {
         {(child) => (
           <>
             {prefix && renderAffix(prefix)}
-            {child}
+            {!isChildrenEmpty(child) && <span className="truncate">{child}</span>}
             {suffix && renderAffix(suffix)}
           </>
         )}
@@ -67,7 +67,7 @@ Badge.displayName = "Badge"
 Badge.defaultProps = {
   theme: "blue",
   variant: "solid",
-  size: "sm",
-  shape: "pill",
+  size: "md",
+  shape: "rounded",
   asChild: false,
 }
