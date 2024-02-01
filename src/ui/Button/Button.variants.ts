@@ -6,7 +6,7 @@ export const buttonVariants = cva({
     "border border-transparent rounded font-medium leading-icon text-center",
 
     // Disabled
-    "disabled:opacity-25 disabled:pointer-events-none",
+    "disabled:opacity-60 disabled:pointer-events-none",
 
     // hover
     "hover:z-10",

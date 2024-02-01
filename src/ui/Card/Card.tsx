@@ -35,7 +35,7 @@ const CardFooter = forwardRef<
   return (
     <div
       ref={ref}
-      className={cx(cardPanelVariants({ position: "bottom", className }))}
+      className={cx("flex-row-reverse", cardPanelVariants({ position: "bottom", className }))}
       {...props}
     />
   )

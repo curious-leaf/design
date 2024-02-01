@@ -22,18 +22,17 @@ type HeaderRootProps = ComponentPropsWithoutRef<"div"> &
     asChild?: boolean
   }
 
-export type HeaderProps = HeaderRootProps &
-  Omit<ComponentPropsWithoutRef<typeof Heading>, "title"> & {
-    /**
-     * Represents the title displayed on the Header.
-     */
-    title?: ReactElement<HTMLElement> | string
+export type HeaderProps = Omit<HeaderRootProps & HeadingProps, "title"> & {
+  /**
+   * Represents the title displayed on the Header.
+   */
+  title?: ReactElement<HTMLElement> | string
 
-    /**
-     * Represents the description displayed on the Header.
-     */
-    description?: string
-  }
+  /**
+   * Represents the description displayed on the Header.
+   */
+  description?: string
+}
 
 const HeaderRoot = forwardRef<HeaderElement, HeaderRootProps>(
   ({ className, alignment, gap, separated, sticky, asChild, ...props }, ref) => {
@@ -68,12 +67,14 @@ const HeaderDescription = forwardRef<
   const { className, size = "sm", ...rest } = props
 
   return (
-    <Markdown
-      ref={ref}
-      size={size}
-      className={cx(headerDescriptionVariants({ className }))}
-      {...rest}
-    />
+    <div className="w-full">
+      <Markdown
+        ref={ref}
+        size={size}
+        className={cx(headerDescriptionVariants({ className }))}
+        {...rest}
+      />
+    </div>
   )
 })
 

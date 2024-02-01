@@ -2,7 +2,7 @@ import { cva } from "../../shared"
 
 export const proseVariants = cva({
   base: [
-    "text-pretty max-w-none prose dark:prose-invert",
+    "text-pretty prose dark:prose-invert",
 
     // Prose Headings
     "prose-headings:font-medium prose-h1:text-4xl prose-h1:-tracking-1 prose-h2:text-3xl prose-h2:-tracking-1 prose-h3:text-2xl prose-h3:-tracking-1 prose-h4:text-xl prose-h5:text-lg prose-h6:text-base",
@@ -16,9 +16,9 @@ export const proseVariants = cva({
 
   variants: {
     size: {
-      sm: "prose-sm",
-      md: "prose-base",
-      lg: "prose-lg",
+      sm: "text-sm",
+      md: "text-base",
+      lg: "text-lg",
     },
   },
 

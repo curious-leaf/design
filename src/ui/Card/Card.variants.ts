@@ -5,7 +5,7 @@ export const cardVariants = cva({
 })
 
 export const cardPanelVariants = cva({
-  base: "sticky inset-x-0 z-30 flex flex-row-reverse items-center justify-between gap-4 px-6 py-4 -mx-6 bg-white md:-mx-8 md:px-8 md:py-6",
+  base: "sticky inset-x-0 z-30 flex items-center justify-between gap-4 px-6 py-4 -mx-6 bg-white md:-mx-8 md:px-8 md:py-6",
 
   variants: {
     position: {

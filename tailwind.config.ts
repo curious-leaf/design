@@ -1,5 +1,6 @@
 import type { Config } from "tailwindcss"
 import colors from "tailwindcss/colors"
+import plugin from "tailwindcss/plugin"
 
 const colorTheme = {
   blue: {
@@ -79,9 +80,9 @@ export default {
       "3xs": ["clamp(0.688rem, 0.688rem + 0vw, 0.688rem)", "1.25"], // 11px
       "2xs": ["clamp(0.688rem, 0.663rem + 0.096vw, 0.75rem)", "1.33"], // 12px
       xs: ["clamp(0.75rem, 0.726rem + 0.096vw, 0.813rem)", "1.4"], // 13px
-      sm: ["clamp(0.813rem, 0.788rem + 0.096vw, 0.875rem)", "1.44"], // 14px
-      base: ["clamp(0.875rem, 0.827rem + 0.192vw, 1rem)", "1.5"], // 16px
-      lg: ["clamp(1.05rem, 0.992rem + 0.231vw, 1.2rem)", "1.44"], // 19.2px
+      sm: ["clamp(0.813rem, 0.788rem + 0.096vw, 0.875rem)", "1.5"], // 14px
+      base: ["clamp(0.875rem, 0.827rem + 0.192vw, 1rem)", "1.6"], // 16px
+      lg: ["clamp(1.05rem, 0.992rem + 0.231vw, 1.2rem)", "1.5"], // 19.2px
       xl: ["clamp(1.26rem, 1.191rem + 0.277vw, 1.44rem)", "1.4"], // 23.04px
       "2xl": ["clamp(1.512rem, 1.429rem + 0.332vw, 1.728rem)", "1.33"], // 27.684px
       "3xl": ["clamp(1.814rem, 1.714rem + 0.4vw, 2.074rem)", "1.25"], // 33.177px
@@ -117,11 +118,22 @@ export default {
       typography: (theme: any) => ({
         DEFAULT: {
           css: {
-            "--tw-prose-body": theme("colors.gray[500]"),
+            "--tw-prose-body": theme("colors.gray[600]"),
             "--tw-prose-headings": theme("colors.gray[900]"),
           },
         },
       }),
+
+      gridColumns: {
+        DEFAULT: "16rem",
+        xxs: "10rem",
+        xs: "12rem",
+        sm: "14rem",
+        md: "16rem",
+        lg: "18rem",
+        xl: "20rem",
+      },
+
       keyframes: {
         shimmer: {
           from: { left: "-90%" },
@@ -144,10 +156,24 @@ export default {
     },
   },
 
-  /* eslint-disable global-require */
   plugins: [
     require("@tailwindcss/typography"),
     require("@tailwindcss/container-queries"),
     require("tailwindcss-animate"),
+
+    // Custom grid utilities
+    plugin(({ matchUtilities, theme }) => {
+      matchUtilities(
+        {
+          "grid-auto-fill": (value) => ({
+            gridTemplateColumns: `repeat(auto-fill, minmax(${value}, 1fr))`,
+          }),
+          "grid-auto-fit": (value) => ({
+            gridTemplateColumns: `repeat(auto-fit, minmax(${value}, 1fr))`,
+          }),
+        },
+        { values: theme("gridColumns") },
+      )
+    }),
   ],
 } satisfies Config

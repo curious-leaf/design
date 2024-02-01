@@ -24,6 +24,7 @@ export * from "./ui/Status"
 
 // Typography
 export * from "./typography/Heading"
+export * from "./typography/Markdown"
 export * from "./typography/Paragraph"
 export * from "./typography/Prose"
 export * from "./typography/Subheading"
@@ -32,6 +33,9 @@ export * from "./typography/Subheading"
 export * from "./layout/Container"
 export * from "./layout/Header"
 export * from "./layout/Sidebar"
+
+// Forms
+export * from "./forms/Affix"
 
 // Utils
 export * from "./utils/Slottable"
