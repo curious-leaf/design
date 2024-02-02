@@ -5,7 +5,7 @@ import { forwardRef } from "react"
 import type { VariantProps } from "../../shared"
 import { cx } from "../../shared"
 
-import { tabsListVariants, tabsTriggerVariants } from "./Tabs.variants"
+import { tabsContentVariants, tabsListVariants, tabsTriggerVariants } from "./Tabs.variants"
 
 export type TabsElement = ElementRef<typeof TabsPrimitive.Root>
 export type TabsProps = ComponentPropsWithoutRef<typeof TabsPrimitive.Root>
@@ -28,9 +28,14 @@ TabsTrigger.displayName = TabsPrimitive.Trigger.displayName
 
 const TabsContent = forwardRef<
   ElementRef<typeof TabsPrimitive.Content>,
-  ComponentPropsWithoutRef<typeof TabsPrimitive.Content>
->(({ tabIndex = -1, ...props }, ref) => (
-  <TabsPrimitive.Content ref={ref} tabIndex={tabIndex} {...props} />
+  ComponentPropsWithoutRef<typeof TabsPrimitive.Content> & VariantProps<typeof tabsContentVariants>
+>(({ className, tabIndex = -1, ...props }, ref) => (
+  <TabsPrimitive.Content
+    ref={ref}
+    className={cx(tabsContentVariants({ className }))}
+    tabIndex={tabIndex}
+    {...props}
+  />
 ))
 TabsContent.displayName = TabsPrimitive.Content.displayName
 

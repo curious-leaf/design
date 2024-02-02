@@ -16,3 +16,7 @@ export const tabsTriggerVariants = cva({
     "data-[state=active]:border-current data-[state=active]:text-primary",
   ],
 })
+
+export const tabsContentVariants = cva({
+  base: "outline-none data-[state=inactive]:hidden",
+})

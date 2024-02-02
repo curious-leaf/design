@@ -44,7 +44,7 @@ export const avatarStatusVariants = cva({
 })
 
 export const avatarImageVariants = cva({
-  base: "size-full object-cover object-center rounded-[inherit]",
+  base: "h-full object-cover object-center rounded-[inherit]",
 })
 
 export const avatarFallbackVariants = cva({

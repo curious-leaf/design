@@ -100,9 +100,6 @@ export default {
     },
 
     extend: {
-      screens: {
-        xs: "480px",
-      },
       borderColor: {
         DEFAULT: "#E2E4E8",
       },

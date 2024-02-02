@@ -20,12 +20,13 @@ export const editorVariants = cva({
 })
 
 export const editorContentVariants = cva({
-  base: "size-full max-w-full pb-10 break-word focus:outline-none focus:ring-0",
+  base: "flex-1 max-w-full pb-10 break-word focus:outline-none focus:ring-0",
 
   variants: {
     compact: {
-      true: "min-h-[10rem] md:min-h-[12rem] lg:min-h-[14rem]",
-      false: "min-h-[10rem] md:min-h-[20rem] lg:min-h-[30rem]",
+      true: "min-h-[10rem] [@media(min-height:720px)]:min-h-[12rem] [@media(min-height:960px)]:min-h-[14rem]",
+      false:
+        "min-h-[10rem] [@media(min-height:720px)]:min-h-[20rem] [@media(min-height:960px)]:min-h-[30rem]",
     },
     plain: {
       false: "py-2 px-3 border-t",
@@ -39,11 +40,10 @@ export const editorContentVariants = cva({
 })
 
 export const editorMenuVariants = cva({
-  base: "w-full bg-white",
+  base: "w-full",
 
   variants: {
     plain: {
-      true: "py-2.5 -mt-2.5",
       false: "p-2.5",
     },
   },

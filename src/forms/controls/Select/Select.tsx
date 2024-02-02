@@ -38,7 +38,7 @@ const SelectContent = forwardRef<
   <SelectPrimitive.Portal>
     <SelectPrimitive.Content
       ref={ref}
-      className={cx(selectContentVariants({ position, className }))}
+      className={cx(selectContentVariants({ popper: position === "popper", className }))}
       position={position}
       {...props}
     >
@@ -46,7 +46,9 @@ const SelectContent = forwardRef<
         <IconChevronUp className="opacity-70" />
       </SelectPrimitive.ScrollUpButton>
 
-      <SelectPrimitive.Viewport className={cx(selectViewportVariants({ position }))}>
+      <SelectPrimitive.Viewport
+        className={cx(selectViewportVariants({ popper: position === "popper" }))}
+      >
         <SelectPrimitive.Group>{children}</SelectPrimitive.Group>
       </SelectPrimitive.Viewport>
 
