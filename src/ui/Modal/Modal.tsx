@@ -3,35 +3,35 @@ import type { ComponentPropsWithoutRef, ElementRef } from "react"
 
 import type { Header } from "../../layout/Header"
 import { type VariantProps, cx } from "../../shared"
-import type { BoxElement, BoxProps } from "../Box"
-import { Box } from "../Box"
+import type { CardElement, CardProps } from "../Card"
+import { Card } from "../Card"
 
 import { modalVariants } from "./Modal.variants"
 
-export type ModalElement = BoxElement
+export type ModalElement = CardElement
 
-export type ModalProps = BoxProps & VariantProps<typeof modalVariants>
+export type ModalProps = CardProps & VariantProps<typeof modalVariants>
 
 const ModalRoot = forwardRef<
-  ElementRef<typeof Box.Root>,
-  ComponentPropsWithoutRef<typeof Box.Root> & VariantProps<typeof modalVariants>
+  ElementRef<typeof Card>,
+  ComponentPropsWithoutRef<typeof Card> & VariantProps<typeof modalVariants>
 >((props, ref) => {
   const { className, size, fixed, ...rest } = props
 
-  return <Box.Root ref={ref} className={cx(modalVariants({ size, fixed, className }))} {...rest} />
+  return <Card ref={ref} className={cx(modalVariants({ size, fixed, className }))} {...rest} />
 })
 
 const ModalHeader = forwardRef<ElementRef<typeof Header>, ComponentPropsWithoutRef<typeof Header>>(
   (props, ref) => {
-    return <Box.Header ref={ref} {...props} />
+    return <Card.Header ref={ref} {...props} />
   },
 )
 
 const ModalFooter = forwardRef<
-  ElementRef<typeof Box.Footer>,
-  ComponentPropsWithoutRef<typeof Box.Footer>
+  ElementRef<typeof Card.Footer>,
+  ComponentPropsWithoutRef<typeof Card.Footer>
 >((props, ref) => {
-  return <Box.Footer ref={ref} {...props} />
+  return <Card.Footer ref={ref} {...props} />
 })
 
 const ModalBase = forwardRef<ModalElement, ModalProps>((props, ref) => {
@@ -50,7 +50,7 @@ export const Modal = Object.assign(ModalBase, {
 })
 
 Modal.defaultProps = {
-  ...Box.defaultProps,
+  ...Card.defaultProps,
   size: "sm",
   fixed: true,
 }

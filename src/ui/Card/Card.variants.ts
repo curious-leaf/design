@@ -1,11 +1,11 @@
 import { cva } from "../../shared"
 
 export const cardVariants = cva({
-  base: "flex flex-col gap-8 p-6 overflow-auto md:p-8",
+  base: "flex flex-col gap-8 p-6 overflow-scroll md:p-8",
 })
 
 export const cardPanelVariants = cva({
-  base: "sticky inset-x-0 z-30 flex items-center justify-between gap-4 px-6 py-4 -mx-6 bg-white md:-mx-8 md:px-8 md:py-6",
+  base: "sticky z-30 flex items-center justify-between gap-4 px-6 py-4 -mx-6 bg-white md:-mx-8 md:px-8 md:py-6",
 
   variants: {
     position: {
