@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react"
 
 import { H5 } from "../../typography/Heading"
-import { Paragraph } from "../../typography/Paragraph"
+import { Prose } from "../../typography/Prose"
 
 import { Accordion } from "./Accordion"
 
@@ -20,13 +20,13 @@ export default {
           <H5>Accordion Trigger</H5>
         </Accordion.Trigger>
 
-        <Accordion.Content>
-          <Paragraph>
+        <Accordion.Content asChild>
+          <Prose size="sm">
             Excepteur quis Lorem ad labore excepteur qui. Ut aliquip officia dolor pariatur nulla.
             Amet dolore veniam commodo irure id. Aliqua anim mollit ullamco eiusmod do ad. Non
             commodo est amet. Velit eu eu nostrud. Culpa ullamco aliqua ex. Duis ipsum in incididunt
             laboris.
-          </Paragraph>
+          </Prose>
         </Accordion.Content>
       </Accordion.Item>
     ),

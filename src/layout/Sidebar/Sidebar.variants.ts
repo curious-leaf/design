@@ -1,35 +1,22 @@
 import { cva } from "../../shared"
 
 export const sidebarVariants = cva({
-  base: "sticky top-0 flex h-screen w-[17em] bg-white shrink-0 flex-col gap-y-5 overflow-y-scroll border-r p-5",
+  base: "@container/sidebar sticky top-0 flex h-screen w-[17em] bg-white shrink-0 flex-col gap-y-5 overflow-y-scroll overscroll-contain ring-1 ring-gray-200 p-5",
 
   variants: {
     theme: {
-      blue: "",
-      orange: "",
-      red: "",
-      yellow: "",
-      green: "",
-      purple: "",
-      pink: "",
-      teal: "",
-      gray: "",
-    },
-    variant: {
-      solid: "",
-      soft: "",
-      outline: "border-gray-200",
+      white: "bg-white",
+      gray: "bg-gray-50",
     },
   },
 
   defaultVariants: {
-    theme: "gray",
-    variant: "soft",
+    theme: "white",
   },
 })
 
 export const sidebarContentVariants = cva({
-  base: "flex flex-col gap-y-5 flex-1 -mx-5 px-5 overflow-y-scroll",
+  base: "flex flex-col gap-y-5 flex-1 -mx-5 px-5 overflow-y-scroll overscroll-contain",
 })
 
 export const sidebarMenuVariants = cva({

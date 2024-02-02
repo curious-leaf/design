@@ -18,14 +18,15 @@ export type SeriesProps = HTMLAttributes<SeriesElement> &
   }
 
 export const Series = forwardRef<SeriesElement, SeriesProps>((props, ref) => {
-  const { className, asChild, ...rest } = props
+  const { className, asChild, size, ...rest } = props
   const useAsChild = asChild && isValidElement(props.children)
   const Component = useAsChild ? Slot : "div"
 
-  return <Component ref={ref} className={cx(seriesVariants({ className }))} {...rest} />
+  return <Component ref={ref} className={cx(seriesVariants({ size, className }))} {...rest} />
 })
 
 Series.defaultProps = {
+  size: "md",
   asChild: false,
 }
 

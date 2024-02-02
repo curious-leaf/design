@@ -162,7 +162,7 @@ export default {
     require("tailwindcss-animate"),
 
     // Custom grid utilities
-    plugin(({ matchUtilities, theme }) => {
+    plugin(({ addUtilities, matchUtilities, theme }) => {
       matchUtilities(
         {
           "grid-auto-fill": (value) => ({
@@ -174,6 +174,16 @@ export default {
         },
         { values: theme("gridColumns") },
       )
+      addUtilities({
+        ".scrollbar-none": {
+          "-ms-overflow-style": "none",
+          "scrollbar-width": "none",
+
+          "&::-webkit-scrollbar": {
+            display: "none",
+          },
+        },
+      })
     }),
   ],
 } satisfies Config

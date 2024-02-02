@@ -1,3 +1,4 @@
+import { inputFocusClasses } from "../../forms/controls/Input/Input.variants"
 import { cva } from "../../shared"
 
 export const buttonVariants = cva({
@@ -12,21 +13,21 @@ export const buttonVariants = cva({
     "hover:z-10",
 
     // Focus
-    "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus:z-10",
+    inputFocusClasses,
   ],
 
   variants: {
     theme: {
       primary:
-        "border-primary-dark/25 text-primary-dark hover:border-primary-dark/40 focus-visible:ring-primary/50",
+        "border-primary-dark/25 text-primary-dark hover:border-primary-dark/40 focus-visible:ring-primary-light",
       secondary:
-        "border-default text-gray-600 hover:border-gray-300 focus-visible:ring-gray-500/50",
+        "border-gray-600/25 text-gray-600 hover:border-gray-600/40 focus-visible:ring-gray-300",
       positive:
-        "border-green-dark/25 text-green-dark hover:border-green-dark/40 focus-visible:ring-green/50",
+        "border-green-dark/25 text-green-dark hover:border-green-dark/40 focus-visible:ring-green-light",
       negative:
-        "border-red-dark/25 text-red-dark hover:border-red-dark/40 focus-visible:ring-red/50",
+        "border-red-dark/25 text-red-dark hover:border-red-dark/40 focus-visible:ring-red-light",
       fancy:
-        "text-white *:z-10 before:absolute before:-inset-px before:rounded before:border before:border-transparent before:bg-gradient-to-br before:from-purple before:to-pink before:bg-origin-border after:absolute after:-inset-px after:rounded after:bg-black/10 after:opacity-0 after:transition hover:after:opacity-100 focus-visible:ring-pink/50",
+        "text-white *:z-10 before:absolute before:-inset-px before:rounded before:border before:border-transparent before:bg-gradient-to-br before:from-purple before:to-pink before:bg-origin-border after:absolute after:-inset-px after:rounded after:bg-black/10 after:opacity-0 after:transition hover:after:opacity-100 focus-visible:ring-pink-light",
     },
     variant: {
       solid: "shadow-sm",

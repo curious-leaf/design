@@ -21,6 +21,7 @@ export * from "./ui/ProgressRing"
 export * from "./ui/Series"
 export * from "./ui/Shortcut"
 export * from "./ui/Status"
+export * from "./ui/Tabs"
 
 // Typography
 export * from "./typography/Heading"
@@ -35,7 +36,14 @@ export * from "./layout/Header"
 export * from "./layout/Sidebar"
 
 // Forms
-export * from "./forms/Affix"
+export * from "./forms/ui/Affix"
+export * from "./forms/controls/Checkbox"
+export * from "./forms/controls/Editor"
+export * from "./forms/controls/Input"
+export * from "./forms/controls/RadioGroup"
+export * from "./forms/controls/Select"
+export * from "./forms/controls/Switch"
+export * from "./forms/controls/TextArea"
 
 // Utils
 export * from "./utils/Slottable"

@@ -12,8 +12,11 @@ label[for],
   @apply cursor-pointer;
 }
 
-svg[stroke="currentColor"] {
+svg[stroke="currentColor"]:not([class*="stroke"]) {
   @apply stroke-[1.5];
+}
+
+svg[stroke="currentColor"]:not([class*="size"]) {
   @apply size-icon;
 }
 

@@ -1,10 +1,15 @@
 import { withThemeByClassName } from "@storybook/addon-themes"
-import "~/styles/tailwind.css"
+import "../src/styles/tailwind.css"
 
 const preview = {
   parameters: {
     layout: "centered",
     actions: { argTypesRegex: "^on[A-Z].*" },
+    options: {
+      storySort: {
+        order: ["Layout", "Typography", "UI", "Form", "Utils"],
+      },
+    },
   },
   decorators: [
     // Theme Light/Dark Switcher

@@ -1,7 +1,7 @@
 import { cva } from "../../shared"
 
 export const headerVariants = cva({
-  base: "flex flex-wrap items-center min-w-0",
+  base: "@container/header flex flex-wrap items-center min-w-0",
 
   variants: {
     alignment: {

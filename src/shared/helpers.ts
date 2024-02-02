@@ -35,6 +35,19 @@ export const cleanPercentage = (percentage: number) => {
   return tooLow ? 0 : tooHigh ? 100 : +percentage
 }
 
+export const getElementWidth = (element: HTMLElement | null, includeMargins = false) => {
+  if (!element) return undefined
+
+  let width = element.getBoundingClientRect().width
+
+  if (includeMargins) {
+    const style = window.getComputedStyle(element)
+    width += parseInt(style.marginLeft) + parseInt(style.marginRight)
+  }
+
+  return width
+}
+
 /**
  * Check if a value is truthy
  * @param value - The value to check
