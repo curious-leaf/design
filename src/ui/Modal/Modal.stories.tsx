@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react"
 
+import { Header } from "../../layout/Header"
 import { Paragraph } from "../../typography/Paragraph"
 import { Button } from "../Button"
 
@@ -14,6 +15,7 @@ export default {
   args: {
     ...Modal.defaultProps,
     children: "Modal content",
+    className: "static",
   },
 } satisfies Meta
 
@@ -24,8 +26,8 @@ export const Default = {
 
 export const WithCustomMarkup = {
   render: (props) => (
-    <Modal.Root {...props}>
-      <Modal.Header title="Confirm your action?" size="lg" />
+    <Modal {...props}>
+      <Header title="Confirm your action?" />
 
       <Paragraph>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos? Lorem ipsum dolor
@@ -33,8 +35,8 @@ export const WithCustomMarkup = {
       </Paragraph>
 
       <Modal.Footer>
-        <Button>Confirm</Button>
+        <Button size="lg">Confirm</Button>
       </Modal.Footer>
-    </Modal.Root>
+    </Modal>
   ),
 } satisfies Story

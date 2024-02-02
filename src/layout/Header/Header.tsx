@@ -104,7 +104,7 @@ export const Header = Object.assign(HeaderBase, {
 Header.defaultProps = {
   size: "h4",
   alignment: "left",
-  gap: "large",
+  gap: "lg",
   separated: false,
   sticky: false,
   asChild: false,

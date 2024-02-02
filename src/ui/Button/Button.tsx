@@ -85,6 +85,7 @@ export const Button = forwardRef<ButtonElement, ButtonProps>((props, ref) => {
 })
 
 Button.defaultProps = {
+  type: "button",
   theme: "primary",
   variant: "solid",
   size: "md",

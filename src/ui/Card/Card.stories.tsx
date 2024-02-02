@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react"
 
+import { Header } from "../../layout/Header"
 import { Paragraph } from "../../typography/Paragraph"
 import { Button } from "../Button"
 
@@ -25,15 +26,17 @@ export const Default = {
 export const WithCustomMarkup = {
   render: (props) => (
     <Card {...props}>
-      <Card.Header title="Confirm your action?" size="lg" />
+      <Card.Panel>
+        <Header title="Confirm your action?" />
 
-      <Paragraph>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos? Lorem ipsum dolor
-        sit amet consectetur adipisicing elit. Quisquam, quos?
-      </Paragraph>
+        <Paragraph>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos? Lorem ipsum dolor
+          sit amet consectetur adipisicing elit. Quisquam, quos?
+        </Paragraph>
+      </Card.Panel>
 
       <Card.Footer>
-        <Button>Confirm</Button>
+        <Button size="lg">Confirm</Button>
       </Card.Footer>
     </Card>
   ),

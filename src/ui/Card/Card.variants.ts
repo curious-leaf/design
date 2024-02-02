@@ -1,16 +1,37 @@
 import { cva } from "../../shared"
 
 export const cardVariants = cva({
-  base: "flex flex-col gap-8 p-6 overflow-scroll md:p-8",
+  base: "flex flex-col bg-white border rounded-md shadow-sm overflow-clip",
 })
 
 export const cardPanelVariants = cva({
-  base: "sticky z-30 flex items-center justify-between gap-4 px-6 py-4 -mx-6 bg-white md:-mx-8 md:px-8 md:py-6",
+  base: "border-t first:border-t-0",
 
   variants: {
-    position: {
-      top: "-mt-6 -top-6 border-b md:-mt-8 md:-top-8",
-      bottom: "-mb-6 mt-auto bg-gray-50 -bottom-6 border-t md:-mb-8 md:-bottom-8",
+    size: {
+      md: "p-4 md:p-6",
+      lg: "p-6 md:p-8",
+    },
+    theme: {
+      white: "bg-white",
+      gray: "bg-gray-50",
+    },
+    sticky: {
+      true: "sticky z-30 first:top-0 last:bottom-0",
+    },
+    scrollable: {
+      true: "flex-1 overflow-y-scroll overscroll-contain",
     },
   },
+
+  defaultVariants: {
+    size: "md",
+    theme: "white",
+    sticky: false,
+    scrollable: false,
+  },
+})
+
+export const cardFooterVariants = cva({
+  base: "flex items-center justify-between flex-row-reverse gap-6 mt-auto",
 })

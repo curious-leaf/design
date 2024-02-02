@@ -10,8 +10,8 @@ export const headerVariants = cva({
       right: "justify-end text-right",
     },
     gap: {
-      small: "gap-y-3 gap-x-6",
-      large: "gap-y-3 gap-x-6 lg:gap-x-12",
+      sm: "gap-y-2 gap-x-6",
+      lg: "gap-y-3 gap-x-6 lg:gap-x-12",
     },
     separated: {
       true: "my-6 md:mt-8 first:mt-0 last:mb-0 only:m-0",
@@ -23,7 +23,7 @@ export const headerVariants = cva({
 
   defaultVariants: {
     alignment: "left",
-    gap: "large",
+    gap: "lg",
     separated: false,
     sticky: false,
   },
