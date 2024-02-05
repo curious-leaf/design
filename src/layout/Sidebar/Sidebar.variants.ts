@@ -16,7 +16,7 @@ export const sidebarVariants = cva({
 })
 
 export const sidebarContentVariants = cva({
-  base: "flex flex-col gap-y-5 flex-1 -mx-5 px-5 overflow-y-scroll overscroll-contain",
+  base: "flex flex-col gap-y-6 flex-1 -mx-5 px-5 overflow-y-scroll overscroll-contain",
 })
 
 export const sidebarMenuVariants = cva({

@@ -1,6 +1,6 @@
 import * as Primitive from "@radix-ui/react-avatar"
 import { Slot } from "@radix-ui/react-slot"
-import { UserIcon } from "lucide-react"
+import { IconUser } from "@tabler/icons-react"
 import { forwardRef, isValidElement } from "react"
 import type { ComponentPropsWithoutRef, ElementRef, ReactElement, RefObject } from "react"
 
@@ -118,7 +118,7 @@ const AvatarBase = forwardRef<AvatarElement, AvatarProps>((props, ref) => {
       {/* Fallback */}
       {!children && !src && !initials && (
         <AvatarFallback ref={ref} aria-label={alt} role="img">
-          <UserIcon />
+          <IconUser />
         </AvatarFallback>
       )}
 

@@ -53,13 +53,13 @@ const CardFooter = forwardRef<
   CardPanelElement,
   CardPanelProps & VariantProps<typeof cardFooterVariants>
 >((props, ref) => {
-  const { className, theme = "gray", ...rest } = props
+  const { className, size, theme = "gray", ...rest } = props
 
   return (
     <CardPanel
       ref={ref}
       theme={theme}
-      className={cx(cardFooterVariants({ className }))}
+      className={cx(cardFooterVariants({ size, className }))}
       {...rest}
     />
   )

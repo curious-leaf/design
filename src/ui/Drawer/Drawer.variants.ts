@@ -2,7 +2,7 @@ import { cva } from "../../shared"
 
 export const drawerVariants = cva({
   base: [
-    "fixed -inset-y-px z-50 w-full overflow-auto duration-500 focus:outline-none",
+    "fixed -inset-y-px z-50 w-full overflow-y-auto duration-500 outline-none",
     "data-[state=open]:animate-in data-[state=closed]:animate-out",
     "data-[state=open]:fade-in data-[state=closed]:fade-out",
   ],

@@ -1,15 +1,15 @@
 import type { Meta, StoryObj } from "@storybook/react"
 import {
-  Settings,
-  ChevronRight,
-  WalletCardsIcon,
-  CoinsIcon,
-  CreditCardIcon,
-  HistoryIcon,
-  Rotate3DIcon,
-  HeadphonesIcon,
-  LayoutDashboardIcon,
-} from "lucide-react"
+  IconChevronRight,
+  IconCoins,
+  IconCreditCard,
+  IconHeadset,
+  IconHistory,
+  IconRotate360,
+  IconSettings,
+  IconTable,
+  IconWallet,
+} from "@tabler/icons-react"
 
 import { Badge } from "../../ui/Badge"
 import { Blurb } from "../../ui/Blurb"
@@ -26,28 +26,28 @@ const menus = {
   Main: [
     {
       children: "Dashboard",
-      prefix: <LayoutDashboardIcon />,
+      prefix: <IconTable />,
       active: true,
     },
     {
       children: "My Cards",
-      prefix: <CreditCardIcon />,
+      prefix: <IconCreditCard />,
     },
     {
       children: "Transfer",
-      prefix: <CoinsIcon />,
+      prefix: <IconCoins />,
     },
     {
       children: "Transactions",
-      prefix: <HistoryIcon />,
+      prefix: <IconHistory />,
     },
     {
       children: "Payments",
-      prefix: <WalletCardsIcon />,
+      prefix: <IconWallet />,
     },
     {
       children: "Exchange",
-      prefix: <Rotate3DIcon />,
+      prefix: <IconRotate360 />,
       suffix: (
         <Badge theme="gray" variant="soft">
           Soon
@@ -60,12 +60,12 @@ const menus = {
   Other: [
     {
       children: "Settings",
-      prefix: <Settings />,
+      prefix: <IconSettings />,
       suffix: <Shortcut>⌘K</Shortcut>,
     },
     {
       children: "Support",
-      prefix: <HeadphonesIcon />,
+      prefix: <IconHeadset />,
       loading: true,
     },
   ],
@@ -85,7 +85,6 @@ export default {
         <Blurb
           avatar={{
             src: "https://uilogos.co/img/logomark/earth.png",
-            theme: "green",
             size: "lg",
           }}
           title="Synergy"
@@ -106,7 +105,7 @@ export default {
           ))}
         </Sidebar.Content>
 
-        <FeatureCard theme="gray" closeable>
+        <FeatureCard theme="secondary" variant="soft" closeable>
           {FeatureCardDefault.args.children}
         </FeatureCard>
 
@@ -121,7 +120,7 @@ export default {
           description="Software Engineer"
         >
           <button className="ml-2 rounded border p-0.5 text-xs">
-            <ChevronRight />
+            <IconChevronRight />
           </button>
         </Blurb>
       </>

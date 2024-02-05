@@ -23,10 +23,10 @@ const SelectTrigger = forwardRef<
     className={cx(inputVariants({ mono, error, className }))}
     {...props}
   >
-    <div className="line-clamp-1 flex-1 text-start">{children}</div>
+    <div className="flex-1 truncate">{children}</div>
 
     <SelectPrimitive.Icon asChild>
-      <IconChevronDown className="opacity-70" />
+      <IconChevronDown className="shrink-0 opacity-70" />
     </SelectPrimitive.Icon>
   </SelectPrimitive.Trigger>
 ))
@@ -77,13 +77,11 @@ const SelectItem = forwardRef<
   ComponentPropsWithoutRef<typeof SelectPrimitive.Item>
 >(({ className, children, ...props }, ref) => (
   <SelectPrimitive.Item ref={ref} className={cx(selectItemVariants({ className }))} {...props}>
-    <SelectPrimitive.ItemText>
-      <span className="line-clamp-1 flex-1 text-start">{children}</span>
-    </SelectPrimitive.ItemText>
-
     <SelectPrimitive.ItemIndicator asChild>
-      <IconCheck className="ml-auto opacity-70" />
+      <IconCheck className="absolute left-1.5 !stroke-2 opacity-70" />
     </SelectPrimitive.ItemIndicator>
+
+    <SelectPrimitive.ItemText>{children}</SelectPrimitive.ItemText>
   </SelectPrimitive.Item>
 ))
 
@@ -118,10 +116,12 @@ const SelectBase = forwardRef<ElementRef<typeof SelectPrimitive.Value>, SelectPr
     return (
       <SelectPrimitive.Root {...rest}>
         <SelectTrigger error={error}>
-          <SelectPrimitive.Value ref={ref} placeholder={placeholder} />
+          <SelectPrimitive.Value ref={ref} />
         </SelectTrigger>
 
         <SelectContent>
+          {placeholder && <SelectItem value="">{placeholder}</SelectItem>}
+
           {options?.filter(isTruthy).map(({ label, value }, index) => (
             <SelectItem key={index} value={value}>
               {label ?? value}

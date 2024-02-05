@@ -1,8 +1,7 @@
-import { cva } from "../../../shared"
-import { inputFocusWithinClasses } from "../Input/Input.variants"
+import { cva, focusWithinClasses } from "../../../shared"
 
 export const editorVariants = cva({
-  base: ["relative w-full border rounded-md overflow-hidden transition", inputFocusWithinClasses],
+  base: ["relative w-full border rounded-md overflow-hidden transition", focusWithinClasses],
 
   variants: {
     error: {
@@ -20,7 +19,7 @@ export const editorVariants = cva({
 })
 
 export const editorContentVariants = cva({
-  base: "flex-1 max-w-full pb-10 break-word focus:outline-none focus:ring-0",
+  base: "flex-1 max-w-none w-full pb-10 break-word focus:outline-none focus:ring-0",
 
   variants: {
     compact: {

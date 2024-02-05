@@ -1,7 +1,7 @@
 import { cva } from "../../shared"
 
 export const cardVariants = cva({
-  base: "flex flex-col bg-white border rounded-md shadow-sm overflow-clip",
+  base: "flex flex-col bg-white border rounded-md shadow overflow-clip",
 })
 
 export const cardPanelVariants = cva({
@@ -9,8 +9,8 @@ export const cardPanelVariants = cva({
 
   variants: {
     size: {
-      md: "p-4 md:p-6",
-      lg: "p-6 md:p-8",
+      sm: "p-4 md:p-6",
+      md: "p-6 md:p-8",
     },
     theme: {
       white: "bg-white",
@@ -25,7 +25,7 @@ export const cardPanelVariants = cva({
   },
 
   defaultVariants: {
-    size: "md",
+    size: "sm",
     theme: "white",
     sticky: false,
     scrollable: false,
@@ -34,4 +34,15 @@ export const cardPanelVariants = cva({
 
 export const cardFooterVariants = cva({
   base: "flex items-center justify-between flex-row-reverse gap-6 mt-auto",
+
+  variants: {
+    size: {
+      sm: "md:py-4",
+      md: "md:py-6",
+    },
+  },
+
+  defaultVariants: {
+    size: "sm",
+  },
 })

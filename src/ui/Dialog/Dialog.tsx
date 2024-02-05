@@ -1,0 +1,73 @@
+import * as DialogPrimitive from "@radix-ui/react-alert-dialog"
+import { IconX } from "@tabler/icons-react"
+import type { ComponentPropsWithoutRef, ElementRef } from "react"
+import { forwardRef } from "react"
+
+import type { VariantProps } from "../../shared"
+import { cx } from "../../shared"
+import { Backdrop } from "../Backdrop"
+import { Button } from "../Button"
+import { Card } from "../Card"
+
+import { dialogVariants } from "./Dialog.variants"
+
+export type DialogElement = ElementRef<typeof DialogPrimitive.Root>
+export type DialogProps = ComponentPropsWithoutRef<typeof DialogPrimitive.Root>
+
+const DialogContent = forwardRef<
+  ElementRef<typeof DialogPrimitive.Content>,
+  ComponentPropsWithoutRef<typeof DialogPrimitive.Content> & VariantProps<typeof dialogVariants>
+>(({ className, size, fixed, ...props }, ref) => (
+  <DialogPrimitive.Portal>
+    <DialogPrimitive.Overlay asChild>
+      <Backdrop />
+    </DialogPrimitive.Overlay>
+
+    <Card asChild>
+      <DialogPrimitive.Content
+        ref={ref}
+        className={cx(dialogVariants({ size, fixed, className }))}
+        {...props}
+      />
+    </Card>
+  </DialogPrimitive.Portal>
+))
+
+const DialogPanel = forwardRef<
+  ElementRef<typeof Card.Panel>,
+  ComponentPropsWithoutRef<typeof Card.Panel>
+>(({ size = "md", ...props }, ref) => <Card.Panel ref={ref} size={size} {...props} />)
+
+const DialogFooter = forwardRef<
+  ElementRef<typeof Card.Footer>,
+  ComponentPropsWithoutRef<typeof Card.Footer>
+>(({ size = "md", ...props }, ref) => <Card.Footer ref={ref} size={size} {...props} />)
+
+const DialogClose = forwardRef<
+  ElementRef<typeof DialogPrimitive.Cancel>,
+  ComponentPropsWithoutRef<typeof DialogPrimitive.Cancel>
+>(({ className, ...props }, ref) => (
+  <DialogPrimitive.Cancel ref={ref} className={cx("-my-1", className)} {...props}>
+    <IconX />
+  </DialogPrimitive.Cancel>
+))
+
+const DialogCancel = forwardRef<
+  ElementRef<typeof DialogPrimitive.Cancel>,
+  ComponentPropsWithoutRef<typeof DialogPrimitive.Cancel>
+>(({ children = "Cancel", ...props }, ref) => (
+  <DialogPrimitive.Cancel ref={ref} asChild {...props}>
+    <Button theme="secondary" variant="outline" size="lg">
+      {children}
+    </Button>
+  </DialogPrimitive.Cancel>
+))
+
+export const Dialog = Object.assign(DialogPrimitive.Root, {
+  Trigger: DialogPrimitive.Trigger,
+  Content: DialogContent,
+  Panel: DialogPanel,
+  Footer: DialogFooter,
+  Close: DialogClose,
+  Cancel: DialogCancel,
+})

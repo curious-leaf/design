@@ -5,9 +5,9 @@ export const headerVariants = cva({
 
   variants: {
     alignment: {
-      left: "justify-between text-left",
+      left: "justify-between text-start",
       center: "justify-center text-center",
-      right: "justify-end text-right",
+      right: "justify-end text-end",
     },
     gap: {
       sm: "gap-y-2 gap-x-6",
@@ -34,5 +34,5 @@ export const headerTitleVariants = cva({
 })
 
 export const headerDescriptionVariants = cva({
-  base: "w-full",
+  base: "w-full text-gray-500",
 })

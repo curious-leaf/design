@@ -1,33 +1,24 @@
-import { inputFocusClasses } from "../../forms/controls/Input/Input.variants"
-import { cva } from "../../shared"
+import { cva, focusClasses } from "../../shared"
 
 export const buttonVariants = cva({
   base: [
-    "relative inline-flex items-center justify-center",
-    "border border-transparent rounded font-medium leading-icon text-center",
-
-    // Disabled
+    "relative inline-flex items-center justify-center border border-transparent rounded font-medium leading-icon hover:z-10",
     "disabled:opacity-60 disabled:pointer-events-none",
-
-    // hover
-    "hover:z-10",
-
-    // Focus
-    inputFocusClasses,
+    focusClasses,
   ],
 
   variants: {
     theme: {
       primary:
-        "border-primary-dark/25 text-primary-dark hover:border-primary-dark/40 focus-visible:ring-primary-light",
+        "border-primary-dark/25 text-primary-dark hover:border-primary-dark/40 focus-visible:border-primary-dark/40 focus-visible:ring-primary-light",
       secondary:
-        "border-gray-600/25 text-gray-600 hover:border-gray-600/40 focus-visible:ring-gray-300",
+        "border-gray-600/25 text-gray-600 hover:border-gray-600/40 focus-visible:border-gray-600/40 focus-visible:ring-gray-300",
       positive:
-        "border-green-dark/25 text-green-dark hover:border-green-dark/40 focus-visible:ring-green-light",
+        "border-green-dark/25 text-green-dark hover:border-green-dark/40 focus-visible:border-green-dark/40 focus-visible:ring-green-light",
       negative:
-        "border-red-dark/25 text-red-dark hover:border-red-dark/40 focus-visible:ring-red-light",
+        "border-red-dark/25 text-red-dark hover:border-red-dark/40 focus-visible:border-red-dark/40 focus-visible:ring-red-light",
       fancy:
-        "text-white *:z-10 before:absolute before:-inset-px before:rounded before:border before:border-transparent before:bg-gradient-to-br before:from-purple before:to-pink before:bg-origin-border after:absolute after:-inset-px after:rounded after:bg-black/10 after:opacity-0 after:transition hover:after:opacity-100 focus-visible:ring-pink-light",
+        "border-purple-dark/25 text-purple-dark hover:border-purple-dark/40 focus-visible:border-purple-dark/40 focus-visible:ring-purple-light",
     },
     variant: {
       solid: "shadow-sm",
@@ -72,6 +63,12 @@ export const buttonVariants = cva({
     { theme: "negative", variant: "outline", class: "bg-white hover:bg-red-lighter" },
     { theme: "negative", variant: "soft", class: "border-transparent bg-red-lighter" },
     { theme: "negative", variant: "ghost", class: "border-transparent hover:bg-red-lighter" },
+
+    // Fancy
+    { theme: "fancy", variant: "solid", class: "bg-purple text-white hover:bg-purple-dark" },
+    { theme: "fancy", variant: "outline", class: "bg-white hover:bg-purple-lighter" },
+    { theme: "fancy", variant: "soft", class: "border-transparent bg-purple-lighter" },
+    { theme: "fancy", variant: "ghost", class: "border-transparent hover:bg-purple-lighter" },
 
     // Is icon only
     { size: "sm", iconOnly: true, class: "px-1" },

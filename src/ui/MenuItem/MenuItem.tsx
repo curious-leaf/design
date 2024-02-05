@@ -1,7 +1,6 @@
 import { Slot } from "@radix-ui/react-slot"
-import { ChevronRightIcon } from "lucide-react"
 import { forwardRef, isValidElement } from "react"
-import type { ReactElement, ButtonHTMLAttributes } from "react"
+import type { ButtonHTMLAttributes, ReactNode } from "react"
 
 import { cx, isChildrenEmpty, type VariantProps } from "../../shared"
 import { Slottable } from "../../utils/Slottable"
@@ -22,12 +21,12 @@ export type MenuItemProps = Omit<ButtonHTMLAttributes<MenuItemElement>, "prefix"
     /**
      * The slot to be rendered before the label.
      */
-    prefix?: ReactElement<HTMLElement>
+    prefix?: ReactNode | ReactNode[]
 
     /**
      * The slot to be rendered after the label.
      */
-    suffix?: ReactElement<HTMLElement>
+    suffix?: ReactNode | ReactNode[]
 
     /**
      * If set to `true`, the element will be rendered in the active state.
@@ -45,43 +44,50 @@ export const MenuItem = forwardRef<MenuItemElement, MenuItemProps>((props, ref) 
     children,
     className,
     asChild,
-    prefix,
+    prefix: propPrefix,
     suffix: propSuffix,
     loading,
     active,
+    theme,
+    size,
     ...rest
   } = props
 
   const useAsChild = asChild && isValidElement(children)
   const Component = useAsChild ? Slot : "button"
 
-  const suffix = loading ? (
-    <Loader className="text-xs" />
-  ) : active ? (
-    <ChevronRightIcon className="text-xs" />
-  ) : (
-    propSuffix
-  )
+  const prefix = propPrefix instanceof Array ? propPrefix : [propPrefix]
+  const suffix = propSuffix instanceof Array ? propSuffix : [propSuffix]
 
-  const renderAffix = (props: Pick<MenuItemProps, "children">) => {
-    const AffixComponent = isValidElement(children) ? Slot : "span"
-
-    return <AffixComponent className={cx(menuItemAffixVariants())} {...props} />
+  if (loading) {
+    suffix.push(<Loader className="text-xs" />)
   }
 
   return (
     <Component
       ref={ref}
       aria-current={active ? "page" : undefined}
-      className={cx(menuItemVariants({ className }))}
+      className={cx(menuItemVariants({ theme, size, className }))}
       {...rest}
     >
       <Slottable child={children} asChild={asChild}>
         {(child) => (
           <>
-            {prefix && renderAffix({ children: prefix })}
+            {!!prefix.length &&
+              prefix.map((p, i) => (
+                <Slot key={i} className={cx(menuItemAffixVariants())}>
+                  {p}
+                </Slot>
+              ))}
+
             {!isChildrenEmpty(child) && <span className="flex-1 truncate">{child}</span>}
-            {suffix && renderAffix({ children: suffix })}
+
+            {!!suffix.length &&
+              suffix.map((s, i) => (
+                <Slot key={i} className={cx(menuItemAffixVariants())}>
+                  {s}
+                </Slot>
+              ))}
           </>
         )}
       </Slottable>
@@ -93,6 +99,8 @@ MenuItem.defaultProps = {
   disabled: false,
   active: false,
   loading: false,
+  theme: "secondary",
+  size: "md",
 }
 
 MenuItem.displayName = "MenuItem"

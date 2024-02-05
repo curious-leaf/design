@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react"
-import { UserPlusIcon } from "lucide-react"
+import { IconUserPlus } from "@tabler/icons-react"
 
 import type { AvatarGroupProps } from "./AvatarGroup"
 import { AvatarGroup } from "./AvatarGroup"
@@ -44,7 +44,7 @@ export const WithLabel = {
 
 export const WithCustomLabel = {
   args: {
-    label: <UserPlusIcon />,
+    label: <IconUserPlus />,
   },
 } satisfies Story
 

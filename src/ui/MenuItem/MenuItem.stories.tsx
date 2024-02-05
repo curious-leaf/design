@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react"
-import { TableIcon, ChevronsRightIcon } from "lucide-react"
+import { IconTable, IconChevronsRight } from "@tabler/icons-react"
 
 import { MenuItem } from "./MenuItem"
 
@@ -13,8 +13,8 @@ export default {
     ...MenuItem.defaultProps,
     style: { width: 200 },
     children: "Dashboard",
-    prefix: <TableIcon />,
-    suffix: <ChevronsRightIcon />,
+    prefix: <IconTable />,
+    suffix: <IconChevronsRight />,
   },
 } satisfies Meta
 

@@ -1,4 +1,4 @@
-import * as DialogPrimitive from "@radix-ui/react-dialog"
+import * as DrawerPrimitive from "@radix-ui/react-dialog"
 import { IconX } from "@tabler/icons-react"
 import { forwardRef } from "react"
 import type { ComponentPropsWithoutRef, ElementRef } from "react"
@@ -11,25 +11,24 @@ import { Card } from "../Card"
 
 import { drawerVariants } from "./Drawer.variants"
 
-export type DrawerElement = ElementRef<typeof DialogPrimitive.Root>
-export type DrawerProps = ComponentPropsWithoutRef<typeof DialogPrimitive.Root>
+export type DrawerElement = ElementRef<typeof DrawerPrimitive.Root>
+export type DrawerProps = ComponentPropsWithoutRef<typeof DrawerPrimitive.Root>
 
 const DrawerContent = forwardRef<
-  ElementRef<typeof DialogPrimitive.Content>,
-  ComponentPropsWithoutRef<typeof DialogPrimitive.Content> & VariantProps<typeof drawerVariants>
->(({ className, tabIndex = -1, size, direction, ...props }, ref) => (
-  <DialogPrimitive.Portal>
-    <DialogPrimitive.Content
+  ElementRef<typeof DrawerPrimitive.Content>,
+  ComponentPropsWithoutRef<typeof DrawerPrimitive.Content> & VariantProps<typeof drawerVariants>
+>(({ className, size, direction, ...props }, ref) => (
+  <DrawerPrimitive.Portal>
+    <DrawerPrimitive.Overlay asChild>
+      <Backdrop />
+    </DrawerPrimitive.Overlay>
+
+    <DrawerPrimitive.Content
       ref={ref}
-      tabIndex={tabIndex}
       className={cx(drawerVariants({ size, direction, className }))}
       {...props}
     />
-
-    <DialogPrimitive.Overlay asChild>
-      <Backdrop />
-    </DialogPrimitive.Overlay>
-  </DialogPrimitive.Portal>
+  </DrawerPrimitive.Portal>
 ))
 
 const DrawerContentCard = forwardRef<
@@ -41,37 +40,42 @@ const DrawerContentCard = forwardRef<
   </Card>
 ))
 
+const DrawerPanel = forwardRef<
+  ElementRef<typeof Card.Panel>,
+  ComponentPropsWithoutRef<typeof Card.Panel>
+>(({ size = "md", ...props }, ref) => <Card.Panel ref={ref} size={size} {...props} />)
+
+const DrawerFooter = forwardRef<
+  ElementRef<typeof Card.Footer>,
+  ComponentPropsWithoutRef<typeof Card.Footer>
+>(({ size = "md", ...props }, ref) => <Card.Footer ref={ref} size={size} {...props} />)
+
 const DrawerClose = forwardRef<
-  ElementRef<typeof DialogPrimitive.Close>,
-  ComponentPropsWithoutRef<typeof DialogPrimitive.Close>
+  ElementRef<typeof DrawerPrimitive.Close>,
+  ComponentPropsWithoutRef<typeof DrawerPrimitive.Close>
 >(({ className, ...props }, ref) => (
-  <DialogPrimitive.Close ref={ref} className={cx("-my-1", className)} {...props}>
+  <DrawerPrimitive.Close ref={ref} className={cx("-my-1", className)} {...props}>
     <IconX />
-  </DialogPrimitive.Close>
+  </DrawerPrimitive.Close>
 ))
 
 const DrawerCancel = forwardRef<
-  ElementRef<typeof DialogPrimitive.Close>,
-  ComponentPropsWithoutRef<typeof DialogPrimitive.Close>
+  ElementRef<typeof DrawerPrimitive.Close>,
+  ComponentPropsWithoutRef<typeof DrawerPrimitive.Close>
 >(({ children = "Cancel", ...props }, ref) => (
-  <DialogPrimitive.Close ref={ref} asChild {...props}>
+  <DrawerPrimitive.Close ref={ref} asChild {...props}>
     <Button theme="secondary" variant="outline" size="lg">
       {children}
     </Button>
-  </DialogPrimitive.Close>
+  </DrawerPrimitive.Close>
 ))
 
-DrawerContent.displayName = DialogPrimitive.Content.displayName
-DrawerContentCard.displayName = "DrawerContentCard"
-DrawerClose.displayName = DialogPrimitive.Close.displayName
-DrawerCancel.displayName = DialogPrimitive.Close.displayName
-
-export const Drawer = Object.assign(DialogPrimitive.Root, {
-  Trigger: DialogPrimitive.Trigger,
+export const Drawer = Object.assign(DrawerPrimitive.Root, {
+  Trigger: DrawerPrimitive.Trigger,
   Content: DrawerContent,
   ContentCard: DrawerContentCard,
-  Panel: Card.Panel,
-  Footer: Card.Footer,
+  Panel: DrawerPanel,
+  Footer: DrawerFooter,
   Close: DrawerClose,
   Cancel: DrawerCancel,
 })
