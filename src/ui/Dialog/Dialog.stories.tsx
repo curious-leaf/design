@@ -16,6 +16,7 @@ export default {
     ...Dialog.defaultProps,
     children: "Dialog content",
     className: "static",
+    open: true,
   },
 } satisfies Meta
 
@@ -27,18 +28,21 @@ export const Default = {
 export const WithCustomMarkup = {
   render: (props) => (
     <Dialog {...props}>
-      <Dialog.Panel>
-        <Header title="Confirm your action?" />
+      <Dialog.Content size="lg">
+        <Dialog.Panel className="flex flex-col gap-4">
+          <Header title="Confirm your action?" />
 
-        <Paragraph>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos? Lorem ipsum dolor
-          sit amet consectetur adipisicing elit. Quisquam, quos?
-        </Paragraph>
-      </Dialog.Panel>
+          <Paragraph className="text-pretty text-gray-500">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos? Lorem ipsum
+            dolor sit amet consectetur adipisicing elit. Quisquam, quos?
+          </Paragraph>
+        </Dialog.Panel>
 
-      <Dialog.Footer>
-        <Button size="lg">Confirm</Button>
-      </Dialog.Footer>
+        <Dialog.Footer>
+          <Button size="lg">Confirm</Button>
+          <Dialog.Cancel />
+        </Dialog.Footer>
+      </Dialog.Content>
     </Dialog>
   ),
 } satisfies Story

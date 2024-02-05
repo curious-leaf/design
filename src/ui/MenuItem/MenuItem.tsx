@@ -1,8 +1,9 @@
 import { Slot } from "@radix-ui/react-slot"
+import { IconChevronRight } from "@tabler/icons-react"
 import { forwardRef, isValidElement } from "react"
 import type { ButtonHTMLAttributes, ReactNode } from "react"
 
-import { cx, isChildrenEmpty, type VariantProps } from "../../shared"
+import { cx, isChildrenEmpty, toArrayOrWrap, type VariantProps } from "../../shared"
 import { Slottable } from "../../utils/Slottable"
 import { Loader } from "../Loader"
 
@@ -56,11 +57,15 @@ export const MenuItem = forwardRef<MenuItemElement, MenuItemProps>((props, ref) 
   const useAsChild = asChild && isValidElement(children)
   const Component = useAsChild ? Slot : "button"
 
-  const prefix = propPrefix instanceof Array ? propPrefix : [propPrefix]
-  const suffix = propSuffix instanceof Array ? propSuffix : [propSuffix]
+  const prefix = toArrayOrWrap(propPrefix)
+  const suffix = toArrayOrWrap(propSuffix)
 
   if (loading) {
     suffix.push(<Loader className="text-xs" />)
+  }
+
+  if (active && !suffix.length) {
+    suffix.push(<IconChevronRight className="text-xs" />)
   }
 
   return (

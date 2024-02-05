@@ -58,6 +58,19 @@ export function isTruthy<T>(value?: T | undefined | null | false): value is T {
 }
 
 /**
+ * Converts a value or an array of values into an array.
+ * If the value is already an array, it is returned as is.
+ * If the value is truthy, it is wrapped in an array.
+ * If the value is falsy, an empty array is returned.
+ *
+ * @param value - The value or array of values to convert.
+ * @returns The converted array.
+ */
+export const toArrayOrWrap = <T>(value: T | T[]): T[] => {
+  return Array.isArray(value) ? value : value ? [value] : []
+}
+
+/**
  * Get the initials from a string
  * @param value A string to get the initials from
  * @param limit The maximum number of initials to return
