@@ -1,8 +1,8 @@
 import { Slot } from "@radix-ui/react-slot"
 import type { HTMLAttributes } from "react"
-import { forwardRef, isValidElement } from "react"
+import { forwardRef } from "react"
 
-import { type VariantProps, cx } from "../../shared"
+import { type VariantProps, cx, isReactElement } from "../../shared"
 
 import { paragraphVariants } from "./Paragraph.variants"
 
@@ -20,11 +20,11 @@ export type ParagraphProps = Omit<HTMLAttributes<ParagraphElement>, "size"> &
 export const Paragraph = forwardRef<ParagraphElement, ParagraphProps>((props, ref) => {
   const { className, asChild, size, variant, ...rest } = props
 
-  const useAsChild = asChild && isValidElement(rest.children)
+  const useAsChild = asChild && isReactElement(rest.children)
   const Comp = useAsChild ? Slot : "p"
 
   return (
-    <Comp className={cx(paragraphVariants({ size, variant, className }))} ref={ref} {...rest} />
+    <Comp ref={ref} className={cx(paragraphVariants({ size, variant, className }))} {...rest} />
   )
 })
 

@@ -1,8 +1,8 @@
 import { Slot } from "@radix-ui/react-slot"
 import type { HTMLAttributes } from "react"
-import { forwardRef, isValidElement } from "react"
+import { forwardRef } from "react"
 
-import { type VariantProps, cx } from "../../shared"
+import { type VariantProps, cx, isReactElement } from "../../shared"
 
 import { headingVariants } from "./Heading.variants"
 
@@ -20,34 +20,34 @@ export type HeadingProps = Omit<HTMLAttributes<HeadingElement>, "size"> &
 export const Heading = forwardRef<HeadingElement, HeadingProps>((props, ref) => {
   const { className, asChild, size, ...rest } = props
 
-  const useAsChild = asChild && isValidElement(rest.children)
+  const useAsChild = asChild && isReactElement(rest.children)
   const Comp = useAsChild ? Slot : size ?? "h2"
 
-  return <Comp className={cx(headingVariants({ size, className }))} ref={ref} {...rest} />
+  return <Comp ref={ref} className={cx(headingVariants({ size, className }))} {...rest} />
 })
 
 export const H1 = forwardRef<HeadingElement, HeadingProps>((props, ref) => {
-  return <Heading size="h1" ref={ref} {...props} />
+  return <Heading ref={ref} size="h1" {...props} />
 })
 
 export const H2 = forwardRef<HeadingElement, HeadingProps>((props, ref) => {
-  return <Heading size="h2" ref={ref} {...props} />
+  return <Heading ref={ref} size="h2" {...props} />
 })
 
 export const H3 = forwardRef<HeadingElement, HeadingProps>((props, ref) => {
-  return <Heading size="h3" ref={ref} {...props} />
+  return <Heading ref={ref} size="h3" {...props} />
 })
 
 export const H4 = forwardRef<HeadingElement, HeadingProps>((props, ref) => {
-  return <Heading size="h4" ref={ref} {...props} />
+  return <Heading ref={ref} size="h4" {...props} />
 })
 
 export const H5 = forwardRef<HeadingElement, HeadingProps>((props, ref) => {
-  return <Heading size="h5" ref={ref} {...props} />
+  return <Heading ref={ref} size="h5" {...props} />
 })
 
 export const H6 = forwardRef<HeadingElement, HeadingProps>((props, ref) => {
-  return <Heading size="h6" ref={ref} {...props} />
+  return <Heading ref={ref} size="h6" {...props} />
 })
 
 Heading.defaultProps = {

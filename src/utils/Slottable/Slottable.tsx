@@ -1,5 +1,7 @@
 import type { ReactNode } from "react"
-import { cloneElement, forwardRef, isValidElement } from "react"
+import { cloneElement, forwardRef } from "react"
+
+import { isReactElement } from "../../shared"
 
 export type SlottableProps = {
   asChild?: boolean
@@ -14,10 +16,9 @@ export const Slottable = forwardRef<HTMLElement, SlottableProps>((props, ref) =>
     return children(child)
   }
 
-  if (!isValidElement(child)) {
+  if (!isReactElement(child)) {
     return null
   }
 
-  // @ts-expect-error Ref is not assignable
   return cloneElement(child, { ref, ...rest }, children(child.props?.children))
 })

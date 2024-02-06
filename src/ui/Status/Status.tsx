@@ -1,9 +1,10 @@
 import { Slot } from "@radix-ui/react-slot"
-import { forwardRef, isValidElement } from "react"
-import type { ReactElement, HTMLAttributes } from "react"
+import { forwardRef } from "react"
+import type { HTMLAttributes, ReactNode } from "react"
 
 import type { VariantProps } from "../../shared"
-import { cx } from "../../shared"
+import { cx, isChildrenEmpty, isReactElement } from "../../shared"
+import { Affixable } from "../../utils/Affixable"
 import { Slottable } from "../../utils/Slottable"
 
 import { statusAffixVariants, statusVariants } from "./Status.variants"
@@ -21,27 +22,19 @@ export type StatusProps = Omit<HTMLAttributes<StatusElement>, "size" | "prefix">
     /**
      * The slot to be rendered before the label.
      */
-    prefix?: ReactElement<HTMLElement>
+    prefix?: ReactNode
 
     /**
      * The slot to be rendered after the label.
      */
-    suffix?: ReactElement<HTMLElement>
+    suffix?: ReactNode
   }
 
 export const Status = forwardRef<StatusElement, StatusProps>((props, ref) => {
   const { children, className, asChild, prefix, suffix, theme, variant, size, ...rest } = props
 
-  const useAsChild = asChild && isValidElement(children)
+  const useAsChild = asChild && isReactElement(children)
   const Component = useAsChild ? Slot : "span"
-
-  // Render an affix with destructive properties applied.
-  const renderAffix = (affix?: ReactElement<HTMLElement>) => {
-    const AffixComponent = isValidElement(affix) ? Slot : "span"
-    const classNames = cx(statusAffixVariants({ theme, className: affix?.props.className }))
-
-    return <AffixComponent className={classNames}>{affix}</AffixComponent>
-  }
 
   return (
     <Component
@@ -52,9 +45,9 @@ export const Status = forwardRef<StatusElement, StatusProps>((props, ref) => {
       <Slottable child={children} asChild={asChild}>
         {(child) => (
           <>
-            {prefix && renderAffix(prefix)}
-            {child}
-            {suffix && renderAffix(suffix)}
+            <Affixable variants={statusAffixVariants}>{prefix}</Affixable>
+            {!isChildrenEmpty(child) && <span className="truncate">{child}</span>}
+            <Affixable variants={statusAffixVariants}>{suffix}</Affixable>
           </>
         )}
       </Slottable>

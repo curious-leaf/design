@@ -1,9 +1,10 @@
 import { Slot } from "@radix-ui/react-slot"
 import { IconChevronRight } from "@tabler/icons-react"
-import { forwardRef, isValidElement } from "react"
+import { forwardRef } from "react"
 import type { ButtonHTMLAttributes, ReactNode } from "react"
 
-import { cx, isChildrenEmpty, toArrayOrWrap, type VariantProps } from "../../shared"
+import { cx, isChildrenEmpty, isReactElement, toArrayOrWrap, type VariantProps } from "../../shared"
+import { Affixable } from "../../utils/Affixable"
 import { Slottable } from "../../utils/Slottable"
 import { Loader } from "../Loader"
 
@@ -54,7 +55,7 @@ export const MenuItem = forwardRef<MenuItemElement, MenuItemProps>((props, ref) 
     ...rest
   } = props
 
-  const useAsChild = asChild && isValidElement(children)
+  const useAsChild = asChild && isReactElement(children)
   const Component = useAsChild ? Slot : "button"
 
   const prefix = toArrayOrWrap(propPrefix)
@@ -78,21 +79,19 @@ export const MenuItem = forwardRef<MenuItemElement, MenuItemProps>((props, ref) 
       <Slottable child={children} asChild={asChild}>
         {(child) => (
           <>
-            {!!prefix.length &&
-              prefix.map((p, i) => (
-                <Slot key={i} className={cx(menuItemAffixVariants())}>
-                  {p}
-                </Slot>
-              ))}
+            {prefix?.map((p, i) => (
+              <Affixable key={i} variants={menuItemAffixVariants}>
+                {p}
+              </Affixable>
+            ))}
 
             {!isChildrenEmpty(child) && <span className="flex-1 truncate">{child}</span>}
 
-            {!!suffix.length &&
-              suffix.map((s, i) => (
-                <Slot key={i} className={cx(menuItemAffixVariants())}>
-                  {s}
-                </Slot>
-              ))}
+            {suffix?.map((s, i) => (
+              <Affixable key={i} variants={menuItemAffixVariants}>
+                {s}
+              </Affixable>
+            ))}
           </>
         )}
       </Slottable>

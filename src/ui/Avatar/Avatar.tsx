@@ -1,8 +1,8 @@
 import * as Primitive from "@radix-ui/react-avatar"
 import { Slot } from "@radix-ui/react-slot"
 import { IconUser } from "@tabler/icons-react"
-import { forwardRef, isValidElement } from "react"
-import type { ComponentPropsWithoutRef, ElementRef, ReactElement, RefObject } from "react"
+import { forwardRef } from "react"
+import type { ComponentPropsWithoutRef, ElementRef, ReactNode, RefObject } from "react"
 
 import { type VariantProps, cx, getInitials, isReactElement } from "../../shared"
 import { Loader } from "../Loader"
@@ -36,12 +36,12 @@ export type AvatarProps = ComponentPropsWithoutRef<typeof Primitive.Image> &
     /**
      * The slot to be rendered at the top of the Avatar.
      */
-    topStatus?: ReactElement<HTMLElement>
+    topStatus?: ReactNode
 
     /**
      * The slot to be rendered at the bottom of the Avatar.
      */
-    bottomStatus?: ReactElement<HTMLElement>
+    bottomStatus?: ReactNode
   }
 
 const AvatarRoot = forwardRef<
@@ -74,14 +74,10 @@ const AvatarFallback = forwardRef<
 const AvatarStatus = forwardRef<
   HTMLSpanElement,
   ComponentPropsWithoutRef<"span"> & VariantProps<typeof avatarStatusVariants>
->(({ children, className, position, ...rest }, ref) => {
-  const Comp = isValidElement(children) ? Slot : "span"
+>(({ className, position, ...rest }, ref) => {
+  const Comp = isReactElement(rest.children) ? Slot : "span"
 
-  return (
-    <Comp ref={ref} className={cx(avatarStatusVariants({ position, className }))} {...rest}>
-      {children}
-    </Comp>
-  )
+  return <Comp ref={ref} className={cx(avatarStatusVariants({ position, className }))} {...rest} />
 })
 
 const AvatarBase = forwardRef<AvatarElement, AvatarProps>((props, ref) => {

@@ -18,7 +18,7 @@ export default {
 // Stories
 export const Default = {
   args: {
-    prefix: <IconPointFilled />,
+    prefix: <IconPointFilled style={{ color: "blue" }} />,
   },
 } satisfies Story
 

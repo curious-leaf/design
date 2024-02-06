@@ -1,8 +1,8 @@
 import { Slot } from "@radix-ui/react-slot"
 import type { HTMLAttributes } from "react"
-import { forwardRef, isValidElement } from "react"
+import { forwardRef } from "react"
 
-import { type VariantProps, cx } from "../../shared"
+import { type VariantProps, cx, isReactElement } from "../../shared"
 
 import { proseVariants } from "./Prose.variants"
 
@@ -20,10 +20,10 @@ export type ProseProps = Omit<HTMLAttributes<ProseElement>, "size"> &
 export const Prose = forwardRef<ProseElement, ProseProps>((props, ref) => {
   const { className, asChild, size, ...rest } = props
 
-  const useAsChild = asChild && isValidElement(rest.children)
+  const useAsChild = asChild && isReactElement(rest.children)
   const Comp = useAsChild ? Slot : "div"
 
-  return <Comp className={cx(proseVariants({ size, className }))} ref={ref} {...rest} />
+  return <Comp ref={ref} className={cx(proseVariants({ size, className }))} {...rest} />
 })
 
 Prose.defaultProps = {

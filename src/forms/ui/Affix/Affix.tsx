@@ -1,9 +1,9 @@
-import { Slot } from "@radix-ui/react-slot"
-import type { HTMLAttributes, InputHTMLAttributes, ReactNode } from "react"
-import { forwardRef, isValidElement, useEffect, useRef, useState } from "react"
+import type { InputHTMLAttributes, ReactNode } from "react"
+import { forwardRef, useEffect, useRef, useState } from "react"
 
 import type { VariantProps } from "../../../shared"
 import { createSimpleContext, cx, getElementWidth } from "../../../shared"
+import { Affixable } from "../../../utils/Affixable"
 
 import { affixGroupVariants, affixVariants } from "./Affix.variants"
 
@@ -16,21 +16,17 @@ const AffixContext = createSimpleContext<AffixContext>("Affix")
 
 export type AffixElement = HTMLDivElement
 
-type AffixSlotProps = HTMLAttributes<HTMLElement> &
-  VariantProps<typeof affixVariants> & {
-    children?: ReactNode
-  }
-
-const AffixSlot = forwardRef<HTMLElement, AffixSlotProps>(({ side, ...props }, ref) => {
-  const Component = isValidElement(props.children) ? Slot : "span"
-
-  return <Component ref={ref} className={cx(affixVariants({ side }))} {...props} />
-})
-
 export type AffixProps = Omit<InputHTMLAttributes<HTMLInputElement>, "prefix"> &
   VariantProps<typeof affixGroupVariants> &
   VariantProps<typeof affixVariants> & {
+    /**
+     * The slot to be rendered before the label.
+     */
     prefix?: ReactNode
+
+    /**
+     * The slot to be rendered after the label.
+     */
     suffix?: ReactNode
   }
 
@@ -53,19 +49,15 @@ export const Affix = forwardRef<AffixElement, AffixProps>((props, ref) => {
   return (
     <AffixContext.Provider value={{ prefixWidth, suffixWidth }}>
       <div ref={ref} className={cx(affixGroupVariants({ className }))} {...rest}>
-        {prefix && (
-          <AffixSlot ref={prefixRef} side="left">
-            {prefix}
-          </AffixSlot>
-        )}
+        <Affixable ref={prefixRef} variants={affixVariants}>
+          {prefix}
+        </Affixable>
 
         {children}
 
-        {suffix && (
-          <AffixSlot ref={suffixRef} side="right">
-            {suffix}
-          </AffixSlot>
-        )}
+        <Affixable ref={suffixRef} variants={affixVariants}>
+          {suffix}
+        </Affixable>
       </div>
     </AffixContext.Provider>
   )

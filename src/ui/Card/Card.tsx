@@ -1,8 +1,8 @@
 import { Slot } from "@radix-ui/react-slot"
-import { forwardRef, isValidElement } from "react"
+import { forwardRef } from "react"
 import type { ComponentPropsWithoutRef, HTMLAttributes } from "react"
 
-import { type VariantProps, cx } from "../../shared"
+import { type VariantProps, cx, isReactElement } from "../../shared"
 
 import { cardFooterVariants, cardPanelVariants, cardVariants } from "./Card.variants"
 
@@ -19,7 +19,7 @@ export type CardProps = HTMLAttributes<CardElement> &
 const CardRoot = forwardRef<CardElement, CardProps>((props, ref) => {
   const { className, asChild, ...rest } = props
 
-  const useAsChild = asChild && isValidElement(rest.children)
+  const useAsChild = asChild && isReactElement(rest.children)
   const Component = useAsChild ? Slot : "div"
 
   return <Component ref={ref} className={cx(cardVariants({ className }))} {...rest} />
@@ -37,7 +37,7 @@ type CardPanelProps = ComponentPropsWithoutRef<"div"> &
 
 const CardPanel = forwardRef<CardPanelElement, CardPanelProps>((props, ref) => {
   const { className, asChild, size, theme, sticky, scrollable, ...rest } = props
-  const useAsChild = asChild && isValidElement(rest.children)
+  const useAsChild = asChild && isReactElement(rest.children)
   const Component = useAsChild ? Slot : "div"
 
   return (

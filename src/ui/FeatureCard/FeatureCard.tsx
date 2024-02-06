@@ -1,9 +1,9 @@
 import { Slot } from "@radix-ui/react-slot"
 import { IconX } from "@tabler/icons-react"
-import { forwardRef, isValidElement } from "react"
+import { forwardRef } from "react"
 import type { ButtonHTMLAttributes, HTMLAttributes } from "react"
 
-import { cx, type VariantProps } from "../../shared"
+import { cx, isReactElement, type VariantProps } from "../../shared"
 import { Slottable } from "../../utils/Slottable"
 
 import { featureCardCloserVariants, featureCardVariants } from "./FeatureCard.variants"
@@ -38,7 +38,7 @@ type FeatureCardCloserProps = ButtonHTMLAttributes<HTMLButtonElement> &
 const FeatureCardRoot = forwardRef<FeatureCardElement, FeatureCardRootProps>((props, ref) => {
   const { className, asChild, theme, variant, ...rest } = props
 
-  const useAsChild = asChild && isValidElement(rest.children)
+  const useAsChild = asChild && isReactElement(rest.children)
   const Component = useAsChild ? Slot : "div"
 
   return (
@@ -53,7 +53,7 @@ const FeatureCardRoot = forwardRef<FeatureCardElement, FeatureCardRootProps>((pr
 const FeatureCardCloser = forwardRef<HTMLButtonElement, FeatureCardCloserProps>((props, ref) => {
   const { children, className, asChild, ...rest } = props
 
-  const useAsChild = asChild && isValidElement(children)
+  const useAsChild = asChild && isReactElement(children)
   const Component = useAsChild ? Slot : "button"
 
   return (

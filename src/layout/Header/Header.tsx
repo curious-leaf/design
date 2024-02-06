@@ -1,8 +1,8 @@
 import { Slot } from "@radix-ui/react-slot"
-import { forwardRef, isValidElement } from "react"
-import type { ComponentPropsWithoutRef, ReactElement } from "react"
+import { forwardRef } from "react"
+import type { ComponentPropsWithoutRef, ReactNode } from "react"
 
-import { type VariantProps, cx } from "../../shared"
+import { type VariantProps, cx, isReactElement } from "../../shared"
 import type { HeadingElement, HeadingProps } from "../../typography/Heading"
 import { Heading } from "../../typography/Heading"
 import type { MarkdownElement, MarkdownProps } from "../../typography/Markdown"
@@ -26,7 +26,7 @@ export type HeaderProps = Omit<HeaderRootProps & HeadingProps, "title"> & {
   /**
    * Represents the title displayed on the Header.
    */
-  title?: ReactElement<HTMLElement> | string
+  title?: ReactNode
 
   /**
    * Represents the description displayed on the Header.
@@ -36,7 +36,7 @@ export type HeaderProps = Omit<HeaderRootProps & HeadingProps, "title"> & {
 
 const HeaderRoot = forwardRef<HeaderElement, HeaderRootProps>(
   ({ className, alignment, gap, separated, sticky, asChild, ...props }, ref) => {
-    const useAsChild = asChild && isValidElement(props.children)
+    const useAsChild = asChild && isReactElement(props.children)
     const Component = useAsChild ? Slot : "div"
 
     return (

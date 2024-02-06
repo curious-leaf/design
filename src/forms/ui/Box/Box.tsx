@@ -9,7 +9,14 @@ import type { VariantProps } from "../../../shared"
 import { boxGroupVariants } from "./Box.variants"
 
 export type BoxProps = LabelHTMLAttributes<HTMLLabelElement> & {
+  /**
+   * The label for the box.
+   */
   label?: ReactNode
+
+  /**
+   * The slot to be rendered after the label.
+   */
   suffix?: ReactNode
 }
 

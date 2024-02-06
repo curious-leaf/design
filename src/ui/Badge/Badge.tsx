@@ -1,8 +1,9 @@
 import { Slot } from "@radix-ui/react-slot"
-import { forwardRef, isValidElement } from "react"
-import type { ReactElement, HTMLAttributes } from "react"
+import { forwardRef } from "react"
+import type { HTMLAttributes, ReactNode } from "react"
 
-import { type VariantProps, cx, isChildrenEmpty } from "../../shared"
+import { type VariantProps, cx, isChildrenEmpty, isReactElement } from "../../shared"
+import { Affixable } from "../../utils/Affixable"
 import { Slottable } from "../../utils/Slottable"
 
 import { badgeAffixVariants, badgeVariants } from "./Badge.variants"
@@ -20,41 +21,36 @@ export type BadgeProps = Omit<HTMLAttributes<BadgeElement>, "size" | "prefix"> &
     /**
      * The slot to be rendered before the label.
      */
-    prefix?: ReactElement<HTMLElement>
+    prefix?: ReactNode
 
     /**
      * The slot to be rendered after the label.
      */
-    suffix?: ReactElement<HTMLElement>
+    suffix?: ReactNode
   }
 
 export const Badge = forwardRef<BadgeElement, BadgeProps>((props, ref) => {
   const { children, className, asChild, prefix, suffix, theme, variant, size, shape, ...rest } =
     props
 
-  const useAsChild = asChild && isValidElement(children)
+  const useAsChild = asChild && isReactElement(children)
   const Component = useAsChild ? Slot : "span"
 
-  // Render an affix with destructive properties applied.
-  const renderAffix = (affix?: ReactElement<HTMLElement>) => {
-    const AffixComponent = isValidElement(affix) ? Slot : "span"
-    const classNames = cx(badgeAffixVariants({ className: affix?.props.className }))
-
-    return <AffixComponent className={classNames}>{affix}</AffixComponent>
-  }
+  // Determine if the button is icon-only.
+  const iconOnly = isChildrenEmpty(children) && (!prefix || !suffix)
 
   return (
     <Component
-      className={cx(badgeVariants({ theme, size, variant, shape, className }))}
+      className={cx(badgeVariants({ theme, size, variant, shape, iconOnly, className }))}
       ref={ref}
       {...rest}
     >
       <Slottable child={children} asChild={asChild}>
         {(child) => (
           <>
-            {prefix && renderAffix(prefix)}
+            <Affixable variants={badgeAffixVariants}>{prefix}</Affixable>
             {!isChildrenEmpty(child) && <span className="truncate">{child}</span>}
-            {suffix && renderAffix(suffix)}
+            <Affixable variants={badgeAffixVariants}>{suffix}</Affixable>
           </>
         )}
       </Slottable>

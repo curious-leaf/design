@@ -1,49 +1,60 @@
-import type { WithOptionalProp } from "index"
-import type { ComponentPropsWithoutRef } from "react"
-import type { ControllerProps, FieldValues } from "react-hook-form"
-
-import { FormAffix } from "~/components/form/affix"
-import { FormDescription } from "~/components/form/description"
-import { FormMessage } from "~/components/form/message"
-import type { FormVariablesProps } from "~/components/form/variables"
-import { FormVariables } from "~/components/form/variables"
-import { Field } from "~/components/interface/field"
-import { FieldProvider } from "~/providers/field-provider"
+import type { HTMLAttributes, ReactNode } from "react"
+import { forwardRef } from "react"
 
 import type { VariantProps } from "../../../shared"
-import { cva } from "../../../shared"
+import { cx } from "../../../shared"
 
-const formFieldVariants = cva({
-  base: "flex flex-col flex-wrap items-start min-w-0 w-full justify-start gap-x-4 gap-y-2 @lg:flex-row @lg:flex-nowrap",
-})
+import { fieldVariants, fieldLabelVariants, fieldContentVariants } from "./Field.variants"
 
-type FormFieldProps<T extends FieldValues> = ComponentPropsWithoutRef<typeof Field> &
-  Omit<ControllerProps<T>, "render"> &
-  WithOptionalProp<FormVariablesProps, "variables"> &
-  VariantProps<typeof formFieldVariants> & {
-    hint?: string
-    sideHint?: string
-    hideError?: boolean
+export type FieldElement = HTMLDivElement
+
+export type FieldProps = HTMLAttributes<FieldElement> &
+  VariantProps<typeof fieldVariants> & {
+    /**
+     * The label for the field.
+     */
+    label?: ReactNode
+
+    /**
+     * The hint text for the field.
+     */
+    hint?: ReactNode
+
+    /**
+     * The side hint text for the field.
+     */
+    sideHint?: ReactNode
+
+    /**
+     * The tooltip text for the field.
+     */
+    tooltip?: ReactNode
+
+    /**
+     * Indicates if the field is required.
+     */
     required?: boolean
   }
 
-export const FormField = <T extends FieldValues>(props: FormFieldProps<T>) => {
-  const { children, control: _, name, hint, required, hideError, variables, ...rest } = props
+export const Field = forwardRef<FieldElement, FieldProps>((props, ref) => {
+  const { children, className, label, hint, sideHint, tooltip, required, ...rest } = props
 
   return (
-    <FieldProvider name={name} required={required}>
-      <Field {...rest}>
-        {variables?.length ? (
-          <FormAffix suffix={<FormVariables variables={variables} />} events>
-            {children}
-          </FormAffix>
-        ) : (
-          children
-        )}
+    <div ref={ref} className={cx(fieldVariants({ className }))} {...rest}>
+      {label && (
+        <div className={cx(fieldLabelVariants())}>
+          <FormLabel data-required={required}>{label}</FormLabel>
+          <TooltipIcon className="ml-auto" content={tooltip} align="end" />
+          {sideHint && <FormDescription className="w-full" content={sideHint} />}
+        </div>
+      )}
 
-        {!hideError && <FormMessage />}
+      <div className={cx(fieldContentVariants())}>
+        {children}
+
+        <FormMessage />
         {hint && <FormDescription content={hint} />}
-      </Field>
-    </FieldProvider>
+      </div>
+    </div>
   )
-}
+})

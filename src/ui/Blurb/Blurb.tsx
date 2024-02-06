@@ -1,8 +1,8 @@
 import { Slot } from "@radix-ui/react-slot"
-import { forwardRef, isValidElement } from "react"
+import { forwardRef } from "react"
 import type { ComponentPropsWithoutRef, ReactElement } from "react"
 
-import { type VariantProps, cx } from "../../shared"
+import { type VariantProps, cx, isReactElement } from "../../shared"
 import type { ParagraphElement, ParagraphProps } from "../../typography/Paragraph"
 import { Paragraph } from "../../typography/Paragraph"
 import type { AvatarElement, AvatarProps } from "../Avatar"
@@ -48,14 +48,13 @@ export type BlurbProps = BlurbRootProps & {
   size?: "sm" | "md" | "lg"
 }
 
-const BlurbRoot = forwardRef<BlurbElement, BlurbRootProps>(
-  ({ className, asChild, ...props }, ref) => {
-    const useAsChild = asChild && isValidElement(props.children)
-    const Component = useAsChild ? Slot : "div"
+const BlurbRoot = forwardRef<BlurbElement, BlurbRootProps>((props, ref) => {
+  const { className, asChild, ...rest } = props
+  const useAsChild = asChild && isReactElement(rest.children)
+  const Component = useAsChild ? Slot : "div"
 
-    return <Component ref={ref} className={cx(blurbVariants({ className }))} {...props} />
-  },
-)
+  return <Component ref={ref} className={cx(blurbVariants({ className }))} {...props} />
+})
 
 const BlurbAvatar = forwardRef<AvatarElement, AvatarProps>(({ size = "lg", ...props }, ref) => {
   return <Avatar ref={ref} size={size} {...props} />
@@ -114,7 +113,7 @@ const BlurbBase = forwardRef<BlurbElement, BlurbProps>((props, ref) => {
 
   return (
     <BlurbRoot ref={ref} {...rest}>
-      {isValidElement(avatar)
+      {isReactElement(avatar)
         ? avatar
         : avatar && <BlurbAvatar size={size === "sm" ? "lg" : "xl"} {...avatar} />}
 

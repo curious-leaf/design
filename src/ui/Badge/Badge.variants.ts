@@ -2,7 +2,7 @@ import { cva } from "../../shared"
 
 export const badgeVariants = cva({
   base: [
-    "relative inline-flex items-center justify-center px-[0.6em] py-[0.1em]",
+    "relative inline-flex items-center justify-center px-[0.6em] py-[0.125em]",
     "font-medium break-normal whitespace-nowrap border border-transparent text-center leading-icon",
   ],
 
@@ -24,13 +24,16 @@ export const badgeVariants = cva({
       outline: "",
     },
     size: {
-      sm: "gap-[0.5ch] text-3xs",
-      md: "gap-[0.75ch] text-2xs",
-      lg: "gap-[1ch] text-xs",
+      sm: "gap-[0.25ch] text-3xs",
+      md: "gap-[0.5ch] text-2xs",
+      lg: "gap-[0.75ch] text-xs",
     },
     shape: {
       rounded: "rounded",
       pill: "rounded-full",
+    },
+    iconOnly: {
+      true: "px-[0.125em]",
     },
   },
 
@@ -90,5 +93,5 @@ export const badgeVariants = cva({
 })
 
 export const badgeAffixVariants = cva({
-  base: "shrink-0 !size-[1.088em] first:-ml-[0.044em] last:-mr-[0.044em] only:m-0",
+  base: "shrink-0 !size-[1.088em] first:-ml-[0.21425em] last:-mr-[0.21425em] only:m-0",
 })

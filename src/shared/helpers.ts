@@ -1,4 +1,4 @@
-import type { ReactNode } from "react"
+import type { ReactElement, ReactNode } from "react"
 import { Children, isValidElement } from "react"
 
 /**
@@ -17,7 +17,7 @@ export const isChildrenEmpty = (children: ReactNode) => {
  * @param element - The element to check.
  * @returns Whether the element is a React element.
  */
-export const isReactElement = (element: React.ReactNode): element is React.ReactElement => {
+export const isReactElement = (element: unknown): element is ReactElement => {
   return isValidElement(element)
 }
 

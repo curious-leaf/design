@@ -1,7 +1,7 @@
 import { Slot } from "@radix-ui/react-slot"
-import { type HTMLAttributes, forwardRef, isValidElement } from "react"
+import { type HTMLAttributes, forwardRef } from "react"
 
-import { cleanPercentage, cx, type VariantProps } from "../../shared"
+import { cleanPercentage, cx, isReactElement, type VariantProps } from "../../shared"
 import type { ParagraphElement, ParagraphProps } from "../../typography/Paragraph"
 import { Paragraph } from "../../typography/Paragraph"
 
@@ -89,7 +89,7 @@ const ProgressBarHint = forwardRef<ParagraphElement, ParagraphProps>((props, ref
 
 const ProgressBarBase = forwardRef<ProgressBarElement, ProgressBarProps>((props, ref) => {
   const { children, percent, label, hint, theme, ...rest } = props
-  const Component = isValidElement(children) ? Slot : "div"
+  const Component = isReactElement(children) ? Slot : "div"
 
   return (
     <ProgressBarRoot ref={ref} {...rest}>
