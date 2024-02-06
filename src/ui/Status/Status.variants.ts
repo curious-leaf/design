@@ -2,42 +2,10 @@ import { cva } from "../../shared"
 
 export const statusVariants = cva({
   base: [
-    "relative inline-flex items-center justify-center gap-[0.375em] px-[0.5416em] py-[0.4166em] rounded-md",
-    "font-medium break-normal whitespace-nowrap border border-transparent text-center !leading-none",
+    "relative !size-3 m-0.5 shrink-0 inline-grid place-content-center overflow-hidden rounded-full bg-white ring-2 ring-current",
+    "before:size-2 before:bg-current before:rounded-full",
+    "after:absolute after:size-full after:bg-white",
   ],
-
-  variants: {
-    theme: {
-      blue: "bg-blue-lighter text-blue",
-      orange: "bg-orange-lighter text-orange",
-      yellow: "bg-yellow-lighter text-yellow",
-      red: "bg-red-lighter text-red",
-      green: "bg-green-lighter text-green",
-      purple: "bg-purple-lighter text-purple",
-      pink: "bg-pink-lighter text-pink",
-      teal: "bg-teal-lighter text-teal",
-      gray: "bg-gray-100 text-gray-500",
-    },
-    variant: {
-      soft: "",
-      outline: "bg-transparent border-gray-200 text-gray-500",
-    },
-    size: {
-      sm: "text-3xs",
-      md: "text-2xs",
-      lg: "text-xs",
-    },
-  },
-
-  defaultVariants: {
-    theme: "gray",
-    variant: "outline",
-    size: "sm",
-  },
-})
-
-export const statusAffixVariants = cva({
-  base: "-my-[0.044em] -mx-[0.1666em] shrink-0 !size-[1.088em]",
 
   variants: {
     theme: {
@@ -51,9 +19,20 @@ export const statusAffixVariants = cva({
       teal: "text-teal",
       gray: "text-gray-500",
     },
+
+    variant: {
+      empty: "",
+      rightHalf: "after:top-0 after:right-1/2",
+      leftHalf: "after:top-0 after:left-1/2",
+      topHalf: "after:top-1/2 after:left-0",
+      bottomHalf: "after:bottom-1/2 after:left-0",
+      twoThirds: "after:-top-1/2 after:right-1/2",
+      full: "after:-top-full after:right-full",
+    },
   },
 
   defaultVariants: {
     theme: "gray",
+    variant: "empty",
   },
 })

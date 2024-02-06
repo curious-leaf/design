@@ -1,64 +1,33 @@
 import { Slot } from "@radix-ui/react-slot"
-import { forwardRef } from "react"
-import type { HTMLAttributes, ReactNode } from "react"
+import { type HTMLAttributes, forwardRef } from "react"
 
-import type { VariantProps } from "../../shared"
-import { cx, isChildrenEmpty, isReactElement } from "../../shared"
-import { Affixable } from "../../utils/Affixable"
-import { Slottable } from "../../utils/Slottable"
+import { isReactElement, type VariantProps } from "../../shared"
 
-import { statusAffixVariants, statusVariants } from "./Status.variants"
+import { statusVariants } from "./Status.variants"
 
 export type StatusElement = HTMLSpanElement
 
-export type StatusProps = Omit<HTMLAttributes<StatusElement>, "size" | "prefix"> &
+export type StatusProps = Omit<HTMLAttributes<StatusElement>, "size"> &
   VariantProps<typeof statusVariants> & {
     /**
      * If set to `true`, the button will be rendered as a child within the component.
      * This child component must be a valid React component.
      */
     asChild?: boolean
-
-    /**
-     * The slot to be rendered before the label.
-     */
-    prefix?: ReactNode
-
-    /**
-     * The slot to be rendered after the label.
-     */
-    suffix?: ReactNode
   }
 
 export const Status = forwardRef<StatusElement, StatusProps>((props, ref) => {
-  const { children, className, asChild, prefix, suffix, theme, variant, size, ...rest } = props
+  const { className, asChild, theme, variant, ...rest } = props
 
-  const useAsChild = asChild && isReactElement(children)
+  const useAsChild = asChild && isReactElement(rest.children)
   const Component = useAsChild ? Slot : "span"
 
-  return (
-    <Component
-      className={cx(statusVariants({ theme, size, variant, className }))}
-      ref={ref}
-      {...rest}
-    >
-      <Slottable child={children} asChild={asChild}>
-        {(child) => (
-          <>
-            <Affixable variants={statusAffixVariants}>{prefix}</Affixable>
-            {!isChildrenEmpty(child) && <span className="truncate">{child}</span>}
-            <Affixable variants={statusAffixVariants}>{suffix}</Affixable>
-          </>
-        )}
-      </Slottable>
-    </Component>
-  )
+  return <Component ref={ref} className={statusVariants({ theme, variant, className })} {...rest} />
 })
 
 Status.defaultProps = {
-  theme: "blue",
-  variant: "outline",
-  size: "sm",
+  theme: "gray",
+  variant: "empty",
   asChild: false,
 }
 

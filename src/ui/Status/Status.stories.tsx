@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from "@storybook/react"
-import { IconPointFilled } from "@tabler/icons-react"
 
 import { Status } from "./Status"
 
@@ -11,20 +10,22 @@ export default {
   component: Status,
   args: {
     ...Status.defaultProps,
-    children: "Status",
   },
 } satisfies Meta
 
 // Stories
 export const Default = {
+  args: {},
+} satisfies Story
+
+export const WithTheme = {
   args: {
-    prefix: <IconPointFilled style={{ color: "blue" }} />,
+    theme: "red",
   },
 } satisfies Story
 
-export const AsChild = {
+export const WithVariant = {
   args: {
-    asChild: true,
-    children: <a href="/">Status</a>,
+    variant: "twoThirds",
   },
 } satisfies Story

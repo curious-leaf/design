@@ -23,7 +23,7 @@ export const Dot = forwardRef<DotElement, DotProps>((props, ref) => {
   const Component = useAsChild ? Slot : "span"
 
   return (
-    <Component className={dotVariants({ theme, variant, size, className })} ref={ref} {...rest} />
+    <Component ref={ref} className={dotVariants({ theme, variant, size, className })} {...rest} />
   )
 })
 
