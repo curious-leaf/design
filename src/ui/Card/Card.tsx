@@ -4,7 +4,12 @@ import type { ComponentPropsWithoutRef, HTMLAttributes } from "react"
 
 import { type VariantProps, cx, isReactElement } from "../../shared"
 
-import { cardFooterVariants, cardPanelVariants, cardVariants } from "./Card.variants"
+import {
+  cardFooterVariants,
+  cardSectionVariants,
+  cardPanelVariants,
+  cardVariants,
+} from "./Card.variants"
 
 export type CardElement = HTMLDivElement
 export type CardProps = HTMLAttributes<CardElement> &
@@ -49,6 +54,17 @@ const CardPanel = forwardRef<CardPanelElement, CardPanelProps>((props, ref) => {
   )
 })
 
+const CardSection = forwardRef<
+  CardPanelElement,
+  CardPanelProps & VariantProps<typeof cardSectionVariants>
+>((props, ref) => {
+  const { className, size, ...rest } = props
+
+  return (
+    <CardPanel ref={ref} size={size} className={cx(cardSectionVariants({ className }))} {...rest} />
+  )
+})
+
 const CardFooter = forwardRef<
   CardPanelElement,
   CardPanelProps & VariantProps<typeof cardFooterVariants>
@@ -59,6 +75,7 @@ const CardFooter = forwardRef<
     <CardPanel
       ref={ref}
       theme={theme}
+      size={size}
       className={cx(cardFooterVariants({ size, className }))}
       {...rest}
     />
@@ -67,10 +84,12 @@ const CardFooter = forwardRef<
 
 CardRoot.displayName = "Card"
 CardPanel.displayName = "CardPanel"
+CardSection.displayName = "CardSection"
 CardFooter.displayName = "CardFooter"
 
 export const Card = Object.assign(CardRoot, {
   Panel: CardPanel,
+  Section: CardSection,
   Footer: CardFooter,
 })
 

@@ -32,6 +32,21 @@ export const cardPanelVariants = cva({
   },
 })
 
+export const cardSectionVariants = cva({
+  base: "flex flex-col",
+
+  variants: {
+    size: {
+      sm: "gap-6",
+      md: "gap-8",
+    },
+  },
+
+  defaultVariants: {
+    size: "sm",
+  },
+})
+
 export const cardFooterVariants = cva({
   base: "flex items-center justify-between flex-row-reverse gap-6 mt-auto",
 

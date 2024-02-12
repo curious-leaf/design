@@ -1,17 +1,17 @@
 import type { FieldsetHTMLAttributes } from "react"
 import { forwardRef } from "react"
 
-import { cn } from "~/utils/helpers"
+import type { VariantProps } from "../../../shared"
+import { cx } from "../../../shared"
 
-export const FormFieldset = forwardRef<
-  HTMLFieldSetElement,
-  FieldsetHTMLAttributes<HTMLFieldSetElement>
->(({ className, ...props }, ref) => {
-  return (
-    <fieldset
-      className={cn("group relative flex min-w-0 flex-col gap-x-4 gap-y-6 @container", className)}
-      ref={ref}
-      {...props}
-    />
-  )
+import { fieldsetVariants } from "./Fieldset.variants"
+
+export type FieldsetElement = HTMLFieldSetElement
+export type FieldsetProps = FieldsetHTMLAttributes<HTMLFieldSetElement> &
+  VariantProps<typeof fieldsetVariants>
+
+export const Fieldset = forwardRef<FieldsetElement, FieldsetProps>((props, ref) => {
+  const { className, ...rest } = props
+
+  return <fieldset ref={ref} className={cx(fieldsetVariants({ className }))} {...rest} />
 })

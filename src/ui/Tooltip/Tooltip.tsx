@@ -41,7 +41,7 @@ const TooltipArrow = forwardRef<
 ))
 
 const TooltipBase = forwardRef<TooltipElement, TooltipProps>((props, ref) => {
-  const { children, delayDuration, tooltip, ...rest } = props
+  const { children, className, delayDuration, tooltip, ...rest } = props
 
   if (!tooltip) {
     return children
@@ -50,7 +50,7 @@ const TooltipBase = forwardRef<TooltipElement, TooltipProps>((props, ref) => {
   return (
     <TooltipPrimitive.Provider disableHoverableContent>
       <TooltipPrimitive.Root delayDuration={delayDuration}>
-        <TooltipPrimitive.Trigger ref={ref} asChild>
+        <TooltipPrimitive.Trigger ref={ref} className={className} asChild>
           {children}
         </TooltipPrimitive.Trigger>
 

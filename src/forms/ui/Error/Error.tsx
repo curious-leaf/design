@@ -12,5 +12,5 @@ export type ErrorProps = ParagraphProps
 export const Error = forwardRef<ParagraphElement, ParagraphProps>((props, ref) => {
   const { className, ...rest } = props
 
-  return <Paragraph ref={ref} className={cx(errorVariants({ className }))} {...rest} />
+  return <Paragraph ref={ref} size="sm" className={cx(errorVariants({ className }))} {...rest} />
 })

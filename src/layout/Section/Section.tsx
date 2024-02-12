@@ -4,12 +4,12 @@ import type { HTMLAttributes } from "react"
 
 import { cx, isReactElement, type VariantProps } from "../../shared"
 
-import { containerVariants } from "./Container.variants"
+import { sectionVariants } from "./Section.variants"
 
-export type ContainerElement = HTMLDivElement
+export type SectionElement = HTMLElement
 
-export type ContainerProps = HTMLAttributes<ContainerElement> &
-  VariantProps<typeof containerVariants> & {
+export type SectionProps = HTMLAttributes<SectionElement> &
+  VariantProps<typeof sectionVariants> & {
     /**
      * If set to `true`, the button will be rendered as a child within the component.
      * This child component must be a valid React component.
@@ -17,17 +17,17 @@ export type ContainerProps = HTMLAttributes<ContainerElement> &
     asChild?: boolean
   }
 
-export const Container = forwardRef<ContainerElement, ContainerProps>((props, ref) => {
+export const Section = forwardRef<SectionElement, SectionProps>((props, ref) => {
   const { className, asChild, ...rest } = props
 
   const useAsChild = asChild && isReactElement(props.children)
   const Component = useAsChild ? Slot : "section"
 
-  return <Component ref={ref} className={cx(containerVariants({ className }))} {...rest} />
+  return <Component ref={ref} className={cx(sectionVariants({ className }))} {...rest} />
 })
 
-Container.defaultProps = {
+Section.defaultProps = {
   asChild: false,
 }
 
-Container.displayName = "Container"
+Section.displayName = "Section"

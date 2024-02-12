@@ -2,13 +2,14 @@ import { Slot } from "@radix-ui/react-slot"
 import { forwardRef } from "react"
 import type { HTMLAttributes, LabelHTMLAttributes, ReactNode } from "react"
 
-// import { formInputVariants } from "~/components/form/controls/input"
+import { cx, type VariantProps } from "../../../shared"
+import { inputVariants } from "../../controls/Input/Input.variants"
 
-import type { VariantProps } from "../../../shared"
+import { boxVariants, boxGroupVariants } from "./Box.variants"
 
-import { boxGroupVariants } from "./Box.variants"
+export type BoxElement = HTMLLabelElement
 
-export type BoxProps = LabelHTMLAttributes<HTMLLabelElement> & {
+export type BoxProps = LabelHTMLAttributes<BoxElement> & {
   /**
    * The label for the box.
    */
@@ -20,19 +21,15 @@ export type BoxProps = LabelHTMLAttributes<HTMLLabelElement> & {
   suffix?: ReactNode
 }
 
-export const Box = forwardRef<HTMLLabelElement, BoxProps>((props, ref) => {
+const BoxBase = forwardRef<BoxElement, BoxProps>((props, ref) => {
   const { children, className, label, suffix, ...rest } = props
 
   return (
-    <label
-      ref={ref}
-      // className={formInputVariants({ hoverable: true, fullWidth: false, className })}
-      {...rest}
-    >
+    <label ref={ref} className={cx(inputVariants(), boxVariants({ className }))} {...rest}>
       {children}
 
       {label && (
-        <span className="truncate text-sm font-medium peer-data-[state=unchecked]:opacity-75">
+        <span className="flex-1 truncate text-sm font-medium peer-data-[state=unchecked]:opacity-75">
           {label}
         </span>
       )}
@@ -42,9 +39,13 @@ export const Box = forwardRef<HTMLLabelElement, BoxProps>((props, ref) => {
   )
 })
 
-export const BoxGroup = forwardRef<
+const BoxGroup = forwardRef<
   HTMLDivElement,
   HTMLAttributes<HTMLElement> & VariantProps<typeof boxGroupVariants>
 >(({ className, boxed, ...props }, ref) => {
-  return <div ref={ref} className={boxGroupVariants({ boxed, className })} {...props} />
+  return <div ref={ref} className={cx(boxGroupVariants({ boxed, className }))} {...props} />
+})
+
+export const Box = Object.assign(BoxBase, {
+  Group: BoxGroup,
 })

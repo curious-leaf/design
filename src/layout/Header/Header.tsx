@@ -34,20 +34,20 @@ export type HeaderProps = Omit<HeaderRootProps & HeadingProps, "title"> & {
   description?: string
 }
 
-const HeaderRoot = forwardRef<HeaderElement, HeaderRootProps>(
-  ({ className, alignment, gap, separated, sticky, asChild, ...props }, ref) => {
-    const useAsChild = asChild && isReactElement(props.children)
-    const Component = useAsChild ? Slot : "div"
+const HeaderRoot = forwardRef<HeaderElement, HeaderRootProps>((props, ref) => {
+  const { className, alignment, gap, separated, sticky, asChild, ...rest } = props
 
-    return (
-      <Component
-        ref={ref}
-        className={cx(headerVariants({ alignment, gap, separated, sticky, className }))}
-        {...props}
-      />
-    )
-  },
-)
+  const useAsChild = asChild && isReactElement(props.children)
+  const Component = useAsChild ? Slot : "div"
+
+  return (
+    <Component
+      ref={ref}
+      className={cx(headerVariants({ alignment, gap, separated, sticky, className }))}
+      {...rest}
+    />
+  )
+})
 
 const HeaderTitle = forwardRef<
   HeadingElement,

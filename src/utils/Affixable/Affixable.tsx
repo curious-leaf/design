@@ -14,11 +14,11 @@ export type AffixableProps = HTMLAttributes<AffixableElement> & {
 export const Affixable = forwardRef<AffixableElement, AffixableProps>((props, ref) => {
   const { variants, ...rest } = props
   const Component = isReactElement(props.children) ? Slot : "span"
-  const className = isReactElement(props.children) ? props.children?.props.className : undefined
+  // const className = isReactElement(props.children) ? props.children?.props.className : undefined
 
   if (!props.children) {
     return null
   }
 
-  return <Component ref={ref} className={cx(variants({ className }))} {...rest} />
+  return <Component ref={ref} className={cx(variants({}))} {...rest} />
 })

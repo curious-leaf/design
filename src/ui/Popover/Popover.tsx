@@ -20,6 +20,7 @@ const PopoverContent = forwardRef<
 >(({ children, className, align, ...props }, ref) => (
   <PopoverPrimitive.Content
     ref={ref}
+    align={align}
     className={cx(tooltipVariants({ align, className }))}
     {...props}
   >
@@ -74,6 +75,7 @@ export const Popover = Object.assign(PopoverBase, {
   Root: PopoverPrimitive.Root,
   Trigger: PopoverPrimitive.Trigger,
   Portal: PopoverPrimitive.Portal,
+  Anchor: PopoverPrimitive.Anchor,
   Content: PopoverContent,
   Arrow: PopoverArrow,
   Close: PopoverClose,

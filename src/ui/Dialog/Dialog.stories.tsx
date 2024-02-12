@@ -32,7 +32,7 @@ export const WithCustomMarkup = {
         <Dialog.Panel className="flex flex-col gap-4">
           <Header title="Confirm your action?" />
 
-          <Paragraph className="text-pretty text-gray-500">
+          <Paragraph className="text-gray-500">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos? Lorem ipsum
             dolor sit amet consectetur adipisicing elit. Quisquam, quos?
           </Paragraph>

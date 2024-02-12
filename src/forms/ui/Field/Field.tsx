@@ -3,7 +3,6 @@ import { forwardRef } from "react"
 
 import type { VariantProps } from "../../../shared"
 import { cx } from "../../../shared"
-import { Error } from "../Error/Error"
 import { Hint } from "../Hint/Hint"
 import { Label } from "../Label/Label"
 
@@ -46,7 +45,7 @@ export const Field = forwardRef<FieldElement, FieldProps>((props, ref) => {
     <div ref={ref} className={cx(fieldVariants({ className }))} {...rest}>
       {label && (
         <div className={cx(fieldLabelVariants())}>
-          <Label data-required={required}>{label}</Label>
+          <Label required={required}>{label}</Label>
           {/* <TooltipIcon className="ml-auto" content={tooltip} align="end" /> */}
           {sideHint && <Hint className="w-full">{sideHint}</Hint>}
         </div>
@@ -54,8 +53,6 @@ export const Field = forwardRef<FieldElement, FieldProps>((props, ref) => {
 
       <div className={cx(fieldContentVariants())}>
         {children}
-
-        <Error />
         {hint && <Hint>{hint}</Hint>}
       </div>
     </div>
