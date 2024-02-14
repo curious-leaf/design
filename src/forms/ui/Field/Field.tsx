@@ -13,6 +13,11 @@ export type FieldElement = HTMLDivElement
 export type FieldProps = HTMLAttributes<FieldElement> &
   VariantProps<typeof fieldVariants> & {
     /**
+     * The name of the field.
+     */
+    name: string
+
+    /**
      * The label for the field.
      */
     label?: ReactNode
@@ -39,13 +44,13 @@ export type FieldProps = HTMLAttributes<FieldElement> &
   }
 
 export const Field = forwardRef<FieldElement, FieldProps>((props, ref) => {
-  const { children, className, label, hint, sideHint, tooltip, required, ...rest } = props
+  const { children, className, name, label, hint, sideHint, tooltip, required, ...rest } = props
 
   return (
     <div ref={ref} className={cx(fieldVariants({ className }))} {...rest}>
       {label && (
         <div className={cx(fieldLabelVariants())}>
-          <Label required={required}>{label}</Label>
+          <Label htmlFor={name} required={required}>{label}</Label>
           {/* <TooltipIcon className="ml-auto" content={tooltip} align="end" /> */}
           {sideHint && <Hint className="w-full">{sideHint}</Hint>}
         </div>

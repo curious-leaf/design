@@ -1,7 +1,7 @@
 import { Slot } from "@radix-ui/react-slot"
 import { type HTMLAttributes, forwardRef } from "react"
 
-import { isReactElement, type VariantProps } from "../../shared"
+import { cx, isReactElement, type VariantProps } from "../../shared"
 
 import { statusVariants } from "./Status.variants"
 
@@ -22,7 +22,9 @@ export const Status = forwardRef<StatusElement, StatusProps>((props, ref) => {
   const useAsChild = asChild && isReactElement(rest.children)
   const Component = useAsChild ? Slot : "span"
 
-  return <Component ref={ref} className={statusVariants({ theme, variant, className })} {...rest} />
+  return (
+    <Component ref={ref} className={cx(statusVariants({ theme, variant, className }))} {...rest} />
+  )
 })
 
 Status.defaultProps = {

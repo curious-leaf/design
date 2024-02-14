@@ -34,6 +34,7 @@ const DropdownContent = forwardRef<
         ref={ref}
         sideOffset={sideOffset}
         collisionPadding={collisionPadding}
+        onCloseAutoFocus={(e) => e.preventDefault()}
         className={cx(dropdownVariants({ className }))}
         {...props}
       />

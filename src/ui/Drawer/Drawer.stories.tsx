@@ -27,7 +27,7 @@ export default {
         <Drawer.Panel>Content</Drawer.Panel>
 
         <Drawer.Footer>
-          <Button size="lg" className="flex-grow">
+          <Button size="lg" className="grow">
             Save Changes
           </Button>
 

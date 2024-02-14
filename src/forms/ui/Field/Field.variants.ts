@@ -9,6 +9,5 @@ export const fieldLabelVariants = cva({
 })
 
 export const fieldContentVariants = cva({
-  base: "flex min-w-0 w-full flex-col gap-y-1.5",
-  // base: "flex min-w-0 flex-1 flex-col gap-y-1.5 self-stretch",
+  base: "flex min-w-0 w-full flex-1 flex-col gap-y-1.5 self-stretch",
 })

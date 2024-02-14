@@ -29,7 +29,7 @@ const BoxBase = forwardRef<BoxElement, BoxProps>((props, ref) => {
       {children}
 
       {label && (
-        <span className="flex-1 truncate text-sm font-medium peer-data-[state=unchecked]:opacity-75">
+        <span className="flex-1 truncate text-sm font-medium peer-data-[state=unchecked]:opacity-60">
           {label}
         </span>
       )}

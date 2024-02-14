@@ -16,9 +16,11 @@ export const proseVariants = cva({
 
   variants: {
     size: {
+      xs: "text-xs",
       sm: "text-sm",
       md: "text-base",
       lg: "text-lg",
+      xl: "text-xl",
     },
   },
 

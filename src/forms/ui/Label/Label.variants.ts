@@ -1,7 +1,7 @@
 import { cva } from "../../../shared"
 
 export const labelVariants = cva({
-  base: "text-sm font-medium text-gray-700",
+  base: "text-sm font-medium text-gray-700 [&[for]]:cursor-pointer",
 
   variants: {
     required: {
