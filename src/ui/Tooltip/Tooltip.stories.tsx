@@ -14,7 +14,7 @@ export default {
     ...Tooltip.defaultProps,
   },
   render: (props) => (
-    <Tooltip tooltip="Fugiat esse reprehenderit aliqua ea ad est." {...props}>
+    <Tooltip tooltip="Copy to clipboard" {...props}>
       <Badge>Hover me</Badge>
     </Tooltip>
   ),
