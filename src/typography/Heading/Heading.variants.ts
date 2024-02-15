@@ -6,7 +6,7 @@ export const headingVariants = cva({
       h1: "text-3xl font-semibold -tracking-1",
       h2: "text-2xl font-semibold -tracking-1",
       h3: "text-xl font-semibold",
-      h4: "text-lg font-medium",
+      h4: "text-lg font-semibold",
       h5: "text-base font-medium",
       h6: "text-sm font-medium",
     },

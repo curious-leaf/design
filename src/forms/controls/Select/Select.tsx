@@ -1,7 +1,7 @@
 "use client"
 
 import * as SelectPrimitive from "@radix-ui/react-select"
-import type { ComponentPropsWithoutRef, ElementRef } from "react"
+import type { ComponentPropsWithoutRef, ElementRef, ReactNode } from "react"
 import { forwardRef } from "react"
 
 import { IconCheck } from "../../../icons/IconCheck"
@@ -24,10 +24,10 @@ const SelectTrigger = forwardRef<
 >(({ className, mono, error, children, ...props }, ref) => (
   <SelectPrimitive.Trigger
     ref={ref}
-    className={cx(inputVariants({ mono, error, className }))}
+    className={cx(inputVariants({ mono, error, hoverable: true, className }))}
     {...props}
   >
-    <div className="flex-1 truncate">{children}</div>
+    <div className="grow truncate">{children}</div>
 
     <SelectPrimitive.Icon asChild>
       <IconChevronDown className="shrink-0 opacity-70" />
@@ -71,7 +71,7 @@ const SelectLabel = forwardRef<
 >(({ className, ...props }, ref) => (
   <SelectPrimitive.Label
     ref={ref}
-    className={cx("py-1.5 pl-8 pr-2 text-xs font-medium lg:text-sm", className)}
+    className={cx("py-1.5 pl-2 pr-8 text-xs font-medium lg:text-sm", className)}
     {...props}
   />
 ))
@@ -81,11 +81,11 @@ const SelectItem = forwardRef<
   ComponentPropsWithoutRef<typeof SelectPrimitive.Item>
 >(({ className, children, ...props }, ref) => (
   <SelectPrimitive.Item ref={ref} className={cx(selectItemVariants({ className }))} {...props}>
-    <SelectPrimitive.ItemIndicator asChild>
-      <IconCheck className="absolute left-1.5 !stroke-2 opacity-70" />
-    </SelectPrimitive.ItemIndicator>
-
     <SelectPrimitive.ItemText>{children}</SelectPrimitive.ItemText>
+
+    <SelectPrimitive.ItemIndicator asChild>
+      <IconCheck className="absolute right-1.5 top-1/2 -translate-y-1/2 stroke-2 text-sm opacity-70" />
+    </SelectPrimitive.ItemIndicator>
   </SelectPrimitive.Item>
 ))
 
@@ -107,25 +107,23 @@ export type SelectProps = ComponentPropsWithoutRef<typeof SelectPrimitive.Root> 
     options?: (
       | false
       | {
-          label?: string
+          label?: ReactNode
           value: string
         }
     )[]
   }
 
-const SelectBase = forwardRef<ElementRef<typeof SelectPrimitive.Value>, SelectProps>(
+const SelectBase = forwardRef<ElementRef<typeof SelectPrimitive.Trigger>, SelectProps>(
   (props, ref) => {
     const { options, error, placeholder, ...rest } = props
 
     return (
       <SelectPrimitive.Root {...rest}>
-        <SelectTrigger error={error}>
-          <SelectPrimitive.Value ref={ref} />
+        <SelectTrigger ref={ref} error={error}>
+          <SelectPrimitive.Value placeholder={placeholder} />
         </SelectTrigger>
 
         <SelectContent>
-          {placeholder && <SelectItem value="">{placeholder}</SelectItem>}
-
           {options?.filter(isTruthy).map(({ label, value }, index) => (
             <SelectItem key={index} value={value}>
               {label ?? value}

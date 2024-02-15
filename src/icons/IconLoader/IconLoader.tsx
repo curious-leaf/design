@@ -1,22 +1,18 @@
 "use client"
 
 import { forwardRef } from "react"
-import type { HTMLAttributes } from "react"
+import type { SVGAttributes } from "react"
+import { cx } from "../../shared"
 
-export const IconLoader = forwardRef<SVGSVGElement, HTMLAttributes<SVGSVGElement>>((props, ref) => {
+export const IconLoader = forwardRef<SVGSVGElement, SVGAttributes<SVGSVGElement>>((props, ref) => {
+  const { className, ...rest } = props
+
   return (
     <svg
       ref={ref}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      {...props}
+      className={cx("animate-spin", className)}
+      {...rest}
     >
       <line x1="12" x2="12" y1="2" y2="6" />
       <line x1="12" x2="12" y1="18" y2="22" />
@@ -29,3 +25,14 @@ export const IconLoader = forwardRef<SVGSVGElement, HTMLAttributes<SVGSVGElement
     </svg>
   )
 })
+
+IconLoader.defaultProps = {
+  width: 24,
+  height: 24,
+  viewBox: "0 0 24 24",
+  fill: "none",
+  stroke: "currentColor",
+  strokeWidth: 2,
+  strokeLinecap: "round",
+  strokeLinejoin: "round",
+}

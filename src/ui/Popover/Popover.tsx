@@ -7,9 +7,8 @@ import { forwardRef } from "react"
 import { IconClose } from "../../icons/IconClose"
 import type { VariantProps } from "../../shared"
 import { cx } from "../../shared"
-import { tooltipArrowVariants, tooltipVariants } from "../Tooltip/Tooltip.variants"
 
-import { popoverCloseVariants, popoverVariants } from "./Popover.variants"
+import { popoverCloseVariants, popoverVariants, popoverArrowVariants } from "./Popover.variants"
 
 export type PopoverElement = ElementRef<typeof PopoverPrimitive.Trigger>
 export type PopoverProps = ComponentPropsWithoutRef<typeof PopoverContent> & {
@@ -18,14 +17,9 @@ export type PopoverProps = ComponentPropsWithoutRef<typeof PopoverContent> & {
 
 const PopoverContent = forwardRef<
   ElementRef<typeof PopoverPrimitive.Content>,
-  ComponentPropsWithoutRef<typeof PopoverPrimitive.Content> & VariantProps<typeof tooltipVariants>
->(({ children, className, align, ...props }, ref) => (
-  <PopoverPrimitive.Content
-    ref={ref}
-    align={align}
-    className={cx(tooltipVariants({ align}), popoverVariants({ className }))}
-    {...props}
-  >
+  ComponentPropsWithoutRef<typeof PopoverPrimitive.Content> & VariantProps<typeof popoverVariants>
+>(({ children, className, ...props }, ref) => (
+  <PopoverPrimitive.Content ref={ref} className={cx(popoverVariants({ className }))} {...props}>
     {children}
     <PopoverArrow />
   </PopoverPrimitive.Content>
@@ -34,11 +28,11 @@ const PopoverContent = forwardRef<
 const PopoverArrow = forwardRef<
   ElementRef<typeof PopoverPrimitive.Arrow>,
   ComponentPropsWithoutRef<typeof PopoverPrimitive.Arrow> &
-    VariantProps<typeof tooltipArrowVariants>
+    VariantProps<typeof popoverArrowVariants>
 >(({ className, ...props }, ref) => (
   <PopoverPrimitive.Arrow
     ref={ref}
-    className={cx(tooltipArrowVariants({ className }))}
+    className={cx(popoverArrowVariants({ className }))}
     {...props}
   />
 ))

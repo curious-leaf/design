@@ -25,9 +25,10 @@ export type BoxProps = LabelHTMLAttributes<BoxElement> & {
 
 const BoxBase = forwardRef<BoxElement, BoxProps>((props, ref) => {
   const { children, className, label, suffix, ...rest } = props
+  const cn = cx(inputVariants({ hoverable: true }), boxVariants({ className }))
 
   return (
-    <label ref={ref} className={cx(inputVariants(), boxVariants({ className }))} {...rest}>
+    <label ref={ref} className={cn} {...rest}>
       {children}
 
       {label && (

@@ -31,3 +31,8 @@ export const Checkbox = forwardRef<CheckboxElement, CheckboxProps>((props, ref) 
 })
 
 Checkbox.displayName = CheckboxPrimitive.Root.displayName
+
+Checkbox.defaultProps = {
+  error: false,
+  disabled: false,
+}

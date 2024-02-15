@@ -12,13 +12,13 @@ export type InputElement = HTMLInputElement
 export type InputProps = InputHTMLAttributes<InputElement> & VariantProps<typeof inputVariants>
 
 export const Input = forwardRef<InputElement, InputProps>((props, ref) => {
-  const { className, style, error, mono, plain, ...rest } = props
+  const { className, style, error, mono, plain, hoverable, ...rest } = props
   const { prefixWidth, suffixWidth } = useAffix()
 
   return (
     <input
       ref={ref}
-      className={cx(inputVariants({ error, mono, plain, className }))}
+      className={cx(inputVariants({ error, mono, plain, hoverable, className }))}
       style={{ ...style, paddingLeft: prefixWidth, paddingRight: suffixWidth }}
       {...rest}
     />
@@ -30,4 +30,5 @@ Input.defaultProps = {
   error: false,
   mono: false,
   plain: false,
+  hoverable: false,
 }

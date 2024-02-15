@@ -8,6 +8,7 @@ type Story = StoryObj<typeof IconLoader>
 export default {
   title: "Icons/Loader",
   component: IconLoader,
+  args: IconLoader.defaultProps,
 } satisfies Meta
 
 // Stories

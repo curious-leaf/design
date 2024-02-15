@@ -8,6 +8,7 @@ type Story = StoryObj<typeof IconBullet>
 export default {
   title: "Icons/Bullet",
   component: IconBullet,
+  args: IconBullet.defaultProps,
 } satisfies Meta
 
 // Stories

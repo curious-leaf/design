@@ -19,20 +19,16 @@ export type DotProps = Omit<HTMLAttributes<DotElement>, "size"> &
   }
 
 export const Dot = forwardRef<DotElement, DotProps>((props, ref) => {
-  const { className, asChild, theme, variant, size, ...rest } = props
+  const { className, asChild, variant, ...rest } = props
 
   const useAsChild = asChild && isReactElement(rest.children)
   const Component = useAsChild ? Slot : "span"
 
-  return (
-    <Component ref={ref} className={dotVariants({ theme, variant, size, className })} {...rest} />
-  )
+  return <Component ref={ref} className={dotVariants({ variant, className })} {...rest} />
 })
 
 Dot.defaultProps = {
-  theme: "blue",
   variant: "solid",
-  size: "md",
   asChild: false,
 }
 

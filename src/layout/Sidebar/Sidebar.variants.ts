@@ -1,7 +1,7 @@
 import { cva } from "../../shared"
 
 export const sidebarVariants = cva({
-  base: "@container/sidebar sticky top-0 flex w-[17em] shrink-0 flex-col gap-y-5 p-5 border",
+  base: "@container/sidebar sticky flex w-[17em] shrink-0 flex-col gap-y-5 p-5 border",
 
   variants: {
     theme: {
@@ -9,14 +9,14 @@ export const sidebarVariants = cva({
       gray: "bg-gray-50",
     },
     floating: {
-      true: "h-[calc(100vh-1rem)] m-2 rounded-md shadow-sm",
-      false: "h-screen -m-px"
-    }
+      true: "inset-y-2 h-[calc(100vh-1rem)] m-2 rounded-md shadow-sm",
+      false: "inset-y-0 h-screen -m-px",
+    },
   },
 
   defaultVariants: {
     theme: "white",
-    floating: false
+    floating: false,
   },
 })
 

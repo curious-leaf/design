@@ -36,7 +36,7 @@ export const selectViewportVariants = cva({
 
 export const selectItemVariants = cva({
   base: [
-    "relative py-2 pr-3 pl-8 min-w-0 text-sm truncate rounded-sm cursor-default select-none outline-none focus:bg-gray-100",
+    "relative py-2 pl-2 pr-7 min-w-0 text-sm truncate rounded-sm cursor-default select-none outline-none focus:bg-gray-100",
     "data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
   ],
 })

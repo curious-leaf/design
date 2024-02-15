@@ -4,11 +4,11 @@ import * as RadioGroupPrimitive from "@radix-ui/react-radio-group"
 import type { ComponentPropsWithoutRef, ElementRef } from "react"
 import { forwardRef } from "react"
 
-import { IconBullet } from "../../../icons/IconBullet"
 import type { VariantProps } from "../../../shared"
 import { cx } from "../../../shared"
 
 import { radioGroupItemVariants } from "./RadioGroup.variants"
+import { Dot } from "../../../ui/Dot"
 
 export type RadioGroupElement = ElementRef<typeof RadioGroupPrimitive.Root>
 export type RadioGroupProps = ComponentPropsWithoutRef<typeof RadioGroupPrimitive.Root>
@@ -25,7 +25,7 @@ export const RadioGroupItem = forwardRef<
       {...props}
     >
       <RadioGroupPrimitive.Indicator asChild>
-        <IconBullet className="size-2 rounded-full shadow" />
+        <Dot className="shadow" />
       </RadioGroupPrimitive.Indicator>
 
       {children}

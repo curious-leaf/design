@@ -1,7 +1,7 @@
 import { cva } from "../../../shared"
 
 export const boxVariants = cva({
-  base: "cursor-pointer self-start w-auto select-none hover:bg-gray-50 hover:border-gray-300",
+  base: "cursor-pointer self-start w-auto select-none",
 })
 
 export const boxGroupVariants = cva({

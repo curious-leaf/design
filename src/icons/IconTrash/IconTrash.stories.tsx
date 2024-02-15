@@ -8,6 +8,7 @@ type Story = StoryObj<typeof IconTrash>
 export default {
   title: "Icons/Trash",
   component: IconTrash,
+  args: IconTrash.defaultProps,
 } satisfies Meta
 
 // Stories

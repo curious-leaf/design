@@ -14,5 +14,5 @@ export type HintProps = ParagraphProps
 export const Hint = forwardRef<ParagraphElement, ParagraphProps>((props, ref) => {
   const { className, ...rest } = props
 
-  return <Paragraph ref={ref} size="sm" className={cx(hintVariants({ className }))} {...rest} />
+  return <Paragraph ref={ref} size="xs" className={cx(hintVariants({ className }))} {...rest} />
 })
