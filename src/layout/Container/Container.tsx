@@ -1,3 +1,5 @@
+"use client"
+
 import { Slot } from "@radix-ui/react-slot"
 import { forwardRef } from "react"
 import type { HTMLAttributes } from "react"
@@ -18,15 +20,16 @@ export type ContainerProps = HTMLAttributes<ContainerElement> &
   }
 
 export const Container = forwardRef<ContainerElement, ContainerProps>((props, ref) => {
-  const { className, asChild, ...rest } = props
+  const { className, asChild, size, ...rest } = props
 
   const useAsChild = asChild && isReactElement(props.children)
   const Component = useAsChild ? Slot : "section"
 
-  return <Component ref={ref} className={cx(containerVariants({ className }))} {...rest} />
+  return <Component ref={ref} className={cx(containerVariants({ size, className }))} {...rest} />
 })
 
 Container.defaultProps = {
+  size: "md",
   asChild: false,
 }
 

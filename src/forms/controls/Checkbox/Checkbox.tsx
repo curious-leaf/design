@@ -1,8 +1,10 @@
+"use client"
+
 import * as CheckboxPrimitive from "@radix-ui/react-checkbox"
-import { IconCheck } from "@tabler/icons-react"
 import type { ComponentPropsWithoutRef, ElementRef } from "react"
 import { forwardRef } from "react"
 
+import { IconCheck } from "../../../icons/IconCheck"
 import type { VariantProps } from "../../../shared"
 import { cx } from "../../../shared"
 

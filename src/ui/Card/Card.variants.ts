@@ -1,7 +1,7 @@
 import { cva } from "../../shared"
 
 export const cardVariants = cva({
-  base: "flex flex-col bg-white border rounded-md shadow overflow-clip",
+  base: "flex flex-col bg-white border rounded-md shadow-sm overflow-clip",
 })
 
 export const cardPanelVariants = cva({
@@ -37,8 +37,8 @@ export const cardSectionVariants = cva({
 
   variants: {
     size: {
-      sm: "gap-6",
-      md: "gap-8",
+      sm: "gap-4 md:gap-6",
+      md: "gap-6 md:gap-8",
     },
   },
 

@@ -1,7 +1,9 @@
-import { IconTrash } from "@tabler/icons-react"
+"use client"
+
 import type { MouseEventHandler, ChangeEvent, HTMLAttributes } from "react"
 import { forwardRef, useRef } from "react"
 
+import { IconTrash } from "../../../icons/IconTrash"
 import type { VariantProps } from "../../../shared"
 import { cx } from "../../../shared"
 import { Button } from "../../../ui/Button"

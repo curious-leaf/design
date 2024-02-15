@@ -1,3 +1,5 @@
+"use client"
+
 import { Slot } from "@radix-ui/react-slot"
 import { forwardRef } from "react"
 import type { ComponentPropsWithoutRef, ReactNode } from "react"
@@ -53,7 +55,7 @@ const HeaderTitle = forwardRef<
   HeadingElement,
   HeadingProps & VariantProps<typeof headerTitleVariants>
 >((props, ref) => {
-  const { className, size = "h4", ...rest } = props
+  const { className, size = "h3", ...rest } = props
 
   return (
     <Heading ref={ref} size={size} className={cx(headerTitleVariants({ className }))} {...rest} />
@@ -102,7 +104,7 @@ export const Header = Object.assign(HeaderBase, {
 })
 
 Header.defaultProps = {
-  size: "h4",
+  size: "h3",
   alignment: "left",
   gap: "lg",
   separated: false,

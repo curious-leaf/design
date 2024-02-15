@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react"
-import { IconSquare } from "@tabler/icons-react"
+
+import { IconUser } from "../../icons/IconUser"
 
 import { Button } from "./Button"
 
@@ -30,19 +31,19 @@ export const AsChild = {
 
 export const WithPrefix = {
   args: {
-    prefix: <IconSquare />,
+    prefix: <IconUser />,
   },
 } satisfies Story
 
 export const WithSuffix = {
   args: {
-    suffix: <IconSquare />,
+    suffix: <IconUser />,
   },
 } satisfies Story
 
 export const WithIconOnly = {
   args: {
-    prefix: <IconSquare />,
+    prefix: <IconUser />,
     children: null,
   },
 } satisfies Story

@@ -1,8 +1,10 @@
+"use client"
+
 import * as RadioGroupPrimitive from "@radix-ui/react-radio-group"
-import { IconCircleFilled } from "@tabler/icons-react"
 import type { ComponentPropsWithoutRef, ElementRef } from "react"
 import { forwardRef } from "react"
 
+import { IconBullet } from "../../../icons/IconBullet"
 import type { VariantProps } from "../../../shared"
 import { cx } from "../../../shared"
 
@@ -23,7 +25,7 @@ export const RadioGroupItem = forwardRef<
       {...props}
     >
       <RadioGroupPrimitive.Indicator asChild>
-        <IconCircleFilled className="size-2 rounded-full shadow" />
+        <IconBullet className="size-2 rounded-full shadow" />
       </RadioGroupPrimitive.Indicator>
 
       {children}

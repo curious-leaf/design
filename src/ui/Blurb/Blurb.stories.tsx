@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react"
-import { IconUserCog } from "@tabler/icons-react"
+
+import { IconUser } from "../../icons/IconUser"
 
 import { Blurb } from "./Blurb"
 
@@ -35,7 +36,7 @@ export const WithInitials = {
 export const WithCustomMarkup = {
   render: ({ avatar, title, description }) => (
     <Blurb.Root className="rounded-md border p-3">
-      <IconUserCog className="text-xs" />
+      <IconUser className="text-xs" />
 
       <Blurb.Content>
         <Blurb.Description>{description}</Blurb.Description>

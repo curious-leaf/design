@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react"
-import { IconBellRinging, IconCalendar, IconPlus, IconSearch } from "@tabler/icons-react"
 
+import { IconClose } from "../../icons/IconClose"
+import { IconUser } from "../../icons/IconUser"
 import { Button } from "../Button"
 
 import { Series } from "./Series"
@@ -15,12 +16,12 @@ export default {
     ...Series.defaultProps,
     children: (
       <>
-        <Button theme="secondary" variant="ghost" prefix={<IconSearch />} />
-        <Button theme="secondary" variant="ghost" prefix={<IconBellRinging />} />
-        <Button theme="secondary" variant="outline" prefix={<IconCalendar />}>
+        <Button theme="secondary" variant="ghost" prefix={<IconUser />} />
+        <Button theme="secondary" variant="ghost" prefix={<IconUser />} />
+        <Button theme="secondary" variant="outline" prefix={<IconUser />}>
           Schedule
         </Button>
-        <Button prefix={<IconPlus />}>Create Request</Button>
+        <Button prefix={<IconClose />}>Create Request</Button>
       </>
     ),
   },

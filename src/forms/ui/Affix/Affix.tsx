@@ -1,3 +1,5 @@
+"use client"
+
 import type { InputHTMLAttributes, ReactNode } from "react"
 import { forwardRef, useEffect, useRef, useState } from "react"
 

@@ -1,3 +1,5 @@
+"use client"
+
 import * as DropdownPrimitive from "@radix-ui/react-dropdown-menu"
 import type { ComponentPropsWithoutRef, ElementRef } from "react"
 import { forwardRef } from "react"
@@ -14,14 +16,12 @@ export type DropdownProps = ComponentPropsWithoutRef<typeof DropdownPrimitive.Ro
 const DropdownGroup = forwardRef<
   ElementRef<typeof DropdownPrimitive.Group>,
   ComponentPropsWithoutRef<typeof DropdownPrimitive.Group>
->(({ className, children, ...props }, ref) => (
+>(({ className, ...props }, ref) => (
   <DropdownPrimitive.Group
     ref={ref}
     className={cx("group -mx-4 flex scroll-p-1 flex-col gap-0.5 p-1", className)}
     {...props}
-  >
-    {children}
-  </DropdownPrimitive.Group>
+  />
 ))
 
 const DropdownContent = forwardRef<
@@ -34,7 +34,7 @@ const DropdownContent = forwardRef<
         ref={ref}
         sideOffset={sideOffset}
         collisionPadding={collisionPadding}
-        onCloseAutoFocus={(e) => e.preventDefault()}
+        onCloseAutoFocus={e => e.preventDefault()}
         className={cx(dropdownVariants({ className }))}
         {...props}
       />
@@ -77,7 +77,7 @@ export const DropdownSubTrigger = forwardRef<
 export const DropdownSubContent = forwardRef<
   ElementRef<typeof DropdownPrimitive.SubContent>,
   ComponentPropsWithoutRef<typeof DropdownPrimitive.SubContent> &
-    VariantProps<typeof dropdownVariants>
+  VariantProps<typeof dropdownVariants>
 >(({ className, sideOffset = 5, alignOffset = -5, collisionPadding = 15, ...props }, ref) => (
   <DropdownPrimitive.Portal>
     <Card asChild>

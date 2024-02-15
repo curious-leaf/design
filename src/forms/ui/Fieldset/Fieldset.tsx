@@ -1,3 +1,5 @@
+"use client"
+
 import type { FieldsetHTMLAttributes } from "react"
 import { forwardRef } from "react"
 

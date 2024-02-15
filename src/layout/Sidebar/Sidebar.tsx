@@ -1,3 +1,5 @@
+"use client"
+
 import { forwardRef } from "react"
 import type { HTMLAttributes } from "react"
 
@@ -18,9 +20,9 @@ export type SidebarElement = HTMLDivElement
 export type SidebarProps = HTMLAttributes<SidebarElement> & VariantProps<typeof sidebarVariants>
 
 const SidebarBase = forwardRef<SidebarElement, SidebarProps>((props, ref) => {
-  const { className, theme, ...rest } = props
+  const { className, theme, floating, ...rest } = props
 
-  return <div ref={ref} className={cx(sidebarVariants({ theme, className }))} {...rest} />
+  return <div ref={ref} className={cx(sidebarVariants({ theme, floating, className }))} {...rest} />
 })
 
 const SidebarContent = forwardRef<HTMLElement, HTMLAttributes<HTMLElement>>((props, ref) => {

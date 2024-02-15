@@ -1,8 +1,10 @@
+"use client"
+
 import * as PopoverPrimitive from "@radix-ui/react-popover"
-import { IconX } from "@tabler/icons-react"
 import type { ComponentPropsWithoutRef, ElementRef, ReactNode } from "react"
 import { forwardRef } from "react"
 
+import { IconClose } from "../../icons/IconClose"
 import type { VariantProps } from "../../shared"
 import { cx } from "../../shared"
 import { tooltipArrowVariants, tooltipVariants } from "../Tooltip/Tooltip.variants"
@@ -47,7 +49,7 @@ const PopoverClose = forwardRef<
     VariantProps<typeof popoverCloseVariants>
 >(({ className, ...props }, ref) => (
   <PopoverPrimitive.Close ref={ref} className={cx(popoverCloseVariants({ className }))} {...props}>
-    <IconX />
+    <IconClose />
   </PopoverPrimitive.Close>
 ))
 

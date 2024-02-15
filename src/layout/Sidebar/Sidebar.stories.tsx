@@ -1,16 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react"
-import {
-  IconChevronRight,
-  IconCoins,
-  IconCreditCard,
-  IconHeadset,
-  IconHistory,
-  IconRotate360,
-  IconSettings,
-  IconTable,
-  IconWallet,
-} from "@tabler/icons-react"
 
+import { IconChevronRight } from "../../icons/IconChevronRight"
+import { IconUser } from "../../icons/IconUser"
 import { Badge } from "../../ui/Badge"
 import { Blurb } from "../../ui/Blurb"
 import { FeatureCard } from "../../ui/FeatureCard"
@@ -26,28 +17,28 @@ const menus = {
   Main: [
     {
       children: "Dashboard",
-      prefix: <IconTable />,
+      prefix: <IconUser />,
       active: true,
     },
     {
       children: "My Cards",
-      prefix: <IconCreditCard />,
+      prefix: <IconUser />,
     },
     {
       children: "Transfer",
-      prefix: <IconCoins />,
+      prefix: <IconUser />,
     },
     {
       children: "Transactions",
-      prefix: <IconHistory />,
+      prefix: <IconUser />,
     },
     {
       children: "Payments",
-      prefix: <IconWallet />,
+      prefix: <IconUser />,
     },
     {
       children: "Exchange",
-      prefix: <IconRotate360 />,
+      prefix: <IconUser />,
       suffix: (
         <Badge theme="gray" variant="soft">
           Soon
@@ -60,12 +51,12 @@ const menus = {
   Other: [
     {
       children: "Settings",
-      prefix: <IconSettings />,
+      prefix: <IconUser />,
       suffix: <Shortcut>⌘K</Shortcut>,
     },
     {
       children: "Support",
-      prefix: <IconHeadset />,
+      prefix: <IconUser />,
       loading: true,
     },
   ],

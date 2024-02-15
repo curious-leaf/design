@@ -1,12 +1,14 @@
+"use client"
+
 import { Slot } from "@radix-ui/react-slot"
-import { IconChevronRight } from "@tabler/icons-react"
 import { forwardRef } from "react"
 import type { ButtonHTMLAttributes, ReactNode } from "react"
 
+import { IconChevronRight } from "../../icons/IconChevronRight"
+import { IconLoader } from "../../icons/IconLoader"
 import { cx, isChildrenEmpty, isReactElement, toArrayOrWrap, type VariantProps } from "../../shared"
 import { Affixable } from "../../utils/Affixable"
 import { Slottable } from "../../utils/Slottable"
-import { Loader } from "../Loader"
 
 import { menuItemVariants, menuItemAffixVariants } from "./MenuItem.variants"
 
@@ -62,7 +64,7 @@ export const MenuItem = forwardRef<MenuItemElement, MenuItemProps>((props, ref) 
   const suffix = toArrayOrWrap(propSuffix)
 
   if (loading) {
-    suffix.push(<Loader className="text-xs" />)
+    suffix.push(<IconLoader className="text-xs" />)
   }
 
   if (active && !suffix.length) {

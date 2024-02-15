@@ -1,3 +1,5 @@
+"use client"
+
 import type { ComponentPropsWithoutRef, HTMLAttributes, ReactNode } from "react"
 import { forwardRef } from "react"
 

@@ -2,7 +2,7 @@ import { cva, focusClasses } from "../../shared"
 
 export const buttonVariants = cva({
   base: [
-    "relative inline-flex items-center justify-center border border-transparent rounded font-medium leading-icon hover:z-10",
+    "relative inline-flex items-center justify-center border border-transparent font-medium leading-icon rounded-md shadow-sm hover:z-10",
     "disabled:opacity-60 disabled:pointer-events-none",
     focusClasses,
   ],
@@ -21,10 +21,10 @@ export const buttonVariants = cva({
         "border-purple-dark/25 text-purple-dark hover:border-purple-dark/40 focus-visible:border-purple-dark/40 focus-visible:ring-purple-light",
     },
     variant: {
-      solid: "shadow-sm",
-      outline: "shadow-sm",
-      soft: "",
-      ghost: "hover:border-transparent",
+      solid: "",
+      outline: "",
+      soft: "shadow-none",
+      ghost: "shadow-none hover:border-transparent",
     },
     size: {
       sm: "text-2xs gap-[0.5ch] py-1 px-2",
@@ -79,7 +79,7 @@ export const buttonVariants = cva({
   defaultVariants: {
     theme: "primary",
     variant: "solid",
-    size: "md",
+    size: "lg",
     iconOnly: false,
   },
 })

@@ -1,3 +1,5 @@
+"use client"
+
 import { forwardRef } from "react"
 
 import { type VariantProps, cx } from "../../shared"

@@ -1,8 +1,12 @@
+"use client"
+
 import * as SelectPrimitive from "@radix-ui/react-select"
-import { IconCheck, IconChevronDown, IconChevronUp } from "@tabler/icons-react"
 import type { ComponentPropsWithoutRef, ElementRef } from "react"
 import { forwardRef } from "react"
 
+import { IconCheck } from "../../../icons/IconCheck"
+import { IconChevronDown } from "../../../icons/IconChevronDown"
+import { IconChevronUp } from "../../../icons/IconChevronUp"
 import type { VariantProps } from "../../../shared"
 import { cx, isTruthy } from "../../../shared"
 import { inputVariants } from "../Input/Input.variants"

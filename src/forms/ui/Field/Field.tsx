@@ -1,3 +1,5 @@
+"use client"
+
 import type { HTMLAttributes, ReactNode } from "react"
 import { forwardRef } from "react"
 
@@ -50,7 +52,9 @@ export const Field = forwardRef<FieldElement, FieldProps>((props, ref) => {
     <div ref={ref} className={cx(fieldVariants({ className }))} {...rest}>
       {label && (
         <div className={cx(fieldLabelVariants())}>
-          <Label htmlFor={name} required={required}>{label}</Label>
+          <Label htmlFor={name} required={required}>
+            {label}
+          </Label>
           {/* <TooltipIcon className="ml-auto" content={tooltip} align="end" /> */}
           {sideHint && <Hint className="w-full">{sideHint}</Hint>}
         </div>

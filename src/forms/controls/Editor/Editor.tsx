@@ -1,3 +1,5 @@
+"use client"
+
 import { EditorContent } from "@tiptap/react"
 import type { ComponentPropsWithoutRef, ElementRef } from "react"
 import { forwardRef } from "react"

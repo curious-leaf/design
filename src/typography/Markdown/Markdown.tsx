@@ -1,3 +1,5 @@
+"use client"
+
 import type { MarkdownToJSX } from "markdown-to-jsx"
 import MarkdownParser from "markdown-to-jsx"
 import { forwardRef } from "react"

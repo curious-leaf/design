@@ -1,3 +1,5 @@
+"use client"
+
 import { type HTMLAttributes, forwardRef } from "react"
 
 import type { VariantProps } from "../../shared"

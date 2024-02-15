@@ -1,13 +1,13 @@
 import type { Meta, StoryObj } from "@storybook/react"
 
-import { Loader } from "./Loader"
+import { IconBullet } from "./IconBullet"
 
-type Story = StoryObj<typeof Loader>
+type Story = StoryObj<typeof IconBullet>
 
 // Meta
 export default {
-  title: "UI/Loader",
-  component: Loader,
+  title: "Icons/Bullet",
+  component: IconBullet,
 } satisfies Meta
 
 // Stories

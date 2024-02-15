@@ -1,8 +1,10 @@
+"use client"
+
 import * as DialogPrimitive from "@radix-ui/react-alert-dialog"
-import { IconX } from "@tabler/icons-react"
 import type { ComponentPropsWithoutRef, ElementRef } from "react"
 import { forwardRef } from "react"
 
+import { IconClose } from "../../icons/IconClose"
 import type { VariantProps } from "../../shared"
 import { cx } from "../../shared"
 import { Backdrop } from "../Backdrop"
@@ -49,7 +51,7 @@ const DialogClose = forwardRef<
   ComponentPropsWithoutRef<typeof DialogPrimitive.Cancel>
 >(({ className, ...props }, ref) => (
   <DialogPrimitive.Cancel ref={ref} className={cx("-my-1", className)} {...props}>
-    <IconX />
+    <IconClose />
   </DialogPrimitive.Cancel>
 ))
 

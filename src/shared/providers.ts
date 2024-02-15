@@ -1,3 +1,5 @@
+"use client"
+
 /**
  * Utility functions for creating React contexts.
  */

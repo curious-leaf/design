@@ -1,11 +1,13 @@
+"use client"
+
 import { Slot } from "@radix-ui/react-slot"
 import type { ButtonHTMLAttributes, ReactNode } from "react"
 import { forwardRef } from "react"
 
+import { IconLoader } from "../../icons/IconLoader"
 import { type VariantProps, cx, isChildrenEmpty, isReactElement } from "../../shared"
 import { Affixable } from "../../utils/Affixable"
 import { Slottable } from "../../utils/Slottable"
-import { Loader } from "../Loader"
 
 import { buttonAffixVariants, buttonVariants } from "./Button.variants"
 
@@ -69,7 +71,7 @@ export const Button = forwardRef<ButtonElement, ButtonProps>((props, ref) => {
             {!isChildrenEmpty(child) && <span className="truncate">{child}</span>}
             <Affixable variants={buttonAffixVariants}>{suffix}</Affixable>
 
-            {!!loading && <Loader className="absolute" />}
+            {!!loading && <IconLoader className="absolute" />}
           </>
         )}
       </Slottable>
@@ -81,7 +83,7 @@ Button.defaultProps = {
   type: "button",
   theme: "primary",
   variant: "solid",
-  size: "md",
+  size: "lg",
   asChild: false,
 }
 

@@ -1,5 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react"
-import { IconTable, IconChevronsRight } from "@tabler/icons-react"
+
+import { IconChevronRight } from "../../icons/IconChevronRight"
+import { IconUser } from "../../icons/IconUser"
 
 import { MenuItem } from "./MenuItem"
 
@@ -13,8 +15,8 @@ export default {
     ...MenuItem.defaultProps,
     style: { width: 200 },
     children: "Dashboard",
-    prefix: <IconTable />,
-    suffix: <IconChevronsRight />,
+    prefix: <IconUser />,
+    suffix: <IconChevronRight />,
   },
 } satisfies Meta
 

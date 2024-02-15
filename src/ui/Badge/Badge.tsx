@@ -1,3 +1,5 @@
+"use client"
+
 import { Slot } from "@radix-ui/react-slot"
 import { forwardRef } from "react"
 import type { HTMLAttributes, ReactNode } from "react"
@@ -46,7 +48,7 @@ export const Badge = forwardRef<BadgeElement, BadgeProps>((props, ref) => {
       {...rest}
     >
       <Slottable child={children} asChild={asChild}>
-        {(child) => (
+        {child => (
           <>
             <Affixable variants={badgeAffixVariants}>{prefix}</Affixable>
             {!isChildrenEmpty(child) && <span className="truncate">{child}</span>}

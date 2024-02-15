@@ -1,5 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react"
-import { IconBolt, IconPointFilled, IconSquare } from "@tabler/icons-react"
+
+import { IconBullet } from "../../icons/IconBullet"
+import { IconUser } from "../../icons/IconUser"
 
 import { Badge } from "./Badge"
 
@@ -29,13 +31,13 @@ export const AsChild = {
 
 export const WithPrefix = {
   args: {
-    prefix: <IconBolt />,
+    prefix: <IconUser />,
   },
 } satisfies Story
 
 export const WithSuffix = {
   args: {
-    suffix: <IconBolt />,
+    suffix: <IconUser />,
   },
 } satisfies Story
 
@@ -43,13 +45,13 @@ export const WithStatus = {
   args: {
     theme: "gray",
     variant: "outline",
-    prefix: <IconPointFilled style={{ color: "blue" }} />,
+    prefix: <IconBullet style={{ color: "blue" }} />,
   },
 } satisfies Story
 
 export const WithIconOnly = {
   args: {
-    prefix: <IconSquare />,
+    prefix: <IconUser />,
     children: null,
   },
 } satisfies Story

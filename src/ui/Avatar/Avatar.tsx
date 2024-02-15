@@ -1,11 +1,13 @@
+"use client"
+
 import * as Primitive from "@radix-ui/react-avatar"
 import { Slot } from "@radix-ui/react-slot"
-import { IconUser } from "@tabler/icons-react"
 import { forwardRef } from "react"
 import type { ComponentPropsWithoutRef, ElementRef, ReactNode, RefObject } from "react"
 
+import { IconLoader } from "../../icons/IconLoader"
+import { IconUser } from "../../icons/IconUser"
 import { type VariantProps, cx, getInitials, isReactElement } from "../../shared"
-import { Loader } from "../Loader"
 
 import {
   avatarFallbackVariants,
@@ -100,7 +102,7 @@ const AvatarBase = forwardRef<AvatarElement, AvatarProps>((props, ref) => {
           only if children fallback is not set */}
       {!children && src && !initials && (
         <AvatarFallback aria-label={alt}>
-          <Loader aria-hidden="true" />
+          <IconLoader aria-hidden="true" />
         </AvatarFallback>
       )}
 

@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react"
-import { IconHeadset, IconSquareX } from "@tabler/icons-react"
 
+import { IconClose } from "../../icons/IconClose"
+import { IconUser } from "../../icons/IconUser"
 import { Paragraph } from "../../typography/Paragraph"
 
 import { FeatureCard } from "./FeatureCard"
@@ -9,7 +10,7 @@ type Story = StoryObj<typeof FeatureCard>
 
 const Card = (
   <div className="flex flex-wrap items-center gap-x-2.5 gap-y-3">
-    <IconHeadset />
+    <IconUser />
     <Paragraph variant="medium">Need support?</Paragraph>
 
     <Paragraph size="sm" className="w-full opacity-60">
@@ -54,7 +55,7 @@ export const WithCustomMarkup = {
 
       <FeatureCard.Closer asChild className="text-base">
         <button>
-          <IconSquareX />
+          <IconClose />
         </button>
       </FeatureCard.Closer>
     </FeatureCard.Root>

@@ -1,8 +1,10 @@
+"use client"
+
 import * as DrawerPrimitive from "@radix-ui/react-dialog"
-import { IconX } from "@tabler/icons-react"
 import { forwardRef } from "react"
 import type { ComponentPropsWithoutRef, ElementRef } from "react"
 
+import { IconClose } from "../../icons/IconClose"
 import type { VariantProps } from "../../shared"
 import { cx } from "../../shared"
 import { Backdrop } from "../Backdrop"
@@ -25,6 +27,7 @@ const DrawerContent = forwardRef<
 
     <DrawerPrimitive.Content
       ref={ref}
+      onCloseAutoFocus={(e) => e.preventDefault()}
       className={cx(drawerVariants({ size, direction, className }))}
       {...props}
     />
@@ -55,7 +58,7 @@ const DrawerClose = forwardRef<
   ComponentPropsWithoutRef<typeof DrawerPrimitive.Close>
 >(({ className, ...props }, ref) => (
   <DrawerPrimitive.Close ref={ref} className={cx("-my-1", className)} {...props}>
-    <IconX />
+    <IconClose />
   </DrawerPrimitive.Close>
 ))
 

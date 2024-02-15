@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react"
-import { IconBadge, IconUsers } from "@tabler/icons-react"
 
+import { IconUser } from "../../icons/IconUser"
 import { Dot } from "../Dot"
 
 import { Avatar } from "./Avatar"
@@ -35,14 +35,14 @@ export const WithFallback = {
 
 export const WithChildrenFallback = {
   args: {
-    children: <IconUsers />,
+    children: <IconUser />,
   },
 } satisfies Story
 
 export const WithTopStatus = {
   args: {
     src: "https://i.pravatar.cc/150?img=1",
-    topStatus: <IconBadge className="-m-[7.5%] bg-white text-teal" />,
+    topStatus: <IconUser className="-m-[7.5%] bg-white text-teal" />,
   },
 } satisfies Story
 
@@ -59,7 +59,7 @@ export const WithCustomMarkup = {
       <Avatar.Image src="https://i.pravatar.cc/150?img=5" />
       <Avatar.Fallback />
       <Avatar.Status className="-m-2 bg-white text-teal ring-0">
-        <IconBadge />
+        <IconUser />
       </Avatar.Status>
     </Avatar.Root>
   ),

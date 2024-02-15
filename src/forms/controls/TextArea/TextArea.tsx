@@ -1,3 +1,5 @@
+"use client"
+
 import type { ElementRef } from "react"
 import { forwardRef } from "react"
 import type { TextareaAutosizeProps } from "react-textarea-autosize"
