@@ -9,7 +9,7 @@ import type { VariantProps } from "../../shared"
 import { cx } from "../../shared"
 import { tooltipArrowVariants, tooltipVariants } from "../Tooltip/Tooltip.variants"
 
-import { popoverCloseVariants } from "./Popover.variants"
+import { popoverCloseVariants, popoverVariants } from "./Popover.variants"
 
 export type PopoverElement = ElementRef<typeof PopoverPrimitive.Trigger>
 export type PopoverProps = ComponentPropsWithoutRef<typeof PopoverContent> & {
@@ -23,7 +23,7 @@ const PopoverContent = forwardRef<
   <PopoverPrimitive.Content
     ref={ref}
     align={align}
-    className={cx(tooltipVariants({ align, className }))}
+    className={cx(tooltipVariants({ align}), popoverVariants({ className }))}
     {...props}
   >
     {children}
