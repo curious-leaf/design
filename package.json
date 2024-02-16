@@ -28,6 +28,7 @@
     "chromatic": "chromatic --exit-zero-on-changes"
   },
   "dependencies": {
+    "@curiousleaf/utils": "workspace:*",
     "@radix-ui/react-accordion": "^1.1.2",
     "@radix-ui/react-alert-dialog": "^1.0.5",
     "@radix-ui/react-avatar": "^1.0.4",
@@ -44,6 +45,7 @@
     "@radix-ui/react-tabs": "^1.0.4",
     "@radix-ui/react-tooltip": "^1.0.7",
     "@tiptap/react": "^2.1.16",
+    "@uiw/react-color-sketch": "^2.0.6",
     "cva": "^1.0.0-beta.1",
     "markdown-to-jsx": "^7.3.2",
     "react-textarea-autosize": "^8.5.3",

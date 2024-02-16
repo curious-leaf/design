@@ -12,7 +12,7 @@ import { ButtonGroup } from "../../../ui/ButtonGroup"
 import { uploaderVariants } from "./Uploader.variants"
 
 export type UploaderElement = HTMLDivElement
-export type UploaderProps = HTMLAttributes<UploaderElement> &
+export type UploaderProps = Omit<HTMLAttributes<UploaderElement>, "onChange"> &
   VariantProps<typeof uploaderVariants> & {
     /**
      * The label for the input
@@ -30,27 +30,27 @@ export type UploaderProps = HTMLAttributes<UploaderElement> &
     loading?: boolean
 
     /**
-     * Callback for when the input changes
+     * Callback for when the value changes
      */
-    onUpload: (file: File) => void
+    onChange: (file: File) => void
 
     /**
-     * Callback for when the delete button is clicked
+     * Callback for when the clear button is clicked
      */
-    onDelete?: () => void
+    onClear?: () => void
   }
 
 export const Uploader = forwardRef<UploaderElement, UploaderProps>((props, ref) => {
-  const { children, className, label, accept, loading, onUpload, onDelete, ...rest } = props
+  const { children, className, label, accept, loading, onChange, onClear, ...rest } = props
   const uploadRef = useRef<HTMLInputElement | null>(null)
 
   const onClick: MouseEventHandler<HTMLButtonElement> = () => {
     uploadRef.current?.click()
   }
 
-  const onChange = (e: ChangeEvent<HTMLInputElement>) => {
+  const onInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     if (e.target.files?.[0]) {
-      onUpload(e.target.files[0])
+      onChange(e.target.files[0])
     }
 
     // Reset input value
@@ -64,7 +64,7 @@ export const Uploader = forwardRef<UploaderElement, UploaderProps>((props, ref) 
       <input
         type="file"
         ref={uploadRef}
-        onChange={onChange}
+        onChange={onInputChange}
         accept={accept!.join(",")}
         className="hidden"
       />
@@ -80,13 +80,13 @@ export const Uploader = forwardRef<UploaderElement, UploaderProps>((props, ref) 
           {label}
         </Button>
 
-        {onDelete && (
+        {onClear && (
           <Button
             type="button"
             theme="negative"
             variant="outline"
             prefix={<IconTrash />}
-            onClick={onDelete}
+            onClick={onClear}
           />
         )}
       </ButtonGroup>

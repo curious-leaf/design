@@ -1,0 +1,1 @@
+export { IconCheckerboard } from "./IconCheckerboard"
