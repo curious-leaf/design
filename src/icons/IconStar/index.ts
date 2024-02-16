@@ -1,0 +1,1 @@
+export { IconStar } from "./IconStar"

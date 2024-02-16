@@ -93,5 +93,5 @@ export const badgeVariants = cva({
 })
 
 export const badgeAffixVariants = cva({
-  base: "shrink-0 !size-[1.088em] first:-ml-[0.21425em] last:-mr-[0.21425em] only:m-0",
+  base: "shrink-0 size-[1.088em] first:-ml-[0.21425em] last:-mr-[0.21425em] only:m-0",
 })

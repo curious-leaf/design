@@ -46,12 +46,12 @@ const DrawerContentCard = forwardRef<
 const DrawerPanel = forwardRef<
   ElementRef<typeof Card.Panel>,
   ComponentPropsWithoutRef<typeof Card.Panel>
->(({ size = "md", ...props }, ref) => <Card.Panel ref={ref} size={size} {...props} />)
+>(({ ...props }, ref) => <Card.Panel ref={ref} {...props} />)
 
 const DrawerFooter = forwardRef<
   ElementRef<typeof Card.Footer>,
   ComponentPropsWithoutRef<typeof Card.Footer>
->(({ size = "md", ...props }, ref) => <Card.Footer ref={ref} size={size} {...props} />)
+>(({ ...props }, ref) => <Card.Footer ref={ref} {...props} />)
 
 const DrawerClose = forwardRef<
   ElementRef<typeof DrawerPrimitive.Close>,

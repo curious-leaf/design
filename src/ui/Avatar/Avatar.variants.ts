@@ -29,7 +29,7 @@ export const avatarVariants = cva({
 })
 
 export const avatarStatusVariants = cva({
-  base: "absolute -right-0 rounded-full size-[0.66em] ring-white ring-[0.125em]",
+  base: "absolute -right-0 z-10 rounded-full size-[0.66em] ring-current ring-[0.125em]",
 
   variants: {
     position: {

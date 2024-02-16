@@ -39,12 +39,12 @@ const DialogContent = forwardRef<
 const DialogPanel = forwardRef<
   ElementRef<typeof Card.Panel>,
   ComponentPropsWithoutRef<typeof Card.Panel>
->(({ size = "md", ...props }, ref) => <Card.Panel ref={ref} size={size} {...props} />)
+>(({ ...props }, ref) => <Card.Panel ref={ref} {...props} />)
 
 const DialogFooter = forwardRef<
   ElementRef<typeof Card.Footer>,
   ComponentPropsWithoutRef<typeof Card.Footer>
->(({ size = "md", ...props }, ref) => <Card.Footer ref={ref} size={size} {...props} />)
+>(({ ...props }, ref) => <Card.Footer ref={ref} {...props} />)
 
 const DialogClose = forwardRef<
   ElementRef<typeof DialogPrimitive.Cancel>,

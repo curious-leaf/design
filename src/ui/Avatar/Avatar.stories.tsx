@@ -49,7 +49,7 @@ export const WithTopStatus = {
 export const WithBottomStatus = {
   args: {
     src: "https://i.pravatar.cc/150?img=2",
-    bottomStatus: <Dot theme="red" size="lg" />,
+    bottomStatus: <Dot className="text-red" />,
   },
 } satisfies Story
 

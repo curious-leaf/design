@@ -13,7 +13,18 @@ export type FieldsetProps = FieldsetHTMLAttributes<HTMLFieldSetElement> &
   VariantProps<typeof fieldsetVariants>
 
 export const Fieldset = forwardRef<FieldsetElement, FieldsetProps>((props, ref) => {
-  const { className, ...rest } = props
+  const { className, layout, columns, ...rest } = props
 
-  return <fieldset ref={ref} className={cx(fieldsetVariants({ className }))} {...rest} />
+  return (
+    <fieldset
+      ref={ref}
+      className={cx(fieldsetVariants({ layout, columns, className }))}
+      {...rest}
+    />
+  )
 })
+
+Fieldset.defaultProps = {
+  columns: 1,
+  layout: "adaptive",
+}

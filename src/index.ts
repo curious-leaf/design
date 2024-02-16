@@ -65,8 +65,10 @@ export * from "./icons/IconChevronRight"
 export * from "./icons/IconChevronUp"
 export * from "./icons/IconClose"
 export * from "./icons/IconLoader"
+export * from "./icons/IconStar"
 export * from "./icons/IconTrash"
 export * from "./icons/IconUser"
 
 // Utils
+export * from "./utils/Affixable"
 export * from "./utils/Slottable"
