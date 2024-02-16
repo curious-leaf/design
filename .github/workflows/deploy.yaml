@@ -1,0 +1,33 @@
+name: Build and Publish storybook to GitHub Pages
+
+on:
+  push:
+    branches:
+      - "main"
+
+permissions:
+  id-token: write
+  pages: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    environment:
+      name: github-pages
+      url: ${{ steps.build-publish.outputs.page_url }}
+
+    steps:
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v1
+
+      - name: Publish Storybook to GitHub Pages
+        id: build-publish
+        uses: bitovi/github-actions-storybook-to-github-pages@v1.0.2
+        with:
+          path: dist/storybook
+          install_command: bun install
+          build_command: bun run build-storybook

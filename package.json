@@ -24,11 +24,11 @@
     "prebuild": "bun run clean",
     "release": "bun run build && auto shipit --no-changelog",
     "lint": "eslint --ext .js,.jsx,.ts,.tsx . --fix --quiet",
-    "build-storybook": "storybook build --test",
+    "build-storybook": "storybook build --test -o dist/storybook",
     "chromatic": "chromatic --exit-zero-on-changes"
   },
   "dependencies": {
-    "@curiousleaf/utils": "workspace:*",
+    "@curiousleaf/utils": "^1.0.15",
     "@radix-ui/react-accordion": "^1.1.2",
     "@radix-ui/react-alert-dialog": "^1.0.5",
     "@radix-ui/react-avatar": "^1.0.4",
