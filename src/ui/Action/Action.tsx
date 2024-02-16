@@ -9,20 +9,20 @@ import { type VariantProps, cx, isChildrenEmpty, isReactElement } from "../../sh
 import { Affixable } from "../../utils/Affixable"
 import { Slottable } from "../../utils/Slottable"
 
-import { buttonAffixVariants, buttonVariants } from "./Button.variants"
+import { actionAffixVariants, actionVariants } from "./Action.variants"
 
-export type ButtonElement = HTMLButtonElement
+export type ActionElement = HTMLButtonElement
 
-export type ButtonProps = Omit<ButtonHTMLAttributes<ButtonElement>, "size" | "prefix"> &
-  Omit<VariantProps<typeof buttonVariants>, "affixOnly"> & {
+export type ActionProps = Omit<ButtonHTMLAttributes<ActionElement>, "size" | "prefix"> &
+  Omit<VariantProps<typeof actionVariants>, "affixOnly"> & {
     /**
-     * If set to `true`, the button will be rendered as a child within the component.
+     * If set to `true`, the action will be rendered as a child within the component.
      * This child component must be a valid React component.
      */
     asChild?: boolean
 
     /**
-     * If set to `true`, the button will be rendered in the loading state.
+     * If set to `true`, the action will be rendered in the loading state.
      */
     loading?: boolean
 
@@ -37,40 +37,25 @@ export type ButtonProps = Omit<ButtonHTMLAttributes<ButtonElement>, "size" | "pr
     suffix?: ReactNode
   }
 
-export const Button = forwardRef<ButtonElement, ButtonProps>((props, ref) => {
-  const {
-    children,
-    className,
-    disabled,
-    asChild,
-    loading,
-    prefix,
-    suffix,
-    theme,
-    variant,
-    size,
-    ...rest
-  } = props
+export const Action = forwardRef<ActionElement, ActionProps>((props, ref) => {
+  const { children, className, disabled, asChild, loading, prefix, suffix, ...rest } = props
 
   const useAsChild = asChild && isReactElement(children)
   const Component = useAsChild ? Slot : "button"
-
-  // Determine if the button has affix only.
-  const affixOnly = isChildrenEmpty(children) && (!prefix || !suffix)
 
   return (
     <Component
       ref={ref}
       disabled={disabled ?? loading}
-      className={cx(buttonVariants({ theme, variant, size, affixOnly, loading, className }))}
+      className={cx(actionVariants({ loading, className }))}
       {...rest}
     >
       <Slottable child={children} asChild={asChild}>
         {(child) => (
           <>
-            <Affixable variants={buttonAffixVariants}>{prefix}</Affixable>
+            <Affixable variants={actionAffixVariants}>{prefix}</Affixable>
             {!isChildrenEmpty(child) && <span className="truncate">{child}</span>}
-            <Affixable variants={buttonAffixVariants}>{suffix}</Affixable>
+            <Affixable variants={actionAffixVariants}>{suffix}</Affixable>
 
             {!!loading && <IconLoader className="absolute" />}
           </>
@@ -80,12 +65,9 @@ export const Button = forwardRef<ButtonElement, ButtonProps>((props, ref) => {
   )
 })
 
-Button.defaultProps = {
-  type: "button",
-  theme: "primary",
-  variant: "solid",
-  size: "lg",
+Action.defaultProps = {
+  type: "submit",
   asChild: false,
 }
 
-Button.displayName = "Button"
+Action.displayName = "Action"

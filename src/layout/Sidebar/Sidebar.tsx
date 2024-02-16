@@ -20,9 +20,15 @@ export type SidebarElement = HTMLDivElement
 export type SidebarProps = HTMLAttributes<SidebarElement> & VariantProps<typeof sidebarVariants>
 
 const SidebarBase = forwardRef<SidebarElement, SidebarProps>((props, ref) => {
-  const { className, theme, floating, ...rest } = props
+  const { className, theme, size, floating, ...rest } = props
 
-  return <div ref={ref} className={cx(sidebarVariants({ theme, floating, className }))} {...rest} />
+  return (
+    <div
+      ref={ref}
+      className={cx(sidebarVariants({ theme, size, floating, className }))}
+      {...rest}
+    />
+  )
 })
 
 const SidebarContent = forwardRef<HTMLElement, HTMLAttributes<HTMLElement>>((props, ref) => {
@@ -70,6 +76,8 @@ export const Sidebar = Object.assign(SidebarBase, {
 
 Sidebar.defaultProps = {
   theme: "white",
+  size: "md",
+  floating: false,
 }
 
 Sidebar.displayName = "Sidebar"

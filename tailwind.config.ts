@@ -115,7 +115,7 @@ export default {
       typography: (theme: any) => ({
         DEFAULT: {
           css: {
-            "--tw-prose-body": theme("colors.gray[600]"),
+            "--tw-prose-body": theme("colors.gray[700]"),
             "--tw-prose-headings": theme("colors.gray[900]"),
           },
         },

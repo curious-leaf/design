@@ -1,12 +1,17 @@
 import { cva } from "../../shared"
 
 export const sidebarVariants = cva({
-  base: "@container/sidebar sticky flex w-[17em] shrink-0 flex-col gap-y-5 p-5 border",
+  base: "@container/sidebar sticky flex shrink-0 flex-col gap-y-5 p-5 border",
 
   variants: {
     theme: {
       white: "bg-white",
       gray: "bg-gray-50",
+    },
+    size: {
+      sm: "w-56",
+      md: "w-64",
+      lg: "w-72",
     },
     floating: {
       true: "inset-y-2 h-[calc(100vh-1rem)] m-2 rounded-md shadow-sm",
@@ -16,6 +21,7 @@ export const sidebarVariants = cva({
 
   defaultVariants: {
     theme: "white",
+    size: "md",
     floating: false,
   },
 })

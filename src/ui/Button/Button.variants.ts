@@ -12,7 +12,7 @@ export const buttonVariants = cva({
       primary:
         "border-primary-dark/25 text-primary-dark hover:border-primary-dark/40 focus-visible:border-primary-dark/40 focus-visible:ring-primary-light",
       secondary:
-        "border-gray-200 text-gray-600 hover:border-gray-300 focus-visible:border-gray-3000 focus-visible:ring-gray-300",
+        "border-inherit text-gray-600 hover:border-gray-300 focus-visible:border-gray-3000 focus-visible:ring-gray-300",
       positive:
         "border-green-dark/25 text-green-dark hover:border-green-dark/40 focus-visible:border-green-dark/40 focus-visible:ring-green-light",
       negative:
@@ -31,7 +31,7 @@ export const buttonVariants = cva({
       md: "text-xs gap-[0.75ch] py-1.5 px-3",
       lg: "text-sm gap-[1ch] py-2 px-4",
     },
-    iconOnly: {
+    affixOnly: {
       true: "",
     },
     loading: {
@@ -70,17 +70,17 @@ export const buttonVariants = cva({
     { theme: "fancy", variant: "soft", class: "border-transparent bg-purple-lighter" },
     { theme: "fancy", variant: "ghost", class: "border-transparent hover:bg-purple-lighter" },
 
-    // Is icon only
-    { size: "sm", iconOnly: true, class: "px-1" },
-    { size: "md", iconOnly: true, class: "px-1.5" },
-    { size: "lg", iconOnly: true, class: "px-2" },
+    // Is affix only
+    { size: "sm", affixOnly: true, class: "px-1" },
+    { size: "md", affixOnly: true, class: "px-1.5" },
+    { size: "lg", affixOnly: true, class: "px-2" },
   ],
 
   defaultVariants: {
     theme: "primary",
     variant: "solid",
     size: "lg",
-    iconOnly: false,
+    affixOnly: false,
   },
 })
 

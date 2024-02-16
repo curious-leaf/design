@@ -13,7 +13,7 @@ import { badgeAffixVariants, badgeVariants } from "./Badge.variants"
 export type BadgeElement = HTMLSpanElement
 
 export type BadgeProps = Omit<HTMLAttributes<BadgeElement>, "size" | "prefix"> &
-  VariantProps<typeof badgeVariants> & {
+  Omit<VariantProps<typeof badgeVariants>, "affixOnly"> & {
     /**
      * If set to `true`, the button will be rendered as a child within the component.
      * This child component must be a valid React component.
@@ -38,17 +38,17 @@ export const Badge = forwardRef<BadgeElement, BadgeProps>((props, ref) => {
   const useAsChild = asChild && isReactElement(children)
   const Component = useAsChild ? Slot : "span"
 
-  // Determine if the button is icon-only.
-  const iconOnly = isChildrenEmpty(children) && (!prefix || !suffix)
+  // Determine if the button has affix only.
+  const affixOnly = isChildrenEmpty(children) && (!prefix || !suffix)
 
   return (
     <Component
-      className={cx(badgeVariants({ theme, size, variant, shape, iconOnly, className }))}
       ref={ref}
+      className={cx(badgeVariants({ theme, size, variant, shape, affixOnly, className }))}
       {...rest}
     >
       <Slottable child={children} asChild={asChild}>
-        {child => (
+        {(child) => (
           <>
             <Affixable variants={badgeAffixVariants}>{prefix}</Affixable>
             {!isChildrenEmpty(child) && <span className="truncate">{child}</span>}

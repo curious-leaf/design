@@ -2,6 +2,7 @@ export * from "./shared"
 
 // UI
 export * from "./ui/Accordion"
+export * from "./ui/Action"
 export * from "./ui/Avatar"
 export * from "./ui/AvatarGroup"
 export * from "./ui/Backdrop"
