@@ -27,7 +27,7 @@ const colorTheme = {
   red: {
     lighter: "#FDEDF0",
     light: "#F8C9D2",
-    DEFAULT: "#DF1C41",
+    DEFAULT: "#dc2626",
     dark: "#AF1D38",
     darker: "#710E21",
   },
@@ -101,7 +101,7 @@ export default {
 
     extend: {
       borderColor: {
-        DEFAULT: "#E2E4E8",
+        // DEFAULT: colors.gray[200],
       },
       fontFamily: {
         sans: ["var(--font-sans)", "system-ui", "sans-serif"],
@@ -112,14 +112,14 @@ export default {
       size: {
         icon: "1.4285em",
       },
-      typography: (theme: any) => ({
+      typography: {
         DEFAULT: {
           css: {
-            "--tw-prose-body": theme("colors.gray[700]"),
-            "--tw-prose-headings": theme("colors.gray[900]"),
+            "--tw-prose-body": colors.gray[700],
+            "--tw-prose-headings": colors.gray[900],
           },
         },
-      }),
+      },
 
       gridColumns: {
         DEFAULT: "16rem",

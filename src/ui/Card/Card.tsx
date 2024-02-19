@@ -6,12 +6,8 @@ import type { ComponentPropsWithoutRef, HTMLAttributes } from "react"
 
 import { type VariantProps, cx, isReactElement } from "../../shared"
 
-import {
-  cardFooterVariants,
-  cardSectionVariants,
-  cardPanelVariants,
-  cardVariants,
-} from "./Card.variants"
+import { cardPanelVariants, cardRowVariants, cardVariants } from "./Card.variants"
+import { sectionVariants } from "../../layout/Section/Section.variants"
 
 export type CardElement = HTMLDivElement
 export type CardProps = HTMLAttributes<CardElement> &
@@ -58,41 +54,40 @@ const CardPanel = forwardRef<CardPanelElement, CardPanelProps>((props, ref) => {
 
 const CardSection = forwardRef<
   CardPanelElement,
-  CardPanelProps & VariantProps<typeof cardSectionVariants>
+  CardPanelProps & VariantProps<typeof sectionVariants>
 >((props, ref) => {
   const { className, size, ...rest } = props
 
   return (
-    <CardPanel ref={ref} size={size} className={cx(cardSectionVariants({ className }))} {...rest} />
+    <CardPanel ref={ref} size={size} className={cx(sectionVariants({ className }))} {...rest} />
   )
 })
 
-const CardFooter = forwardRef<
-  CardPanelElement,
-  CardPanelProps & VariantProps<typeof cardFooterVariants>
->((props, ref) => {
-  const { className, size, theme = "gray", ...rest } = props
+const CardRow = forwardRef<CardPanelElement, CardPanelProps & VariantProps<typeof cardRowVariants>>(
+  (props, ref) => {
+    const { className, size, gap, direction, theme = "gray", ...rest } = props
 
-  return (
-    <CardPanel
-      ref={ref}
-      theme={theme}
-      size={size}
-      className={cx(cardFooterVariants({ size, className }))}
-      {...rest}
-    />
-  )
-})
+    return (
+      <CardPanel
+        ref={ref}
+        theme={theme}
+        size={size}
+        className={cx(cardRowVariants({ size, gap, direction, className }))}
+        {...rest}
+      />
+    )
+  },
+)
 
 CardRoot.displayName = "Card"
 CardPanel.displayName = "CardPanel"
 CardSection.displayName = "CardSection"
-CardFooter.displayName = "CardFooter"
+CardRow.displayName = "CardRow"
 
 export const Card = Object.assign(CardRoot, {
   Panel: CardPanel,
   Section: CardSection,
-  Footer: CardFooter,
+  Row: CardRow,
 })
 
 Card.defaultProps = {

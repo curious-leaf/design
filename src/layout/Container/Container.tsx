@@ -23,7 +23,7 @@ export const Container = forwardRef<ContainerElement, ContainerProps>((props, re
   const { className, asChild, size, ...rest } = props
 
   const useAsChild = asChild && isReactElement(props.children)
-  const Component = useAsChild ? Slot : "section"
+  const Component = useAsChild ? Slot : "main"
 
   return <Component ref={ref} className={cx(containerVariants({ size, className }))} {...rest} />
 })

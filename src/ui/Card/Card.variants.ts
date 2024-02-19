@@ -1,7 +1,7 @@
 import { cva } from "../../shared"
 
 export const cardVariants = cva({
-  base: "flex flex-col bg-white border rounded-md shadow-sm overflow-clip",
+  base: "relative flex flex-col w-full bg-white border rounded-md shadow-sm overflow-clip hover:[&[href]]:z-10 hover:[&[href]]:border-gray-300",
 })
 
 export const cardPanelVariants = cva({
@@ -9,8 +9,8 @@ export const cardPanelVariants = cva({
 
   variants: {
     size: {
-      sm: "p-4 md:p-6",
-      md: "p-6 md:p-8",
+      md: "p-4 md:p-6",
+      lg: "p-6 md:p-8",
     },
     theme: {
       white: "bg-white",
@@ -25,39 +25,36 @@ export const cardPanelVariants = cva({
   },
 
   defaultVariants: {
-    size: "sm",
+    size: "md",
     theme: "white",
     sticky: false,
     scrollable: false,
   },
 })
 
-export const cardSectionVariants = cva({
-  base: "flex flex-col",
+export const cardRowVariants = cva({
+  base: "flex justify-between",
 
   variants: {
     size: {
-      sm: "gap-4 md:gap-6",
-      md: "gap-6 md:gap-8",
+      md: "md:py-4",
+      lg: "md:py-6",
+    },
+    gap: {
+      sm: "gap-3 md:gap-x-4",
+      md: "gap-4 md:gap-x-6",
+    },
+    direction: {
+      row: "flex-row flex-wrap items-center",
+      column: "flex-col",
+      rowReverse: "flex-row-reverse flex-wrap items-center",
+      columnReverse: "flex-col-reverse",
     },
   },
 
   defaultVariants: {
-    size: "sm",
-  },
-})
-
-export const cardFooterVariants = cva({
-  base: "flex items-center justify-between flex-row-reverse gap-6 mt-auto",
-
-  variants: {
-    size: {
-      sm: "md:py-4",
-      md: "md:py-6",
-    },
-  },
-
-  defaultVariants: {
-    size: "sm",
+    size: "md",
+    gap: "md",
+    direction: "row",
   },
 })

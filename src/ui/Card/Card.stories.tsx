@@ -35,9 +35,9 @@ export const WithCustomMarkup = {
         </Paragraph>
       </Card.Panel>
 
-      <Card.Footer>
+      <Card.Row>
         <Button size="lg">Confirm</Button>
-      </Card.Footer>
+      </Card.Row>
     </Card>
   ),
 } satisfies Story

@@ -72,4 +72,5 @@ export * from "./icons/IconUser"
 
 // Utils
 export * from "./utils/Affixable"
+export * from "./utils/Draggable"
 export * from "./utils/Slottable"

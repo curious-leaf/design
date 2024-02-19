@@ -1,0 +1,1 @@
+export { IconGripVertical } from "./IconGripVertical"
