@@ -1,7 +1,7 @@
 import { cva } from "../../shared"
 
 export const cardVariants = cva({
-  base: "relative flex flex-col w-full bg-white border rounded-md shadow-sm overflow-clip hover:[&[href]]:z-10 hover:[&[href]]:border-gray-300",
+  base: "relative flex flex-col bg-white border rounded-md shadow-sm overflow-clip hover:[&[href]]:z-10 hover:[&[href]]:border-gray-300",
 })
 
 export const cardPanelVariants = cva({

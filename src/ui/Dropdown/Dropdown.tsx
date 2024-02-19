@@ -8,25 +8,20 @@ import type { VariantProps } from "../../shared"
 import { cx } from "../../shared"
 import { Card } from "../Card"
 
-import { dropdownVariants } from "./Dropdown.variants"
+import {
+  dropdownContentVariants,
+  dropdownGroupVariants,
+  dropdownLabelVariants,
+  dropdownSeparatorVariants,
+} from "./Dropdown.variants"
 
 export type DropdownElement = ElementRef<typeof DropdownPrimitive.Root>
 export type DropdownProps = ComponentPropsWithoutRef<typeof DropdownPrimitive.Root>
 
-const DropdownGroup = forwardRef<
-  ElementRef<typeof DropdownPrimitive.Group>,
-  ComponentPropsWithoutRef<typeof DropdownPrimitive.Group>
->(({ className, ...props }, ref) => (
-  <DropdownPrimitive.Group
-    ref={ref}
-    className={cx("group -mx-4 flex scroll-p-1 flex-col gap-0.5 p-1", className)}
-    {...props}
-  />
-))
-
 const DropdownContent = forwardRef<
   ElementRef<typeof DropdownPrimitive.Content>,
-  ComponentPropsWithoutRef<typeof DropdownPrimitive.Content> & VariantProps<typeof dropdownVariants>
+  ComponentPropsWithoutRef<typeof DropdownPrimitive.Content> &
+    VariantProps<typeof dropdownContentVariants>
 >(({ className, sideOffset = 5, collisionPadding = 15, ...props }, ref) => (
   <DropdownPrimitive.Portal>
     <Card asChild>
@@ -34,12 +29,24 @@ const DropdownContent = forwardRef<
         ref={ref}
         sideOffset={sideOffset}
         collisionPadding={collisionPadding}
-        onCloseAutoFocus={e => e.preventDefault()}
-        className={cx(dropdownVariants({ className }))}
+        onCloseAutoFocus={(e) => e.preventDefault()}
+        className={cx(dropdownContentVariants({ className }))}
         {...props}
       />
     </Card>
   </DropdownPrimitive.Portal>
+))
+
+const DropdownGroup = forwardRef<
+  ElementRef<typeof DropdownPrimitive.Group>,
+  ComponentPropsWithoutRef<typeof DropdownPrimitive.Group> &
+    VariantProps<typeof dropdownGroupVariants>
+>(({ className, ...props }, ref) => (
+  <DropdownPrimitive.Group
+    ref={ref}
+    className={cx(dropdownGroupVariants({ className }))}
+    {...props}
+  />
 ))
 
 const DropdownItem = forwardRef<
@@ -49,18 +56,24 @@ const DropdownItem = forwardRef<
 
 export const DropdownLabel = forwardRef<
   ElementRef<typeof DropdownPrimitive.Label>,
-  ComponentPropsWithoutRef<typeof DropdownPrimitive.Label>
+  ComponentPropsWithoutRef<typeof DropdownPrimitive.Label> &
+    VariantProps<typeof dropdownLabelVariants>
 >(({ className, ...props }, ref) => (
-  <DropdownPrimitive.Label ref={ref} className={cx("py-3", className)} {...props} />
+  <DropdownPrimitive.Label
+    ref={ref}
+    className={cx(dropdownLabelVariants({ className }))}
+    {...props}
+  />
 ))
 
 export const DropdownSeparator = forwardRef<
   ElementRef<typeof DropdownPrimitive.Separator>,
-  ComponentPropsWithoutRef<typeof DropdownPrimitive.Separator>
+  ComponentPropsWithoutRef<typeof DropdownPrimitive.Separator> &
+    VariantProps<typeof dropdownSeparatorVariants>
 >(({ className, ...props }, ref) => (
   <DropdownPrimitive.Separator
     ref={ref}
-    className={cx("-mx-4 my-3 h-px bg-gray-200", className)}
+    className={cx(dropdownSeparatorVariants({ className }))}
     {...props}
   />
 ))
@@ -68,16 +81,16 @@ export const DropdownSeparator = forwardRef<
 export const DropdownSubTrigger = forwardRef<
   ElementRef<typeof DropdownPrimitive.SubTrigger>,
   ComponentPropsWithoutRef<typeof DropdownItem>
->(({ className, ...props }, ref) => (
+>(({ ...props }, ref) => (
   <DropdownPrimitive.SubTrigger ref={ref} asChild>
-    <DropdownItem className={className} {...props} />
+    <DropdownItem {...props} />
   </DropdownPrimitive.SubTrigger>
 ))
 
 export const DropdownSubContent = forwardRef<
   ElementRef<typeof DropdownPrimitive.SubContent>,
   ComponentPropsWithoutRef<typeof DropdownPrimitive.SubContent> &
-  VariantProps<typeof dropdownVariants>
+    VariantProps<typeof dropdownContentVariants>
 >(({ className, sideOffset = 5, alignOffset = -5, collisionPadding = 15, ...props }, ref) => (
   <DropdownPrimitive.Portal>
     <Card asChild>
@@ -86,7 +99,7 @@ export const DropdownSubContent = forwardRef<
         sideOffset={sideOffset}
         alignOffset={alignOffset}
         collisionPadding={collisionPadding}
-        className={cx(dropdownVariants({ className }))}
+        className={cx(dropdownContentVariants({ className }))}
         {...props}
       />
     </Card>
@@ -98,10 +111,10 @@ export const Dropdown = Object.assign(DropdownPrimitive.Root, {
   Portal: DropdownPrimitive.Portal,
   Sub: DropdownPrimitive.Sub,
   RadioGroup: DropdownPrimitive.RadioGroup,
+  Content: DropdownContent,
   Group: DropdownGroup,
   SubTrigger: DropdownSubTrigger,
   SubContent: DropdownSubContent,
-  Content: DropdownContent,
   Item: DropdownItem,
   Label: DropdownLabel,
   Separator: DropdownSeparator,
