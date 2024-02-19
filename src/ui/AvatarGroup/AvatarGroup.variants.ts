@@ -1,7 +1,7 @@
 import { cva } from "../../shared"
 
 export const avatarGroupVariants = cva({
-  base: "flex flex-wrap items-center gap-y-1",
+  base: "relative flex flex-wrap items-center gap-y-1",
 
   variants: {
     size: {
