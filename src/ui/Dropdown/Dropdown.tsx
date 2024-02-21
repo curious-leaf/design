@@ -22,15 +22,15 @@ const DropdownContent = forwardRef<
   ElementRef<typeof DropdownPrimitive.Content>,
   ComponentPropsWithoutRef<typeof DropdownPrimitive.Content> &
     VariantProps<typeof dropdownContentVariants>
->(({ className, sideOffset = 5, collisionPadding = 15, ...props }, ref) => (
+>(({ className, sideOffset = 5, collisionPadding = 15, limitWidth, ...props }, ref) => (
   <DropdownPrimitive.Portal>
     <Card asChild>
       <DropdownPrimitive.Content
         ref={ref}
         sideOffset={sideOffset}
         collisionPadding={collisionPadding}
-        onCloseAutoFocus={(e) => e.preventDefault()}
-        className={cx(dropdownContentVariants({ className }))}
+        onCloseAutoFocus={e => e.preventDefault()}
+        className={cx(dropdownContentVariants({ limitWidth, className }))}
         {...props}
       />
     </Card>

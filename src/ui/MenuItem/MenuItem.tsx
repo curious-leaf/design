@@ -6,11 +6,11 @@ import type { ButtonHTMLAttributes, ReactNode } from "react"
 
 import { IconChevronRight } from "../../icons/IconChevronRight"
 import { IconLoader } from "../../icons/IconLoader"
-import { cx, isChildrenEmpty, isReactElement, toArrayOrWrap, type VariantProps } from "../../shared"
+import { type VariantProps, cx, isChildrenEmpty, isReactElement, toArrayOrWrap } from "../../shared"
 import { Affixable } from "../../utils/Affixable"
 import { Slottable } from "../../utils/Slottable"
 
-import { menuItemVariants, menuItemAffixVariants } from "./MenuItem.variants"
+import { menuItemAffixVariants, menuItemVariants } from "./MenuItem.variants"
 
 export type MenuItemElement = HTMLButtonElement
 
@@ -54,6 +54,7 @@ export const MenuItem = forwardRef<MenuItemElement, MenuItemProps>((props, ref) 
     active,
     theme,
     size,
+    linkable,
     ...rest
   } = props
 
@@ -75,11 +76,11 @@ export const MenuItem = forwardRef<MenuItemElement, MenuItemProps>((props, ref) 
     <Component
       ref={ref}
       aria-current={active ? "page" : undefined}
-      className={cx(menuItemVariants({ theme, size, className }))}
+      className={cx(menuItemVariants({ theme, size, linkable, className }))}
       {...rest}
     >
       <Slottable child={children} asChild={asChild}>
-        {(child) => (
+        {child => (
           <>
             {prefix?.map((p, i) => (
               <Affixable key={i} variants={menuItemAffixVariants}>

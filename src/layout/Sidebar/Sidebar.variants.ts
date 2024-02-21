@@ -14,8 +14,8 @@ export const sidebarVariants = cva({
       lg: "w-72",
     },
     floating: {
-      true: "inset-y-2 h-[calc(100vh-1rem)] m-2 rounded-md shadow-sm",
-      false: "inset-y-0 h-screen -m-px",
+      true: "inset-y-2 h-[calc(100dvh-1rem)] m-2 rounded-md shadow-sm",
+      false: "inset-y-0 h-[calc(100dvh+2px)] -m-px",
     },
   },
 
