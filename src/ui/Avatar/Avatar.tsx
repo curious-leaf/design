@@ -22,8 +22,13 @@ type AvatarVariantProps = VariantProps<typeof avatarVariants> &
   VariantProps<typeof avatarImageVariants> &
   VariantProps<typeof avatarFallbackVariants>
 
-export type AvatarProps = ComponentPropsWithoutRef<typeof Primitive.Image> &
+export type AvatarProps = Omit<ComponentPropsWithoutRef<typeof Primitive.Image>, "src"> &
   AvatarVariantProps & {
+    /**
+     * The URL of the image to be displayed.
+     */
+    src?: string | null
+
     /**
      * Represents the initials displayed on the Avatar.
      *

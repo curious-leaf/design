@@ -5,8 +5,8 @@ export const avatarVariants = cva({
 
   variants: {
     variant: {
-      soft: "bg-gradient-to-b from-primary-lighter to-primary-light text-primary-dark",
-      outline: "border border-gray-200",
+      soft: "bg-gradient-to-b from-primary-lighter to-primary-light text-primary-dark has-[img]:bg-none",
+      outline: "border border-gray-200 has-[img]:border-0",
     },
     size: {
       xs: "h-5 min-w-5 text-3xs",
