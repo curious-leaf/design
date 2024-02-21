@@ -20,19 +20,24 @@ export type ParagraphProps = Omit<HTMLAttributes<ParagraphElement>, "size"> &
   }
 
 export const Paragraph = forwardRef<ParagraphElement, ParagraphProps>((props, ref) => {
-  const { className, asChild, size, variant, ...rest } = props
+  const { className, asChild, size, variant, wrap, ...rest } = props
 
   const useAsChild = asChild && isReactElement(rest.children)
   const Comp = useAsChild ? Slot : "p"
 
   return (
-    <Comp ref={ref} className={cx(paragraphVariants({ size, variant, className }))} {...rest} />
+    <Comp
+      ref={ref}
+      className={cx(paragraphVariants({ size, variant, wrap, className }))}
+      {...rest}
+    />
   )
 })
 
 Paragraph.defaultProps = {
   size: "md",
   variant: "regular",
+  wrap: "wrap",
   asChild: false,
 }
 

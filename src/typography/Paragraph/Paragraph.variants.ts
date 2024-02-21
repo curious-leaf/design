@@ -1,7 +1,7 @@
 import { cva } from "../../shared"
 
 export const paragraphVariants = cva({
-  base: "text-pretty",
+  base: "",
 
   variants: {
     size: {
@@ -15,10 +15,17 @@ export const paragraphVariants = cva({
       regular: "font-normal",
       medium: "font-medium",
     },
+    wrap: {
+      wrap: "",
+      nowrap: "text-nowrap",
+      pretty: "text-pretty",
+      balance: "text-balance",
+    },
   },
 
   defaultVariants: {
     size: "md",
     variant: "regular",
+    wrap: "wrap",
   },
 })
