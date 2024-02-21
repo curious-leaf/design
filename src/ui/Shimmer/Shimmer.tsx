@@ -1,6 +1,6 @@
-import { cx } from "@curiousleaf/design"
 import { type HTMLAttributes, forwardRef } from "react"
 
+import { cx } from "../../shared"
 import { shimmerVariants } from "./Shimmer.variants"
 
 export type ShimmerElement = HTMLDivElement
