@@ -57,7 +57,7 @@ const menus = {
     {
       children: "Support",
       prefix: <IconUser />,
-      loading: true,
+      isPending: true,
     },
   ],
 }
@@ -96,7 +96,7 @@ export default {
           ))}
         </Sidebar.Content>
 
-        <FeatureCard theme="secondary" variant="soft" closeable>
+        <FeatureCard theme="secondary" variant="soft" isCloseable>
           {FeatureCardDefault.args.children}
         </FeatureCard>
 
@@ -110,7 +110,7 @@ export default {
           title="John Doe"
           description="Software Engineer"
         >
-          <button className="ml-2 rounded border p-0.5 text-xs">
+          <button type="button" className="ml-2 rounded border p-0.5 text-xs">
             <IconChevronRight />
           </button>
         </Blurb>

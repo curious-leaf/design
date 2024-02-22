@@ -25,7 +25,9 @@ export const ButtonGroup = forwardRef<ButtonGroupElement, ButtonGroupProps>((pro
 
   return (
     <div ref={ref} className={cx(buttonGroupVariants({ className }))}>
-      {buttons?.map((button, i) => <Button key={`button-${i}`} {...button} {...rest} />)}
+      {buttons?.map((button, i) => (
+        <Button key={`button-${i}`} {...button} {...rest} />
+      ))}
       {children}
     </div>
   )

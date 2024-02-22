@@ -8,7 +8,7 @@ import { cx } from "../../../shared"
 import { Hint } from "../Hint/Hint"
 import { Label } from "../Label/Label"
 
-import { fieldVariants, fieldLabelVariants, fieldContentVariants } from "./Field.variants"
+import { fieldContentVariants, fieldLabelVariants, fieldVariants } from "./Field.variants"
 
 export type FieldElement = HTMLDivElement
 
@@ -37,20 +37,20 @@ export type FieldProps = HTMLAttributes<FieldElement> &
     /**
      * Indicates if the field is required.
      */
-    required?: boolean
+    isRequired?: boolean
   }
 
 export const Field = forwardRef<FieldElement, FieldProps>((props, ref) => {
-  const { children, className, id, label, hint, sideHint, tooltip, required, ...rest } = props
+  const { children, className, id, label, hint, sideHint, tooltip, isRequired, ...rest } = props
 
   return (
     <div ref={ref} className={cx(fieldVariants({ className }))} {...rest}>
       {label && (
         <div className={cx(fieldLabelVariants())}>
-          <Label htmlFor={id} required={required}>
+          <Label htmlFor={id} isRequired={isRequired}>
             {label}
           </Label>
-          {/* <TooltipIcon className="ml-auto" content={tooltip} align="end" /> */}
+
           {sideHint && <Hint className="w-full">{sideHint}</Hint>}
         </div>
       )}

@@ -32,7 +32,7 @@ export const badgeVariants = cva({
       rounded: "rounded",
       pill: "rounded-full",
     },
-    affixOnly: {
+    isAffixOnly: {
       true: "px-[0.125em]",
     },
   },

@@ -20,7 +20,9 @@
     "prebuild": "bun run clean",
     "release": "bun run build && auto shipit --no-changelog",
     "build-storybook": "storybook build --test -o dist/storybook",
-    "chromatic": "chromatic --exit-zero-on-changes"
+    "chromatic": "chromatic --exit-zero-on-changes",
+    "lint": "bun biome lint .",
+    "format": "bun biome format --write ."
   },
   "dependencies": {
     "@curiousleaf/utils": "^1.0.15",

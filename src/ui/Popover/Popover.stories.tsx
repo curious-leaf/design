@@ -14,7 +14,7 @@ export default {
   args: {
     ...Popover.defaultProps,
   },
-  render: (props) => (
+  render: props => (
     <Popover popover="Fugiat esse reprehenderit aliqua ea ad est." {...props}>
       <Badge>Click me</Badge>
     </Popover>
@@ -31,7 +31,7 @@ export const WithCustomMarkup = {
     align: "start",
     side: "right",
   },
-  render: (props) => (
+  render: props => (
     <Popover
       {...props}
       popover={

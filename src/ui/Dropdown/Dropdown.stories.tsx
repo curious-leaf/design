@@ -14,7 +14,7 @@ export default {
   args: {
     ...Dropdown.defaultProps,
   },
-  render: (props) => (
+  render: props => (
     <Dropdown>
       <Dropdown.Trigger asChild>
         <Button>Open dropdown</Button>

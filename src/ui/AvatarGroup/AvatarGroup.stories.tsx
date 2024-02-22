@@ -57,7 +57,7 @@ export const WithPreviousOnTop = {
 } satisfies Story
 
 export const WithCustomMarkup = {
-  render: (props) => (
+  render: props => (
     <AvatarGroup.Root {...props} size="lg">
       {items.map((item, i) => (
         <AvatarGroup.Item key={i} size="lg" {...item} />

@@ -26,7 +26,7 @@ export const Default = {
 } satisfies Story
 
 export const WithCustomMarkup = {
-  render: (props) => (
+  render: props => (
     <Dialog {...props}>
       <Dialog.Content size="lg">
         <Dialog.Panel className="flex flex-col gap-4">

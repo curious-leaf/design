@@ -9,12 +9,12 @@ import peerDepsExternal from "rollup-plugin-peer-deps-external"
 const requireFile = createRequire(import.meta.url)
 const pkg = requireFile("./package.json")
 
-const makeExternalPredicate = (externalArr) => {
+const makeExternalPredicate = externalArr => {
   if (externalArr.length === 0) {
     return () => false
   }
   const pattern = new RegExp(`^(${externalArr.join("|")})($|/)`)
-  return (id) => pattern.test(id)
+  return id => pattern.test(id)
 }
 
 export default [

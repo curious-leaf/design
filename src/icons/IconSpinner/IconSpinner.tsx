@@ -4,7 +4,7 @@ import { forwardRef } from "react"
 import type { SVGAttributes } from "react"
 import { cx } from "../../shared"
 
-export const IconLoader = forwardRef<SVGSVGElement, SVGAttributes<SVGSVGElement>>((props, ref) => {
+export const IconSpinner = forwardRef<SVGSVGElement, SVGAttributes<SVGSVGElement>>((props, ref) => {
   const { className, ...rest } = props
 
   return (
@@ -14,6 +14,7 @@ export const IconLoader = forwardRef<SVGSVGElement, SVGAttributes<SVGSVGElement>
       className={cx("animate-spin", className)}
       {...rest}
     >
+      <title>IconSpinner</title>
       <line x1="12" x2="12" y1="2" y2="6" />
       <line x1="12" x2="12" y1="18" y2="22" />
       <line x1="4.93" x2="7.76" y1="4.93" y2="7.76" />
@@ -26,7 +27,7 @@ export const IconLoader = forwardRef<SVGSVGElement, SVGAttributes<SVGSVGElement>
   )
 })
 
-IconLoader.defaultProps = {
+IconSpinner.defaultProps = {
   width: 24,
   height: 24,
   viewBox: "0 0 24 24",

@@ -5,7 +5,7 @@ import { forwardRef } from "react"
 import type { ButtonHTMLAttributes, HTMLAttributes } from "react"
 
 import { IconClose } from "../../icons/IconClose"
-import { cx, isReactElement, type VariantProps } from "../../shared"
+import { type VariantProps, cx, isReactElement } from "../../shared"
 import { Slottable } from "../../utils/Slottable"
 
 import { featureCardCloserVariants, featureCardVariants } from "./FeatureCard.variants"
@@ -25,7 +25,7 @@ export type FeatureCardProps = FeatureCardRootProps & {
   /**
    * If set to `true`, it'll render a closer button.
    */
-  closeable?: boolean
+  isCloseable?: boolean
 }
 
 type FeatureCardCloserProps = ButtonHTMLAttributes<HTMLButtonElement> &
@@ -66,15 +66,15 @@ const FeatureCardCloser = forwardRef<HTMLButtonElement, FeatureCardCloserProps>(
 })
 
 export const FeatureCardBase = forwardRef<FeatureCardElement, FeatureCardProps>((props, ref) => {
-  const { children, asChild, closeable, ...rest } = props
+  const { children, asChild, isCloseable, ...rest } = props
 
   return (
     <FeatureCardRoot ref={ref} asChild={asChild} {...rest}>
       <Slottable child={children} asChild={asChild}>
-        {(child) => (
+        {child => (
           <>
             {child}
-            {closeable && <FeatureCardCloser />}
+            {isCloseable && <FeatureCardCloser />}
           </>
         )}
       </Slottable>
@@ -91,7 +91,7 @@ FeatureCard.defaultProps = {
   theme: "secondary",
   variant: "soft",
   asChild: false,
-  closeable: false,
+  isCloseable: false,
 }
 
 FeatureCard.displayName = "FeatureCard"

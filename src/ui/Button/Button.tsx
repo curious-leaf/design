@@ -4,7 +4,7 @@ import { Slot } from "@radix-ui/react-slot"
 import type { ButtonHTMLAttributes, ReactNode } from "react"
 import { forwardRef } from "react"
 
-import { IconLoader } from "../../icons/IconLoader"
+import { IconSpinner } from "../../icons/IconSpinner"
 import { type VariantProps, cx, isChildrenEmpty, isReactElement } from "../../shared"
 import { Affixable } from "../../utils/Affixable"
 import { Slottable } from "../../utils/Slottable"
@@ -14,7 +14,7 @@ import { buttonAffixVariants, buttonVariants } from "./Button.variants"
 export type ButtonElement = HTMLButtonElement
 
 export type ButtonProps = Omit<ButtonHTMLAttributes<ButtonElement>, "size" | "prefix"> &
-  Omit<VariantProps<typeof buttonVariants>, "affixOnly"> & {
+  Omit<VariantProps<typeof buttonVariants>, "isAffixOnly"> & {
     /**
      * If set to `true`, the button will be rendered as a child within the component.
      * This child component must be a valid React component.
@@ -22,9 +22,9 @@ export type ButtonProps = Omit<ButtonHTMLAttributes<ButtonElement>, "size" | "pr
     asChild?: boolean
 
     /**
-     * If set to `true`, the button will be rendered in the loading state.
+     * If set to `true`, the button will be rendered in the pending state.
      */
-    loading?: boolean
+    isPending?: boolean
 
     /**
      * The slot to be rendered before the label.
@@ -43,7 +43,7 @@ export const Button = forwardRef<ButtonElement, ButtonProps>((props, ref) => {
     className,
     disabled,
     asChild,
-    loading,
+    isPending,
     prefix,
     suffix,
     theme,
@@ -56,23 +56,23 @@ export const Button = forwardRef<ButtonElement, ButtonProps>((props, ref) => {
   const Component = useAsChild ? Slot : "button"
 
   // Determine if the button has affix only.
-  const affixOnly = isChildrenEmpty(children) && (!prefix || !suffix)
+  const isAffixOnly = isChildrenEmpty(children) && (!prefix || !suffix)
 
   return (
     <Component
       ref={ref}
-      disabled={disabled ?? loading}
-      className={cx(buttonVariants({ theme, variant, size, affixOnly, loading, className }))}
+      disabled={disabled ?? isPending}
+      className={cx(buttonVariants({ theme, variant, size, isAffixOnly, isPending, className }))}
       {...rest}
     >
       <Slottable child={children} asChild={asChild}>
-        {(child) => (
+        {child => (
           <>
             <Affixable variants={buttonAffixVariants}>{prefix}</Affixable>
             {!isChildrenEmpty(child) && <span className="truncate">{child}</span>}
             <Affixable variants={buttonAffixVariants}>{suffix}</Affixable>
 
-            {!!loading && <IconLoader className="absolute" />}
+            {!!isPending && <IconSpinner className="absolute" />}
           </>
         )}
       </Slottable>

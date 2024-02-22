@@ -8,7 +8,7 @@ export const actionVariants = cva({
   ],
 
   variants: {
-    loading: {
+    isPending: {
       true: "[&>*:not(.animate-spin)]:text-transparent",
     },
   },

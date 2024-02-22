@@ -9,7 +9,7 @@ export const containerVariants = cva({
       md: "max-w-6xl",
       lg: "max-w-7xl",
       full: "max-w-full",
-    }
+    },
   },
 
   defaultVariants: {

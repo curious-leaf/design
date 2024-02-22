@@ -7,6 +7,7 @@ export const IconCheckerboard = forwardRef<SVGSVGElement, SVGAttributes<SVGSVGEl
   (props, ref) => {
     return (
       <svg ref={ref} xmlns="http://www.w3.org/2000/svg" {...props}>
+        <title>IconCheckerboard</title>
         <path d="M0 0h9v9H0z" />
         <path d="M9 9h9v9H9z" />
       </svg>

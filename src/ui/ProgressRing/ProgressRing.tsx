@@ -55,6 +55,7 @@ export const ProgressRing = forwardRef<ProgressRingElement, ProgressRingProps>((
       className={cx(progressRingVariants({ size, className }))}
       {...rest}
     >
+      <title>Progress Ring</title>
       <circle
         className="text-gray-200"
         strokeWidth={strokeWidth}

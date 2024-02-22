@@ -27,7 +27,7 @@ export default {
     ...FeatureCard.defaultProps,
     children: Card,
     style: { width: 240 },
-    closeable: true,
+    isCloseable: true,
   },
 } satisfies Meta
 
@@ -39,22 +39,22 @@ export const Default = {
 export const AsChild = {
   args: {
     asChild: true,
-    closeable: false,
+    isCloseable: false,
     children: <a href="/">{Card}</a>,
   },
 } satisfies Story
 
 export const WithCustomMarkup = {
   args: {
-    closeable: undefined,
+    isCloseable: undefined,
   },
 
-  render: (props) => (
+  render: props => (
     <FeatureCard.Root {...props}>
       {Card}
 
       <FeatureCard.Closer asChild className="text-base">
-        <button>
+        <button type="button">
           <IconClose />
         </button>
       </FeatureCard.Closer>

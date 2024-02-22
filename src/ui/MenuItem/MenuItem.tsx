@@ -5,7 +5,7 @@ import { forwardRef } from "react"
 import type { ButtonHTMLAttributes, ReactNode } from "react"
 
 import { IconChevronRight } from "../../icons/IconChevronRight"
-import { IconLoader } from "../../icons/IconLoader"
+import { IconSpinner } from "../../icons/IconSpinner"
 import { type VariantProps, cx, isChildrenEmpty, isReactElement, toArrayOrWrap } from "../../shared"
 import { Affixable } from "../../utils/Affixable"
 import { Slottable } from "../../utils/Slottable"
@@ -35,12 +35,12 @@ export type MenuItemProps = Omit<ButtonHTMLAttributes<MenuItemElement>, "prefix"
     /**
      * If set to `true`, the element will be rendered in the active state.
      */
-    active?: boolean
+    isActive?: boolean
 
     /**
-     * If set to `true`, the element will be rendered in the loading state.
+     * If set to `true`, the element will be rendered in the pending state.
      */
-    loading?: boolean
+    isPending?: boolean
   }
 
 export const MenuItem = forwardRef<MenuItemElement, MenuItemProps>((props, ref) => {
@@ -50,8 +50,8 @@ export const MenuItem = forwardRef<MenuItemElement, MenuItemProps>((props, ref) 
     asChild,
     prefix: propPrefix,
     suffix: propSuffix,
-    loading,
-    active,
+    isPending,
+    isActive,
     theme,
     size,
     linkable,
@@ -64,18 +64,18 @@ export const MenuItem = forwardRef<MenuItemElement, MenuItemProps>((props, ref) 
   const prefix = toArrayOrWrap(propPrefix)
   const suffix = toArrayOrWrap(propSuffix)
 
-  if (loading) {
-    suffix.push(<IconLoader className="text-xs" />)
+  if (isPending) {
+    suffix.push(<IconSpinner className="text-xs" />)
   }
 
-  if (active && !suffix.length) {
+  if (isActive && !suffix.length) {
     suffix.push(<IconChevronRight className="text-xs" />)
   }
 
   return (
     <Component
       ref={ref}
-      aria-current={active ? "page" : undefined}
+      aria-current={isActive ? "page" : undefined}
       className={cx(menuItemVariants({ theme, size, linkable, className }))}
       {...rest}
     >
@@ -104,8 +104,8 @@ export const MenuItem = forwardRef<MenuItemElement, MenuItemProps>((props, ref) 
 
 MenuItem.defaultProps = {
   disabled: false,
-  active: false,
-  loading: false,
+  isActive: false,
+  isPending: false,
   theme: "secondary",
   size: "md",
 }

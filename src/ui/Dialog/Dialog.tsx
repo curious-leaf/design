@@ -28,7 +28,7 @@ const DialogContent = forwardRef<
     <Card asChild>
       <DialogPrimitive.Content
         ref={ref}
-        onCloseAutoFocus={(e) => e.preventDefault()}
+        onCloseAutoFocus={e => e.preventDefault()}
         className={cx(dialogVariants({ size, fixed, className }))}
         {...props}
       />

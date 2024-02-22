@@ -15,7 +15,7 @@ export default {
     ...Drawer.defaultProps,
     open: true,
   },
-  render: (props) => (
+  render: props => (
     <Drawer {...props}>
       <Drawer.ContentCard direction="right" size="lg">
         <Drawer.Panel sticky asChild>

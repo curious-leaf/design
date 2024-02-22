@@ -5,7 +5,7 @@ import { Slot } from "@radix-ui/react-slot"
 import { forwardRef } from "react"
 import type { ComponentPropsWithoutRef, ElementRef, ReactNode, RefObject } from "react"
 
-import { IconLoader } from "../../icons/IconLoader"
+import { IconSpinner } from "../../icons/IconSpinner"
 import { IconUser } from "../../icons/IconUser"
 import { type VariantProps, cx, getInitials, isReactElement } from "../../shared"
 
@@ -103,11 +103,11 @@ const AvatarBase = forwardRef<AvatarElement, AvatarProps>((props, ref) => {
         </AvatarFallback>
       )}
 
-      {/* Show Loading icon until image is loaded,
+      {/* Show pending icon until image is loaded,
           only if children fallback is not set */}
       {!children && src && !initials && (
         <AvatarFallback aria-label={alt}>
-          <IconLoader aria-hidden="true" />
+          <IconSpinner aria-hidden="true" />
         </AvatarFallback>
       )}
 

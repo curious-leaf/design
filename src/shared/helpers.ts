@@ -85,7 +85,7 @@ export const getInitials = (value?: string | null, limit = 0) => {
   }
 
   const values = val.split(" ").filter(isTruthy)
-  const initials = values.map((name) => name.charAt(0).toUpperCase()).join("")
+  const initials = values.map(name => name.charAt(0).toUpperCase()).join("")
 
   if (limit > 0) {
     return initials.slice(0, limit)

@@ -31,10 +31,10 @@ export const buttonVariants = cva({
       md: "text-xs gap-[0.75ch] py-1.5 px-3",
       lg: "text-sm gap-[1ch] py-2 px-4",
     },
-    affixOnly: {
+    isAffixOnly: {
       true: "",
     },
-    loading: {
+    isPending: {
       true: "[&>*:not(.animate-spin)]:text-transparent",
     },
   },
@@ -71,16 +71,15 @@ export const buttonVariants = cva({
     { theme: "fancy", variant: "ghost", class: "border-transparent hover:bg-purple-lighter" },
 
     // Is affix only
-    { size: "sm", affixOnly: true, class: "px-1" },
-    { size: "md", affixOnly: true, class: "px-1.5" },
-    { size: "lg", affixOnly: true, class: "px-2" },
+    { size: "sm", isAffixOnly: true, class: "px-1" },
+    { size: "md", isAffixOnly: true, class: "px-1.5" },
+    { size: "lg", isAffixOnly: true, class: "px-2" },
   ],
 
   defaultVariants: {
     theme: "primary",
     variant: "solid",
     size: "lg",
-    affixOnly: false,
   },
 })
 

@@ -12,7 +12,7 @@ export default {
     ...Tabs.defaultProps,
     style: { width: 400, height: 100 },
   },
-  render: (props) => (
+  render: props => (
     <Tabs defaultValue="tab1" {...props}>
       <Tabs.List aria-label="tabs example">
         <Tabs.Trigger value="tab1">Tab One</Tabs.Trigger>

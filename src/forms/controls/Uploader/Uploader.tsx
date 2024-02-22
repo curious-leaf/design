@@ -1,6 +1,6 @@
 "use client"
 
-import type { MouseEventHandler, ChangeEvent, HTMLAttributes } from "react"
+import type { ChangeEvent, HTMLAttributes, MouseEventHandler } from "react"
 import { forwardRef, useRef } from "react"
 
 import { IconTrash } from "../../../icons/IconTrash"
@@ -25,9 +25,9 @@ export type UploaderProps = Omit<HTMLAttributes<UploaderElement>, "onChange"> &
     accept?: string[]
 
     /**
-     * Whether the uploader is in a loading state
+     * Whether the uploader is in a pending state
      */
-    loading?: boolean
+    isPending?: boolean
 
     /**
      * Callback for when the value changes
@@ -41,7 +41,7 @@ export type UploaderProps = Omit<HTMLAttributes<UploaderElement>, "onChange"> &
   }
 
 export const Uploader = forwardRef<UploaderElement, UploaderProps>((props, ref) => {
-  const { children, className, label, accept, loading, onChange, onClear, ...rest } = props
+  const { children, className, label, accept, isPending, onChange, onClear, ...rest } = props
   const uploadRef = useRef<HTMLInputElement | null>(null)
 
   const onClick: MouseEventHandler<HTMLButtonElement> = () => {
@@ -65,7 +65,7 @@ export const Uploader = forwardRef<UploaderElement, UploaderProps>((props, ref) 
         type="file"
         ref={uploadRef}
         onChange={onInputChange}
-        accept={accept!.join(",")}
+        accept={accept?.join(",")}
         className="hidden"
       />
 
@@ -75,7 +75,7 @@ export const Uploader = forwardRef<UploaderElement, UploaderProps>((props, ref) 
           theme="secondary"
           variant="outline"
           onClick={onClick}
-          loading={loading}
+          isPending={isPending}
         >
           {label}
         </Button>
@@ -97,5 +97,5 @@ export const Uploader = forwardRef<UploaderElement, UploaderProps>((props, ref) 
 Uploader.defaultProps = {
   label: "Upload",
   accept: ["image/*"],
-  loading: false,
+  isPending: false,
 }

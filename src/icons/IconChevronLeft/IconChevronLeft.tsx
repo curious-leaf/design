@@ -7,6 +7,7 @@ export const IconChevronLeft = forwardRef<SVGSVGElement, SVGAttributes<SVGSVGEle
   (props, ref) => {
     return (
       <svg ref={ref} xmlns="http://www.w3.org/2000/svg" {...props}>
+        <title>IconChevronLeft</title>
         <path d="m15 18-6-6 6-6" />
       </svg>
     )

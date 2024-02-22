@@ -27,7 +27,7 @@ const DrawerContent = forwardRef<
 
     <DrawerPrimitive.Content
       ref={ref}
-      onCloseAutoFocus={(e) => e.preventDefault()}
+      onCloseAutoFocus={e => e.preventDefault()}
       className={cx(drawerVariants({ size, direction, className }))}
       {...props}
     />

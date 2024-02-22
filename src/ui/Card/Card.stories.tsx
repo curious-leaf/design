@@ -24,7 +24,7 @@ export const Default = {
 } satisfies Story
 
 export const WithCustomMarkup = {
-  render: (props) => (
+  render: props => (
     <Card {...props}>
       <Card.Panel>
         <Header title="Confirm your action?" />

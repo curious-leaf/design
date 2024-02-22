@@ -13,7 +13,7 @@ export default {
   args: {
     ...Tooltip.defaultProps,
   },
-  render: (props) => (
+  render: props => (
     <Tooltip tooltip="Copy to clipboard" {...props}>
       <Badge>Hover me</Badge>
     </Tooltip>

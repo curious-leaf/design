@@ -6,6 +6,7 @@ import type { SVGAttributes } from "react"
 export const IconCheck = forwardRef<SVGSVGElement, SVGAttributes<SVGSVGElement>>((props, ref) => {
   return (
     <svg ref={ref} xmlns="http://www.w3.org/2000/svg" {...props}>
+      <title>IconCheck</title>
       <path d="M20 6 9 17l-5-5" />
     </svg>
   )
