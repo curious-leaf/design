@@ -1,44 +1,41 @@
 "use client"
 
-import type { ChangeEvent, HTMLAttributes, MouseEventHandler } from "react"
+import type { ChangeEvent, MouseEventHandler } from "react"
 import { forwardRef, useRef } from "react"
 
 import { IconTrash } from "../../../icons/IconTrash"
-import type { VariantProps } from "../../../shared"
-import { cx } from "../../../shared"
 import { Button } from "../../../ui/Button"
 import { ButtonGroup } from "../../../ui/ButtonGroup"
 
-import { uploaderVariants } from "./Uploader.variants"
+import { Series, SeriesElement, SeriesProps } from "../../../ui/Series"
 
-export type UploaderElement = HTMLDivElement
-export type UploaderProps = Omit<HTMLAttributes<UploaderElement>, "onChange"> &
-  VariantProps<typeof uploaderVariants> & {
-    /**
-     * The label for the input
-     */
-    label?: string
+export type UploaderElement = SeriesElement
+export type UploaderProps = Omit<SeriesProps, "onChange"> & {
+  /**
+   * The label for the input
+   */
+  label?: string
 
-    /**
-     * The file types that the input should accept
-     */
-    accept?: string[]
+  /**
+   * The file types that the input should accept
+   */
+  accept?: string[]
 
-    /**
-     * Whether the uploader is in a pending state
-     */
-    isPending?: boolean
+  /**
+   * Whether the uploader is in a pending state
+   */
+  isPending?: boolean
 
-    /**
-     * Callback for when the value changes
-     */
-    onChange: (file: File) => void
+  /**
+   * Callback for when the value changes
+   */
+  onChange: (file: File) => void
 
-    /**
-     * Callback for when the clear button is clicked
-     */
-    onClear?: () => void
-  }
+  /**
+   * Callback for when the clear button is clicked
+   */
+  onClear?: () => void
+}
 
 export const Uploader = forwardRef<UploaderElement, UploaderProps>((props, ref) => {
   const { children, className, label, accept, isPending, onChange, onClear, ...rest } = props
@@ -58,7 +55,7 @@ export const Uploader = forwardRef<UploaderElement, UploaderProps>((props, ref) 
   }
 
   return (
-    <div ref={ref} className={cx(uploaderVariants({ className }))} {...rest}>
+    <Series ref={ref} {...rest}>
       {children}
 
       <input
@@ -90,7 +87,7 @@ export const Uploader = forwardRef<UploaderElement, UploaderProps>((props, ref) 
           />
         )}
       </ButtonGroup>
-    </div>
+    </Series>
   )
 })
 

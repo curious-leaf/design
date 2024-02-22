@@ -11,6 +11,8 @@ import { Backdrop } from "../Backdrop"
 import { Button } from "../Button"
 import { Card } from "../Card"
 
+import { Modal } from "../Modal/Modal"
+import { modalVariants } from "../Modal/Modal.variants"
 import { dialogVariants } from "./Dialog.variants"
 
 export type DialogElement = ElementRef<typeof DialogPrimitive.Root>
@@ -18,7 +20,9 @@ export type DialogProps = ComponentPropsWithoutRef<typeof DialogPrimitive.Root>
 
 const DialogContent = forwardRef<
   ElementRef<typeof DialogPrimitive.Content>,
-  ComponentPropsWithoutRef<typeof DialogPrimitive.Content> & VariantProps<typeof dialogVariants>
+  ComponentPropsWithoutRef<typeof DialogPrimitive.Content> &
+    VariantProps<typeof dialogVariants> &
+    VariantProps<typeof modalVariants>
 >(({ className, size, fixed, ...props }, ref) => (
   <DialogPrimitive.Portal>
     <DialogPrimitive.Overlay asChild>
@@ -26,12 +30,14 @@ const DialogContent = forwardRef<
     </DialogPrimitive.Overlay>
 
     <Card asChild>
-      <DialogPrimitive.Content
-        ref={ref}
-        onCloseAutoFocus={e => e.preventDefault()}
-        className={cx(dialogVariants({ size, fixed, className }))}
-        {...props}
-      />
+      <Modal size={size} fixed={fixed} asChild>
+        <DialogPrimitive.Content
+          ref={ref}
+          onCloseAutoFocus={e => e.preventDefault()}
+          className={cx(dialogVariants({ className }))}
+          {...props}
+        />
+      </Modal>
     </Card>
   </DialogPrimitive.Portal>
 ))

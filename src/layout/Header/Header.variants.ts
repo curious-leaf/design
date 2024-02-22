@@ -1,7 +1,7 @@
 import { cva } from "../../shared"
 
 export const headerVariants = cva({
-  base: "@container/header flex flex-wrap items-center min-w-0",
+  base: "@container/header flex flex-wrap items-center w-full min-w-0",
 
   variants: {
     alignment: {
@@ -30,7 +30,7 @@ export const headerVariants = cva({
 })
 
 export const headerTitleVariants = cva({
-  base: "truncate",
+  base: "",
 })
 
 export const headerDescriptionVariants = cva({

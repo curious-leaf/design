@@ -21,7 +21,7 @@ export const badgeVariants = cva({
     variant: {
       solid: "",
       soft: "",
-      outline: "",
+      outline: "bg-white",
     },
     size: {
       sm: "gap-[0.4ch] text-3xs",
