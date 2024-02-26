@@ -21,7 +21,7 @@ export const buttonVariants = cva({
         "border-purple-dark/25 text-purple-dark hover:border-purple-dark/40 focus-visible:border-purple-dark/40 focus-visible:ring-purple-light",
     },
     variant: {
-      solid: "",
+      solid: "!border-transparent",
       outline: "",
       soft: "shadow-none",
       ghost: "shadow-none hover:border-transparent",
