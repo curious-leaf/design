@@ -1,7 +1,7 @@
 {
   "name": "@curiousleaf/design",
   "description": "A React component design system for CuriousLeaf",
-  "version": "0.13.14",
+  "version": "0.13.15",
   "license": "MIT",
   "type": "module",
   "author": {
