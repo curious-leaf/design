@@ -1,5 +1,5 @@
 # Name of our action
-name: Publish
+name: Publish to NPM
 
 # The event that will trigger the action
 on:

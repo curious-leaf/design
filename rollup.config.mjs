@@ -1,8 +1,8 @@
+import { createRequire } from "node:module"
 import commonjs from "@rollup/plugin-commonjs"
 import { nodeResolve } from "@rollup/plugin-node-resolve"
 import terser from "@rollup/plugin-terser"
 import typescript from "@rollup/plugin-typescript"
-import { createRequire } from "node:module"
 import { dts } from "rollup-plugin-dts"
 import peerDepsExternal from "rollup-plugin-peer-deps-external"
 
@@ -26,7 +26,7 @@ export default [
         format: "esm",
         exports: "named",
         banner: `'use client';`,
-        sourcemap: true,
+        sourcemap: "inline",
         interop: "auto",
       },
     ],
