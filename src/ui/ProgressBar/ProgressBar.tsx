@@ -3,16 +3,16 @@
 import { Slot } from "@radix-ui/react-slot"
 import { type HTMLAttributes, forwardRef } from "react"
 
-import { cleanPercentage, cx, isReactElement, type VariantProps } from "../../shared"
+import { type VariantProps, cleanPercentage, cx, isReactElement } from "../../shared"
 import type { ParagraphElement, ParagraphProps } from "../../typography/Paragraph"
 import { Paragraph } from "../../typography/Paragraph"
 
 import {
-  progressBarProgressVariants,
-  progressBarLineVariants,
-  progressBarVariants,
   progressBarHintVariants,
   progressBarLabelVariants,
+  progressBarLineVariants,
+  progressBarProgressVariants,
+  progressBarVariants,
 } from "./ProgressBar.variants"
 
 export type ProgressBarElement = HTMLDivElement
@@ -42,12 +42,14 @@ export type ProgressBarBarProps = HTMLAttributes<ProgressBarElement> &
     percent: number
   }
 
-const ProgressBarRoot = forwardRef<ProgressBarElement, ProgressBarRootProps>((props, ref) => {
-  const { className, ...rest } = props
-  return <div ref={ref} className={progressBarVariants({ className })} {...rest} />
-})
+export const ProgressBarRoot = forwardRef<ProgressBarElement, ProgressBarRootProps>(
+  (props, ref) => {
+    const { className, ...rest } = props
+    return <div ref={ref} className={progressBarVariants({ className })} {...rest} />
+  },
+)
 
-const ProgressBarBar = forwardRef<ProgressBarElement, ProgressBarBarProps>((props, ref) => {
+export const ProgressBarBar = forwardRef<ProgressBarElement, ProgressBarBarProps>((props, ref) => {
   const { className, percent, theme, ...rest } = props
 
   const percentage = cleanPercentage(percent)
@@ -62,7 +64,7 @@ const ProgressBarBar = forwardRef<ProgressBarElement, ProgressBarBarProps>((prop
   )
 })
 
-const ProgressBarLabel = forwardRef<ParagraphElement, ParagraphProps>((props, ref) => {
+export const ProgressBarLabel = forwardRef<ParagraphElement, ParagraphProps>((props, ref) => {
   const { className, size = "sm", variant = "medium", ...rest } = props
 
   return (
@@ -76,7 +78,7 @@ const ProgressBarLabel = forwardRef<ParagraphElement, ParagraphProps>((props, re
   )
 })
 
-const ProgressBarHint = forwardRef<ParagraphElement, ParagraphProps>((props, ref) => {
+export const ProgressBarHint = forwardRef<ParagraphElement, ParagraphProps>((props, ref) => {
   const { className, size = "xs", ...rest } = props
 
   return (
@@ -89,7 +91,7 @@ const ProgressBarHint = forwardRef<ParagraphElement, ParagraphProps>((props, ref
   )
 })
 
-const ProgressBarBase = forwardRef<ProgressBarElement, ProgressBarProps>((props, ref) => {
+export const ProgressBarBase = forwardRef<ProgressBarElement, ProgressBarProps>((props, ref) => {
   const { children, percent, label, hint, theme, ...rest } = props
   const Component = isReactElement(children) ? Slot : "div"
 

@@ -1,1 +1,1 @@
-export { IconChevronRight } from "./IconChevronRight"
+export * from "./IconChevronRight"

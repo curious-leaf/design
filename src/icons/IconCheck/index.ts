@@ -1,1 +1,1 @@
-export { IconCheck } from "./IconCheck"
+export * from "./IconCheck"

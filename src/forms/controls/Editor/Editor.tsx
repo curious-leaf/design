@@ -31,7 +31,7 @@ const EditorRoot = forwardRef<EditorElement, EditorProps>((props, ref) => {
 type EditorMenuElement = SeriesElement
 type EditorMenuProps = SeriesProps & VariantProps<typeof editorMenuVariants>
 
-const EditorMenu = forwardRef<EditorMenuElement, EditorMenuProps>((props, ref) => {
+export const EditorMenu = forwardRef<EditorMenuElement, EditorMenuProps>((props, ref) => {
   const { className, plain, ...rest } = props
 
   return (

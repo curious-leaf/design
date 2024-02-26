@@ -6,8 +6,8 @@ import type { ComponentPropsWithoutRef, HTMLAttributes } from "react"
 
 import { type VariantProps, cx, isReactElement } from "../../shared"
 
-import { cardPanelVariants, cardRowVariants, cardVariants } from "./Card.variants"
 import { sectionVariants } from "../../layout/Section/Section.variants"
+import { cardPanelVariants, cardRowVariants, cardVariants } from "./Card.variants"
 
 export type CardElement = HTMLDivElement
 export type CardProps = HTMLAttributes<CardElement> &
@@ -19,7 +19,7 @@ export type CardProps = HTMLAttributes<CardElement> &
     asChild?: boolean
   }
 
-const CardRoot = forwardRef<CardElement, CardProps>((props, ref) => {
+export const CardRoot = forwardRef<CardElement, CardProps>((props, ref) => {
   const { className, asChild, ...rest } = props
 
   const useAsChild = asChild && isReactElement(rest.children)
@@ -38,7 +38,7 @@ type CardPanelProps = ComponentPropsWithoutRef<"div"> &
     asChild?: boolean
   }
 
-const CardPanel = forwardRef<CardPanelElement, CardPanelProps>((props, ref) => {
+export const CardPanel = forwardRef<CardPanelElement, CardPanelProps>((props, ref) => {
   const { className, asChild, size, theme, sticky, scrollable, ...rest } = props
   const useAsChild = asChild && isReactElement(rest.children)
   const Component = useAsChild ? Slot : "div"
@@ -52,7 +52,7 @@ const CardPanel = forwardRef<CardPanelElement, CardPanelProps>((props, ref) => {
   )
 })
 
-const CardSection = forwardRef<
+export const CardSection = forwardRef<
   CardPanelElement,
   CardPanelProps & VariantProps<typeof sectionVariants>
 >((props, ref) => {
@@ -63,21 +63,22 @@ const CardSection = forwardRef<
   )
 })
 
-const CardRow = forwardRef<CardPanelElement, CardPanelProps & VariantProps<typeof cardRowVariants>>(
-  (props, ref) => {
-    const { className, size, gap, direction, theme = "gray", ...rest } = props
+export const CardRow = forwardRef<
+  CardPanelElement,
+  CardPanelProps & VariantProps<typeof cardRowVariants>
+>((props, ref) => {
+  const { className, size, gap, direction, theme = "gray", ...rest } = props
 
-    return (
-      <CardPanel
-        ref={ref}
-        theme={theme}
-        size={size}
-        className={cx(cardRowVariants({ size, gap, direction, className }))}
-        {...rest}
-      />
-    )
-  },
-)
+  return (
+    <CardPanel
+      ref={ref}
+      theme={theme}
+      size={size}
+      className={cx(cardRowVariants({ size, gap, direction, className }))}
+      {...rest}
+    />
+  )
+})
 
 CardRoot.displayName = "Card"
 CardPanel.displayName = "CardPanel"

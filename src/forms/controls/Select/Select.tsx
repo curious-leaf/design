@@ -13,12 +13,17 @@ import { inputVariants } from "../Input/Input.variants"
 
 import {
   selectContentVariants,
+  selectItemVariants,
   selectScrollVariants,
   selectViewportVariants,
-  selectItemVariants,
 } from "./Select.variants"
 
-const SelectTrigger = forwardRef<
+export const SelectRoot = SelectPrimitive.Root
+export const SelectGroup = SelectPrimitive.Group
+export const SelectValue = SelectPrimitive.Value
+export const SelectIcon = SelectPrimitive.Icon
+
+export const SelectTrigger = forwardRef<
   ElementRef<typeof SelectPrimitive.Trigger>,
   ComponentPropsWithoutRef<typeof SelectPrimitive.Trigger> & VariantProps<typeof inputVariants>
 >(({ className, mono, error, children, ...props }, ref) => (
@@ -35,7 +40,7 @@ const SelectTrigger = forwardRef<
   </SelectPrimitive.Trigger>
 ))
 
-const SelectContent = forwardRef<
+export const SelectContent = forwardRef<
   ElementRef<typeof SelectPrimitive.Content>,
   ComponentPropsWithoutRef<typeof SelectPrimitive.Content>
 >(({ className, children, position = "popper", ...props }, ref) => (
@@ -65,7 +70,7 @@ const SelectContent = forwardRef<
   </SelectPrimitive.Portal>
 ))
 
-const SelectLabel = forwardRef<
+export const SelectLabel = forwardRef<
   ElementRef<typeof SelectPrimitive.Label>,
   ComponentPropsWithoutRef<typeof SelectPrimitive.Label>
 >(({ className, ...props }, ref) => (
@@ -76,7 +81,7 @@ const SelectLabel = forwardRef<
   />
 ))
 
-const SelectItem = forwardRef<
+export const SelectItem = forwardRef<
   ElementRef<typeof SelectPrimitive.Item>,
   ComponentPropsWithoutRef<typeof SelectPrimitive.Item>
 >(({ className, children, ...props }, ref) => (
@@ -89,7 +94,7 @@ const SelectItem = forwardRef<
   </SelectPrimitive.Item>
 ))
 
-const SelectSeparator = forwardRef<
+export const SelectSeparator = forwardRef<
   ElementRef<typeof SelectPrimitive.Separator>,
   ComponentPropsWithoutRef<typeof SelectPrimitive.Separator>
 >(({ className, ...props }, ref) => (
@@ -136,10 +141,10 @@ const SelectBase = forwardRef<ElementRef<typeof SelectPrimitive.Trigger>, Select
 )
 
 export const Select = Object.assign(SelectBase, {
-  Root: SelectPrimitive.Root,
-  Group: SelectPrimitive.Group,
-  Value: SelectPrimitive.Value,
-  Icon: SelectPrimitive.Icon,
+  Root: SelectRoot,
+  Group: SelectGroup,
+  Value: SelectValue,
+  Icon: SelectIcon,
   Trigger: SelectTrigger,
   Content: SelectContent,
   Label: SelectLabel,

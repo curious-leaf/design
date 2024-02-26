@@ -4,10 +4,10 @@ import { Slot } from "@radix-ui/react-slot"
 import { forwardRef } from "react"
 import type { HTMLAttributes, LabelHTMLAttributes, ReactNode } from "react"
 
-import { cx, type VariantProps } from "../../../shared"
+import { type VariantProps, cx } from "../../../shared"
 import { inputVariants } from "../../controls/Input/Input.variants"
 
-import { boxVariants, boxGroupVariants } from "./Box.variants"
+import { boxGroupVariants, boxVariants } from "./Box.variants"
 
 export type BoxElement = HTMLLabelElement
 
@@ -42,7 +42,7 @@ const BoxBase = forwardRef<BoxElement, BoxProps>((props, ref) => {
   )
 })
 
-const BoxGroup = forwardRef<
+export const BoxGroup = forwardRef<
   HTMLDivElement,
   HTMLAttributes<HTMLElement> & VariantProps<typeof boxGroupVariants>
 >(({ className, boxed, ...props }, ref) => {

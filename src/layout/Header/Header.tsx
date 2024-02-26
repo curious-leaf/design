@@ -11,7 +11,7 @@ import type { MarkdownElement, MarkdownProps } from "../../typography/Markdown"
 import { Markdown } from "../../typography/Markdown"
 import { Series } from "../../ui/Series"
 
-import { headerVariants, headerDescriptionVariants, headerTitleVariants } from "./Header.variants"
+import { headerDescriptionVariants, headerTitleVariants, headerVariants } from "./Header.variants"
 
 export type HeaderElement = HTMLDivElement
 
@@ -36,7 +36,7 @@ export type HeaderProps = Omit<HeaderRootProps & HeadingProps, "title"> & {
   description?: string
 }
 
-const HeaderRoot = forwardRef<HeaderElement, HeaderRootProps>((props, ref) => {
+export const HeaderRoot = forwardRef<HeaderElement, HeaderRootProps>((props, ref) => {
   const { className, alignment, gap, separated, sticky, asChild, ...rest } = props
 
   const useAsChild = asChild && isReactElement(props.children)
@@ -51,7 +51,7 @@ const HeaderRoot = forwardRef<HeaderElement, HeaderRootProps>((props, ref) => {
   )
 })
 
-const HeaderTitle = forwardRef<
+export const HeaderTitle = forwardRef<
   HeadingElement,
   HeadingProps & VariantProps<typeof headerTitleVariants>
 >((props, ref) => {
@@ -62,7 +62,7 @@ const HeaderTitle = forwardRef<
   )
 })
 
-const HeaderDescription = forwardRef<
+export const HeaderDescription = forwardRef<
   MarkdownElement,
   MarkdownProps & VariantProps<typeof headerDescriptionVariants>
 >((props, ref) => {

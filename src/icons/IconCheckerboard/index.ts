@@ -1,1 +1,1 @@
-export { IconCheckerboard } from "./IconCheckerboard"
+export * from "./IconCheckerboard"

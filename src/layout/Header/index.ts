@@ -1,2 +1,1 @@
-export { Header } from "./Header"
-export type { HeaderProps, HeaderElement } from "./Header"
+export * from "./Header"

@@ -1,2 +1,1 @@
-export { Blurb } from "./Blurb"
-export type { BlurbProps, BlurbElement } from "./Blurb"
+export * from "./Blurb"

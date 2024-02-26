@@ -8,14 +8,19 @@ import { IconClose } from "../../icons/IconClose"
 import type { VariantProps } from "../../shared"
 import { cx } from "../../shared"
 
-import { popoverCloseVariants, popoverVariants, popoverArrowVariants } from "./Popover.variants"
+import { popoverArrowVariants, popoverCloseVariants, popoverVariants } from "./Popover.variants"
 
 export type PopoverElement = ElementRef<typeof PopoverPrimitive.Trigger>
 export type PopoverProps = ComponentPropsWithoutRef<typeof PopoverContent> & {
   popover: ReactNode
 }
 
-const PopoverContent = forwardRef<
+export const PopoverRoot = PopoverPrimitive.Root
+export const PopoverTrigger = PopoverPrimitive.Trigger
+export const PopoverPortal = PopoverPrimitive.Portal
+export const PopoverAnchor = PopoverPrimitive.Anchor
+
+export const PopoverContent = forwardRef<
   ElementRef<typeof PopoverPrimitive.Content>,
   ComponentPropsWithoutRef<typeof PopoverPrimitive.Content> & VariantProps<typeof popoverVariants>
 >(({ children, className, ...props }, ref) => (
@@ -25,7 +30,7 @@ const PopoverContent = forwardRef<
   </PopoverPrimitive.Content>
 ))
 
-const PopoverArrow = forwardRef<
+export const PopoverArrow = forwardRef<
   ElementRef<typeof PopoverPrimitive.Arrow>,
   ComponentPropsWithoutRef<typeof PopoverPrimitive.Arrow> &
     VariantProps<typeof popoverArrowVariants>
@@ -37,7 +42,7 @@ const PopoverArrow = forwardRef<
   />
 ))
 
-const PopoverClose = forwardRef<
+export const PopoverClose = forwardRef<
   ElementRef<typeof PopoverPrimitive.Close>,
   ComponentPropsWithoutRef<typeof PopoverPrimitive.Close> &
     VariantProps<typeof popoverCloseVariants>
@@ -47,7 +52,7 @@ const PopoverClose = forwardRef<
   </PopoverPrimitive.Close>
 ))
 
-const PopoverBase = forwardRef<PopoverElement, PopoverProps>((props, ref) => {
+export const PopoverBase = forwardRef<PopoverElement, PopoverProps>((props, ref) => {
   const { children, popover, ...rest } = props
 
   if (!popover) {
@@ -68,10 +73,10 @@ const PopoverBase = forwardRef<PopoverElement, PopoverProps>((props, ref) => {
 })
 
 export const Popover = Object.assign(PopoverBase, {
-  Root: PopoverPrimitive.Root,
-  Trigger: PopoverPrimitive.Trigger,
-  Portal: PopoverPrimitive.Portal,
-  Anchor: PopoverPrimitive.Anchor,
+  Root: PopoverRoot,
+  Trigger: PopoverTrigger,
+  Portal: PopoverPortal,
+  Anchor: PopoverAnchor,
   Content: PopoverContent,
   Arrow: PopoverArrow,
   Close: PopoverClose,

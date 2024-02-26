@@ -18,7 +18,13 @@ import {
 export type DropdownElement = ElementRef<typeof DropdownPrimitive.Root>
 export type DropdownProps = ComponentPropsWithoutRef<typeof DropdownPrimitive.Root>
 
-const DropdownContent = forwardRef<
+export const DropdownRoot = DropdownPrimitive.Root
+export const DropdownTrigger = DropdownPrimitive.Trigger
+export const DropdownPortal = DropdownPrimitive.Portal
+export const DropdownSub = DropdownPrimitive.Sub
+export const DropdownRadioGroup = DropdownPrimitive.RadioGroup
+
+export const DropdownContent = forwardRef<
   ElementRef<typeof DropdownPrimitive.Content>,
   ComponentPropsWithoutRef<typeof DropdownPrimitive.Content> &
     VariantProps<typeof dropdownContentVariants>
@@ -37,7 +43,7 @@ const DropdownContent = forwardRef<
   </DropdownPrimitive.Portal>
 ))
 
-const DropdownGroup = forwardRef<
+export const DropdownGroup = forwardRef<
   ElementRef<typeof DropdownPrimitive.Group>,
   ComponentPropsWithoutRef<typeof DropdownPrimitive.Group> &
     VariantProps<typeof dropdownGroupVariants>
@@ -49,7 +55,7 @@ const DropdownGroup = forwardRef<
   />
 ))
 
-const DropdownItem = forwardRef<
+export const DropdownItem = forwardRef<
   ElementRef<typeof DropdownPrimitive.Item>,
   ComponentPropsWithoutRef<typeof DropdownPrimitive.Item>
 >(({ ...props }, ref) => <DropdownPrimitive.Item ref={ref} asChild {...props} />)
@@ -106,11 +112,11 @@ export const DropdownSubContent = forwardRef<
   </DropdownPrimitive.Portal>
 ))
 
-export const Dropdown = Object.assign(DropdownPrimitive.Root, {
-  Trigger: DropdownPrimitive.Trigger,
-  Portal: DropdownPrimitive.Portal,
-  Sub: DropdownPrimitive.Sub,
-  RadioGroup: DropdownPrimitive.RadioGroup,
+export const Dropdown = Object.assign(DropdownRoot, {
+  Trigger: DropdownTrigger,
+  Portal: DropdownPortal,
+  Sub: DropdownSub,
+  RadioGroup: DropdownRadioGroup,
   Content: DropdownContent,
   Group: DropdownGroup,
   SubTrigger: DropdownSubTrigger,

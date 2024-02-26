@@ -1,2 +1,1 @@
-export { Editor } from "./Editor"
-export type { EditorProps, EditorElement } from "./Editor"
+export * from "./Editor"

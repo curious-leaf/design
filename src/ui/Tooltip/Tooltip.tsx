@@ -15,7 +15,12 @@ export type TooltipProps = ComponentPropsWithoutRef<typeof TooltipPrimitive.Root
     tooltip: ReactNode
   }
 
-const TooltipContent = forwardRef<
+export const TooltipProvider = TooltipPrimitive.Provider
+export const TooltipRoot = TooltipPrimitive.Root
+export const TooltipTrigger = TooltipPrimitive.Trigger
+export const TooltipPortal = TooltipPrimitive.Portal
+
+export const TooltipContent = forwardRef<
   ElementRef<typeof TooltipPrimitive.Content>,
   ComponentPropsWithoutRef<typeof TooltipPrimitive.Content> & VariantProps<typeof tooltipVariants>
 >(({ children, className, align, ...props }, ref) => (
@@ -30,7 +35,7 @@ const TooltipContent = forwardRef<
   </TooltipPrimitive.Content>
 ))
 
-const TooltipArrow = forwardRef<
+export const TooltipArrow = forwardRef<
   ElementRef<typeof TooltipPrimitive.Arrow>,
   ComponentPropsWithoutRef<typeof TooltipPrimitive.Arrow> &
     VariantProps<typeof tooltipArrowVariants>
@@ -42,7 +47,7 @@ const TooltipArrow = forwardRef<
   />
 ))
 
-const TooltipBase = forwardRef<TooltipElement, TooltipProps>((props, ref) => {
+export const TooltipBase = forwardRef<TooltipElement, TooltipProps>((props, ref) => {
   const { children, className, delayDuration, tooltip, ...rest } = props
 
   if (!tooltip) {
@@ -67,10 +72,10 @@ const TooltipBase = forwardRef<TooltipElement, TooltipProps>((props, ref) => {
 })
 
 export const Tooltip = Object.assign(TooltipBase, {
-  Provider: TooltipPrimitive.Provider,
-  Root: TooltipPrimitive.Root,
-  Trigger: TooltipPrimitive.Trigger,
-  Portal: TooltipPrimitive.Portal,
+  Provider: TooltipProvider,
+  Root: TooltipRoot,
+  Trigger: TooltipTrigger,
+  Portal: TooltipPortal,
   Content: TooltipContent,
   Arrow: TooltipArrow,
 })

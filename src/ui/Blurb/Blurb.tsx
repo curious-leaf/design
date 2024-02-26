@@ -12,9 +12,9 @@ import { Avatar } from "../Avatar"
 
 import {
   blurbContentVariants,
-  blurbVariants,
   blurbDescriptionVariants,
   blurbTitleVariants,
+  blurbVariants,
 } from "./Blurb.variants"
 
 export type BlurbElement = HTMLDivElement
@@ -50,7 +50,7 @@ export type BlurbProps = BlurbRootProps & {
   size?: "sm" | "md" | "lg"
 }
 
-const BlurbRoot = forwardRef<BlurbElement, BlurbRootProps>((props, ref) => {
+export const BlurbRoot = forwardRef<BlurbElement, BlurbRootProps>((props, ref) => {
   const { className, asChild, ...rest } = props
   const useAsChild = asChild && isReactElement(rest.children)
   const Component = useAsChild ? Slot : "div"
@@ -58,18 +58,20 @@ const BlurbRoot = forwardRef<BlurbElement, BlurbRootProps>((props, ref) => {
   return <Component ref={ref} className={cx(blurbVariants({ className }))} {...props} />
 })
 
-const BlurbAvatar = forwardRef<AvatarElement, AvatarProps>(({ size = "lg", ...props }, ref) => {
-  return <Avatar ref={ref} size={size} {...props} />
-})
+export const BlurbAvatar = forwardRef<AvatarElement, AvatarProps>(
+  ({ size = "lg", ...props }, ref) => {
+    return <Avatar ref={ref} size={size} {...props} />
+  },
+)
 
-const BlurbContent = forwardRef<
+export const BlurbContent = forwardRef<
   HTMLDivElement,
   ComponentPropsWithoutRef<"div"> & VariantProps<typeof blurbContentVariants>
 >(({ className, ...props }, ref) => {
   return <div ref={ref} className={cx(blurbContentVariants({ className }))} {...props} />
 })
 
-const BlurbTitle = forwardRef<
+export const BlurbTitle = forwardRef<
   ParagraphElement,
   ParagraphProps & VariantProps<typeof blurbTitleVariants>
 >((props, ref) => {
@@ -90,7 +92,7 @@ const BlurbTitle = forwardRef<
   )
 })
 
-const BlurbDescription = forwardRef<
+export const BlurbDescription = forwardRef<
   ParagraphElement,
   ParagraphProps & VariantProps<typeof blurbDescriptionVariants>
 >((props, ref) => {

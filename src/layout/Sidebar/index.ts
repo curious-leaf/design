@@ -1,2 +1,1 @@
-export { Sidebar } from "./Sidebar"
-export type { SidebarProps, SidebarElement } from "./Sidebar"
+export * from "./Sidebar"

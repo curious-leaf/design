@@ -1,2 +1,1 @@
-export { Status } from "./Status"
-export type { StatusProps, StatusElement } from "./Status"
+export * from "./Status"
