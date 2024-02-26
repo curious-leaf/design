@@ -5,7 +5,6 @@ const { outputs } = await Bun.build({
   format: "esm",
   outdir: "./dist",
   external: ["react", "react-dom"],
-  minify: true,
 })
 
 for (const output of outputs) {
