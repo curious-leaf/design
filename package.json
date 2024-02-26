@@ -70,7 +70,7 @@
     "@types/bun": "^1.0.6",
     "@types/react": "^18.2.56",
     "@vitejs/plugin-react": "^3.1.0",
-    "auto": "10.46.0",
+    "auto": "^11.0.5",
     "autoprefixer": "^10.4.17",
     "chromatic": "^10.9.6",
     "dedent": "^0.7.0",
