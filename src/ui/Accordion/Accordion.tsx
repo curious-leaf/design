@@ -8,6 +8,10 @@ import { cx } from "../../shared"
 
 import { accordionVariants } from "./Accordion.variants"
 
+export const AccordionRoot = AccordionPrimitive.Root
+export const AccordionItem = AccordionPrimitive.Item
+export const AccordionTrigger = AccordionPrimitive.Trigger
+
 export const AccordionContent = forwardRef<
   ElementRef<typeof AccordionPrimitive.Content>,
   ComponentPropsWithoutRef<typeof AccordionPrimitive.Content>
@@ -21,9 +25,9 @@ export const AccordionContent = forwardRef<
 
 AccordionContent.displayName = AccordionPrimitive.Content.displayName
 
-export const Accordion = Object.assign(AccordionPrimitive.Root, {
-  Item: AccordionPrimitive.Item,
-  Trigger: AccordionPrimitive.Trigger,
+export const Accordion = Object.assign(AccordionRoot, {
+  Item: AccordionItem,
+  Trigger: AccordionTrigger,
   Content: AccordionContent,
 })
 

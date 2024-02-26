@@ -1,2 +1,1 @@
-export { Shimmer } from "./Shimmer"
-export type { ShimmerElement, ShimmerProps } from "./Shimmer"
+export * from "./Shimmer"

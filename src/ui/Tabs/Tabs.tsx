@@ -1,7 +1,7 @@
 "use client"
 
 import * as TabsPrimitive from "@radix-ui/react-tabs"
-import type { ElementRef, ComponentPropsWithoutRef } from "react"
+import type { ComponentPropsWithoutRef, ElementRef } from "react"
 import { forwardRef } from "react"
 
 import type { VariantProps } from "../../shared"
@@ -12,7 +12,9 @@ import { tabsContentVariants, tabsListVariants, tabsTriggerVariants } from "./Ta
 export type TabsElement = ElementRef<typeof TabsPrimitive.Root>
 export type TabsProps = ComponentPropsWithoutRef<typeof TabsPrimitive.Root>
 
-const TabsList = forwardRef<
+export const TabsRoot = TabsPrimitive.Root
+
+export const TabsList = forwardRef<
   ElementRef<typeof TabsPrimitive.List>,
   ComponentPropsWithoutRef<typeof TabsPrimitive.List> & VariantProps<typeof tabsListVariants>
 >(({ className, ...props }, ref) => {
@@ -20,7 +22,7 @@ const TabsList = forwardRef<
 })
 TabsList.displayName = TabsPrimitive.List.displayName
 
-const TabsTrigger = forwardRef<
+export const TabsTrigger = forwardRef<
   ElementRef<typeof TabsPrimitive.Trigger>,
   ComponentPropsWithoutRef<typeof TabsPrimitive.Trigger> & VariantProps<typeof tabsTriggerVariants>
 >(({ className, ...props }, ref) => (
@@ -28,7 +30,7 @@ const TabsTrigger = forwardRef<
 ))
 TabsTrigger.displayName = TabsPrimitive.Trigger.displayName
 
-const TabsContent = forwardRef<
+export const TabsContent = forwardRef<
   ElementRef<typeof TabsPrimitive.Content>,
   ComponentPropsWithoutRef<typeof TabsPrimitive.Content> & VariantProps<typeof tabsContentVariants>
 >(({ className, tabIndex = -1, ...props }, ref) => (
@@ -41,7 +43,7 @@ const TabsContent = forwardRef<
 ))
 TabsContent.displayName = TabsPrimitive.Content.displayName
 
-export const Tabs = Object.assign(TabsPrimitive.Root, {
+export const Tabs = Object.assign(TabsRoot, {
   List: TabsList,
   Trigger: TabsTrigger,
   Content: TabsContent,

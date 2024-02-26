@@ -55,7 +55,7 @@ type AvatarGroupLabelProps = ComponentPropsWithoutRef<typeof Avatar> & {
   label?: ReactNode
 }
 
-const AvatarGroupLabel = forwardRef<AvatarElement, AvatarGroupLabelProps>(
+export const AvatarGroupLabel = forwardRef<AvatarElement, AvatarGroupLabelProps>(
   ({ children, className, label, ...rest }, ref) => {
     return (
       <Avatar
@@ -71,7 +71,7 @@ const AvatarGroupLabel = forwardRef<AvatarElement, AvatarGroupLabelProps>(
   },
 )
 
-const AvatarGroupItem = forwardRef<AvatarElement, ComponentPropsWithoutRef<typeof Avatar>>(
+export const AvatarGroupItem = forwardRef<AvatarElement, ComponentPropsWithoutRef<typeof Avatar>>(
   ({ className, initials, ...rest }, ref) => {
     return (
       <Avatar

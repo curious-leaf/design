@@ -1,1 +1,1 @@
-export { IconTrash } from "./IconTrash"
+export * from "./IconTrash"

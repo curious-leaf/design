@@ -16,7 +16,10 @@ import { drawerVariants } from "./Drawer.variants"
 export type DrawerElement = ElementRef<typeof DrawerPrimitive.Root>
 export type DrawerProps = ComponentPropsWithoutRef<typeof DrawerPrimitive.Root>
 
-const DrawerContent = forwardRef<
+export const DrawerRoot = DrawerPrimitive.Root
+export const DrawerTrigger = DrawerPrimitive.Trigger
+
+export const DrawerContent = forwardRef<
   ElementRef<typeof DrawerPrimitive.Content>,
   ComponentPropsWithoutRef<typeof DrawerPrimitive.Content> & VariantProps<typeof drawerVariants>
 >(({ className, size, direction, ...props }, ref) => (
@@ -34,7 +37,7 @@ const DrawerContent = forwardRef<
   </DrawerPrimitive.Portal>
 ))
 
-const DrawerContentCard = forwardRef<
+export const DrawerContentCard = forwardRef<
   ElementRef<typeof DrawerContent>,
   ComponentPropsWithoutRef<typeof DrawerContent>
 >(({ ...props }, ref) => (
@@ -43,19 +46,19 @@ const DrawerContentCard = forwardRef<
   </Card>
 ))
 
-const DrawerPanel = forwardRef<
+export const DrawerPanel = forwardRef<
   ElementRef<typeof Card.Panel>,
   ComponentPropsWithoutRef<typeof Card.Panel>
 >(({ ...props }, ref) => <Card.Panel ref={ref} {...props} />)
 
-const DrawerFooter = forwardRef<
+export const DrawerFooter = forwardRef<
   ElementRef<typeof Card.Row>,
   ComponentPropsWithoutRef<typeof Card.Row>
 >(({ direction = "rowReverse", ...props }, ref) => (
   <Card.Row ref={ref} direction={direction} {...props} />
 ))
 
-const DrawerClose = forwardRef<
+export const DrawerClose = forwardRef<
   ElementRef<typeof DrawerPrimitive.Close>,
   ComponentPropsWithoutRef<typeof DrawerPrimitive.Close>
 >(({ className, ...props }, ref) => (
@@ -64,7 +67,7 @@ const DrawerClose = forwardRef<
   </DrawerPrimitive.Close>
 ))
 
-const DrawerCancel = forwardRef<
+export const DrawerCancel = forwardRef<
   ElementRef<typeof DrawerPrimitive.Close>,
   ComponentPropsWithoutRef<typeof DrawerPrimitive.Close>
 >(({ children = "Cancel", ...props }, ref) => (
@@ -75,8 +78,8 @@ const DrawerCancel = forwardRef<
   </DrawerPrimitive.Close>
 ))
 
-export const Drawer = Object.assign(DrawerPrimitive.Root, {
-  Trigger: DrawerPrimitive.Trigger,
+export const Drawer = Object.assign(DrawerRoot, {
+  Trigger: DrawerTrigger,
   Content: DrawerContent,
   ContentCard: DrawerContentCard,
   Panel: DrawerPanel,

@@ -1,1 +1,1 @@
-export { IconUser } from "./IconUser"
+export * from "./IconUser"

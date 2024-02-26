@@ -3,7 +3,7 @@
 import { forwardRef } from "react"
 import type { HTMLAttributes } from "react"
 
-import { cx, type VariantProps } from "../../shared"
+import { type VariantProps, cx } from "../../shared"
 import type { SubheadingElement, SubheadingProps } from "../../typography/Subheading"
 import { Subheading } from "../../typography/Subheading"
 
@@ -19,7 +19,7 @@ export type SidebarElement = HTMLDivElement
 
 export type SidebarProps = HTMLAttributes<SidebarElement> & VariantProps<typeof sidebarVariants>
 
-const SidebarBase = forwardRef<SidebarElement, SidebarProps>((props, ref) => {
+export const SidebarBase = forwardRef<SidebarElement, SidebarProps>((props, ref) => {
   const { className, theme, size, floating, ...rest } = props
 
   return (
@@ -31,19 +31,21 @@ const SidebarBase = forwardRef<SidebarElement, SidebarProps>((props, ref) => {
   )
 })
 
-const SidebarContent = forwardRef<HTMLElement, HTMLAttributes<HTMLElement>>((props, ref) => {
+export const SidebarContent = forwardRef<HTMLElement, HTMLAttributes<HTMLElement>>((props, ref) => {
   const { className, ...rest } = props
 
   return <nav ref={ref} className={cx(sidebarContentVariants({ className }))} {...rest} />
 })
 
-const SidebarMenu = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>((props, ref) => {
-  const { className, ...rest } = props
+export const SidebarMenu = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
+  (props, ref) => {
+    const { className, ...rest } = props
 
-  return <div ref={ref} className={cx(sidebarMenuVariants({ className }))} {...rest} />
-})
+    return <div ref={ref} className={cx(sidebarMenuVariants({ className }))} {...rest} />
+  },
+)
 
-const SidebarHeading = forwardRef<SubheadingElement, SubheadingProps>((props, ref) => {
+export const SidebarHeading = forwardRef<SubheadingElement, SubheadingProps>((props, ref) => {
   const { className, size = "sm", ...rest } = props
 
   return (
@@ -56,7 +58,7 @@ const SidebarHeading = forwardRef<SubheadingElement, SubheadingProps>((props, re
   )
 })
 
-const SidebarSeparator = forwardRef<
+export const SidebarSeparator = forwardRef<
   HTMLHRElement,
   HTMLAttributes<HTMLHRElement> & VariantProps<typeof sidebarSeparatorVariants>
 >((props, ref) => {

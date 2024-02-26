@@ -1,1 +1,1 @@
-export { IconBullet } from "./IconBullet"
+export * from "./IconBullet"

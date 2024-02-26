@@ -1,1 +1,1 @@
-export { IconGripVertical } from "./IconGripVertical"
+export * from "./IconGripVertical"

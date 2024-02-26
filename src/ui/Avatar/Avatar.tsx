@@ -51,7 +51,7 @@ export type AvatarProps = Omit<ComponentPropsWithoutRef<typeof Primitive.Image>,
     bottomStatus?: ReactNode
   }
 
-const AvatarRoot = forwardRef<
+export const AvatarRoot = forwardRef<
   ElementRef<typeof Primitive.Root>,
   ComponentPropsWithoutRef<typeof Primitive.Root> & VariantProps<typeof avatarVariants>
 >(({ className, variant, size, shape, ...props }, ref) => {
@@ -64,21 +64,21 @@ const AvatarRoot = forwardRef<
   )
 })
 
-const AvatarImage = forwardRef<
+export const AvatarImage = forwardRef<
   ElementRef<typeof Primitive.Image>,
   ComponentPropsWithoutRef<typeof Primitive.Image> & VariantProps<typeof avatarImageVariants>
 >(({ className, ...props }, ref) => (
   <Primitive.Image ref={ref} className={cx(avatarImageVariants({ className }))} {...props} />
 ))
 
-const AvatarFallback = forwardRef<
+export const AvatarFallback = forwardRef<
   ElementRef<typeof Primitive.Fallback>,
   ComponentPropsWithoutRef<typeof Primitive.Fallback> & VariantProps<typeof avatarFallbackVariants>
 >(({ className, ...props }, ref) => (
   <Primitive.Fallback ref={ref} className={cx(avatarFallbackVariants({ className }))} {...props} />
 ))
 
-const AvatarStatus = forwardRef<
+export const AvatarStatus = forwardRef<
   HTMLSpanElement,
   ComponentPropsWithoutRef<"span"> & VariantProps<typeof avatarStatusVariants>
 >(({ className, position, ...rest }, ref) => {

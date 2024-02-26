@@ -18,7 +18,10 @@ import { dialogVariants } from "./Dialog.variants"
 export type DialogElement = ElementRef<typeof DialogPrimitive.Root>
 export type DialogProps = ComponentPropsWithoutRef<typeof DialogPrimitive.Root>
 
-const DialogContent = forwardRef<
+export const DialogRoot = DialogPrimitive.Root
+export const DialogTrigger = DialogPrimitive.Trigger
+
+export const DialogContent = forwardRef<
   ElementRef<typeof DialogPrimitive.Content>,
   ComponentPropsWithoutRef<typeof DialogPrimitive.Content> &
     VariantProps<typeof dialogVariants> &
@@ -42,19 +45,19 @@ const DialogContent = forwardRef<
   </DialogPrimitive.Portal>
 ))
 
-const DialogPanel = forwardRef<
+export const DialogPanel = forwardRef<
   ElementRef<typeof Card.Panel>,
   ComponentPropsWithoutRef<typeof Card.Panel>
 >(({ ...props }, ref) => <Card.Panel ref={ref} {...props} />)
 
-const DialogFooter = forwardRef<
+export const DialogFooter = forwardRef<
   ElementRef<typeof Card.Row>,
   ComponentPropsWithoutRef<typeof Card.Row>
 >(({ direction = "rowReverse", ...props }, ref) => (
   <Card.Row ref={ref} direction={direction} {...props} />
 ))
 
-const DialogClose = forwardRef<
+export const DialogClose = forwardRef<
   ElementRef<typeof DialogPrimitive.Cancel>,
   ComponentPropsWithoutRef<typeof DialogPrimitive.Cancel>
 >(({ className, ...props }, ref) => (
@@ -63,7 +66,7 @@ const DialogClose = forwardRef<
   </DialogPrimitive.Cancel>
 ))
 
-const DialogCancel = forwardRef<
+export const DialogCancel = forwardRef<
   ElementRef<typeof DialogPrimitive.Cancel>,
   ComponentPropsWithoutRef<typeof DialogPrimitive.Cancel>
 >(({ children = "Cancel", ...props }, ref) => (
@@ -74,8 +77,8 @@ const DialogCancel = forwardRef<
   </DialogPrimitive.Cancel>
 ))
 
-export const Dialog = Object.assign(DialogPrimitive.Root, {
-  Trigger: DialogPrimitive.Trigger,
+export const Dialog = Object.assign(DialogRoot, {
+  Trigger: DialogTrigger,
   Content: DialogContent,
   Panel: DialogPanel,
   Footer: DialogFooter,
