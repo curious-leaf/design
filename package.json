@@ -13,11 +13,7 @@
   "main": "./dist/index.js",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
-  "files": [
-    "dist",
-    "tailwind.config.js",
-    "postcss.config.js"
-  ],
+  "files": ["dist", "tailwind.config.ts", "postcss.config.cjs"],
   "scripts": {
     "storybook": "storybook dev -p 6006 --no-open",
     "test": "bun test",
