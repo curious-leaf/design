@@ -10,21 +10,15 @@
     "url": "https://kulpinski.co"
   },
   "repository": "curious-leaf/design",
-  "main": "./dist/index.js",
-  "module": "./dist/index.js",
-  "types": "./dist/index.d.ts",
-  "files": [
-    "dist",
-    "tailwind.config.ts",
-    "postcss.config.cjs"
-  ],
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
   "scripts": {
     "storybook": "storybook dev -p 6006 --no-open",
     "test": "bun test",
     "clean": "rimraf ./dist",
     "build": "bun run ./build.ts && tsc --emitDeclarationOnly",
     "prebuild": "bun run clean",
-    "release": "bun run build && auto shipit --no-changelog",
+    "release": "auto shipit --no-changelog",
     "build-storybook": "storybook build --test -o dist/storybook",
     "lint": "bun biome lint .",
     "format": "bun biome format --write ."
