@@ -15,7 +15,7 @@ export const inputVariants = cva({
       true: "font-mono whitespace-pre break-normal overflow-x-auto",
     },
     plain: {
-      true: "border-0 p-0 shadow-none !ring-0 !ring-offset-0",
+      true: "border-0 p-0 rounded-none shadow-none !ring-0 !ring-offset-0",
     },
     hoverable: {
       true: "hover:bg-gray-50 hover:border-gray-300",
