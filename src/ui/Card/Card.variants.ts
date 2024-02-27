@@ -13,7 +13,7 @@ export const cardPanelVariants = cva({
       lg: "p-6 md:p-8",
     },
     theme: {
-      white: "bg-white",
+      white: "",
       gray: "bg-gray-50",
     },
     sticky: {

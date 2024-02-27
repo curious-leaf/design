@@ -68,10 +68,10 @@ export default {
 
   theme: {
     colors: {
+      black: "#0E1216",
+      white: colors.white,
       transparent: colors.transparent,
       current: colors.current,
-      black: colors.black,
-      white: colors.white,
       gray: colors.zinc,
       primary: colorTheme.orange,
       ...colorTheme,
