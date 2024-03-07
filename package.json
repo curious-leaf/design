@@ -7,7 +7,7 @@
   "author": {
     "name": "Piotr Kulpinski",
     "email": "piotr@kulpinski.pl",
-    "url": "https://kulpinski.co"
+    "url": "https://kulpinski.pl"
   },
   "repository": "curious-leaf/design",
   "main": "./src/index.ts",
@@ -24,7 +24,7 @@
     "format": "bun biome format --write ."
   },
   "dependencies": {
-    "@curiousleaf/utils": "^1.0.15",
+    "@curiousleaf/utils": "link:@curiousleaf/utils",
     "@radix-ui/react-accordion": "^1.1.2",
     "@radix-ui/react-alert-dialog": "^1.0.5",
     "@radix-ui/react-avatar": "^1.0.4",

@@ -4,7 +4,6 @@ import { Slot } from "@radix-ui/react-slot"
 import { forwardRef } from "react"
 import type { ButtonHTMLAttributes, ReactNode } from "react"
 
-import { IconChevronRight } from "../../icons/IconChevronRight"
 import { IconSpinner } from "../../icons/IconSpinner"
 import { type VariantProps, cx, isChildrenEmpty, isReactElement, toArrayOrWrap } from "../../shared"
 import { Affixable } from "../../utils/Affixable"
@@ -66,10 +65,6 @@ export const MenuItem = forwardRef<MenuItemElement, MenuItemProps>((props, ref) 
 
   if (isPending) {
     suffix.push(<IconSpinner className="text-xs" />)
-  }
-
-  if (isActive && !suffix.length) {
-    suffix.push(<IconChevronRight className="text-xs" />)
   }
 
   return (
