@@ -41,6 +41,7 @@ export * from "./layout/Container"
 export * from "./layout/Header"
 export * from "./layout/Section"
 export * from "./layout/Sidebar"
+export * from "./layout/Wrapper"
 
 // Forms
 export * from "./forms/ui/Affix"
