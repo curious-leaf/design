@@ -24,3 +24,11 @@ svg[stroke="currentColor"]:not([class*="size"]) {
   @apply bg-gray-900;
   @apply text-white;
 }
+
+
+@supports (mask-image: paint(smooth-corners)) {
+  .squircle {
+    mask-image: paint(smooth-corners);
+    --smooth-corners: 3;
+  }
+}

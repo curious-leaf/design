@@ -12,7 +12,7 @@ export const buttonVariants = cva({
       primary:
         "border-primary-dark/25 text-primary-dark hover:border-primary-dark/40 focus-visible:border-primary-dark/40 focus-visible:ring-primary-light",
       secondary:
-        "border-inherit text-gray-600 hover:border-gray-300 focus-visible:border-gray-3000 focus-visible:ring-gray-300",
+        "border-inherit text-gray-600 hover:border-gray-300 focus-visible:border-gray-500 focus-visible:ring-gray-300",
       positive:
         "border-green-dark/25 text-green-dark hover:border-green-dark/40 focus-visible:border-green-dark/40 focus-visible:ring-green-light",
       negative:

@@ -64,7 +64,7 @@ export type AlertProps = Omit<HTMLAttributes<HTMLDivElement>, "title" | "prefix"
      * This can be used to render an icon
      * or any other element prefix the description. Also accepts a string,
      * number, or any valid React element.
-     * If the `prefix` prop is omitted, the default icon will be displayed.
+     * If omitted, it will not be displayed.
      *
      * @example
      * // Display an alert with icon
