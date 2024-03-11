@@ -11,6 +11,8 @@ export const modalVariants = cva({
       xl: "max-w-xl",
       "2xl": "max-w-2xl",
       "3xl": "max-w-3xl",
+      "4xl": "max-w-4xl",
+      "5xl": "max-w-5xl",
     },
     fixed: {
       true: "top-[10vh] max-h-[calc(90vh-2rem)] [[role=dialog]~&]:top-[15vh] [[role=dialog]~&]:max-h-[calc(85vh-2rem)]",

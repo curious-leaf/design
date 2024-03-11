@@ -5,5 +5,5 @@ export const wrapperVariants = cva({
 })
 
 export const wrapperContentVariants = cva({
-  base: "w-full m-2 bg-white border rounded-xl",
+  base: "w-full m-2 bg-white border rounded-2xl",
 })
