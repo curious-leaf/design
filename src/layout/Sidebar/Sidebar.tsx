@@ -15,20 +15,14 @@ import {
   sidebarVariants,
 } from "./Sidebar.variants"
 
-export type SidebarElement = HTMLDivElement
+export type SidebarElement = HTMLElement
 
 export type SidebarProps = HTMLAttributes<SidebarElement> & VariantProps<typeof sidebarVariants>
 
 export const SidebarBase = forwardRef<SidebarElement, SidebarProps>((props, ref) => {
   const { className, size, sticky, ...rest } = props
 
-  return (
-    <div
-      ref={ref}
-      className={cx(sidebarVariants({ size, sticky, className }))}
-      {...rest}
-    />
-  )
+  return <aside ref={ref} className={cx(sidebarVariants({ size, sticky, className }))} {...rest} />
 })
 
 export const SidebarContent = forwardRef<HTMLElement, HTMLAttributes<HTMLElement>>((props, ref) => {

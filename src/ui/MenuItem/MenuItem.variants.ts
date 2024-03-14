@@ -2,7 +2,7 @@ import { cva } from "../../shared"
 
 export const menuItemVariants = cva({
   base: [
-    "group/menu-item relative flex items-center gap-2.5 min-w-0 rounded-md font-medium text-start",
+    "group/menu-item relative flex items-center gap-2.5 min-w-0 rounded-md font-[450] text-start",
 
     // Interactive
     "hover:bg-black/[0.03] group-data-[state=open]:hover:bg-transparent group-data-[state=open]:focus:bg-black/[0.04] group-data-[state=open]:outline-none",
