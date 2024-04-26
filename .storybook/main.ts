@@ -7,6 +7,7 @@ const getAbsolutePath = (value: string): any => {
 
 const config = {
   stories: ["../src/**/*.mdx", "../src/**/*.stories.@(ts|tsx)"],
+
   addons: [
     getAbsolutePath("@storybook/addon-links"),
     getAbsolutePath("@storybook/addon-essentials"),
@@ -14,16 +15,23 @@ const config = {
     getAbsolutePath("@storybook/addon-interactions"),
     getAbsolutePath("@storybook/addon-themes"),
   ],
+
   framework: {
     name: getAbsolutePath("@storybook/react-vite"),
     options: {},
   },
+
   docs: {
     autodocs: true,
   },
+
   typescript: {
     reactDocgen: "react-docgen-typescript",
   },
+
+  core: {
+    disableWhatsNewNotifications: true
+  }
 } satisfies StorybookConfig
 
 export default config

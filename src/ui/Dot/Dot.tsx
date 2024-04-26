@@ -3,7 +3,7 @@
 import { Slot } from "@radix-ui/react-slot"
 import { type HTMLAttributes, forwardRef } from "react"
 
-import { isReactElement, type VariantProps } from "../../shared"
+import { type VariantProps, cx, isReactElement } from "../../shared"
 
 import { dotVariants } from "./Dot.variants"
 
@@ -24,7 +24,7 @@ export const Dot = forwardRef<DotElement, DotProps>((props, ref) => {
   const useAsChild = asChild && isReactElement(rest.children)
   const Component = useAsChild ? Slot : "span"
 
-  return <Component ref={ref} className={dotVariants({ variant, className })} {...rest} />
+  return <Component ref={ref} className={cx(dotVariants({ variant, className }))} {...rest} />
 })
 
 Dot.defaultProps = {
