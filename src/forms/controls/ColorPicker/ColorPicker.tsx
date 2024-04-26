@@ -1,15 +1,14 @@
 "use client"
 
 import { isLightColor } from "@curiousleaf/utils"
-import Sketch from "@uiw/react-color-sketch"
+import Sketch, { type SketchProps } from "@uiw/react-color-sketch"
 import type { HTMLAttributes } from "react"
 import { forwardRef } from "react"
 
-import type { VariantProps } from "../../../shared"
-import { cx } from "../../../shared"
-
 import { IconCheckerboard } from "../../../icons/IconCheckerboard"
 import { IconClose } from "../../../icons/IconClose"
+import type { VariantProps } from "../../../shared"
+import { cx } from "../../../shared"
 import { Popover } from "../../../ui/Popover"
 import { inputVariants } from "../Input/Input.variants"
 import {
@@ -20,26 +19,12 @@ import {
 
 export type ColorPickerElement = HTMLDivElement
 export type ColorPickerProps = Omit<HTMLAttributes<ColorPickerElement>, "onChange"> &
-  VariantProps<typeof colorPickerVariants> & {
+  VariantProps<typeof colorPickerVariants> &
+  SketchProps & {
     /**
      * The label for the input
      */
     label?: string
-
-    /**
-     * The file types that the input should accept
-     */
-    color?: string
-
-    /**
-     * The file types that the input should accept
-     */
-    presetColors?: string[]
-
-    /**
-     * Callback for when the value changes
-     */
-    onChange: (value: string) => void
 
     /**
      * Callback for when the delete button is clicked
@@ -50,23 +35,17 @@ export type ColorPickerProps = Omit<HTMLAttributes<ColorPickerElement>, "onChang
 export const ColorPicker = forwardRef<ColorPickerElement, ColorPickerProps>((props, ref) => {
   const { children, className, label, color, presetColors, onChange, onClear, ...rest } = props
 
-  const onInputChange = ({ hex }: { hex: string }) => {
-    onChange(hex.toLocaleUpperCase())
-  }
-
   return (
     <div ref={ref} className={cx(colorPickerVariants({ className }))}>
       <Popover
         popover={
           <Sketch
             color={color ?? undefined}
-            onChange={onInputChange}
             presetColors={presetColors}
             className="-mx-3 -my-1.5 !shadow-none"
-            disableAlpha
+            {...rest}
           />
         }
-        {...rest}
       >
         <button type="button" className={cx(inputVariants({ className: "w-auto" }))}>
           <div className={cx(colorPickerPreviewVariants())}>

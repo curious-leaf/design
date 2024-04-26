@@ -1,8 +1,8 @@
 "use client"
 
-import { forwardRef, SVGAttributes } from "react"
+import { forwardRef, type SVGAttributes } from "react"
 import { IconGripVertical } from "../../icons/IconGripVertical"
-import { VariantProps, cx } from "../../shared"
+import { type VariantProps, cx } from "../../shared"
 import { draggableVariants } from "./Draggable.variants"
 
 export type DraggableElement = SVGSVGElement

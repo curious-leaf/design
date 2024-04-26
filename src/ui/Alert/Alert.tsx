@@ -4,12 +4,12 @@ import { Slot } from "@radix-ui/react-slot"
 import { type VariantProps, cx } from "cva"
 
 import {
-  ComponentPropsWithoutRef,
-  ElementRef,
-  HTMLAttributes,
-  MouseEventHandler,
-  ReactElement,
-  ReactNode,
+  type ComponentPropsWithoutRef,
+  type ElementRef,
+  type HTMLAttributes,
+  type MouseEventHandler,
+  type ReactElement,
+  type ReactNode,
   forwardRef,
   useCallback,
   useState,
@@ -18,7 +18,7 @@ import { IconClose } from "../../icons/IconClose"
 import { isReactElement } from "../../shared"
 import { Affixable } from "../../utils/Affixable"
 import { Action } from "../Action"
-import { Button } from "../Button"
+import type { Button } from "../Button"
 import {
   alertAffixVariants,
   alertRootVariants,

@@ -16,4 +16,7 @@ export default {
 // Stories
 export const Default = {
   args: {},
+  render: props => {
+    return <ColorPicker {...props} />
+  },
 } satisfies Story

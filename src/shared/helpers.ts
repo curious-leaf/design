@@ -42,7 +42,7 @@ export const getElementWidth = (element: HTMLElement | null, includeMargins = fa
 
   if (includeMargins) {
     const style = window.getComputedStyle(element)
-    width += parseInt(style.marginLeft) + parseInt(style.marginRight)
+    width += Number.parseInt(style.marginLeft) + Number.parseInt(style.marginRight)
   }
 
   return width

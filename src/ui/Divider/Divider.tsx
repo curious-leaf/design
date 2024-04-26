@@ -1,6 +1,6 @@
 "use client"
 
-import { type HTMLAttributes, ReactNode, forwardRef } from "react"
+import { type HTMLAttributes, type ReactNode, forwardRef } from "react"
 
 import type { VariantProps } from "../../shared"
 

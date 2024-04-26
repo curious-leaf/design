@@ -1,7 +1,7 @@
 "use client"
 
 import { Slot } from "@radix-ui/react-slot"
-import { type HTMLAttributes, ReactNode, forwardRef } from "react"
+import { type HTMLAttributes, type ReactNode, forwardRef } from "react"
 
 import { type VariantProps, cx, isReactElement } from "../../shared"
 

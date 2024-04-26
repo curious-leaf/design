@@ -13,4 +13,4 @@ for (const output of outputs) {
   await Bun.write(output.path, [prefix, bytes])
 }
 
-export {}
+export type {}

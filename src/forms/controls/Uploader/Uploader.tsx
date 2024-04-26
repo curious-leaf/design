@@ -7,7 +7,7 @@ import { IconTrash } from "../../../icons/IconTrash"
 import { Button } from "../../../ui/Button"
 import { ButtonGroup } from "../../../ui/ButtonGroup"
 
-import { Series, SeriesElement, SeriesProps } from "../../../ui/Series"
+import { Series, type SeriesElement, type SeriesProps } from "../../../ui/Series"
 
 export type UploaderElement = SeriesElement
 export type UploaderProps = Omit<SeriesProps, "onChange"> & {

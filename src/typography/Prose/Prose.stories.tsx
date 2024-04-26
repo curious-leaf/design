@@ -16,7 +16,7 @@ export default {
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
           ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-          ullamco laboris nisi ut aliquip ex ea commodo <a href="#">consequat</a>.
+          ullamco laboris nisi ut aliquip ex ea commodo <a href="https://example.com">consequat</a>.
         </p>
         <h2>Heading 2</h2>
         <p>

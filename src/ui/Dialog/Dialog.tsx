@@ -12,7 +12,7 @@ import { Button } from "../Button"
 import { Card } from "../Card"
 
 import { Modal } from "../Modal/Modal"
-import { modalVariants } from "../Modal/Modal.variants"
+import type { modalVariants } from "../Modal/Modal.variants"
 import { dialogVariants } from "./Dialog.variants"
 
 export type DialogElement = ElementRef<typeof DialogPrimitive.Root>

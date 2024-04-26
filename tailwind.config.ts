@@ -164,10 +164,10 @@ export default {
     plugin(({ addUtilities, matchUtilities, addBase, theme }) => {
       matchUtilities(
         {
-          "grid-auto-fill": (value) => ({
+          "grid-auto-fill": value => ({
             gridTemplateColumns: `repeat(auto-fill, minmax(${value}, 1fr))`,
           }),
-          "grid-auto-fit": (value) => ({
+          "grid-auto-fit": value => ({
             gridTemplateColumns: `repeat(auto-fit, minmax(${value}, 1fr))`,
           }),
         },

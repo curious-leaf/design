@@ -7,7 +7,7 @@
   "author": {
     "name": "Piotr Kulpinski",
     "email": "piotr@kulpinski.pl",
-    "url": "https://kulpinski.pl"
+    "url": "https://kulpinski.dev"
   },
   "repository": "curious-leaf/design",
   "main": "./src/index.ts",
@@ -20,7 +20,7 @@
     "prebuild": "bun run clean",
     "release": "auto shipit --no-changelog",
     "build-storybook": "storybook build --test -o dist/storybook",
-    "lint": "bun biome lint .",
+    "lint": "bun biome lint --apply .",
     "format": "bun biome format --write ."
   },
   "dependencies": {
@@ -50,7 +50,7 @@
     "tailwind-merge": "^2.2.1"
   },
   "devDependencies": {
-    "@biomejs/biome": "^1.5.3",
+    "@biomejs/biome": "^1.7.1",
     "@storybook/addon-essentials": "^8.0.9",
     "@storybook/addon-interactions": "^8.0.9",
     "@storybook/addon-links": "^8.0.9",

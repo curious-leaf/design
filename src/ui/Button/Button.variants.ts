@@ -1,4 +1,4 @@
-import { cva, focusClasses } from "../../shared";
+import { cva, focusClasses } from "../../shared"
 
 export const buttonVariants = cva({
   base: [
@@ -81,8 +81,8 @@ export const buttonVariants = cva({
     variant: "solid",
     size: "lg",
   },
-});
+})
 
 export const buttonAffixVariants = cva({
   base: "shrink-0 first:-ml-[0.21425em] last:-mr-[0.21425em] only:m-0",
-});
+})
