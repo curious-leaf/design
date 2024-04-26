@@ -33,20 +33,11 @@ export type ColorPickerProps = Omit<HTMLAttributes<ColorPickerElement>, "onChang
   }
 
 export const ColorPicker = forwardRef<ColorPickerElement, ColorPickerProps>((props, ref) => {
-  const { children, className, label, color, presetColors, onChange, onClear, ...rest } = props
+  const { children, className, label, color, onClear, ...rest } = props
 
   return (
     <div ref={ref} className={cx(colorPickerVariants({ className }))}>
-      <Popover
-        popover={
-          <Sketch
-            color={color ?? undefined}
-            presetColors={presetColors}
-            className="-mx-3 -my-1.5 !shadow-none"
-            {...rest}
-          />
-        }
-      >
+      <Popover popover={<Sketch color={color} className="-mx-3 -my-1.5 !shadow-none" {...rest} />}>
         <button type="button" className={cx(inputVariants({ className: "w-auto" }))}>
           <div className={cx(colorPickerPreviewVariants())}>
             <IconCheckerboard className="size-full opacity-25" />

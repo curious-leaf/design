@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react"
+import { useState } from "react"
 
 import { ColorPicker } from "./ColorPicker"
 
@@ -15,8 +16,8 @@ export default {
 
 // Stories
 export const Default = {
-  args: {},
   render: props => {
-    return <ColorPicker {...props} />
+    const [color, setColor] = useState(props.color)
+    return <ColorPicker color={color} onChange={({ hexa }) => setColor(hexa)} {...props} />
   },
 } satisfies Story
