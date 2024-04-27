@@ -7,7 +7,16 @@ const preview = {
     actions: { argTypesRegex: "^on[A-Z].*" },
     options: {
       storySort: {
-        order: ["Layout", "Typography", "UI", "Form Control", "Form UI", "Icons", "Utils"],
+        order: [
+          "Layout",
+          "Typography",
+          "UI",
+          "Form Control",
+          "Form UI",
+          "Visual Editor",
+          "Icons",
+          "Utils",
+        ],
       },
     },
   },

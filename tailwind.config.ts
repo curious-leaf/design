@@ -100,12 +100,6 @@ export default {
     },
 
     extend: {
-      lineHeight: {
-        icon: "1.4285em",
-      },
-      size: {
-        icon: "1.4285em",
-      },
       typography: {
         DEFAULT: {
           css: {
@@ -113,6 +107,22 @@ export default {
             "--tw-prose-headings": colors.gray[900],
           },
         },
+      },
+
+      margin: {
+        0.75: "0.1875rem",
+      },
+
+      padding: {
+        0.75: "0.1875rem",
+      },
+
+      lineHeight: {
+        icon: "1.4285em",
+      },
+
+      size: {
+        icon: "1.4285em",
       },
 
       boxShadow: {
