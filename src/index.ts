@@ -67,6 +67,7 @@ export * from "./forms/controls/Uploader"
 // Icons
 export * from "./icons/IconBullet"
 export * from "./icons/IconCheck"
+export * from "./icons/IconCheckerboard"
 export * from "./icons/IconChevronDown"
 export * from "./icons/IconChevronLeft"
 export * from "./icons/IconChevronRight"
